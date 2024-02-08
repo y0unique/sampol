@@ -101,15 +101,15 @@
     $(document).ready(function() {
         $('#issuancesTable').DataTable({
             "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-            $(nRow).attr('id', aData[0]);
+                $(nRow).attr('id', aData[0]);
             },
             'serverSide':'true',
             'processing':'true',
             'paging':'true',
             'order':[],
             'ajax': {
-            'url':'includes/fetchdata/issuancesfetch.php',
-            'type':'post',
+                'url':'includes/fetchdata/issuancesfetch.php',
+                'type':'post',
             },
             "columnDefs": [{
                 'target':[0,6],
@@ -140,33 +140,32 @@
                 type:"post",
                 data:
                 {
-                webID:webID,
-                webUsername:webUsername,
-                tracking_number:tracking_number,
-                issuances_type:issuances_type,
-                issuances_title:issuances_title,
-                issuances_link:issuances_link,
-                issuances_number:issuances_number,
-                issuances_date:issuances_date,
-                add: true
-            },
+                    webID:webID,
+                    webUsername:webUsername,
+                    tracking_number:tracking_number,
+                    issuances_type:issuances_type,
+                    issuances_title:issuances_title,
+                    issuances_link:issuances_link,
+                    issuances_number:issuances_number,
+                    issuances_date:issuances_date,
+                    add: true
+                },
                 success:function(data){
                     var json = JSON.parse(data);
                     var addIssuanceStatus = json.addIssuanceStatus;
-                if(addIssuanceStatus =='true'){
-                    mytable =$('#issuancesTable').DataTable();
-                    mytable.draw();
-                    $('#addIssuancesModal').modal('hide');
-                    $('#addIssuances')[0].reset();
-                    alertify.set('notifier','position', 'top-right');
-                    alertify.success(json.message);
-                }else{
-                    alert('failed');
+                    if(addIssuanceStatus =='true'){
+                        mytable =$('#issuancesTable').DataTable();
+                        mytable.draw();
+                        $('#addIssuancesModal').modal('hide');
+                        $('#addIssuances')[0].reset();
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.success(json.message);
+                    }else{
+                        alert('failed');
+                    }
                 }
-            }
             });
-            }
-            else {
+        } else {
             alert('Fill all the required fields');
         }
     });
