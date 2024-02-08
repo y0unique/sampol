@@ -186,47 +186,47 @@
         }
     });
 
-    //view Files for edit modal
-    // $('#filesTable').on('click', '.editfilebtn ', function(event) {
-    //     var table = $('#filesTable').DataTable();
-    //     var trid = $(this).closest('tr').attr('id');
-    //     var id = $(this).data('id');
-    //     $('#editFilesModal').modal('show');
+    // view Files for edit modal
+    $('#filesTable').on('click', '.editfilebtn ', function(event) {
+        var table = $('#filesTable').DataTable();
+        var trid = $(this).closest('tr').attr('id');
+        var id = $(this).data('id');
+        $('#editFilesModal').modal('show');
 
-    //     // Fetch file details using AJAX
-    //     $.ajax({
-    //         url: "includes/codes/filescode.php",
-    //         data: {
-    //             id: id,
-    //             view: true
-    //         },
-    //         type: 'post',
-    //         success: function(data) {
-    //             var json = JSON.parse(data);
+        // Fetch file details using AJAX
+        $.ajax({
+            url: "includes/codes/filescode.php",
+            data: {
+                id: id,
+                view: true
+            },
+            type: 'post',
+            success: function(data) {
+                var json = JSON.parse(data);
 
-    //             // Populate modal fields with data
-    //             $('#_file_type').val(json.type);
-    //             $('#_file_title').val(json.title);
-    //             $('#_file_link').val(json.link);
-    //             $('#_file_department').val(json.department);
-    //             $('#_file_publishDate').val(json.publish_date);
-    //             $('#_file_closingDate').val(json.closing_date);
-    //             $('#_awarded_to').val(json.awarded_to);
-    //             $('#_reference_number').val(json.reference_number);
-    //             $('#_procurement_mode').val(json.procurement_mode);
-    //             $('#_procurement_type').val(json.procurement_type);
-    //             $('#_procurement_year').val(json.procurement_year);
-    //             $('#_id').val(id);
-    //             $('#_trid').val(trid);
+                // Populate modal fields with data
+                $('#_file_type').val(json.type);
+                $('#_file_title').val(json.title);
+                $('#_file_link').val(json.link);
+                $('#_file_department').val(json.department);
+                $('#_file_publishDate').val(json.publish_date);
+                $('#_file_closingDate').val(json.closing_date);
+                $('#_awarded_to').val(json.awarded_to);
+                $('#_reference_number').val(json.reference_number);
+                $('#_procurement_mode').val(json.procurement_mode);
+                $('#_procurement_type').val(json.procurement_type);
+                $('#_procurement_year').val(json.procurement_year);
+                $('#_id').val(id);
+                $('#_trid').val(trid);
 
-    //             // Disable/enable text areas based on initial _file_type
-    //             disableElementsBasedOnFileType(json.type);
-    //         }
-    //     });
-    // });
+                // Disable/enable text areas based on initial _file_type
+                disableElementsBasedOnFileType(json.type);
+            }
+        });
+    });
 
-    // // Handle change event of _file_type dropdown
-    // $('#_file_type').change(function() {
-    //     disableElementsBasedOnFileType($(this).val());
-    // });
+    // Handle change event of _file_type dropdown
+    $('#_file_type').change(function() {
+        disableElementsBasedOnFileType($(this).val());
+    });
 </script>
