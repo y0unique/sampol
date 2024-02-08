@@ -6,11 +6,10 @@
         <div class="sidebar-brand-icon">
             <!-- <img src="images/logo/DepEd_logo.png"
                 style="height: 50px; width:50px; margin-right:5px;"> -->
-            <i class="fas fa-dizzy text-danger"></i>
+            <i class="fab fa-d-and-d text-danger"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Deped Manila</div>
     </a>
-
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
