@@ -30,7 +30,7 @@
     </li>
 
     <?php
-        if($_SESSION['webType']== "superadmin"){?>
+        if($_SESSION['webType']== "superadmin" || $_SESSION['webType']== "admin"){?>
 
     <!-- Divider -->
     <hr class="sidebar-divider">

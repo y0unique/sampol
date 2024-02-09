@@ -24,7 +24,12 @@
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     <?php echo ($_SESSION['webUsername']);?>
-                    <i class="fas fa-dragon text-warning"></i>
+                    <?php
+                        if($_SESSION['webUsername']== "ict kev"){
+                            echo ' <i class="fas fa-spider"></i>';
+                        }else {
+                            echo '<i class="fas fa-dragon text-warning"></i>';
+                        }?>
                 </a>
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
