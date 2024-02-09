@@ -205,3 +205,47 @@ function runAfterThirty() {
        location.reload(); 
     }
 }
+
+
+
+
+
+
+
+
+
+// $sql = "INSERT INTO filestbl (file_type, file_title, file_link, file_date, file_department, file_publishDate, file_closingDate, file_awardedTo, file_referenceNum, file_procurementMode, file_procurementYear, file_procurementType, file_status) 
+    //                           values ('$file_type','$file_title', '$file_link', NOW(), '$file_department' , '$file_publishDate', '$file_closingDate', '$awarded_to', '$reference_number', '$procurement_mode', '$procurement_year', '$procurement_type', 'active')";
+    // $query= mysqli_query($con,$sql);
+    // $lastId = mysqli_insert_id($con);
+
+    // if($query){
+    //     $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
+    //                                    values ('$webID', 'Added Issuance $file_type',  NOW(), NOW())";
+    //     $query1= mysqli_query($con,$inserttime);
+    //     $query2 = mysqli_insert_id($con);
+    //     if ($query1)
+    //     {
+    //         $data = array
+    //         (
+    //             'addFileStatus'=>'true',
+    //             'message' => 'Added Successfully' 
+    //         );
+    //         echo json_encode($data);
+    //         return;
+    //     }
+    //     else
+    //     {
+    //         $data = array(
+    //             'addFileStatus'=>'false',
+    //         );
+    //         echo json_encode($data);
+    //     }
+    // }
+    // else
+    // {
+    //     $data = array(
+    //         'addFileStatus'=>'false',
+    //     );
+    //     echo json_encode($data);
+    // }

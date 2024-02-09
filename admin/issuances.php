@@ -291,7 +291,7 @@
 
     //delete issuances
     $(document).on('submit', '#deleteIssuances', function(e) {
-        e.preventDefault();;
+        e.preventDefault();
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
         var tracking_number = $('#_tracking_number_').val();

@@ -214,15 +214,15 @@
 <div class="modal fade" id="editFilesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-gray-900" id="staticBackdropLabel">Edit Files</h5>
+            <div class="modal-header bg-gradient-info">
+                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Edit Files</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form action="editFiles">
+                <form id="editFiles">
                     <input class="form-control" type="hidden" name="id" id="_id" value="">
                     <input class="form-control" type="hidden" name="trid" id="_trid" value="">
 
@@ -243,7 +243,7 @@
                     <div class="mb-3 row" id="_department_div" hidden>
                         <label for="editFilesField" class="col-md-3 form-label">Department:</label>
                         <div class="col-md-9">
-                            <select class="form-control" id="_file_department" name="file_department" required disabled>
+                            <select class="form-control" id="_file_department" name="file_department" disabled>
                                 <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="admin"> Admin </option>
                                 <option value="asds"> ASDS </option>
@@ -344,14 +344,14 @@
 
                     </div>
 
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                </form>
-            </div>
+                    <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
+                    <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
 
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -432,3 +432,46 @@
         departmentDiv.prop('hidden', true);
     }
 </script>
+
+<!-- Delete File Modal class="modal fade d-block" -->
+<div class="modal fade" id="deleteFilesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-danger">
+                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Delete File</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body text-gray-900">
+                <form id="deleteFiles">
+                    <input class="form-control" type="hidden" name="id" id="_id_" value="">
+                    <input class="form-control" type="hidden" name="trid" id="_trid_" value="">
+
+                    <div class="mb-3 row">
+                        <label for="deletefilesField" class="col-md-12 form-label">File Type:</label>
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" id="_file_type_" name="file_type" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 row">
+                        <label for="deletefilesField" class="col-md-12 form-label">File Title:</label>
+                        <div class="col-md-12">
+                            <textarea class="form-control" type="text" id="_file_title_" name="file_title" rows="2" disabled></textarea>
+                        </div>
+                    </div>
+
+                    <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
+                    <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                        <button type="submit" id="submit" class="btn btn-danger">Yes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

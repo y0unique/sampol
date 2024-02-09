@@ -229,4 +229,165 @@
     $('#_file_type').change(function() {
         disableElementsBasedOnFileType($(this).val());
     });
+
+    //edit files
+    $(document).on('submit', '#editFiles', function(e) {
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var file_type = $('#_file_type').val();
+        var file_title = $('#_file_title').val();
+        var file_link = $('#_file_link').val();
+        var file_department = $('#_file_department').val();
+        var file_publishDate = $('#_file_publishDate').val();
+        var file_closingDate = $('#_file_closingDate').val();
+        var awarded_to = $('#_awarded_to').val();
+        var reference_number = $('#_reference_number').val();
+        var procurement_mode = $('#_procurement_mode').val();
+        var procurement_type = $('#_procurement_type').val();
+        var procurement_year = $('#_procurement_year').val();
+        var id = $('#_id').val();
+        var trid = $('#_trid').val();
+        if (file_type != '' && file_title != '' && file_link != '') {
+        $.ajax({
+            url: "includes/codes/filescode.php",
+            type: "post",
+            data: {
+                webID:webID,
+                webUsername:webUsername,
+                id: id,
+                file_type:file_type,
+                file_title:file_title,
+                file_link:file_link,
+                file_department:file_department,
+                file_publishDate:file_publishDate,
+                file_closingDate:file_closingDate,
+                awarded_to:awarded_to,
+                reference_number:reference_number,
+                procurement_mode:procurement_mode,
+                procurement_type:procurement_type,
+                procurement_year:procurement_year,
+                update: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var editFileStatus = json.editFileStatus;
+                if (editFileStatus == 'true') {
+                    $('#filesTable').DataTable().destroy();
+                    mytable = $('#filesTable').DataTable({
+                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                            $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide': 'true',
+                        'processing': 'true',
+                        'paging': 'true',
+                        'order': [],
+                        'ajax': {
+                            'url': 'includes/fetchdata/filesfetch.php',
+                            'type': 'post',
+                        },
+                        "columnDefs": [{
+                            'target': [0, 13],
+                            'orderable': false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.success(json.message);
+                    $('#editFilesModal').modal('hide');
+                } else {
+                    alert('failed');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
+
+    //view issuance for delete modal
+    $('#filesTable').on('click', '.deletefilebtn ', function(event) {
+        var table = $('#filesTable').DataTable();
+        var id = $(this).data('id');
+        var trid = $(this).closest('tr').attr('id');
+        $('#deleteFilesModal').modal('show');
+
+        $.ajax({
+        url: "includes/codes/filescode.php",
+        data: {
+            id: id,
+            deleteview: true
+        },
+        type: 'post',
+        success: function(data) {
+            var json = JSON.parse(data);
+
+            $('#_file_type_').val(json.type);
+            $('#_file_title_').val(json.title);
+            $('#_status_').val(json.status);
+            $('#_id_').val(id);
+            $('#_trid_').val(trid);
+        }
+        })
+    });
+
+
+    //delete File
+    $(document).on('submit', '#deleteFiles', function(e) {
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var file_type = $('#_file_type_').val();
+        var file_title = $('#_file_title_').val();
+        var status= $('#_status_').val();
+        var id = $('#_id_').val();
+        var trid = $('#_trid_').val();
+        if (file_type != '' && file_title != '') {
+        $.ajax({
+            url: "includes/codes/filescode.php",
+            type: "post",
+            data: {
+                id:id,
+                webID:webID,
+                webUsername:webUsername,
+                file_type:file_type,
+                file_title:file_title,
+                status:status,
+                delete: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var deleteFileStatus = json.deleteFileStatus;
+                if (deleteFileStatus == 'true') {
+                    $('#filesTable').DataTable().destroy();
+                    mytable = $('#filesTable').DataTable({
+                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                            $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide': 'true',
+                        'processing': 'true',
+                        'paging': 'true',
+                        'order': [],
+                        'ajax': {
+                            'url': 'includes/fetchdata/filesfetch.php',
+                            'type': 'post',
+                        },
+                        "columnDefs": [{
+                            'target': [0, 6],
+                            'orderable': false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.defaults.notifier.classes = 'custom-notifier';
+                    alertify.success(json.message);
+                    $('#deleteFilesModal').modal('hide');
+                } else {
+                    alert('Error communicating with the database');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
 </script>

@@ -51,8 +51,7 @@ if(isset($_POST['add'])){
 }
 
 // View Issuances
-if(isset($_POST['view']))
-{
+if(isset($_POST['view'])){
     $id = $_POST['id'];
     $sql = "SELECT * FROM issuancesvw WHERE id = '$id' LIMIT 1";
     $query = mysqli_query($con,$sql);
@@ -62,8 +61,7 @@ if(isset($_POST['view']))
 }
 
 // Edit Issuances
-if(isset($_POST['update']))
-{
+if(isset($_POST['update'])){
     $id = $_POST['id'];
     $webID = $_POST['webID'];
     $webUsername = $_POST['webUsername'];
@@ -111,8 +109,7 @@ if(isset($_POST['update']))
 }
 
 // Delete View Issuances
-if(isset($_POST['deleteview']))
-{
+if(isset($_POST['deleteview'])){
     $id = $_POST['id'];
     $sql = "SELECT * FROM issuancesvw WHERE id = '$id' LIMIT 1";
     $query = mysqli_query($con,$sql);
@@ -121,8 +118,7 @@ if(isset($_POST['deleteview']))
 }
 
 //Deleting the Issuances with the update of status to inactive
-if(isset($_POST['delete']))
-{
+if(isset($_POST['delete'])) {
     $id = $_POST['id'];
     $webID = $_POST['webID'];
     $webUsername = $_POST['webUsername'];
