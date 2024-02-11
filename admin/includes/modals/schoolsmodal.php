@@ -2,8 +2,8 @@
 <div class="modal fade" id="addSchoolModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-gray-900" id="staticBackdropLabel">Add School</h5>
+            <div class="modal-header bg-gradient-primary">
+                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Add School</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -109,8 +109,8 @@
 <div class="modal fade" id="editSchoolsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-gray-900" id="staticBackdropLabel">Edit School</h5>
+            <div class="modal-header bg-gradient-info">
+                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Edit School</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -152,7 +152,7 @@
 
 <!-- Delete Issuances Modal class="modal fade d-block" -->
 <div class="modal fade" id="deleteIssuancesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
             <div class="modal-header bg-gradient-danger">
                 <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Delete Isuances</h5>
