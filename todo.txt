@@ -1,0 +1,10 @@
+schools modal
+schools code
+schools fetch
+--
+users
+edit password
+add to database profile picture
+--
+topbar add the modals for settings
+add the activity log for each user

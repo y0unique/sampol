@@ -15,7 +15,7 @@
                     <div class="mb-3 row">
                         <label for="addSchoolField" class="col-md-2 form-label">School ID:</label>
                         <div class="col-md-4">
-                            <input class="form-control" type="number" id="school_id" name="school_id">
+                            <input class="form-control" type="text" id="school_id" name="school_id">
                         </div>
 
                         
@@ -28,7 +28,14 @@
                     <div class="mb-3 row">
                         <label for="addSchoolField" class="col-md-2 form-label">School District:</label>
                         <div class="col-md-4">
-                            <input class="form-control" type="number" id="school_district" name="school_district">
+                            <select class="form-control" id="school_spedAvailablity" name="school_spedAvailablity" required>
+                                <?php
+                                $romanNumerals = ["I", "II", "III", "IV", "V" , "VI"];
+                                for ($i = 1; $i <= 6; $i++) {
+                                    echo "<option value=\"" . $i . "\">" . $romanNumerals[$i - 1] . "</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
 
                         <label for="addSchoolField" class="col-md-2 form-label">School Principal:</label>
@@ -76,7 +83,7 @@
                         <label for="addSchoolField" class="col-md-2 form-label">SHS Availability:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_shsAvailability" name="school_shsAvailability" required>
-                                <option disabled selected hidden></option>
+                                <option value ="no"disabled selected hidden> <-- SELECT --> </option>
                                 <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
                             </select>
@@ -85,7 +92,7 @@
                         <label for="addSchoolField" class="col-md-2 form-label">SPED Availability:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_spedAvailablity" name="school_spedAvailablity" required>
-                                <option disabled selected hidden></option>
+                                <option value ="no" disabled selected hidden> <-- SELECT --> </option>
                                 <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
                             </select>
@@ -104,6 +111,28 @@
         </div>
     </div>
 </div>
+<script>
+    
+    document.getElementById('school_id').addEventListener('input', function () {
+        // Allow only numbers (0-9) and backspace
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    // $(document).ready(function() {
+    //     // Add an event listener to school_type dropdown
+    //     $('#school_type').change(function() {
+    //         var selectedType = $(this).val();
+
+    //         // Enable or disable school_shsAvailability based on the selected school type
+    //         if (selectedType === 'HighSchool') {
+    //             $('#school_shsAvailability').prop('disabled', false);
+    //         } else {
+    //             // If not HighSchool, disable and reset the value
+    //             $('#school_shsAvailability').prop('disabled', true);
+    //             $('#school_shsAvailability').val('');
+    //         }
+    //     });
+    // });
+</script>
 
 <!-- Edit Schools Modal class="modal fade d-block" -->
 <div class="modal fade" id="editSchoolsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
