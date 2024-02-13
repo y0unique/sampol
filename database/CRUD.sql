@@ -469,3 +469,24 @@ SELECT
     file_procurementType AS "ptype",
     file_status AS "status"
 FROM filestbl WHERE file_type = 'procurement' AND file_status = 'active';
+
+--alter issuancesVW add issuances_id as id
+ALTER VIEW issuancesVW AS
+SELECT
+    issuances_id AS "id",
+    tracking_number AS "tracking_number",
+    issuances_title AS "title",
+    issuances_link AS "link",
+    issuances_number AS "number",
+    issuances_date AS "date",
+    issuances_type AS "type",
+    issuances_status AS "status"
+FROM issuancestbl WHERE issuances_status = 'active';
+
+--alter issuancesVW add issuances_id as id
+CREATE VIEW issuancescategoryVW AS
+SELECT
+    issuances_type AS "type",
+    issuances_type_name AS "name",
+    issuances_status AS "status"
+FROM issuancestbl WHERE issuances_status = 'active';

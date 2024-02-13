@@ -2885,7 +2885,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (43, '', 'CREATION OF A TECHNICAL WORKING GROUP FOR THE DEVELOPMENT OF THE DRAINAGE MASTER PLAN OF THE CITY OF MANILA', 'https://drive.google.com/file/d/1kSSnY_6cgDIVOESVjYYzdhV4eo-McSzT/view?usp=sharing', '94', '2022-04-07', 'Numbered', 'active'),
 (44, '', 'AN ORDER CONSTITUTING THE MANILA TRAFFIC ADJUDICATION BOARD DEFINING ITS POWERS AND FUNCTIONS', 'https://drive.google.com/file/d/1ftICJMKepLRhGCnxT8KhWNRgs8GYJ47N/view?usp=sharing', '93', '2022-04-07', 'Numbered', 'active'),
 (45, '', 'SCHEDULE OF ACTIVITIES ON THE SCREENING PROCESS OF TEACHER I APPLICANTS FOR THE SCHOOL YEAR 2022-2023', 'https://drive.google.com/file/d/10puWvPKEaqBaE0gq0SfZB_rXXpgZKo9c/view?usp=sharing', '92', '2022-04-01', 'Numbered', 'active'),
-(46, '', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', ' https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '0', '2018-06-08', '', 'active'),
+(46, '', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', ' https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '0', '2018-06-08', 'Numbered', 'active'),
 (47, '', 'DIVISION LEVEL WINNERS IN THE NESTLE WELLNESS CAMPUS PROGRAM BEST IMPLEMENTING SCHOOL CONTEST FOR SCHOOL YEAR 2021-2022', 'https://drive.google.com/file/d/1uzoNWuZvcUJ8M5ASPbxo0QJUAPzzB1Gz/view?usp=sharing', '90', '2022-03-28', 'Numbered', 'active'),
 (48, '', 'RE-OPENING OF APPLICATION FOR EDUCATION PROGRAM SUPERVISOR', 'https://drive.google.com/file/d/1ppevRBFSQchO0sYD_lH3j04RtY8eV8Jn/view?usp=sharing', '88', '2022-03-29', 'Numbered', 'active'),
 (49, '', 'ENHANCEMENT OF THE CONTINGENCY PLANNING WRITESHOP', 'https://drive.google.com/file/d/1w6gTbc7fj9ToDdKTvZa7TC3AhVIkTvPD/view?usp=sharing', '87', '2022-03-29', 'Numbered', 'active'),
@@ -6902,55 +6902,55 @@ ALTER TABLE `userstbl`
 -- AUTO_INCREMENT for table `dailyvisitstbl`
 --
 ALTER TABLE `dailyvisitstbl`
-  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2553;
+  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
 --
 ALTER TABLE `imagestbl`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3024;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
 --
 ALTER TABLE `officestbl`
-  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `schoolstbl`
 --
 ALTER TABLE `schoolstbl`
-  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `socialmediatbl`
 --
 ALTER TABLE `socialmediatbl`
-  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=507;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `userstbl`
 --
 ALTER TABLE `userstbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- Constraints for dumped tables
