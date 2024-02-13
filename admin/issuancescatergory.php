@@ -25,7 +25,7 @@
         echo '  <script>
                     document.getElementById("issuances").classList.add("active");
                     document.getElementById("collapseIssuances").classList.add("show");
-                    document.getElementById("aIssuances").classList.add("active");
+                    document.getElementById("aIssuancesCatergories").classList.add("active");
                     document.getElementById("acollapseIssuances").classList.remove("collapsed");
                 </script>';?>
         <!-- End of Sidebar -->
@@ -45,30 +45,25 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Issuances</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Issuances Category</h1>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                            <a href="#" data-id="" data-toggle="modal" data-target="#addIssuancesModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i class="fas fa-plus fa-sm text-white-50"></i> Add Issuance
+                            <a href="#" data-id="" data-toggle="modal" data-target="#addIssuanceCategoryModal" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                <i class="fas fa-plus fa-sm text-white-50"></i> Add Category
                             </a>
-                            <h6 class="m-0 font-weight-bold text-primary">Issuances Table</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Category Table</h6>
                         </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped display compact text-gray-900 " id="issuancesTable" width="100%" cellspacing="0">
+                                <table class="table table-striped display compact text-gray-900 " id="categoryTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Action</th>
-                                            <th>ID</th>
-                                            <th>Tracking Number</th>
-                                            <th>Memo #</th>
-                                            <th>Memo Type</th>
-                                            <th>Memo Date</th>
-                                            <th>Title</th>
+                                            <th>Type</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -98,13 +93,13 @@
     <?php include 'includes/scripts.php'; ?>
 
     <!-- modals -->
-    <?php include 'includes/modals/issuancesmodal.php'; ?>
+    <?php include 'includes/modals/issuancescategorymodal.php'; ?>
 </body>
 
 </html>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#issuancesTable').DataTable({
+        $('#categoryTable').DataTable({
             "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                 $(nRow).attr('id', aData[0]);
             },
@@ -113,56 +108,44 @@
             'paging':'true',
             'order':[],
             'ajax': {
-                'url':'includes/fetchdata/issuancesfetch.php',
+                'url':'includes/fetchdata/issuancescategoryfetch.php',
                 'type':'post',
             },
             "columnDefs": [{
-                'target':[0,6],
+                'target':[0,3],
                 'orderable' :false
             }]
         });
-        
-        
-
-
     });
 
-    //add issuances
-    $(document).on('submit','#addIssuances',function(e){
+    //add category
+    $(document).on('submit','#addIssuanceCategory',function(e){
         e.preventDefault();
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
-        var tracking_number= $('#tracking_number').val();
-        var issuances_type= $('#issuances_type').val();
-        var issuances_title= $('#issuances_title').val();
-        var issuances_link= $('#issuances_link').val();
-        var issuances_number= $('#issuances_number').val();
-        var issuances_date= $('#issuances_date').val();
+        var issuancecategory_type = $('#issuancecategory_type').val();
+        var issuancecategory_name = $('#issuancecategory_name').val();
 
-        if(tracking_number != '' && issuances_type != '' && issuances_title != ''&& issuances_link != '' && issuances_number != '' && issuances_date != ''){
+        if(issuancecategory_type != '' && issuancecategory_name != ''){
             $.ajax({
-                url:"includes/codes/issuancescode.php",
+                url:"includes/codes/issuancescategorycode.php",
                 type:"post",
                 data:
                 {
                     webID:webID,
                     webUsername:webUsername,
-                    tracking_number:tracking_number,
-                    issuances_type:issuances_type,
-                    issuances_title:issuances_title,
-                    issuances_link:issuances_link,
-                    issuances_number:issuances_number,
-                    issuances_date:issuances_date,
+                    issuancecategory_type:issuancecategory_type,
+                    issuancecategory_name:issuancecategory_name,
                     add: true
                 },
                 success:function(data){
                     var json = JSON.parse(data);
                     var addIssuanceStatus = json.addIssuanceStatus;
                     if(addIssuanceStatus =='true'){
-                        mytable =$('#issuancesTable').DataTable();
+                        mytable =$('#categoryTable').DataTable();
                         mytable.draw();
-                        $('#addIssuancesModal').modal('hide');
-                        $('#addIssuances')[0].reset();
+                        $('#addIssuanceCategoryModal').modal('hide');
+                        $('#addIssuanceCategory')[0].reset();
                         alertify.set('notifier','position', 'top-right');
                         alertify.success(json.message);
                     }else{
@@ -176,14 +159,14 @@
     });
 
     //view issuance for edit modal
-    $('#issuancesTable').on('click', '.editissuancebtn ', function(event) {
-        var table = $('#issuancesTable').DataTable();
+    $('#categoryTable').on('click', '.editissuancecategorybtn ', function(event) {
+        var table = $('#categoryTable').DataTable();
         var id = $(this).data('id');
         var trid = $(this).closest('tr').attr('id');
-        $('#editIssuancesModal').modal('show');
+        $('#editIssuanceCategoryModal').modal('show');
 
         $.ajax({
-        url: "includes/codes/issuancescode.php",
+        url: "includes/codes/issuancescategorycode.php",
         data: {
             id: id,
             view: true
@@ -192,12 +175,8 @@
         success: function(data) {
             var json = JSON.parse(data);
 
-            $('#_tracking_number').val(json.tracking_number);
-            $('#_issuances_title').val(json.title);
-            $('#_issuances_link').val(json.link);
-            $('#_issuances_number').val(json.number);
-            $('#_issuances_date').val(json.date);
-            $('#_issuances_type').val(json.type);
+            $('#_issuancecategory_type').val(json.type);
+            $('#_issuancecategory_name').val(json.name);
             $('#_id').val(id);
             $('#_trid').val(trid);
         }
@@ -205,40 +184,32 @@
     });
 
     //edit issuances
-    $(document).on('submit', '#editIssuances', function(e) {
+    $(document).on('submit', '#editIssuanceCategory', function(e) {
         e.preventDefault();;
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
-        var tracking_number = $('#_tracking_number').val();
-        var issuances_title= $('#_issuances_title').val();
-        var issuances_link= $('#_issuances_link').val();
-        var issuances_number= $('#_issuances_number').val();
-        var issuances_date= $('#_issuances_date').val();
-        var issuances_type= $('#_issuances_type').val();
+        var issuancecategory_type = $('#_issuancecategory_type').val();
+        var issuancecategory_name= $('#_issuancecategory_name').val();
         var id = $('#_id').val();
         var trid = $('#_trid').val();
-        if (tracking_number != '' && issuances_title != '' && issuances_link != '' && issuances_number != '' && issuances_date != '' && issuances_type != '') {
+        if (issuancecategory_type != '' && issuancecategory_name != '') {
         $.ajax({
-            url: "includes/codes/issuancescode.php",
+            url: "includes/codes/issuancescategorycode.php",
             type: "post",
             data: {
                 id:id,
                 webID:webID,
                 webUsername:webUsername,
-                tracking_number:tracking_number,
-                issuances_title:issuances_title,
-                issuances_link:issuances_link,
-                issuances_number:issuances_number,
-                issuances_date:issuances_date,
-                issuances_type:issuances_type,
+                issuancecategory_type:issuancecategory_type,
+                issuancecategory_name:issuancecategory_name,
                 update: true
             },
             success: function(data) {
                 var json = JSON.parse(data);
                 var editIssuanceStatus = json.editIssuanceStatus;
                 if (editIssuanceStatus == 'true') {
-                    $('#issuancesTable').DataTable().destroy();
-                    mytable = $('#issuancesTable').DataTable({
+                    $('#categoryTable').DataTable().destroy();
+                    mytable = $('#categoryTable').DataTable({
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
                             $(nRow).attr('id', aData[0]);
                         },
@@ -247,7 +218,7 @@
                         'paging': 'true',
                         'order': [],
                         'ajax': {
-                            'url': 'includes/fetchdata/issuancesfetch.php',
+                            'url': 'includes/fetchdata/issuancescategoryfetch.php',
                             'type': 'post',
                         },
                         "columnDefs": [{
@@ -269,14 +240,14 @@
     });
 
     //view issuance for delete modal
-    $('#issuancesTable').on('click', '.deleteissuancebtn ', function(event) {
-        var table = $('#issuancesTable').DataTable();
+    $('#categoryTable').on('click', '.deleteissuancebtn ', function(event) {
+        var table = $('#categoryTable').DataTable();
         var id = $(this).data('id');
         var trid = $(this).closest('tr').attr('id');
         $('#deleteIssuancesModal').modal('show');
 
         $.ajax({
-        url: "includes/codes/issuancescode.php",
+        url: "includes/codes/issuancescategorycode.php",
         data: {
             id: id,
             deleteview: true
@@ -306,7 +277,7 @@
         var trid = $('#_trid_').val();
         if (tracking_number != '' && issuances_title != '') {
         $.ajax({
-            url: "includes/codes/issuancescode.php",
+            url: "includes/codes/issuancescategorycode.php",
             type: "post",
             data: {
                 id:id,
@@ -321,8 +292,8 @@
                 var json = JSON.parse(data);
                 var deleteIssuanceStatus = json.deleteIssuanceStatus;
                 if (deleteIssuanceStatus == 'true') {
-                    $('#issuancesTable').DataTable().destroy();
-                    mytable = $('#issuancesTable').DataTable({
+                    $('#categoryTable').DataTable().destroy();
+                    mytable = $('#categoryTable').DataTable({
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
                             $(nRow).attr('id', aData[0]);
                         },
@@ -331,7 +302,7 @@
                         'paging': 'true',
                         'order': [],
                         'ajax': {
-                            'url': 'includes/fetchdata/issuancesfetch.php',
+                            'url': 'includes/fetchdata/issuancescategoryfetch.php',
                             'type': 'post',
                         },
                         "columnDefs": [{

@@ -22,11 +22,23 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Issuances
+    </div>
 
     <li class="nav-item" id="issuances">
-        <a class="nav-link" href="issuances">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseIssuances" aria-expanded="true" aria-controls="collapseIssuances" id="acollapseIssuances">
             <i class="fas fa-file-alt"></i>
-            <span>Issuances</span></a>
+            <span>Issuances</span>
+        </a>
+        <div id="collapseIssuances" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Issuances:</h6>
+                <a class="collapse-item" id="aIssuances" href="issuances">Issuances Posting</a>
+                <a class="collapse-item" id="aIssuancesCatergories" href="issuancescatergory">Issuances Categories</a>
+            </div>
+        </div>
     </li>
 
     <?php

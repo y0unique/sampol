@@ -19,18 +19,16 @@
 
                         <label for="addIssuanceField" class="col-md-2 form-label">Issuance Type:</label>
                         <div class="col-md-4">
-                            <select class="form-control" id="issuances_type" name="issuances_type" required>
+                        <select class="form-control" id="issuances_type" name="issuances_type" required>
                                 <option disabled selected hidden></option>
-                                <option value="Numbered"> Numbered Memo </option>
-                                <option value="Unnumbered"> Unnumbered Memo </option>
-                                <option value="Advisories"> Division Advisories </option>
-                                <option value="Circulars"> Division Letters / Circulars </option>
-                                <option value="Miscellaneous"> Miscellaneous </option>
-                                <option value="Notices"> Notices </option>
-                                <option value="Office Memorandum"> Office Memorandum </option>
-                                <option value="Office Order"> Office Order </option>
-                                <option value="City Memorandum"> City Memorandum </option>
-                             </select>
+                                <?php
+                                    $sql = "SELECT * FROM issuancescategoryvw";
+                                    $result = mysqli_query($con, $sql);
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<option value='".$row['type']."'>".$row['name']."</option>";
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     
