@@ -64,6 +64,7 @@
                                         <tr>
                                             <th>Action</th>
                                             <th>Type</th>
+                                            <th>Display Name</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -140,8 +141,8 @@
                 },
                 success:function(data){
                     var json = JSON.parse(data);
-                    var addIssuanceStatus = json.addIssuanceStatus;
-                    if(addIssuanceStatus =='true'){
+                    var addIssuanceCategoryStatus = json.addIssuanceCategoryStatus;
+                    if(addIssuanceCategoryStatus =='true'){
                         mytable =$('#categoryTable').DataTable();
                         mytable.draw();
                         $('#addIssuanceCategoryModal').modal('hide');
@@ -185,13 +186,13 @@
 
     //edit issuances
     $(document).on('submit', '#editIssuanceCategory', function(e) {
-        e.preventDefault();;
+        e.preventDefault();
+        var id = $('#_id').val();
+        var trid = $('#_trid').val();
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
         var issuancecategory_type = $('#_issuancecategory_type').val();
-        var issuancecategory_name= $('#_issuancecategory_name').val();
-        var id = $('#_id').val();
-        var trid = $('#_trid').val();
+        var issuancecategory_name = $('#_issuancecategory_name').val();
         if (issuancecategory_type != '' && issuancecategory_name != '') {
         $.ajax({
             url: "includes/codes/issuancescategorycode.php",
@@ -206,8 +207,8 @@
             },
             success: function(data) {
                 var json = JSON.parse(data);
-                var editIssuanceStatus = json.editIssuanceStatus;
-                if (editIssuanceStatus == 'true') {
+                var editIssuanceCategoryStatus = json.editIssuanceCategoryStatus;
+                if (editIssuanceCategoryStatus == 'true') {
                     $('#categoryTable').DataTable().destroy();
                     mytable = $('#categoryTable').DataTable({
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
@@ -222,13 +223,13 @@
                             'type': 'post',
                         },
                         "columnDefs": [{
-                            'target': [0, 6],
+                            'target': [0, 3],
                             'orderable': false
                         }]
                     });
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
-                    $('#editIssuancesModal').modal('hide');
+                    $('#editIssuanceCategoryModal').modal('hide');
                 } else {
                     alert('failed');
                 }
@@ -240,11 +241,11 @@
     });
 
     //view issuance for delete modal
-    $('#categoryTable').on('click', '.deleteissuancebtn ', function(event) {
+    $('#categoryTable').on('click', '.deleteissuancecategorybtn ', function(event) {
         var table = $('#categoryTable').DataTable();
         var id = $(this).data('id');
         var trid = $(this).closest('tr').attr('id');
-        $('#deleteIssuancesModal').modal('show');
+        $('#deleteIssuancesCategoryModal').modal('show');
 
         $.ajax({
         url: "includes/codes/issuancescategorycode.php",
@@ -256,8 +257,8 @@
         success: function(data) {
             var json = JSON.parse(data);
 
-            $('#_tracking_number_').val(json.tracking_number);
-            $('#_issuances_title_').val(json.title);
+            $('#_issuancecategory_type_').val(json.type);
+            $('#_issuancecategory_name_').val(json.name);
             $('#_status_').val(json.status);
             $('#_id_').val(id);
             $('#_trid_').val(trid);
@@ -266,16 +267,16 @@
     });
 
     //delete issuances
-    $(document).on('submit', '#deleteIssuances', function(e) {
+    $(document).on('submit', '#deleteIssuancesCategory', function(e) {
         e.preventDefault();
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
-        var tracking_number = $('#_tracking_number_').val();
-        var issuances_title = $('#_issuances_title_').val();
+        var issuancecategory_type = $('#_issuancecategory_type_').val();
+        var issuancecategory_name = $('#_issuancecategory_name_').val();
         var status= $('#_status_').val();
         var id = $('#_id_').val();
         var trid = $('#_trid_').val();
-        if (tracking_number != '' && issuances_title != '') {
+        if (issuancecategory_type != '' && issuancecategory_name != '') {
         $.ajax({
             url: "includes/codes/issuancescategorycode.php",
             type: "post",
@@ -283,15 +284,15 @@
                 id:id,
                 webID:webID,
                 webUsername:webUsername,
-                tracking_number:tracking_number,
-                issuances_title:issuances_title,
+                issuancecategory_type:issuancecategory_type,
+                issuancecategory_name:issuancecategory_name,
                 status:status,
                 delete: true
             },
             success: function(data) {
                 var json = JSON.parse(data);
-                var deleteIssuanceStatus = json.deleteIssuanceStatus;
-                if (deleteIssuanceStatus == 'true') {
+                var deleteIssuanceCategoryStatus = json.deleteIssuanceCategoryStatus;
+                if (deleteIssuanceCategoryStatus == 'true') {
                     $('#categoryTable').DataTable().destroy();
                     mytable = $('#categoryTable').DataTable({
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
@@ -313,7 +314,7 @@
                     alertify.set('notifier','position', 'top-right');
                     alertify.defaults.notifier.classes = 'custom-notifier';
                     alertify.success(json.message);
-                    $('#deleteIssuancesModal').modal('hide');
+                    $('#deleteIssuancesCategoryModal').modal('hide');
                 } else {
                     alert('Error communicating with the database');
                 }

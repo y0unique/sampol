@@ -55,7 +55,7 @@
                     <div class="mb-12 row">
                         <label for="editIssuanceCategoryField" class="col-md-12 form-label">Issuance Type:</label>
                         <div class="col-md-12">
-                            <input class="form-control" type="text" id="_issuancecategory_type" name="issuancecategory_type">
+                            <input class="form-control" type="text" id="_issuancecategory_type" name="issuancecategory_type" disabled>
                         </div>
 
                         <label for="editIssuanceCategoryField" class="col-md-12 form-label">Display Name:</label>
@@ -78,32 +78,30 @@
 </div>
 
 <!-- Delete Issuances Modal class="modal fade d-block" -->
-<div class="modal fade" id="deleteIssuancesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="deleteIssuancesCategoryModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
             <div class="modal-header bg-gradient-danger">
-                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Delete Isuances</h5>
+                <h5 class="modal-title text-gray-100" id="staticBackdropLabel">Delete Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body text-gray-900">
-                <form id="deleteIssuances">
+                <form id="deleteIssuancesCategory">
                     <input class="form-control" type="hidden" name="id" id="_id_" value="">
                     <input class="form-control" type="hidden" name="trid" id="_trid_" value="">
 
-                    <div class="mb-3 row">
-                        <label for="deleteIssuancesField" class="col-md-12 form-label">Tracking Number:</label>
+                    <div class="mb-12 row">
+                        <label for="editIssuanceCategoryField" class="col-md-12 form-label">Issuance Type:</label>
                         <div class="col-md-12">
-                            <input class="form-control" type="text" id="_tracking_number_" name="tracking_number" disabled>
+                            <input class="form-control" type="text" id="_issuancecategory_type_" name="issuancecategory_type" disabled>
                         </div>
-                    </div>
-                    
-                    <div class="mb-3 row">
-                        <label for="deleteIssuancesField" class="col-md-12 form-label">Title:</label>
+
+                        <label for="editIssuanceCategoryField" class="col-md-12 form-label">Display Name:</label>
                         <div class="col-md-12">
-                            <textarea class="form-control" type="text" id="_issuances_title_" name="issuances_title" rows="2" disabled></textarea>
+                            <input class="form-control" type="text" id="_issuancecategory_name_" name="issuancecategory_name" disabled>
                         </div>
                     </div>
 

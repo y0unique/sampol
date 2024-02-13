@@ -23,7 +23,7 @@ if(isset($_POST['add'])){
         {
             $data = array
             (
-                'addIssuanceStatus'=>'true',
+                'addIssuanceCategoryStatus'=>'true',
                 'message' => 'Added Successfully' 
             );
             echo json_encode($data);
@@ -32,7 +32,7 @@ if(isset($_POST['add'])){
         else
         {
             $data = array(
-                'addIssuanceStatus'=>'false',
+                'addIssuanceCategoryStatus'=>'false',
             );
             echo json_encode($data);
         }
@@ -40,7 +40,7 @@ if(isset($_POST['add'])){
     else
     {
         $data = array(
-            'addIssuanceStatus'=>'false',
+            'addIssuanceCategoryStatus'=>'false',
         );
         echo json_encode($data);
     } 
@@ -61,36 +61,28 @@ if(isset($_POST['update'])){
     $id = $_POST['id'];
     $webID = $_POST['webID'];
     $webUsername = $_POST['webUsername'];
-    $tracking_number = $_POST['tracking_number'];
-    $issuances_title = mysqli_real_escape_string($con, $_POST['issuances_title']);
-    $issuances_link = $_POST['issuances_link'];
-    $issuances_number = $_POST['issuances_number'];
-    $issuances_date = $_POST['issuances_date'];
-    $issuances_type = $_POST['issuances_type'];
+    $issuancecategory_type = $_POST['issuancecategory_type'];
+    $issuancecategory_name = $_POST['issuancecategory_name'];
 
-    $sql = "UPDATE issuancestbl SET tracking_number = '$tracking_number', 
-                                    issuances_title = '$issuances_title', 
-                                    issuances_link = '$issuances_link', 
-                                    issuances_number = '$issuances_number', 
-                                    issuances_date = '$issuances_date' ,
-                                    issuances_type = '$issuances_type' WHERE issuances_id = '$id'";
+    $sql = "UPDATE issuancescategorytbl SET issuances_type_name = '$issuancecategory_name' 
+                                        WHERE issuances_type = '$id'";
     $query = mysqli_query($con,$sql);
 
     if($query){
         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-        values ('$webID', 'Edited Issuance $tracking_number',  NOW(), NOW())";
+        values ('$webID', 'Edited Issuance Category $issuancecategory_type',  NOW(), NOW())";
         $query1= mysqli_query($con,$inserttime);
         $query2 = mysqli_insert_id($con);
         if ($query1){
             $data = array(
-                'editIssuanceStatus'=>'true',
+                'editIssuanceCategoryStatus'=>'true',
                 'message' => 'Updated Successfully' 
             );
             echo json_encode($data);
             return;
         } else {
             $data = array(
-            'editIssuanceStatus'=>'false',
+            'editIssuanceCategoryStatus'=>'false',
         );
             echo json_encode($data);
         }
@@ -98,7 +90,7 @@ if(isset($_POST['update'])){
     else
     {
         $data = array(
-            'editIssuanceStatus'=>'false',
+            'editIssuanceCategoryStatus'=>'false',
         );
         echo json_encode($data);
     }
@@ -107,7 +99,7 @@ if(isset($_POST['update'])){
 // Delete View Issuances
 if(isset($_POST['deleteview'])){
     $id = $_POST['id'];
-    $sql = "SELECT * FROM issuancesvw WHERE id = '$id' LIMIT 1";
+    $sql = "SELECT * FROM issuancescategoryvw WHERE type  = '$id' LIMIT 1";
     $query = mysqli_query($con,$sql);
     $row = mysqli_fetch_assoc($query);
     echo json_encode($row);
@@ -118,26 +110,27 @@ if(isset($_POST['delete'])) {
     $id = $_POST['id'];
     $webID = $_POST['webID'];
     $webUsername = $_POST['webUsername'];
-    $tracking_number = $_POST['tracking_number'];
+    $issuancecategory_type = $_POST['issuancecategory_type'];
+    $issuancecategory_name = $_POST['issuancecategory_name'];
 
-    $sql = "UPDATE issuancestbl SET issuances_status = 'inactive' WHERE issuances_id = '$id'";
+    $sql = "UPDATE issuancescategorytbl SET issuances_status = 'inactive' WHERE issuances_type  = '$id'";
     $query = mysqli_query($con,$sql);
 
     if($query){
         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-        values ('$webID', 'Deleted Issuance $tracking_number',  NOW(), NOW())";
+        values ('$webID', 'Deleted Issuance Category $issuancecategory_type',  NOW(), NOW())";
         $query1= mysqli_query($con,$inserttime);
         $query2 = mysqli_insert_id($con);
         if ($query1){
             $data = array(
-                'deleteIssuanceStatus'=>'true',
+                'deleteIssuanceCategoryStatus'=>'true',
                 'message' => 'Delete Successfully' 
             );
             echo json_encode($data);
             return;
         } else {
             $data = array(
-            'deleteIssuanceStatus'=>'false',
+            'deleteIssuanceCategoryStatus'=>'false',
         );
             echo json_encode($data);
         }
@@ -145,7 +138,7 @@ if(isset($_POST['delete'])) {
     else
     {
         $data = array(
-            'deleteIssuanceStatus'=>'false',
+            'deleteIssuanceCategoryStatus'=>'false',
             'messageError' => 'Delete Error' 
         );
         echo json_encode($data);
