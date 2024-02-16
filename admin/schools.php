@@ -162,4 +162,19 @@
         }
         })
     });
+
+
+
+    //clear modal add
+    $('#addSchoolModal').on('hidden.bs.modal', function() {
+        $('#addSchool')[0].reset();
+    });
+    //clear modal edit
+    $('#editSchoolModal').on('hidden.bs.modal', function() {
+        $('#editSchool')[0].reset();
+    });
+    //clear modal delete
+    $('#deleteSchoolModal').on('hidden.bs.modal', function() {
+        $('#deleteschool')[0].reset();
+    });
 </script>

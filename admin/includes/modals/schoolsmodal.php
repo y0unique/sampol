@@ -17,18 +17,11 @@
                         <div class="col-md-4">
                             <input class="form-control" type="text" id="school_id" name="school_id">
                         </div>
-
                         
-                        <label for="addSchoolField" class="col-md-2 form-label">School Name:</label>
-                        <div class="col-md-4">
-                            <input class="form-control" type="text" id="school_name" name="school_name">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
                         <label for="addSchoolField" class="col-md-2 form-label">School District:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_spedAvailablity" name="school_spedAvailablity" required>
+                                <option disabled selected hidden> <-- SELECT --> </option>
                                 <?php
                                 $romanNumerals = ["I", "II", "III", "IV", "V" , "VI"];
                                 for ($i = 1; $i <= 6; $i++) {
@@ -37,17 +30,24 @@
                                 ?>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="addSchoolField" class="col-md-2 form-label">School Name:</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" type="text" id="school_name" name="school_name" rows="2"></textarea>
+                        </div>
 
                         <label for="addSchoolField" class="col-md-2 form-label">School Principal:</label>
                         <div class="col-md-4">
-                            <input class="form-control" type="text" id="school_principal" name="school_principal">
+                            <textarea class="form-control" type="text" id="school_principal" name="school_principal" rows="2"></textarea>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="addSchoolField" class="col-md-2 form-label">School Address:</label>
                         <div class="col-md-10">
-                        <textarea class="form-control" type="text" id="school_address" name="school_address" rows="1"></textarea>
+                            <textarea class="form-control" type="text" id="school_address" name="school_address" rows="2"></textarea>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                         <label for="addSchoolField" class="col-md-2 form-label">School Type:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_type" name="school_type" required>
-                                <option disabled selected hidden></option>
+                                <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="Elementary"> Elementary School </option>
                                 <option value="HighSchool"> High School </option>
                             </select>
@@ -82,7 +82,7 @@
                     <div class="mb-3 row">
                         <label for="addSchoolField" class="col-md-2 form-label">SHS Availability:</label>
                         <div class="col-md-4">
-                            <select class="form-control" id="school_shsAvailability" name="school_shsAvailability" required>
+                            <select class="form-control" id="school_shsAvailability" name="school_shsAvailability" disabled>
                                 <option value ="no"disabled selected hidden> <-- SELECT --> </option>
                                 <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
@@ -101,12 +101,12 @@
 
                     <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
                     <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                </form>
-            </div>
 
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -117,25 +117,29 @@
         // Allow only numbers (0-9) and backspace
         this.value = this.value.replace(/[^0-9]/g, '');
     });
-    // $(document).ready(function() {
-    //     // Add an event listener to school_type dropdown
-    //     $('#school_type').change(function() {
-    //         var selectedType = $(this).val();
+    document.getElementById('school_contact').addEventListener('input', function () {
+        // Allow only numbers (0-9) backspace and dash and plus
+        this.value = this.value.replace(/[^0-9\-\+]/g, '');
+    });
+    $(document).ready(function() {
+        // Add an event listener to school_type dropdown
+        $('#school_type').change(function() {
+            var selectedType = $(this).val();
 
-    //         // Enable or disable school_shsAvailability based on the selected school type
-    //         if (selectedType === 'HighSchool') {
-    //             $('#school_shsAvailability').prop('disabled', false);
-    //         } else {
-    //             // If not HighSchool, disable and reset the value
-    //             $('#school_shsAvailability').prop('disabled', true);
-    //             $('#school_shsAvailability').val('');
-    //         }
-    //     });
-    // });
+            // Enable or disable school_shsAvailability based on the selected school type
+            if (selectedType === 'HighSchool') {
+                $('#school_shsAvailability').prop('disabled', false);
+            } else {
+                // If not HighSchool, disable and reset the value
+                $('#school_shsAvailability').prop('disabled', true);
+                $('#school_shsAvailability').val('no');
+            }
+        });
+    });
 </script>
 
 <!-- Edit Schools Modal class="modal fade d-block" -->
-<div class="modal fade" id="editSchoolsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="editSchoolModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-gradient-info">
@@ -146,7 +150,7 @@
             </div>
 
             <div class="modal-body text-gray-900">
-                <form id="editSchools">
+                <form id="editSchool">
                     <input class="form-control" type="hidden" name="id" id="_id" value="">
                     <input class="form-control" type="hidden" name="trid" id="_trid" value="">
 

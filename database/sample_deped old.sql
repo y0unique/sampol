@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2024 at 03:05 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Feb 07, 2024 at 09:32 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -2697,11 +2697,14 @@ CREATE TABLE `filestbl` (
   `file_title` varchar(200) NOT NULL,
   `file_link` varchar(200) NOT NULL,
   `file_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `file_department` varchar(20) DEFAULT NULL,
   `file_publishDate` date DEFAULT NULL,
   `file_closingDate` date DEFAULT NULL,
   `file_awardedTo` varchar(200) DEFAULT NULL,
   `file_referenceNum` varchar(20) DEFAULT NULL,
   `file_procurementMode` varchar(50) DEFAULT NULL,
+  `file_procurementYear` year(4) NOT NULL,
+  `file_procurementType` varchar(20) NOT NULL,
   `file_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2709,41 +2712,44 @@ CREATE TABLE `filestbl` (
 -- Dumping data for table `filestbl`
 --
 
-INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_publishDate`, `file_closingDate`, `file_awardedTo`, `file_referenceNum`, `file_procurementMode`, `file_status`) VALUES
-(1, 'downloadable', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, 'active'),
-(2, 'downloadable', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, 'active'),
-(3, 'downloadable', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, 'active'),
-(4, 'downloadable', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, 'active'),
-(5, 'downloadable', 'Statement of Assets, Liabilities and Networth (SALN)', 'drive.google.com', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, 'active'),
-(6, 'downloadable', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, 'active'),
-(7, 'downloadable', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, NULL, NULL, NULL, NULL, 'active'),
-(8, 'transparency', 'BOARD AND LODGING FOR THE ASSESSORS MANUAL RESOURCE PACKAGING', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9330364', '2023-08-03 06:39:25', '2022-12-08', '2022-12-13', NULL, '9330364', NULL, 'active'),
-(9, 'transparency', 'Procurement of Office and Janitorial Supplies', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '2023-08-03 06:38:59', '2022-12-14', '2022-12-19', NULL, '9348275', NULL, 'active'),
-(10, 'transparency', 'Procurement of Ink and Toners', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348227', '2023-08-03 06:38:37', '2022-12-14', '2022-12-19', NULL, '9348227', NULL, 'active'),
-(11, 'transparency', 'Supplies for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348195', '2023-08-03 06:38:12', '2022-12-14', '2022-12-19', NULL, '9348195', NULL, 'active'),
-(12, 'transparency', 'Venue and Meals for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348149', '2023-08-03 06:37:54', '2022-12-14', '2022-12-19', NULL, '9348149', NULL, 'active'),
-(13, 'transparency', 'Various Materials for the Schools Division Office', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348109', '2023-08-03 06:37:26', '2022-12-14', '2022-12-19', NULL, '9348109', NULL, 'active'),
-(14, 'transparency', 'Materials for the Proposed Additional Storage Room of DCS', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348092', '2023-08-03 06:36:59', '2022-12-14', '2022-12-19', NULL, '9348092', NULL, 'active'),
-(15, 'transparency', 'Supplies and Materials for ID Printer', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348044', '2023-08-03 06:36:30', '2022-12-14', '2022-12-19', NULL, '9348044', NULL, 'active'),
-(16, 'transparency', 'Supplies and Materials for ICT Program Support', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348027', '2023-08-03 06:36:05', '2022-12-14', '2022-12-19', NULL, '9348027', NULL, 'active'),
-(17, 'transparency', 'Procurement of ICT Supplies and Peripherals', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347993', '2023-08-03 06:35:25', '2022-12-14', '2022-12-19', NULL, '9347993', NULL, 'active'),
-(18, 'transparency', 'Support Supplies for Bayanihan Laptops Recipients', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347964', '2023-08-03 06:34:48', '2022-12-14', '2022-12-19', NULL, '9347964', NULL, 'active'),
-(19, 'transparency', 'Procurement of Printers for Computer Laboratories', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347925', '2023-08-03 06:34:23', '2022-12-14', '2022-12-19', NULL, '9347925', NULL, 'active'),
-(20, 'transparency', 'Procurement of Tools and Equipment for Animation NCII, Technical Drafting, Caregiving, and Computer Systems Servicing', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357535', '2023-08-03 06:33:45', '2022-12-16', '2022-12-20', NULL, '9357535', NULL, 'active'),
-(21, 'transparency', 'Procurement of TVL Learning Tools and Equipment (Oven Gas Range)', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357490', '2023-08-03 06:33:00', '2022-12-16', '2022-12-20', NULL, '9357490', NULL, 'active'),
-(22, 'transparency', 'Board and Lodging for the Creative, Experiental, and Reflective In-Service Training for School Heads and Divisions Office Leaders', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9367451', '2023-08-03 06:32:32', '2022-12-21', '2022-12-26', NULL, '9367451', NULL, 'active'),
-(23, 'transparency', 'Procurement of Various Appliances for SDO Manila', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9371788', '2023-08-03 06:31:52', '2022-12-22', '2022-12-27', NULL, '9371788', NULL, 'active'),
-(24, 'transparency', 'Procurement of 3-in-1 Continuous Ink Sets for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372588', '2023-08-03 06:30:24', '2022-12-22', '2022-12-27', NULL, '9372588', NULL, 'active'),
-(25, 'transparency', 'Procurement of Bond Papers for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372632', '2023-08-03 06:29:34', '2022-12-22', '2022-12-27', NULL, '9372632', NULL, 'active'),
-(26, 'transparency', 'Procurement of Toner and Master Rolls for Elementary School', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372613', '2023-08-03 06:29:00', '2022-12-22', '2022-12-27', NULL, '9372613', NULL, 'active'),
-(27, 'transparency', 'Procurement of Supplies and Materials for Various Trainings', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9373941', '2023-08-03 06:28:32', '2022-12-23', '2022-12-28', NULL, '9373941', NULL, 'active'),
-(28, 'transparency', 'Audio Sound System Materials', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377819', '2023-08-03 06:27:36', '2022-12-24', '2022-12-27', NULL, '9377819', NULL, 'active'),
-(29, 'transparency', 'Supplies and Materials for the Installation of Additional Hardware in SDO Conference', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377842', '2023-08-03 06:27:03', '2022-12-24', '2022-12-27', NULL, '9377842', NULL, 'active'),
-(30, 'transparency', 'Procurement of Face Masks and Vitamins', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377855', '2023-08-03 06:26:26', '2022-12-24', '2022-12-27', NULL, '9377855', NULL, 'active'),
-(31, 'transparency', 'Procurement of Smart TV for Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377925', '2023-08-03 06:24:12', '2022-12-24', '2022-12-27', NULL, '9377925', NULL, 'active'),
-(32, 'transparency', 'CY 2018 EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASSROOM ', 'https://drive.google.com/file/d/1pdPus7q_o7orbPpu1gSIFbKrw1onrkRI/view', '2023-08-07 03:37:45', '2018-03-16', '2023-08-03', NULL, '0', NULL, 'active'),
-(33, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND REPAIR OF CLASSROOM', 'https://drive.google.com/file/d/1zOxk-gRp9mo9RmWRJnfMEoHeCyGA_AHC/view', '2023-08-03 06:05:40', '2018-03-05', '2023-08-03', NULL, '0', NULL, 'active'),
-(34, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', 'https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '2023-08-07 04:01:53', '2018-06-08', '2023-08-05', NULL, '0', NULL, 'active');
+INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_department`, `file_publishDate`, `file_closingDate`, `file_awardedTo`, `file_referenceNum`, `file_procurementMode`, `file_procurementYear`, `file_procurementType`, `file_status`) VALUES
+(1, 'downloadable', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(2, 'downloadable', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(3, 'downloadable', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(4, 'downloadable', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(5, 'downloadable', 'Statement of Assets, Liabilities and Networth (SALN)', 'drive.google.com', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(6, 'downloadable', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(7, 'downloadable', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(8, 'transparency', 'BOARD AND LODGING FOR THE ASSESSORS MANUAL RESOURCE PACKAGING', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9330364', '2023-08-03 06:39:25', NULL, '2022-12-08', '2022-12-13', NULL, '9330364', NULL, '0000', '', 'active'),
+(9, 'transparency', 'Procurement of Office and Janitorial Supplies', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '2023-08-03 06:38:59', '', '2022-12-14', '2022-12-19', NULL, '9348275', NULL, '0000', '', 'active'),
+(10, 'transparency', 'Procurement of Ink and Toners', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348227', '2023-08-03 06:38:37', '', '2022-12-14', '2022-12-19', NULL, '9348227', NULL, '0000', '', 'active'),
+(11, 'transparency', 'Supplies for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348195', '2023-08-03 06:38:12', '', '2022-12-14', '2022-12-19', NULL, '9348195', NULL, '0000', '', 'active'),
+(12, 'transparency', 'Venue and Meals for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348149', '2023-08-03 06:37:54', '', '2022-12-14', '2022-12-19', NULL, '9348149', NULL, '0000', '', 'active'),
+(13, 'transparency', 'Various Materials for the Schools Division Office', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348109', '2023-08-03 06:37:26', '', '2022-12-14', '2022-12-19', NULL, '9348109', NULL, '0000', '', 'active'),
+(14, 'transparency', 'Materials for the Proposed Additional Storage Room of DCS', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348092', '2023-08-03 06:36:59', '', '2022-12-14', '2022-12-19', NULL, '9348092', NULL, '0000', '', 'active'),
+(15, 'transparency', 'Supplies and Materials for ID Printer', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348044', '2023-08-03 06:36:30', '', '2022-12-14', '2022-12-19', NULL, '9348044', NULL, '0000', '', 'active'),
+(16, 'transparency', 'Supplies and Materials for ICT Program Support', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348027', '2023-08-03 06:36:05', '', '2022-12-14', '2022-12-19', NULL, '9348027', NULL, '0000', '', 'active'),
+(17, 'transparency', 'Procurement of ICT Supplies and Peripherals', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347993', '2023-08-03 06:35:25', '', '2022-12-14', '2022-12-19', NULL, '9347993', NULL, '0000', '', 'active'),
+(18, 'transparency', 'Support Supplies for Bayanihan Laptops Recipients', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347964', '2023-08-03 06:34:48', '', '2022-12-14', '2022-12-19', NULL, '9347964', NULL, '0000', '', 'active'),
+(19, 'transparency', 'Procurement of Printers for Computer Laboratories', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347925', '2023-08-03 06:34:23', '', '2022-12-14', '2022-12-19', NULL, '9347925', NULL, '0000', '', 'active'),
+(20, 'transparency', 'Procurement of Tools and Equipment for Animation NCII, Technical Drafting, Caregiving, and Computer Systems Servicing', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357535', '2023-08-03 06:33:45', '', '2022-12-16', '2022-12-20', NULL, '9357535', NULL, '0000', '', 'active'),
+(21, 'transparency', 'Procurement of TVL Learning Tools and Equipment (Oven Gas Range)', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357490', '2023-08-03 06:33:00', '', '2022-12-16', '2022-12-20', NULL, '9357490', NULL, '0000', '', 'active'),
+(22, 'transparency', 'Board and Lodging for the Creative, Experiental, and Reflective In-Service Training for School Heads and Divisions Office Leaders', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9367451', '2023-08-03 06:32:32', '', '2022-12-21', '2022-12-26', NULL, '9367451', NULL, '0000', '', 'active'),
+(23, 'transparency', 'Procurement of Various Appliances for SDO Manila', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9371788', '2023-08-03 06:31:52', '', '2022-12-22', '2022-12-27', NULL, '9371788', NULL, '0000', '', 'active'),
+(24, 'transparency', 'Procurement of 3-in-1 Continuous Ink Sets for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372588', '2023-08-03 06:30:24', '', '2022-12-22', '2022-12-27', NULL, '9372588', NULL, '0000', '', 'active'),
+(25, 'transparency', 'Procurement of Bond Papers for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372632', '2023-08-03 06:29:34', '', '2022-12-22', '2022-12-27', NULL, '9372632', NULL, '0000', '', 'active'),
+(26, 'transparency', 'Procurement of Toner and Master Rolls for Elementary School', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372613', '2023-08-03 06:29:00', '', '2022-12-22', '2022-12-27', NULL, '9372613', NULL, '0000', '', 'active'),
+(27, 'transparency', 'Procurement of Supplies and Materials for Various Trainings', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9373941', '2023-08-03 06:28:32', '', '2022-12-23', '2022-12-28', NULL, '9373941', NULL, '0000', '', 'active'),
+(28, 'transparency', 'Audio Sound System Materials', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377819', '2023-08-03 06:27:36', '', '2022-12-24', '2022-12-27', NULL, '9377819', NULL, '0000', '', 'active'),
+(29, 'transparency', 'Supplies and Materials for the Installation of Additional Hardware in SDO Conference', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377842', '2023-08-03 06:27:03', '', '2022-12-24', '2022-12-27', NULL, '9377842', NULL, '0000', '', 'active'),
+(30, 'transparency', 'Procurement of Face Masks and Vitamins', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377855', '2023-08-03 06:26:26', '', '2022-12-24', '2022-12-27', NULL, '9377855', NULL, '0000', '', 'active'),
+(31, 'transparency', 'Procurement of Smart TV for Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377925', '2023-08-03 06:24:12', '', '2022-12-24', '2022-12-27', NULL, '9377925', NULL, '0000', '', 'active'),
+(32, 'transparency', 'CY 2018 EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASSROOM ', 'https://drive.google.com/file/d/1pdPus7q_o7orbPpu1gSIFbKrw1onrkRI/view', '2023-08-07 03:37:45', '', '2018-03-16', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
+(33, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND REPAIR OF CLASSROOM', 'https://drive.google.com/file/d/1zOxk-gRp9mo9RmWRJnfMEoHeCyGA_AHC/view', '2023-08-03 06:05:40', '', '2018-03-05', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
+(34, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', 'https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '2023-08-07 04:01:53', '', '2018-06-08', '2023-08-05', NULL, '0', NULL, '0000', '', 'active'),
+(35, 'material', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-02-06 13:36:16', 'cash and budget', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(36, 'material', 'Report on the Physical Count of Inventories Form', 'https://docs.google.com/forms/d/e/1FAIpQLSc09L7qOjI2Q372rUbnzEN_oJk9HynuBoXMr43tJZswvr1b9Q/viewform?usp=sharing', '2024-02-06 13:36:16', 'property', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(37, 'material', 'PrimeDOTS Worksheet for Division Issuances', 'https://docs.google.com/spreadsheets/d/1qCZB4lhQRRYPsb9OX3uq-L2eVuzUXTjcbo_fMb2MNjk/edit#gid=0', '2024-02-06 13:36:16', 'records', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -2756,12 +2762,15 @@ CREATE TABLE `filesvw` (
 ,`type` varchar(50)
 ,`title` varchar(200)
 ,`link` varchar(200)
+,`department` varchar(20)
 ,`date` datetime
 ,`publish_date` date
 ,`closing_date` date
 ,`awarded_to` varchar(200)
 ,`reference_number` varchar(20)
 ,`procurement_mode` varchar(50)
+,`procurement_year` year(4)
+,`procurement_type` varchar(20)
 ,`status` varchar(11)
 );
 
@@ -2876,7 +2885,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (43, '', 'CREATION OF A TECHNICAL WORKING GROUP FOR THE DEVELOPMENT OF THE DRAINAGE MASTER PLAN OF THE CITY OF MANILA', 'https://drive.google.com/file/d/1kSSnY_6cgDIVOESVjYYzdhV4eo-McSzT/view?usp=sharing', '94', '2022-04-07', 'Numbered', 'active'),
 (44, '', 'AN ORDER CONSTITUTING THE MANILA TRAFFIC ADJUDICATION BOARD DEFINING ITS POWERS AND FUNCTIONS', 'https://drive.google.com/file/d/1ftICJMKepLRhGCnxT8KhWNRgs8GYJ47N/view?usp=sharing', '93', '2022-04-07', 'Numbered', 'active'),
 (45, '', 'SCHEDULE OF ACTIVITIES ON THE SCREENING PROCESS OF TEACHER I APPLICANTS FOR THE SCHOOL YEAR 2022-2023', 'https://drive.google.com/file/d/10puWvPKEaqBaE0gq0SfZB_rXXpgZKo9c/view?usp=sharing', '92', '2022-04-01', 'Numbered', 'active'),
-(46, '', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', ' https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '0', '2018-06-08', '', 'active'),
+(46, '', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', ' https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '0', '2018-06-08', 'Numbered', 'active'),
 (47, '', 'DIVISION LEVEL WINNERS IN THE NESTLE WELLNESS CAMPUS PROGRAM BEST IMPLEMENTING SCHOOL CONTEST FOR SCHOOL YEAR 2021-2022', 'https://drive.google.com/file/d/1uzoNWuZvcUJ8M5ASPbxo0QJUAPzzB1Gz/view?usp=sharing', '90', '2022-03-28', 'Numbered', 'active'),
 (48, '', 'RE-OPENING OF APPLICATION FOR EDUCATION PROGRAM SUPERVISOR', 'https://drive.google.com/file/d/1ppevRBFSQchO0sYD_lH3j04RtY8eV8Jn/view?usp=sharing', '88', '2022-03-29', 'Numbered', 'active'),
 (49, '', 'ENHANCEMENT OF THE CONTINGENCY PLANNING WRITESHOP', 'https://drive.google.com/file/d/1w6gTbc7fj9ToDdKTvZa7TC3AhVIkTvPD/view?usp=sharing', '87', '2022-03-29', 'Numbered', 'active'),
@@ -5581,19 +5590,26 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3001, 'rcrdsdarn0718957', 'LIST OF STUDENTS FROM PUBLIC SCHOOLS IN MANILA WHO WILL BE AFFECTED BY THE RELOCATION TO TRECE MARTICES, CAVITE CITY, FOR INFORMATION AND GUIDANCE', ' https://gofile.me/71xfF/jQZMe82LO', '125', '2023-08-07', 'Circulars', 'active'),
 (3002, 'ictjuan0801325', 'DISSEMINATION OF DEPED ORDER 16, S. 2023 AND ADOPTION OF THE STANDARD INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT) MONITORING TOOLS', ' https://gofile.me/71xfF/tHY7ZDCVo', '391', '2023-08-07', 'Numbered', 'active'),
 (3003, 'sgodsias0803799', 'REGIONAL EDUCATION SUMMIT FOR PRIVATE SCHOOLS', ' https://gofile.me/71xfF/rxza73DgX', '392', '2023-08-07', 'Numbered', 'active'),
-(3004, 'sgodsias0719997', 'CAREER SERVICE EXAMINATION - PEN AND PAPER TEST (CSE-PPT) SUBPROFESSIONAL LEVEL', ' https://gofile.me/71xfF/sQOv1Ih8L', '393', '2023-08-07', 'Numbered', 'active'),
-(3005, 'sgodsias0803936', 'PARTICIPATION IN THE ONLINE VALIDATION OF BASELINE DATA ON THE NON-TEACHING TASKS ASSIGNED TO TEACHERS', ' https://gofile.me/71xfF/u9MX4op1y', '149', '2023-08-07', 'Unnumbered', 'active'),
-(3006, 'cidbren0802797', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 348 s. 2023 (SCHOOL ASSIGNMENTS OF PUBLIC SCHOOLS DISTRICT SUPERVISORS FOR SCHOOL YEARS 2023-2024 AND 2024-2025) AND ADDITIONAL SCHOOL ASSIGNMENTS', ' https://gofile.me/71xfF/zeK5XP5xI', '150', '2023-08-07', 'Unnumbered', 'active'),
-(3007, 'CIDLEA 0802251', 'ALS GRADUATION AND COMPLETION CEREMONY', ' https://gofile.me/71xfF/v8uQ60SMK', '151', '2023-08-07', 'Unnumbered', 'active'),
-(3008, 'sgodeliz0802446', 'ADDENDUM TO DIVISION MEMORANDUM NO. 389, S. 2023 (TRAINING AND PLANNING WORKSHOP ON THE FORMULATION OF THE SCHOOL IMPROVEMENT PLAN (SIP) FOR 2023-2028 USING DEPED\'S STRATEGIC FRAMEWORK AND PILLARS ', ' https://gofile.me/71xfF/4cRpd30Si', '152', '2023-08-07', 'Unnumbered', 'active'),
-(3009, 'cidbren0803330', 'TARA BASA! CAMP LEARNING FACILITATORS\' TRAINING', ' https://gofile.me/71xfF/awCw2A2gj', '394', '2023-08-07', 'Numbered', 'active'),
-(3010, 'cidbren0801239', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 337, s. 2023 (DEVELOPMENT OF GRADES 2 AND 3 MATHEMATICS COMICS)', ' https://gofile.me/71xfF/Ryq4o6RHB', '153', '2023-08-07', 'Unnumbered', 'active'),
-(3011, 'sample123', '123', '123 ', '123', '2023-12-31', 'Numbered', 'active'),
-(3012, '7315022023', 'asd', ' asd', '123', '1222-03-12', 'Numbered', 'active'),
-(3013, '7315022023', '123', ' 123', '123', '2222-03-12', 'Numbered', 'active'),
-(3014, '7315022023', '123', '123 ', '1233', '2023-12-31', 'Numbered', 'active'),
-(3015, '7315022023', '123', ' 1234555', '12345', '2023-09-13', 'Numbered', 'active'),
-(3016, 'asd', 'asd', ' asd', '123', '2023-09-13', 'Unnumbered', 'active');
+(3004, 'sgodsias0719997', 'CAREER SERVICE EXAMINATION - PEN AND PAPER TEST (CSE-PPT) SUBPROFESSIONAL LEVEL', ' https://gofile.me/71xfF/sQOv1Ih8L', '393', '2023-08-07', 'Numbered', 'inactive'),
+(3005, 'sgodsias0803936', 'PARTICIPATION IN THE ONLINE VALIDATION OF BASELINE DATA ON THE NON-TEACHING TASKS ASSIGNED TO TEACHERS', ' https://gofile.me/71xfF/u9MX4op1y', '149', '2023-08-07', 'Unnumbered', 'inactive'),
+(3006, 'cidbren0802797', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 348 s. 2023 (SCHOOL ASSIGNMENTS OF PUBLIC SCHOOLS DISTRICT SUPERVISORS FOR SCHOOL YEARS 2023-2024 AND 2024-2025) AND ADDITIONAL SCHOOL ASSIGNMENTS', ' https://gofile.me/71xfF/zeK5XP5xI', '150', '2023-08-07', 'Unnumbered', 'inactive'),
+(3007, 'CIDLEA 0802251', 'ALS GRADUATION AND COMPLETION CEREMONY', ' https://gofile.me/71xfF/v8uQ60SMK', '151', '2023-08-07', 'Unnumbered', 'inactive'),
+(3008, 'sgodeliz0802446', 'ADDENDUM TO DIVISION MEMORANDUM NO. 389, S. 2023 (TRAINING AND PLANNING WORKSHOP ON THE FORMULATION OF THE SCHOOL IMPROVEMENT PLAN (SIP) FOR 2023-2028 USING DEPED\'S STRATEGIC FRAMEWORK AND PILLARS ', ' https://gofile.me/71xfF/4cRpd30Si', '152', '2023-08-07', 'Unnumbered', 'inactive'),
+(3009, 'cidbren0803330', 'TARA BASA! CAMP LEARNING FACILITATORS\' TRAINING', ' https://gofile.me/71xfF/awCw2A2gj', '394', '2023-08-07', 'Numbered', 'inactive'),
+(3010, 'cidbren0801239', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 337, s. 2023 (DEVELOPMENT OF GRADES 2 AND 3 MATHEMATICS COMICS)', ' https://gofile.me/71xfF/Ryq4o6RHB', '153', '2023-08-07', 'Unnumbered', 'inactive'),
+(3011, 'sample123', '123', '123 ', '123', '2023-12-31', 'Numbered', 'inactive'),
+(3012, '7315022023', 'asd', ' asd', '123', '1222-03-12', 'Numbered', 'inactive'),
+(3013, '7315022023', '123', ' 123', '123', '2222-03-12', 'Numbered', 'inactive'),
+(3014, '7315022023', '123', '123 ', '1233', '2023-12-31', 'Numbered', 'inactive'),
+(3015, '7315022023', '123', ' 1234555', '12345', '2023-09-13', 'Numbered', 'inactive'),
+(3016, 'asds', 'asdasdfghjk', ' asd', '123', '2023-09-13', 'Numbered', 'inactive'),
+(3017, 'asdss', '1', ' 1', '1', '2024-02-06', 'City Memorandum', 'inactive'),
+(3018, 'test12312451234324', '123', ' 123', '12321', '2024-02-06', 'City Memorandum', 'inactive'),
+(3019, 'as', 's', ' s', '123', '2024-02-06', 'Circulars', 'inactive'),
+(3020, 'asdssss', '12345sssssss', ' 1', '1', '2024-02-06', 'Miscellaneous', 'inactive'),
+(3021, 'asda', 'asdasdasdsadsss', ' asd', '123', '2024-02-06', 'Advisories', 'inactive'),
+(3022, 'asss23s asss3asdasd4sxxxs', 'ssssssasdasd\n\n\n', ' ssss', '1', '2024-02-06', 'Unnumbered', 'inactive'),
+(3023, '1', '1', ' 1', '1', '2024-02-07', 'Unnumbered', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -5628,6 +5644,22 @@ CREATE TABLE `jhsschoolsvw` (
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
+,`status` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `materialfilesvw`
+-- (See below for the actual view)
+--
+CREATE TABLE `materialfilesvw` (
+`id` int(11)
+,`type` varchar(50)
+,`title` varchar(200)
+,`link` varchar(200)
+,`department` varchar(20)
+,`date` datetime
 ,`status` varchar(11)
 );
 
@@ -5753,6 +5785,23 @@ CREATE TABLE `officesvw` (
 ,`position` varchar(200)
 ,`post` varchar(50)
 ,`email` varchar(50)
+,`status` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `procurementfilesvw`
+-- (See below for the actual view)
+--
+CREATE TABLE `procurementfilesvw` (
+`id` int(11)
+,`type` varchar(50)
+,`title` varchar(200)
+,`link` varchar(200)
+,`date` datetime
+,`pyear` year(4)
+,`ptype` varchar(20)
 ,`status` varchar(11)
 );
 
@@ -6503,7 +6552,21 @@ INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_t
 (485, 3, 'Added Issuance Numbered', '2023-08-22', '15:53:24', 'active'),
 (486, 3, 'Added Issuance 7315022023', '2023-08-22', '15:53:44', 'active'),
 (487, 3, 'Added Issuance 7315022023', '2023-09-13', '10:47:15', 'active'),
-(488, 3, 'Added Issuance asd', '2023-09-13', '11:07:04', 'active');
+(488, 3, 'Added Issuance asd', '2023-09-13', '11:07:04', 'active'),
+(489, 3, 'Added Issuance asd', '2024-02-06', '14:27:56', 'active'),
+(490, 3, 'Added Issuance test12312451234324', '2024-02-06', '14:28:07', 'active'),
+(491, 3, 'Added Issuance as', '2024-02-06', '14:28:41', 'active'),
+(492, 3, 'Added Issuance asd', '2024-02-06', '14:28:49', 'active'),
+(493, 3, 'Added Issuance asda', '2024-02-06', '15:27:27', 'active'),
+(494, 3, 'Added Issuance s', '2024-02-06', '15:32:29', 'active'),
+(495, 3, 'Added Issuance 1', '2024-02-07', '11:43:10', 'active'),
+(500, 3, 'Edited Issuance cidbren08027971', '2024-02-07', '14:19:33', 'active'),
+(501, 3, 'Edited Issuance cidbren0802797', '2024-02-07', '14:20:24', 'active'),
+(502, 3, 'Deleted Issuance ', '2024-02-07', '14:21:30', 'active'),
+(503, 3, 'Deleted Issuance sgodsias0803936', '2024-02-07', '14:22:31', 'active'),
+(504, 3, 'Edited Issuance sgodsias0719997s', '2024-02-07', '15:17:38', 'active'),
+(505, 3, 'Edited Issuance sgodsias0719997', '2024-02-07', '15:17:41', 'active'),
+(506, 3, 'Deleted Issuance sgodsias0719997', '2024-02-07', '15:25:13', 'active');
 
 -- --------------------------------------------------------
 
@@ -6561,12 +6624,12 @@ CREATE TABLE `userstbl` (
 --
 
 INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_status`) VALUES
-(1, 'ict-michael', 'michaelangelo.serban@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(2, 'ict-keng', 'michael.espinosa0@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(3, 'ict-jon', 'jon.raguini@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(4, 'ict-kev', 'kevin.flogen@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(5, 'ict-jc', 'juancarlos.sarmiento@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(10, 'ict-trainee', 'trainee@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'trainee', 'active');
+(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
+(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
+(3, 'ict jon', 'jon.raguini@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
+(4, 'ict kev', 'kevin.flogen@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'admin', 'active'),
+(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
+(10, 'ict trainee', 'trainee@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'trainee', 'active');
 
 -- --------------------------------------------------------
 
@@ -6644,7 +6707,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `filesvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `filesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_publishDate` AS `publish_date`, `filestbl`.`file_closingDate` AS `closing_date`, `filestbl`.`file_awardedTo` AS `awarded_to`, `filestbl`.`file_referenceNum` AS `reference_number`, `filestbl`.`file_procurementMode` AS `procurement_mode`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `filesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_department` AS `department`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_publishDate` AS `publish_date`, `filestbl`.`file_closingDate` AS `closing_date`, `filestbl`.`file_awardedTo` AS `awarded_to`, `filestbl`.`file_referenceNum` AS `reference_number`, `filestbl`.`file_procurementMode` AS `procurement_mode`, `filestbl`.`file_procurementYear` AS `procurement_year`, `filestbl`.`file_procurementType` AS `procurement_type`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6676,11 +6739,29 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `materialfilesvw`
+--
+DROP TABLE IF EXISTS `materialfilesvw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `materialfilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_department` AS `department`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'material' AND `filestbl`.`file_status` = 'active' ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `officesvw`
 --
 DROP TABLE IF EXISTS `officesvw`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `officesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_post` AS `post`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM `officestbl` WHERE `officestbl`.`employee_status` = 'active' ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `procurementfilesvw`
+--
+DROP TABLE IF EXISTS `procurementfilesvw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `procurementfilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_procurementYear` AS `pyear`, `filestbl`.`file_procurementType` AS `ptype`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'procurement' AND `filestbl`.`file_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6821,55 +6902,55 @@ ALTER TABLE `userstbl`
 -- AUTO_INCREMENT for table `dailyvisitstbl`
 --
 ALTER TABLE `dailyvisitstbl`
-  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2553;
+  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
 --
 ALTER TABLE `imagestbl`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3017;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
 --
 ALTER TABLE `officestbl`
-  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `schoolstbl`
 --
 ALTER TABLE `schoolstbl`
-  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `socialmediatbl`
 --
 ALTER TABLE `socialmediatbl`
-  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=489;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- AUTO_INCREMENT for table `userstbl`
 --
 ALTER TABLE `userstbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 --
 -- Constraints for dumped tables

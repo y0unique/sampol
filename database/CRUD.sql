@@ -489,4 +489,4 @@ SELECT
     issuances_type AS "type",
     issuances_type_name AS "name",
     issuances_status AS "status"
-FROM issuancestbl WHERE issuances_status = 'active';
+FROM issuancescategorytbl WHERE issuances_status = 'active';

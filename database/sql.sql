@@ -10,6 +10,7 @@ CREATE TABLE userstbl(
     user_email varchar(50) NOT NULL,
     user_password varchar(50) NOT NULL,
     user_type varchar(20) NOT NULL,
+    user_profile longtext NOT NULL,
     user_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -85,8 +86,8 @@ CREATE TABLE issuancestbl(
 --TABLE FOR IMAGES
 CREATE TABLE imagestbl(
     image_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    image_name varchar(20) NOT NULL,
-    image_title varchar(20) NOT NULL,
+    image_name longtext NOT NULL,
+    image_title varchar(100) NOT NULL,
     image_description varchar(200) NOT NULL,
     image_type varchar(20) NOT NULL,
     image_status varchar(11) NOT NULL DEFAULT 'active'

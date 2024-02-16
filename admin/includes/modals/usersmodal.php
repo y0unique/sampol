@@ -86,6 +86,9 @@
                             <input class="form-control" type="email" id="_user_email" name="user_email">
                         </div>
                     </div>
+                    
+                    <?php
+                    if($_SESSION['webType']== "superadmin"){?>
                     <div class="mb-3 row">
                         <label for="addUserField" class="col-md-3 form-label">User Type:</label>
                         <div class="col-md-9">
@@ -98,6 +101,8 @@
                             </select>
                         </div>
                     </div>
+                    
+                    <?php }?>
                     <div class="mb-3 row">
                         <label for="editUserField" class="col-md-3 form-label">Password:</label>
                         <div class="col-md-9">
