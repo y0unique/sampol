@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2024 at 09:32 AM
+-- Generation Time: Feb 13, 2024 at 03:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -2801,9 +2801,9 @@ CREATE TABLE `highschoolsvw` (
 
 CREATE TABLE `imagestbl` (
   `image_id` int(11) NOT NULL,
-  `image_name` varchar(20) NOT NULL,
-  `image_title` varchar(20) NOT NULL,
-  `image_description` varchar(50) NOT NULL,
+  `image_name` longtext NOT NULL,
+  `image_title` varchar(100) NOT NULL,
+  `image_description` varchar(200) NOT NULL,
   `image_type` varchar(11) NOT NULL,
   `image_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -2821,6 +2821,45 @@ INSERT INTO `imagestbl` (`image_id`, `image_name`, `image_title`, `image_descrip
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `issuancescategorytbl`
+--
+
+CREATE TABLE `issuancescategorytbl` (
+  `issuances_type` varchar(20) NOT NULL,
+  `issuances_type_name` varchar(50) NOT NULL,
+  `issuances_status` varchar(11) NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `issuancescategorytbl`
+--
+
+INSERT INTO `issuancescategorytbl` (`issuances_type`, `issuances_type_name`, `issuances_status`) VALUES
+('Advisories', 'Division Advisories', 'active'),
+('Circulars', 'Division Letters / Circulars', 'active'),
+('City Memorandum', 'City Memorandum', 'active'),
+('Miscellaneous', 'Miscellaneous', 'active'),
+('Notices', 'Notices', 'active'),
+('Numbered', 'Numbered Memo', 'active'),
+('Office Memorandum', 'Office Memorandum', 'active'),
+('Office Order', 'Office Order', 'active'),
+('Unnumbered', 'Unnumbered Memo', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `issuancescategoryvw`
+-- (See below for the actual view)
+--
+CREATE TABLE `issuancescategoryvw` (
+`type` varchar(20)
+,`name` varchar(50)
+,`status` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `issuancestbl`
 --
 
@@ -2828,7 +2867,7 @@ CREATE TABLE `issuancestbl` (
   `issuances_id` int(11) NOT NULL,
   `tracking_number` varchar(50) NOT NULL,
   `issuances_title` varchar(200) NOT NULL,
-  `issuances_link` varchar(200) NOT NULL,
+  `issuances_link` longtext NOT NULL,
   `issuances_number` varchar(20) NOT NULL,
   `issuances_date` date NOT NULL,
   `issuances_type` varchar(20) NOT NULL,
@@ -5512,7 +5551,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (2919, 'hlthjen0713239', 'PROFESSIONAL MEETING AND OATH-TAKING OF THE NEWLY ELECTED OFFICERS', ' https://gofile.me/71xfF/vKaXJ8wKM', '140', '2023-07-14', 'Unnumbered', 'active'),
 (2920, 'cidbren0712422', 'PRACTICE FOR ALS GRADUATION AND COMPLETION CEREMONY', ' https://gofile.me/71xfF/Ljb4sU7wn', '353', '2023-07-14', 'Numbered', 'active'),
 (2921, 'rcrdsmari0613915', 'PHILIPPINE STAR\'S LEARNING EXPERIENCE ACQUIRED THROUGH READING NEWSPAPERS (LEARN)', ' https://gofile.me/71xfF/Qa3BormgI', '121', '2023-07-14', 'Circulars', 'active'),
-(2922, 'sgodsias0714227', 'REQUEST FOR THE INFORMATION OF MEMBERS OF THE CHILD PROTECTION COMMITTEE (CPC) IN SCHOOLS', ' https://gofile.me/71xfF/IIWJTnDEO', '354', '2023-07-17', 'Numbered', 'active'),
+(2922, 'sgodsias0714227', 'REQUEST FOR THE INFORMATION OF MEMBERS OF THE CHILD PROTECTION COMMITTEE (CPC) IN SCHOOLS', 'https://gofile.me/71xfF/IIWJTnDEO', '354', '2023-07-17', 'Numbered', 'active'),
 (2923, 'sgodsias0713234', 'REQUEST FOR THE CONSOLIDATED REPORTS OF LEARNER RIGHTS AND PROTECTION CASES', ' https://gofile.me/71xfF/73nHLjyf7', '355', '2023-07-17', 'Numbered', 'active'),
 (2924, 'sgodsias0711672', 'DIVISION GUIDELINES ON THE SUBMISSION OF SCHOOL FORMS FOR END OF SCHOOL YEAR (EOSY) 2022 - 2023 AND OTHER RELATED REPORTS', ' https://gofile.me/71xfF/3RHt55wNS', '359', '2023-07-17', 'Numbered', 'active'),
 (2925, 'cidchar0713969', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 348, S. 2023 (SCHOOL ASSIGNMENTS OF PUBLIC SCHOOLS DISTRICT SUPERVISORS FOR SCHOOL YEARS 2023-2024 AND 2024-2025)', ' https://gofile.me/71xfF/8TV8vDPzw', '141', '2023-07-17', 'Unnumbered', 'active'),
@@ -5602,10 +5641,10 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3013, '7315022023', '123', ' 123', '123', '2222-03-12', 'Numbered', 'inactive'),
 (3014, '7315022023', '123', '123 ', '1233', '2023-12-31', 'Numbered', 'inactive'),
 (3015, '7315022023', '123', ' 1234555', '12345', '2023-09-13', 'Numbered', 'inactive'),
-(3016, 'asds', 'asdasdfghjk', ' asd', '123', '2023-09-13', 'Numbered', 'inactive'),
-(3017, 'asdss', '1', ' 1', '1', '2024-02-06', 'City Memorandum', 'inactive'),
-(3018, 'test12312451234324', '123', ' 123', '12321', '2024-02-06', 'City Memorandum', 'inactive'),
-(3019, 'as', 's', ' s', '123', '2024-02-06', 'Circulars', 'inactive'),
+(3016, 'asds', 'asdasdfghjk', 'asd', '123', '2023-09-13', 'Numbered', 'inactive'),
+(3017, 'asdss', '1', '1', '1', '2024-02-06', 'City Memorandum', 'inactive'),
+(3018, 'test12312451234324', '123', '123', '12321', '2024-02-06', 'City Memorandum', 'inactive'),
+(3019, 'as', 's', 's', '123', '2024-02-06', 'Circulars', 'inactive'),
 (3020, 'asdssss', '12345sssssss', ' 1', '1', '2024-02-06', 'Miscellaneous', 'inactive'),
 (3021, 'asda', 'asdasdasdsadsss', ' asd', '123', '2024-02-06', 'Advisories', 'inactive'),
 (3022, 'asss23s asss3asdasd4sxxxs', 'ssssssasdasd\n\n\n', ' ssss', '1', '2024-02-06', 'Unnumbered', 'inactive'),
@@ -5621,7 +5660,7 @@ CREATE TABLE `issuancesvw` (
 `id` int(11)
 ,`tracking_number` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`number` varchar(20)
 ,`date` date
 ,`type` varchar(20)
@@ -6721,6 +6760,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `issuancescategoryvw`
+--
+DROP TABLE IF EXISTS `issuancescategoryvw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `issuancescategoryvw`  AS SELECT `issuancescategorytbl`.`issuances_type` AS `type`, `issuancescategorytbl`.`issuances_type_name` AS `name`, `issuancescategorytbl`.`issuances_status` AS `status` FROM `issuancescategorytbl` WHERE `issuancescategorytbl`.`issuances_status` = 'active' ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `issuancesvw`
 --
 DROP TABLE IF EXISTS `issuancesvw`;
@@ -6858,10 +6906,17 @@ ALTER TABLE `imagestbl`
   ADD PRIMARY KEY (`image_id`);
 
 --
+-- Indexes for table `issuancescategorytbl`
+--
+ALTER TABLE `issuancescategorytbl`
+  ADD PRIMARY KEY (`issuances_type`);
+
+--
 -- Indexes for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  ADD PRIMARY KEY (`issuances_id`);
+  ADD PRIMARY KEY (`issuances_id`),
+  ADD KEY `issuestbl_issuances_typeFK` (`issuances_type`);
 
 --
 -- Indexes for table `officestbl`
@@ -6955,6 +7010,12 @@ ALTER TABLE `userstbl`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `issuancestbl`
+--
+ALTER TABLE `issuancestbl`
+  ADD CONSTRAINT `issuestbl_issuances_typeFK` FOREIGN KEY (`issuances_type`) REFERENCES `issuancescategorytbl` (`issuances_type`);
 
 --
 -- Constraints for table `timelogtbl`

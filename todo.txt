@@ -1,10 +1,13 @@
-schools modal
-schools code
-schools fetch
+offices, fetch, code, modals
+add to database picture and type of employee
 --
 users
 edit password
 add to database profile picture
+--
+miscelaneous
+carousel
+social media
 --
 topbar add the modals for settings
 add the activity log for each user
