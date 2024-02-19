@@ -62,9 +62,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Division of City Schools:</h6>
                 <a class="collapse-item" id="aOffices" href="offices">Offices</a>
-                <a class="collapse-item" id="aOSDS" href="osds">OSDS</a>
-                <a class="collapse-item" id="aCID" href="cid">CID</a>
-                <a class="collapse-item" id="aSGOD" href="sgod">SGOD</a>
+                <a class="collapse-item" id="aOSDS" href="osds">osds</a>
+                <a class="collapse-item" id="aCID" href="cid">cid</a>
+                <a class="collapse-item" id="aSGOD" href="sgod">sgod</a>
             </div>
         </div>
     </li>

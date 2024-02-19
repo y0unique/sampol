@@ -490,3 +490,34 @@ SELECT
     issuances_type_name AS "name",
     issuances_status AS "status"
 FROM issuancescategorytbl WHERE issuances_status = 'active';
+
+CREATE VIEW departmentsVW AS
+SELECT
+    department_id AS "id",
+    department_name AS "name",
+    department_contact AS "contact",
+    department_email AS "email",
+    department_status AS "status"
+FROM departmentstbl WHERE department_status = 'active';
+--adds a unique index to the user_username column in usertbl, if it
+--already exists, it will be dropped and recreated
+ALTER TABLE userstbl ADD UNIQUE INDEX user_username (user_username);
+
+
+
+ALTER VIEW OfficesVW AS
+SELECT
+    offices_id AS "id",
+    department_name AS "department",
+    employee_name AS "name",
+    employee_picture AS "picture",
+    employee_office AS "office",
+    employee_position AS "position",
+    employee_post AS "post",
+    employee_type AS "type",
+    employee_email AS "email",
+    employee_status AS "status"
+FROM officestbl
+INNER JOIN departmentstbl ON
+officestbl.department_id = departmentstbl.department_id
+WHERE employee_status = 'active';

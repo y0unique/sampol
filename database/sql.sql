@@ -52,15 +52,28 @@ CREATE TABLE schoolstbl(
     school_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
+--TABLE FOR DEPARTMENTS
+CREATE TABLE departmentstbl(
+    department_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    department_name varchar(100) NOT NULL,
+    department_contact varchar(30) NOT NULL,
+    department_email varchar(50) NOT NULL,
+    department_status varchar(11) NOT NULL DEFAULT 'active'
+);
+
 --TABLE FOR OFFICES
 CREATE TABLE officestbl(
     offices_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    department_id int(11) NOT NULL,
     employee_name varchar(50) NOT NULL,
+    employee_picture longtext NOT NULL,
     employee_office varchar(100) NOT NULL,
     employee_position varchar(200) NOT NULL,
     employee_post varchar(50) NOT NULL,
+    employee_type varchar(100) NOT NULL,
     employee_email varchar(50) NOT NULL,
-    employee_status varchar(11) NOT NULL DEFAULT 'active'
+    employee_status varchar(11) NOT NULL DEFAULT 'active',
+    CONSTRAINT officestbl_department_idFK FOREIGN KEY (department_id) REFERENCES departmentstbl(department_id)
 );
 
 --TABLE FOR ISSUANCES CATEGORY
