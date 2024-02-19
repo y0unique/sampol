@@ -125,15 +125,73 @@
           'target':[0,11],
           'orderable' :false
         }]
-      });
-    } );
+        });
+    });
+
+    //add school
+    $(document).on('submit','#addSchool',function(e){
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var school_id = $('#school_id').val();
+        var school_district = $('#school_district').val();
+        var school_name = $('#school_name').val();
+        var school_principal = $('#school_principal').val();
+        var school_address = $('#school_address').val();
+        var school_contact = $('#school_contact').val();
+        var school_email = $('#school_email').val();
+        var school_link = $('#school_link').val();
+        var school_type = $('#school_type').val();
+        var school_shsAvailability = $('#school_shsAvailability').val();
+        var school_spedAvailablity = $('#school_spedAvailablity').val();
+
+        if(school_id != '' && school_district != '' && school_name != ''&& school_principal != '' && school_address != '' && school_contact != '' && school_email != '' && school_link != '' && school_type != '' && school_shsAvailability != '' && school_spedAvailablity != ''){
+            $.ajax({
+                url:"includes/codes/schoolscode.php",
+                type:"post",
+                data:
+                {
+                    webID:webID,
+                    webUsername:webUsername,
+                    school_id:school_id,
+                    school_district:school_district,
+                    school_name:school_name,
+                    school_principal:school_principal,
+                    school_address:school_address,
+                    school_contact:school_contact,
+                    school_email:school_email,
+                    school_link:school_link,
+                    school_type:school_type,
+                    school_shsAvailability:school_shsAvailability,
+                    school_spedAvailablity:school_spedAvailablity,
+                    add: true
+                },
+                success:function(data){
+                    var json = JSON.parse(data);
+                    var addSchoolStatus = json.addSchoolStatus;
+                    if(addSchoolStatus == 'true'){
+                        mytable =$('#schoolTable').DataTable();
+                        mytable.draw();
+                        $('#addSchoolModal').modal('hide');
+                        $('#addSchool')[0].reset();
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.success(json.message);
+                    }else{
+                        alert('failed');
+                    }
+                }
+            });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
 
     //view schools for edit modal
     $('#schoolTable').on('click', '.editschoolbtn ', function(event) {
         var table = $('#schoolTable').DataTable();
         var trid = $(this).closest('tr').attr('id');
         var id = $(this).data('id');
-        $('#editSchoolsModal').modal('show');
+        $('#editSchoolModal').modal('show');
 
         $.ajax({
         url: "includes/codes/schoolscode.php",
@@ -163,6 +221,165 @@
         })
     });
 
+    //edit Schools
+    $(document).on('submit', '#editSchool', function(e) {
+        e.preventDefault();;
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var school_id = $('#_school_id').val();
+        var school_district = $('#_school_district').val();
+        var school_name = $('#_school_name').val();
+        var school_principal = $('#_school_principal').val();
+        var school_address = $('#_school_address').val();
+        var school_contact = $('#_school_contact').val();
+        var school_email = $('#_school_email').val();
+        var school_link = $('#_school_link').val();
+        var school_type = $('#_school_type').val();
+        var school_shsAvailability = $('#_school_shsAvailability').val();
+        var school_spedAvailablity = $('#_school_spedAvailablity').val();
+        var id = $('#_id').val();
+        var trid = $('#_trid').val();
+        if(school_id != '' && school_district != '' && school_name != ''&& school_principal != '' && school_address != '' && school_contact != '' && school_email != '' && school_link != '' && school_type != '' && school_shsAvailability != '' && school_spedAvailablity != ''){
+        $.ajax({
+            url: "includes/codes/schoolscode.php",
+            type: "post",
+            data: {
+                id:id,
+                webID:webID,
+                webUsername:webUsername,
+                school_id:school_id,
+                school_district:school_district,
+                school_name:school_name,
+                school_principal:school_principal,
+                school_address:school_address,
+                school_contact:school_contact,
+                school_email:school_email,
+                school_link:school_link,
+                school_type:school_type,
+                school_shsAvailability:school_shsAvailability,
+                school_spedAvailablity:school_spedAvailablity,
+                update: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var editSchoolStatus = json.editSchoolStatus;
+                if (editSchoolStatus == 'true') {
+                    $('#schoolTable').DataTable().destroy();
+                    mytable = $('#schoolTable').DataTable({
+                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                            $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide': 'true',
+                        'processing': 'true',
+                        'paging': 'true',
+                        'order': [],
+                        'ajax': {
+                            'url': 'includes/fetchdata/schoolsfetch.php',
+                            'type': 'post',
+                        },
+                        "columnDefs": [{
+                            'target': [0, 6],
+                            'orderable': false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.success(json.message);
+                    $('#editSchoolModal').modal('hide');
+                } else {
+                    alert('failed');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
+    //view school for delete modal
+    $('#schoolTable').on('click', '.deleteschoolbtn ', function(event) {
+        var table = $('#schoolTable').DataTable();
+        var id = $(this).data('id');
+        var trid = $(this).closest('tr').attr('id');
+        $('#deleteSchoolsModal').modal('show');
+
+        $.ajax({
+        url: "includes/codes/schoolscode.php",
+        data: {
+            id: id,
+            deleteview: true
+        },
+        type: 'post',
+        success: function(data) {
+            var json = JSON.parse(data);
+
+            $('#_school_id_').val(json.id);
+            $('#_school_name_').val(json.name);
+            $('#_status_').val(json.status);
+            $('#_id_').val(id);
+            $('#_trid_').val(trid);
+        }
+        })
+    });
+
+    //delete School
+    $(document).on('submit', '#deleteSchools', function(e) {
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var school_id = $('#_school_id_').val();
+        var school_name = $('#_school_name_').val();
+        var status= $('#_status_').val();
+        var id = $('#_id_').val();
+        var trid = $('#_trid_').val();
+        if (school_id != '' && school_name != '') {
+        $.ajax({
+            url: "includes/codes/schoolscode.php",
+            type: "post",
+            data: {
+                id:id,
+                webID:webID,
+                webUsername:webUsername,
+                school_id:school_id,
+                school_name:school_name,
+                status:status,
+                delete: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var deleteSchoolStatus = json.deleteSchoolStatus;
+                if (deleteSchoolStatus == 'true') {
+                    $('#schoolTable').DataTable().destroy();
+                    mytable = $('#schoolTable').DataTable({
+                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                            $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide': 'true',
+                        'processing': 'true',
+                        'paging': 'true',
+                        'order': [],
+                        'ajax': {
+                            'url': 'includes/fetchdata/schoolsfetch.php',
+                            'type': 'post',
+                        },
+                        "columnDefs": [{
+                            'target': [0, 6],
+                            'orderable': false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.defaults.notifier.classes = 'custom-notifier';
+                    alertify.success(json.message);
+                    $('#deleteSchoolsModal').modal('hide');
+                } else {
+                    alert('Error communicating with the database');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
 
 
     //clear modal add
@@ -174,7 +391,7 @@
         $('#editSchool')[0].reset();
     });
     //clear modal delete
-    $('#deleteSchoolModal').on('hidden.bs.modal', function() {
+    $('#deleteSchoolsModal').on('hidden.bs.modal', function() {
         $('#deleteschool')[0].reset();
     });
 </script>
