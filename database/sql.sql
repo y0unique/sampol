@@ -18,10 +18,10 @@ CREATE TABLE userstbl(
 CREATE TABLE timelogtbl(
     time_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id int(11) NOT NULL,
-    log_action varchar(100) NOT NULL,
+    log_action longtext NOT NULL,
     log_date date NOT NULL,
     log_time time NOT NULL,
-    time_status varchar(11) NOT NULL DEFAULT 'active',
+    log_status varchar(11) NOT NULL DEFAULT 'active',
     CONSTRAINT timelogtbl_user_idFK	FOREIGN KEY (user_id) REFERENCES userstbl(user_id)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE schoolstbl(
 
 --TABLE FOR DEPARTMENTS
 CREATE TABLE departmentstbl(
-    department_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    department_id varchar(20) NOT NULL PRIMARY KEY,
     department_name varchar(100) NOT NULL,
     department_contact varchar(30) NOT NULL,
     department_email varchar(50) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE departmentstbl(
 --TABLE FOR OFFICES
 CREATE TABLE officestbl(
     offices_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    department_id int(11) NOT NULL,
+    department_id varchar(20) NOT NULL,
     employee_name varchar(50) NOT NULL,
     employee_picture longtext NOT NULL,
     employee_office varchar(100) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE officestbl(
 --TABLE FOR ISSUANCES CATEGORY
 CREATE TABLE issuancescategorytbl(
     issuances_type varchar(20) NOT NULL PRIMARY KEY,
-    issuances_type_name varchar(20) NOT NULL,
+    issuances_type_name varchar(50) NOT NULL,
     issuances_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -113,14 +113,14 @@ CREATE TABLE filestbl(
     file_title varchar(200) NOT NULL,
     file_link longtext NOT NULL,
     file_date datetime NOT NULL DEFAULT current_timestamp(),
-    file_procurementYear year NULL,
-    file_procurementType varchar(10) NULL,
     file_department varchar(20) NULL,
     file_publishDate date NULL,
     file_closingDate date NULL,
     file_awardedTo varchar(200) NULL,
     file_referenceNum varchar(20) NULL,
-    file_procurementMode varchar(20) NULL,
+    file_procurementMode varchar(50) NULL,
+    file_procurementYear year NULL,
+    file_procurementType varchar(10) NULL,
     file_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -136,3 +136,44 @@ CREATE TABLE dailyvisitstbl(
 --DUMPING DATA INTO TABLES 
 --CREATING VIEWS
 
+--carouselvw
+CREATE VIEW carouselVW AS
+SELECT
+    image_id AS "id",
+    image_name AS "name",
+    image_title AS "title",
+    image_description AS "description",
+    image_type AS "type",
+    image_status AS "status"
+FROM imagestbl WHERE image_type = 'carousel' AND image_status = 'active';
+
+--dailyVisitorsVW
+CREATE VIEW dailyVisitorsVW AS
+SELECT
+    daily_visitors_ip_address AS "ip address",
+    daily_visitors_visit_date AS "date",
+	daily_visitors_visit_status AS "status"
+FROM dailyvisitstbl WHERE daily_visitors_visit_status = 'active';
+
+--departmentsvw
+CREATE VIEW departmentsVW AS
+SELECT
+    department_id AS "id",
+    department_name AS "name",
+    department_contact AS "contact",
+    department_email AS "email",
+    department_status AS "status"
+FROM departmentstbl WHERE department_status = 'active';
+
+--downloadableFilesVW
+CREATE VIEW downloadableFilesVW AS
+SELECT
+    file_id AS "id",
+    file_type AS "type",
+    file_title AS "title",
+    file_link AS "link",
+    file_date AS "date",
+    file_status AS "status"
+FROM filestbl WHERE file_type = 'downloadable' AND file_status = 'active';
+
+--
