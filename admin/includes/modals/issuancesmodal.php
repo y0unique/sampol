@@ -49,7 +49,7 @@
                     <div class="mb-3 row">
                         <label for="addIssuanceField" class="col-md-2 form-label">Issuance Number:</label>
                         <div class="col-md-4">
-                            <input class="form-control" type="number" id="issuances_number" name="issuances_number">
+                            <input class="form-control" id="issuances_number" name="issuances_number">
                         </div>
 
                         <label for="addIssuanceField" class="col-md-2 form-label">Memo Date:</label>
@@ -69,7 +69,12 @@
         </div>
     </div>
 </div>
-
+<script>
+    document.getElementById('issuances_number').addEventListener('input', function () {
+        // Allow only numbers (0-9) backspace and dash and plus
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);
+    });
+</script>
 <!-- Edit Issuances Modal class="modal fade d-block" -->
 <div class="modal fade" id="editIssuancesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -94,18 +99,16 @@
 
                         <label for="editIssuanceField" class="col-md-2 form-label">Issuance Type:</label>
                         <div class="col-md-4">
-                            <select class="form-control" id="_issuances_type" name="issuances_type" required>
+                             <select class="form-control" id="_issuances_type" name="issuances_type" required>
                                 <option disabled selected hidden></option>
-                                <option value="Numbered"> Numbered Memo </option>
-                                <option value="Unnumbered"> Unnumbered Memo </option>
-                                <option value="Advisories"> Division Advisories </option>
-                                <option value="Circulars"> Division Letters / Circulars </option>
-                                <option value="Miscellaneous"> Miscellaneous </option>
-                                <option value="Notices"> Notices </option>
-                                <option value="Office Memorandum"> Office Memorandum </option>
-                                <option value="Office Order"> Office Order </option>
-                                <option value="City Memorandum"> City Memorandum </option>
-                             </select>
+                                <?php
+                                    $sql = "SELECT * FROM issuancescategoryvw";
+                                    $result = mysqli_query($con, $sql);
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<option value='".$row['type']."'>".$row['name']."</option>";
+                                    }
+                                ?>
+                            </select>
                         </div>
 
                     </div>
@@ -127,7 +130,7 @@
                     <div class="mb-3 row">
                         <label for="editIssuanceField" class="col-md-2 form-label">Issuance Number:</label>
                         <div class="col-md-4">
-                            <input class="form-control" type="number" id="_issuances_number" name="issuances_number">
+                            <input class="form-control" id="_issuances_number" name="issuances_number">
                         </div>
 
                         <label for="editIssuanceField" class="col-md-2 form-label">Memo Date:</label>
@@ -147,7 +150,12 @@
         </div>
     </div>
 </div>
-
+<script>
+    document.getElementById('_issuances_number').addEventListener('input', function () {
+        // Allow only numbers (0-9) backspace and dash and plus
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);
+    });
+</script>
 <!-- Delete Issuances Modal class="modal fade d-block" -->
 <div class="modal fade" id="deleteIssuancesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-sm">
