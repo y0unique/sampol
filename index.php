@@ -10,16 +10,16 @@
         <meta name="keywords"    content="DepEd, Manila, Schools Division, Division of City Schools, Website of DepEd Manila, Official Website" />
         <meta name="author"      content="zeraphm"  />
         <!-- favicon -->
-        <link rel="shortcut icon" href="user/images/logo/DepEd_logo.png">
+        <link rel="shortcut icon" href="home/images/logo/DepEd_logo.png">
         <!-- Magnific -->
-        <link href="user/css/magnific-popup.css" rel="stylesheet" type="text/css" />
+        <link href="home/css/magnific-popup.css" rel="stylesheet" type="text/css" />
         <!-- css -->
-        <link href="user/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="user/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="user/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="home/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="home/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="home/css/style.css" rel="stylesheet" type="text/css" />
         <!-- Slider -->        
-        <link rel="stylesheet" href="user/css/slick-theme.css"/>
-        <link rel="stylesheet" href="user/css/slick.css"/>
+        <link rel="stylesheet" href="home/css/slick-theme.css"/>
+        <link rel="stylesheet" href="home/css/slick.css"/>
 
     </head>
 
@@ -27,7 +27,7 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-custom navbar-light sticky">
     		<div class="container">
-			    <a class="navbar-brand" href="#">Orayo</a>
+			    <a class="navbar-brand" href="index">deped manila</a>
 			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			        <span class="mdi mdi-menu"></span>
 			    </button><!--end button-->
@@ -242,7 +242,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/marketing.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/marketing.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -263,7 +263,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/crm.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/crm.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -284,7 +284,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/apps.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/apps.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -305,7 +305,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/intellegent.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/intellegent.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -326,7 +326,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/engine.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/engine.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -347,7 +347,7 @@
                                         </div><!--end col-->
 
                                         <div class="col-md-6 mt-4 pt-2">
-                                            <img src="user/images/feature/time.svg" class="img-fluid d-block mx-auto" alt="">
+                                            <img src="home/images/feature/time.svg" class="img-fluid d-block mx-auto" alt="">
                                         </div><!--end col-->
                                     </div><!--end row-->
                                 </div>
@@ -490,7 +490,7 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="team-detail bg-light rounded text-center p-3 pb-4">
                             <div class="image position-relative">
-                                <img src="user/images/team/01.jpg" class="avatar avatar-medium rounded-pill" alt="">
+                                <img src="home/images/team/01.jpg" class="avatar avatar-medium rounded-pill" alt="">
                             </div><!--end image-->
                             <div class="content mt-3">
                                 <h4 class="name mb-0">Johnny Bairstow</h4>
@@ -509,7 +509,7 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="team-detail bg-light rounded text-center p-3 pb-4">
                             <div class="image position-relative">
-                                <img src="user/images/team/02.jpg" class="avatar avatar-medium rounded-pill" alt="">
+                                <img src="home/images/team/02.jpg" class="avatar avatar-medium rounded-pill" alt="">
                             </div><!--end image-->
                             <div class="content mt-3">
                                 <h4 class="name mb-0">Sarah Murli</h4>
@@ -528,7 +528,7 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="team-detail bg-light rounded text-center p-3 pb-4">
                             <div class="image position-relative">
-                                <img src="user/images/team/03.jpg" class="avatar avatar-medium rounded-pill" alt="">
+                                <img src="home/images/team/03.jpg" class="avatar avatar-medium rounded-pill" alt="">
                             </div><!--end image-->
                             <div class="content mt-3">
                                 <h4 class="name mb-0">Eion Morgan</h4>
@@ -547,7 +547,7 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="team-detail bg-light rounded text-center p-3 pb-4">
                             <div class="image position-relative">
-                                <img src="user/images/team/04.jpg" class="avatar avatar-medium rounded-pill" alt="">
+                                <img src="home/images/team/04.jpg" class="avatar avatar-medium rounded-pill" alt="">
                             </div><!--end image-->
                             <div class="content mt-3">
                                 <h4 class="name mb-0">Rambha Godse</h4>
@@ -598,9 +598,9 @@
                 <div class="portfolioContainer row">
                     <div class="col-lg-3 col-md-6 p-0 apps">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/01.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/01.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/01.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/01.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -614,9 +614,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 ui">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/02.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/02.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/02.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/02.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -630,9 +630,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 illus">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/03.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/03.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/03.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/03.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -646,9 +646,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 brand">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/04.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/04.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/04.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/04.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -662,9 +662,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 apps">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/05.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/05.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/05.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/05.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -678,9 +678,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 ui brand">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/06.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/06.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/06.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/06.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -694,9 +694,9 @@
                     
                     <div class="col-lg-3 col-md-6 p-0 illus">
                         <div class="portfolio-box position-relative overflow-hidden mt-0 mb-0">                                
-                            <a class="mfp-image" href="user/images/project/07.jpg" title="Project Name">
+                            <a class="mfp-image" href="home/images/project/07.jpg" title="Project Name">
                                 <div class="work-img position-relative overflow-hidden">
-                                    <img src="user/images/project/07.jpg" class="img-fluid" alt="work-image">
+                                    <img src="home/images/project/07.jpg" class="img-fluid" alt="work-image">
                                     <div class="work-detail">
                                         <div class="content">
                                             <h5 class="text-light title mb-0">Project Title</h5>
@@ -739,7 +739,7 @@
                             </div>
                             <div class="name-content text-center mt-4 pt-2">
                                 <div class="image">
-                                    <img src="user/images/testi/01.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
+                                    <img src="home/images/testi/01.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
                                 </div>
                                 <div class="content pt-3">
                                     <h4 class="name mb-0 text-uppercase">Bert Woods</h4>
@@ -757,7 +757,7 @@
                             </div>
                             <div class="name-content text-center mt-4 pt-2">
                                 <div class="image">
-                                    <img src="user/images/testi/02.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
+                                    <img src="home/images/testi/02.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
                                 </div>
                                 <div class="content pt-3">
                                     <h4 class="name mb-0 text-uppercase">Asthama Rohi</h4>
@@ -775,7 +775,7 @@
                             </div>
                             <div class="name-content text-center mt-4 pt-2">
                                 <div class="image">
-                                    <img src="user/images/testi/03.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
+                                    <img src="home/images/testi/03.jpg" class="avatar avatar-small rounded-pill shadow" alt="">
                                 </div>
                                 <div class="content pt-3">
                                     <h4 class="name mb-0 text-uppercase">Rapchik Laila</h4>
@@ -912,12 +912,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="slider autoplay">
-                            <div><img src="user/images/testi/partners1.png" class="img-fluid mx-auto d-block" alt="partners"></div>
-                            <div><img src="user/images/testi/partners2.png" class="img-fluid mx-auto d-block" alt="partners"></div>
-                            <div><img src="user/images/testi/partners3.png" class="img-fluid mx-auto d-block" alt="partners"></div>
-                            <div><img src="user/images/testi/partners4.png" class="img-fluid mx-auto d-block" alt="partners"></div>
-                            <div><img src="user/images/testi/partners5.png" class="img-fluid mx-auto d-block" alt="partners"></div>
-                            <div><img src="user/images/testi/partners6.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners1.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners2.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners3.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners4.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners5.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="home/images/testi/partners6.png" class="img-fluid mx-auto d-block" alt="partners"></div>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -940,7 +940,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="blog-post rounded bg-light">
-                            <img src="user/images/blog/01.jpg" class="img-fluid rounded-top" alt="">
+                            <img src="home/images/blog/01.jpg" class="img-fluid rounded-top" alt="">
                             <div class="content pt-4 pb-4 p-3">
                                 <a href="javascript:void(0)"><h6 class="tag text-custom font-weight-normal">Office</h6></a> 
                                 <a href="javascript:void(0)"><h5 class="title text-dark">Loft Office With Vintage Decor For Creative Working</h5></a> 
@@ -956,7 +956,7 @@
                     
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="blog-post rounded bg-light">
-                            <img src="user/images/blog/02.jpg" class="img-fluid rounded-top" alt="">
+                            <img src="home/images/blog/02.jpg" class="img-fluid rounded-top" alt="">
                             <div class="content pt-4 pb-4 p-3">
                                 <a href="javascript:void(0)"><h6 class="tag text-custom font-weight-normal">Proof</h6></a> 
                                 <a href="javascript:void(0)"><h5 class="title text-dark">Cosy Bright Office In Yellow And Grey Colors Etc.</h5></a> 
@@ -972,7 +972,7 @@
                     
                     <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                         <div class="blog-post rounded bg-light">
-                            <img src="user/images/blog/03.jpg" class="img-fluid rounded-top" alt="">
+                            <img src="home/images/blog/03.jpg" class="img-fluid rounded-top" alt="">
                             <div class="content pt-4 pb-4 p-3">
                                 <a href="javascript:void(0)"><h6 class="tag text-custom font-weight-normal">Culture</h6></a> 
                                 <a href="javascript:void(0)"><h5 class="title text-dark">Stylish Kitchen And Dining Room With Functional Ideas</h5></a> 
@@ -1201,22 +1201,22 @@
         <!-- Footer End -->
 
         <!-- javascript -->
-        <script src="user/js/jquery-3.5.1.min.js"></script>
-        <script src="user/js/bootstrap.bundle.min.js"></script>
-        <script src="user/js/jquery.easing.min.js"></script>
-        <script src="user/js/scrollspy.min.js"></script>
-        <script src="user/js/menu.js"></script>
+        <script src="home/js/jquery-3.5.1.min.js"></script>
+        <script src="home/js/bootstrap.bundle.min.js"></script>
+        <script src="home/js/jquery.easing.min.js"></script>
+        <script src="home/js/scrollspy.min.js"></script>
+        <script src="home/js/menu.js"></script>
         <!-- Magnific Popup -->
-        <script src="user/js/jquery.magnific-popup.min.js"></script>
-        <script src="user/js/isotope.js"></script>
-        <script src="user/js/portfolio.init.js"></script>
-        <script src="user/js/magnific.init.js"></script>
+        <script src="home/js/jquery.magnific-popup.min.js"></script>
+        <script src="home/js/isotope.js"></script>
+        <script src="home/js/portfolio.init.js"></script>
+        <script src="home/js/magnific.init.js"></script>
         <!-- Slider -->
-        <script src="user/js/slick.min.js "></script>
+        <script src="home/js/slick.min.js "></script>
         <!-- Contact -->
-        <script src="user/js/contact.js"></script>
+        <script src="home/js/contact.js"></script>
         <!-- Main Js -->
-        <script src="user/js/app.js"></script>
+        <script src="home/js/app.js"></script>
                 
     </body>
 

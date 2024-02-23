@@ -146,15 +146,15 @@ a.text-muted:hover {
 }
 
 .bg-custom {
-  background-color: #1D368A !important;
+  background-color: #666def !important;
 }
 
 .text-custom {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 
 a.text-custom:hover {
-  color: #162968 !important;
+  color: #414aeb !important;
 }
 
 .list-inline-item:not(:last-child) {
@@ -459,24 +459,24 @@ p {
 }
 
 .btn-custom {
-  background-color: #1D368A !important;
-  border: 1px solid #1D368A !important;
+  background-color: #666def !important;
+  border: 1px solid #666def !important;
   color: #ffffff !important;
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active, .btn-custom.focus {
-  background-color: #142660 !important;
-  border-color: #142660 !important;
+  background-color: #3841ea !important;
+  border-color: #3841ea !important;
   color: #ffffff !important;
 }
 
 .btn-outline-custom {
-  border: 1px solid #1D368A;
-  color: #1D368A;
+  border: 1px solid #666def;
+  color: #666def;
   background-color: transparent;
 }
 .btn-outline-custom:hover, .btn-outline-custom:focus, .btn-outline-custom:active, .btn-outline-custom.active, .btn-outline-custom.focus, .btn-outline-custom:not(:disabled):not(.disabled):active {
-  background-color: #1D368A;
-  border-color: #1D368A;
+  background-color: #666def;
+  border-color: #666def;
   color: #ffffff;
 }
 
@@ -559,7 +559,7 @@ button:not(:disabled) {
 .nav-pills .nav-link.active {
   color: #ffffff;
   background-color: #f8f9fa;
-  color: #1D368A !important;
+  color: #666def !important;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 .nav-pills .nav-link:hover {
@@ -623,8 +623,8 @@ button:not(:disabled) {
   transform: rotate(-45deg);
 }
 .back-to-top:hover {
-  background-color: #1D368A;
-  border-color: #1D368A;
+  background-color: #666def;
+  border-color: #666def;
 }
 .back-to-top:hover i {
   color: #ffffff;
@@ -663,8 +663,8 @@ button:not(:disabled) {
   color: #ffffff;
 }
 .social-icon li a:hover:before {
-  border-color: #1D368A !important;
-  background: #1D368A;
+  border-color: #666def !important;
+  background: #666def;
   transform: rotate(135deg);
 }
 .social-icon.social li a {
@@ -709,10 +709,10 @@ button:not(:disabled) {
   font-family: "Rubik", sans-serif;
 }
 .navbar-custom .navbar-nav li a:hover, .navbar-custom .navbar-nav li a:active {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 .navbar-custom .navbar-nav li.active a {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 .navbar-custom .navbar-nav .nav-item:last-child .nav-link {
   margin-right: 0;
@@ -736,10 +736,10 @@ button:not(:disabled) {
   color: #2f3545 !important;
 }
 .nav-sticky.navbar-custom .navbar-nav li a:hover, .nav-sticky.navbar-custom .navbar-nav li a:active {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 .nav-sticky.navbar-custom .navbar-nav li.active a {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 .nav-sticky.navbar-custom.sticky-light {
   background-color: #ffffff;
@@ -750,7 +750,7 @@ button:not(:disabled) {
 
 .login-button {
   color: #ffffff;
-  background-color: #1D368A;
+  background-color: #666def;
   text-transform: uppercase;
   font-size: 13px;
   transition: all 0.5s;
@@ -815,8 +815,8 @@ button:not(:disabled) {
 }
 
 .gradient {
-  background: #1D368A !important;
-  background: linear-gradient(45deg, #1D368A, #005ED1) !important;
+  background: #666def !important;
+  background: linear-gradient(45deg, #666def, #005ED1) !important;
   opacity: 0.9;
 }
 
@@ -928,20 +928,20 @@ button:not(:disabled) {
   font-weight: 500;
 }
 .services:hover {
-  border-color: #1D368A !important;
+  border-color: #666def !important;
   transform: translateY(-7px);
 }
 .services:hover .icon {
-  border-color: #1D368A !important;
+  border-color: #666def !important;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background: #1D368A !important;
+  background: #666def !important;
   color: #ffffff;
 }
 .services:hover.serv-gradient .icon, .services:hover.serv-gradient:hover {
-  border-color: linear-gradient(45deg, #1D368A, #005ED1) !important;
+  border-color: linear-gradient(45deg, #666def, #005ED1) !important;
 }
 .services:hover.serv-gradient .icon {
-  background: linear-gradient(45deg, #1D368A, #005ED1) !important;
+  background: linear-gradient(45deg, #666def, #005ED1) !important;
 }
 
 .bg-cta .play-btn {
@@ -953,7 +953,7 @@ button:not(:disabled) {
   display: inline-block;
   border: 5px solid rgba(255, 255, 255, 0.4);
   margin-top: 30px;
-  background: #1D368A;
+  background: #666def;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
 }
@@ -968,7 +968,7 @@ button:not(:disabled) {
 .watch-video a .play-icon-circle {
   height: 50px;
   width: 50px;
-  background-color: #1D368A;
+  background-color: #666def;
   line-height: 50px;
 }
 .watch-video a .play-icon-circle.play-iconbar {
@@ -1026,8 +1026,8 @@ button:not(:disabled) {
 }
 .container-filter li a:hover, .container-filter li a.active {
   color: #ffffff !important;
-  background-color: #1D368A;
-  border-color: #1D368A !important;
+  background-color: #666def;
+  border-color: #666def !important;
 }
 .container-filter li:first-child a {
   border-top-left-radius: 30px !important;
@@ -1130,7 +1130,7 @@ button:not(:disabled) {
   transition: all 0.5s ease;
 }
 .blog-post .content .title:hover {
-  color: #1D368A !important;
+  color: #666def !important;
 }
 .blog-post:hover {
   transform: translateY(-7px);
@@ -1161,7 +1161,7 @@ button:not(:disabled) {
   transition: all 0.5s ease;
 }
 .form-group .form-control:focus, .form-group .form-control.active {
-  border-color: #1D368A;
+  border-color: #666def;
 }
 .form-group .icons {
   position: absolute;
@@ -1235,7 +1235,7 @@ button:not(:disabled) {
   transition: all 0.5s ease;
 }
 .footer .footer-list a:hover {
-  color: #1D368A;
+  color: #666def;
 }
 .footer .tagcloud a {
   background: #495057;
@@ -1250,7 +1250,7 @@ button:not(:disabled) {
   transition: all 0.5s ease;
 }
 .footer .tagcloud a:hover {
-  background: #1D368A;
+  background: #666def;
   color: #ffffff;
 }
 .footer .text-foot {
