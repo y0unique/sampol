@@ -1,4 +1,6 @@
-
+<?php 
+include 'admin/headers/permission_policy_config.php';
+?>
 <!DOCTYPE html>
     <html lang="en">
 
@@ -30,6 +32,7 @@
         <!-- Slider -->        
         <link rel="stylesheet" href="home/css/slick-theme.css"/>
         <link rel="stylesheet" href="home/css/slick.css"/>
+
 
     </head>
 

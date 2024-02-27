@@ -1,7 +1,7 @@
 <?php
     include 'database/connection.php';
     include 'database/code.php';
-    include 'headers/permissions_policy_config.php';
+    include 'headers/permission_policy_config.php';
 
 ?>
 <meta charset="utf-8">
