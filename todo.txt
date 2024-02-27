@@ -1,3 +1,10 @@
+--priority
+-admin
+•Add bac files to database
+•Push notifications using ajax
+•edit database
+•
+
 offices, fetch, code, modals
 add to database picture and type of employee
 --
