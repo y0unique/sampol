@@ -120,7 +120,7 @@ CREATE TABLE filestbl(
     file_referenceNum varchar(20) NULL,
     file_procurementMode varchar(50) NULL,
     file_procurementYear year NULL,
-    file_procurementType varchar(10) NULL,
+    file_procurementType varchar(50) NULL,
     file_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -176,4 +176,117 @@ SELECT
     file_status AS "status"
 FROM filestbl WHERE file_type = 'downloadable' AND file_status = 'active';
 
---
+--elemschoolsvw
+CREATE VIEW elemSchoolsVW AS
+SELECT
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_status AS "status"
+FROM schoolstbl WHERE school_type = 'Elementary' AND school_status = 'active';
+
+--filesvw
+CREATE VIEW filesVW AS
+SELECT
+    file_id AS "id",
+    file_type AS "type",
+    file_title AS "title",
+    file_link AS "link",
+    file_department AS "department",
+    file_date AS "date",
+    file_publishDate AS "publish_date",
+    file_closingDate AS "closing_date",
+    file_awardedTo AS "awarded_to",
+    file_referenceNum AS "reference_number",
+    file_procurementMode AS "procurement_mode",
+    file_procurementYear AS "procurement_year",
+    file_procurementType AS "procurement_type",
+    file_status AS "status"
+FROM filestbl WHERE file_status = 'active';
+
+--highschoolsvw
+CREATE VIEW highSchoolsVW AS
+SELECT
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_status AS "status"
+FROM schoolstbl WHERE school_type = 'HighSchool' AND school_status = 'active';
+
+--issuancescategoryvw	
+CREATE VIEW issuancescategoryVW AS
+SELECT
+    issuances_type AS "type",
+    issuances_type_name AS "name",
+    issuances_status AS "status"
+FROM issuancescategorytbl WHERE issuances_status = 'active';
+
+--issuancesvw
+CREATE VIEW issuancesVW AS
+SELECT
+    issuances_id AS "id",
+    tracking_number AS "tracking_number",
+    issuances_title AS "title",
+    issuances_link AS "link",
+    issuances_number AS "number",
+    issuances_date AS "date",
+    issuances_type AS "type",
+    issuances_status AS "status"
+FROM issuancestbl WHERE issuances_status = 'active';
+
+--jhsschoolsvw
+CREATE VIEW jhsSchoolsVW AS
+SELECT
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_status AS "status"
+FROM schoolstbl WHERE school_type = 'HighSchool'  AND school_shsAvailability = 'no' AND school_status = 'active';
+
+--materialfilesvw
+CREATE VIEW materialfilesVW AS
+SELECT
+    file_id AS "id",
+    file_type AS "type",
+    file_title AS "title",
+    file_link AS "link",
+    file_department AS "department",
+    file_date AS "date",
+    file_status AS "status"
+FROM filestbl WHERE file_type = 'material' AND file_status = 'active';
+
+--officesvw
+CREATE VIEW OfficesVW AS
+SELECT
+    offices_id AS "id",
+    department_name AS "department",
+    employee_name AS "name",
+    employee_picture AS "picture",
+    employee_office AS "office",
+    employee_position AS "position",
+    employee_post AS "post",
+    employee_type AS "type",
+    employee_email AS "email",
+    employee_status AS "status"
+FROM officestbl
+    INNER JOIN departmentstbl ON
+    officestbl.department_id = departmentstbl.department_id
+WHERE employee_status = 'active';
