@@ -42,7 +42,7 @@ include 'admin/headers/permission_policy_config.php';
     		<div class="container">
                 <a href="index"><img src="home/images/logo/DepEd_logo.png"
                     style="height: 50px; width:50px; margin-right:5px;"></a>
-                <a class="navbar-brand " href="" target="__blank">DEPED MANILA</a>
+                <a class="navbar-brand" href="" target="__blank">DepEd Manila</a>
 			    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="mdi mdi-menu"></span>

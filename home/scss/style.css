@@ -685,7 +685,7 @@ button:not(:disabled) {
 }
 .navbar-custom .navbar-toggler {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 20px;
   padding: 0px;
 }
 .navbar-custom .navbar-brand {
@@ -781,7 +781,7 @@ button:not(:disabled) {
     padding: 10px 0px !important;
   }
   .navbar-custom .container {
-    width: 85%;
+    width: 95%;
   }
   .login-button {
     margin-left: 5px !important;
