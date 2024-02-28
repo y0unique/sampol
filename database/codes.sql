@@ -134,6 +134,9 @@ CREATE TABLE dailyvisitstbl(
 
 
 --DUMPING DATA INTO TABLES 
+
+
+
 --CREATING VIEWS
 
 --carouselvw
@@ -290,3 +293,116 @@ FROM officestbl
     INNER JOIN departmentstbl ON
     officestbl.department_id = departmentstbl.department_id
 WHERE employee_status = 'active';
+
+--procurementfilesvw
+CREATE VIEW procurementfilesVW AS
+SELECT
+    file_id AS "id",
+    file_type AS "type",
+    file_title AS "title",
+    file_link AS "link",
+    file_date AS "date",
+    file_procurementYear AS "pyear",
+    file_procurementType AS "ptype",
+    file_status AS "status"
+FROM filestbl WHERE file_type = 'procurement' AND file_status = 'active';
+
+--schoolsvw
+CREATE VIEW schoolsVW AS
+SELECT
+    schooltbl_id AS "school_id",
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_shsAvailability AS "shs_availability",
+    school_spedAvailablity AS "sped_availability",
+    school_status AS "status"
+FROM schoolstbl WHERE school_status = 'active';
+
+--shsschoolsvw
+CREATE VIEW shsSchoolsVW AS
+SELECT
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_status AS "status"
+FROM schoolstbl WHERE school_type = 'HighSchool' AND school_shsAvailability = 'yes' AND school_status = 'active';
+
+--socialmediavw
+CREATE VIEW socialmediaVW AS
+SELECT
+    socialMedia_id AS "id",
+    socialMedia_type AS "type",
+    socialMedia_link AS "link",
+    socialMedia_title AS "title",
+    socialMedia_post AS "post",
+    socialMedia_status AS "status"
+FROM socialmediatbl WHERE socialMedia_status = 'active';
+
+--spedschoolsvw
+CREATE VIEW spedSchoolsVW AS
+SELECT
+    school_id AS "id",
+    school_name AS "name",
+    school_address AS "address",
+    school_principal AS "principal",
+    school_contact AS "contact",
+    school_link AS "link",
+    school_email AS "email",
+    school_district AS "district",
+    school_type AS "type",
+    school_status AS "status"
+FROM schoolstbl WHERE school_spedAvailablity = 'yes' AND school_status = 'active';
+
+--timelogvw
+CREATE VIEW timelogVW AS
+SELECT
+    timelogtbl.time_id AS "id",
+    userstbl.user_id AS "user_id",
+    userstbl.user_username AS "username",
+    timelogtbl.log_action AS "action",
+    timelogtbl.log_date AS "date",
+    timelogtbl.log_time AS "time",
+    timelogtbl.log_status  AS "status"
+FROM timelogtbl
+INNER JOIN userstbl ON
+timelogtbl.user_id = userstbl.user_id WHERE log_status = 'active';
+
+--transparencyfilesvw
+CREATE VIEW transparencyFilesVW AS
+SELECT
+    file_id AS "id",
+    file_type AS "type",
+    file_title AS "title",
+    file_link AS "link",
+    file_date AS "date",
+    file_publishDate AS "publish_date",
+    file_closingDate AS "closing_date",
+    file_awardedTo AS "awarded_to",
+    file_referenceNum AS "reference_number",
+    file_procurementMode AS "procurement_mode",
+    file_status AS "status"
+FROM filestbl WHERE file_type = 'transparency' AND file_status = 'active';
+
+--usersvw
+CREATE VIEW usersVW AS
+SELECT 
+    user_id AS "id",
+    user_username AS "username",
+    user_email AS "email",
+    user_type AS "type",
+    user_password AS "password",
+    user_status AS "status"
+FROM userstbl  WHERE file_status = 'active';;
