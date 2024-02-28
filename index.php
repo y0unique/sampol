@@ -54,25 +54,28 @@ include 'admin/headers/permission_policy_config.php';
                             <a class="nav-link" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#offer">Services</a>
+                            <a class="nav-link" href="#offer">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#team">Team</a>
+                            <a class="nav-link" href="#team">BAC</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#project">Project</a>
+                            <a class="nav-link" href="#project">Issuances</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#reviews">Clients</a>
+                            <a class="nav-link" href="#reviews">Careers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#price">Pricing</a>
+                            <a class="nav-link" href="#price">Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#news">Blog</a>
+                            <a class="nav-link" href="#news">Resources</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="#contact">Transparencies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Citizens Charter</a>
                         </li>
                     </ul><!--end navbar nav-->
 			    </div><!--end collapse-->
