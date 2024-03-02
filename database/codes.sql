@@ -114,14 +114,30 @@ CREATE TABLE filestbl(
     file_link longtext NOT NULL,
     file_date datetime NOT NULL DEFAULT current_timestamp(),
     file_department varchar(20) NULL,
-    file_publishDate date NULL,
-    file_closingDate date NULL,
-    file_awardedTo varchar(200) NULL,
-    file_referenceNum varchar(20) NULL,
-    file_procurementMode varchar(50) NULL,
-    file_procurementYear year NULL,
-    file_procurementType varchar(50) NULL,
+    /file_publishDate date NULL,
+    /file_closingDate date NULL,
+    /file_awardedTo varchar(200) NULL,
+    /file_referenceNum varchar(20) NULL,
+    /file_procurementMode varchar(50) NULL,
+    //file_procurementYear year NULL,
+    //file_procurementType varchar(50) NULL,
     file_status varchar(11) NOT NULL DEFAULT 'active'
+);
+
+--TABLE FOR BAC
+CREATE TABLE bacfilestbl(
+    bacfile_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    bacfile_type varchar(50) NOT NULL,
+    bacfile_title varchar(200) NOT NULL,
+    bacfile_link longtext NOT NULL,
+    bacfile_date datetime NOT NULL DEFAULT current_timestamp(),
+    bacfile_procurementYear year NULL,
+    bacfile_procurementType varchar(50) NULL,
+    bacfile_publishDate date NULL,
+    bacfile_publishDate date NULL,
+    bacfile_awardedTo varchar(200) NULL,
+    bacfile_procurementMode varchar(50) NULL,
+    bacfile_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
 --TABLE FOR DAILY VISITORS
