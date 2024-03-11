@@ -21,7 +21,6 @@ $(document).ready(function () {
                 var result = JSON.parse(response);
                 if (result.status === "success") {
                     alert(result.message);
-                    // Redirect to dashboard or another page on successful login
                     window.location.href = "index.php";
                 } else {
                     alert(result.message);

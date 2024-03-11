@@ -15,16 +15,12 @@
 
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "ss", $_SESSION['webID'], $_SESSION['webUsername']);
-        
-        // Execute the statement
         $query1 = mysqli_stmt_execute($stmt);
 
         if ($query1) {
-            // Unset and destroy the session
+            $response = array('status' => 'error', 'message' => 'Successfully Logged Out');
             session_unset();
             session_destroy();
-            
-            // Redirect to the login page
             header("Location: ../login.php");
             exit(); 
         } else {
@@ -35,7 +31,5 @@
     } else {
         $response = array('status' => 'error', 'message' => 'Failed to prepare statement.');
     }
-
-    // Provide feedback or handle the response as needed
     echo json_encode($response);
 ?>
