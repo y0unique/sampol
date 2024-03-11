@@ -25,6 +25,7 @@ $(document).ready(function () {
                     window.location.href = "index.php";
                 } else {
                     alert(result.message);
+                    $("#webpassword").val('');
                     $("#error-message").html(result.message);
                 }
             },

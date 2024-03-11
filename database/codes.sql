@@ -170,9 +170,9 @@ FROM imagestbl WHERE image_type = 'carousel' AND image_status = 'active';
 CREATE VIEW dailyVisitorsVW AS
 SELECT
     daily_visitors_ip_address AS "ip address",
-    daily_visitors_visit_date AS "date",
-	daily_visitors_visit_status AS "status"
-FROM dailyvisitstbl WHERE daily_visitors_visit_status = 'active';
+    daily_visitors_date AS "date",
+	daily_visitors_status AS "status"
+FROM dailyvisitstbl WHERE daily_visitors_status = 'active';
 
 --departmentsvw
 CREATE VIEW departmentsVW AS
@@ -219,13 +219,6 @@ SELECT
     file_link AS "link",
     file_department AS "department",
     file_date AS "date",
-    file_publishDate AS "publish_date",
-    file_closingDate AS "closing_date",
-    file_awardedTo AS "awarded_to",
-    file_referenceNum AS "reference_number",
-    file_procurementMode AS "procurement_mode",
-    file_procurementYear AS "procurement_year",
-    file_procurementType AS "procurement_type",
     file_status AS "status"
 FROM filestbl WHERE file_status = 'active';
 

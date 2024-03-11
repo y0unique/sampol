@@ -29,13 +29,23 @@
 
             // Verify the password against Argon2id hash
             if (password_verify($password, $hashedPasswordArgon2)) {
-                $response = array('status' => 'success', 'message' => 'Login successful!');
-                $_SESSION['webID'] = $row['user_id'];
-                $_SESSION['webUsername'] = $row['user_username'];
-                $_SESSION['webEmail'] = $row['user_email'];
-                $_SESSION['webType'] = $row['user_type'];
-                $_SESSION['webPassword'] = $row['user_password'];
-                $_SESSION['webStatus'] = $row['user_status'];
+                $webID = $row['user_id'];
+                $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
+                                            values ('$webID', '$username Logged In', NOW(), NOW())";
+                $query1= mysqli_query($con,$inserttime);
+                $query2 = mysqli_insert_id($con);
+                if ($query1){
+                    $response = array('status' => 'success', 'message' => 'Login successful!');
+                    $_SESSION['webID'] = $row['user_id'];
+                    $_SESSION['webUsername'] = $row['user_username'];
+                    $_SESSION['webEmail'] = $row['user_email'];
+                    $_SESSION['webType'] = $row['user_type'];
+                    $_SESSION['webPassword'] = $row['user_password'];
+                    $_SESSION['webStatus'] = $row['user_status'];
+                }else{
+                    $response = array('status' => 'error', 'message' => 'Failed to connect to the database.');
+                }
+
             } else {
                 $response = array('status' => 'error', 'message' => 'Invalid Username or Password.');
             }
