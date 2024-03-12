@@ -334,8 +334,8 @@
     }
  
     tr { height: 50px; }
-    table{ 
-        /* width: 100% !important; */
-        /* table-layout: fixed; */
-    }
+    /* table{ 
+        width: 100% !important;
+        table-layout: fixed;
+    } */
 </style>
