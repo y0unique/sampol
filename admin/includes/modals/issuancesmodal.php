@@ -75,6 +75,7 @@
         this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);
     });
 </script>
+
 <!-- Edit Issuances Modal class="modal fade d-block" -->
 <div class="modal fade" id="editIssuancesModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

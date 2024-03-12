@@ -59,7 +59,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped display compact text-gray-900 " id="issuancesTable" width="100%" cellspacing="0">
+                                <table class="table table-striped display compact text-gray-900 " id="issuancesTable" width="100%" cellspacing="0" table-layout="auto">
                                     <thead>
                                         <tr>
                                             <th>Action</th>
@@ -106,7 +106,7 @@
     $(document).ready(function() {
         $('#issuancesTable').DataTable({
             "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-                $(nRow).attr('id', aData[0]);
+                $(nRow).attr('issuances_id', aData[0]);
             },
             'serverSide':'true',
             'processing':'true',
@@ -121,10 +121,6 @@
                 'orderable' :false
             }]
         });
-        
-        
-
-
     });
 
     //add issuances
@@ -179,7 +175,7 @@
     $('#issuancesTable').on('click', '.editissuancebtn ', function(event) {
         var table = $('#issuancesTable').DataTable();
         var id = $(this).data('id');
-        var trid = $(this).closest('tr').attr('id');
+        var trid = $(this).closest('tr').attr('issuances_id');
         $('#editIssuancesModal').modal('show');
 
         $.ajax({
@@ -193,11 +189,11 @@
             var json = JSON.parse(data);
 
             $('#_tracking_number').val(json.tracking_number);
-            $('#_issuances_title').val(json.title);
-            $('#_issuances_link').val(json.link);
-            $('#_issuances_number').val(json.number);
-            $('#_issuances_date').val(json.date);
-            $('#_issuances_type').val(json.type);
+            $('#_issuances_title').val(json.issuances_title);
+            $('#_issuances_link').val(json.issuances_link);
+            $('#_issuances_number').val(json.issuances_number);
+            $('#_issuances_date').val(json.issuances_date);
+            $('#_issuances_type').val(json.issuances_type);
             $('#_id').val(id);
             $('#_trid').val(trid);
         }
@@ -258,8 +254,11 @@
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
                     $('#editIssuancesModal').modal('hide');
-                } else {
-                    alert('failed');
+                } else if(editIssuanceStatus == 'false'){
+                    alertify.set('notifier','position', 'top-right');
+            	    alertify.error(json.message);
+                }else{
+                    alert('Error communicating with the database');
                 }
             }
         });
@@ -272,7 +271,7 @@
     $('#issuancesTable').on('click', '.deleteissuancebtn ', function(event) {
         var table = $('#issuancesTable').DataTable();
         var id = $(this).data('id');
-        var trid = $(this).closest('tr').attr('id');
+        var trid = $(this).closest('tr').attr('issuances_id');
         $('#deleteIssuancesModal').modal('show');
 
         $.ajax({
@@ -286,8 +285,8 @@
             var json = JSON.parse(data);
 
             $('#_tracking_number_').val(json.tracking_number);
-            $('#_issuances_title_').val(json.title);
-            $('#_status_').val(json.status);
+            $('#_issuances_title_').val(json.issuances_title);
+            $('#_status_').val(json.tracking_status);
             $('#_id_').val(id);
             $('#_trid_').val(trid);
         }
