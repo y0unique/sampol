@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preload.2</title>
-</head>
-<body>
 
-        
+<body>
         <div class="spinner-wrapper">
 
             <div class="image" >
-                <img class="imagePreloader"  src="home/images/logo/DepEd_logo.png" alt="depedManilaIcon">
+                <img class="imagePreloader"  src="home/images/logo/DepEd_logo_small.png" alt="depedManilaIcon">
             </div>
             <div class="spinner-border text-primary" role="status"></div>
         </div>
-
-    
-    
-    
 </body>
 </html>
 <style>
