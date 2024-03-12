@@ -2,7 +2,7 @@
     <div class="container">
         <a href="index"><img src="home/images/logo/DepEd_logo.png"
             style="height: 50px; width:50px; margin-right:5px;"></a>
-        <a class="navbar-brand" href="" target="__blank">SDO Manila</a>
+        <a class="navbar-brand" href="index" target="__blank">SDO Manila</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="mdi mdi-menu"></span>
@@ -12,8 +12,8 @@
             <ul class="navbar-nav ml-auto">
 
                 <!-- home -->
-                <li class="nav-item active" id="index">
-                    <a class="nav-link" href="#home">Home</a>
+                <li class="nav-item" id="index">
+                    <a class="nav-link" href="index">Home</a>
                 </li>
 
                 <!-- about us -->
@@ -23,9 +23,9 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#offer">History</a>
-                        <a class="dropdown-item" href="#offer">Mission, Vision.  <br>Core Values, Quality Objectives</a>
-                        <a class="dropdown-item" href="#offer">Directory</a>
+                        <a class="dropdown-item" href="history" id="history">History</a>
+                        <a class="dropdown-item" href="mission-vision" id="visionMision">Mission, Vision.  <br>Core Values, Quality Objectives</a>
+                        <a class="dropdown-item" href="directory" id="directory">Directory</a>
                     </div>
                 </li>
 
@@ -35,7 +35,7 @@
                         Transparencies
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#contact">
+                        <a class="dropdown-item" href="transperencies">
                             Transparencies
                         </a>
 

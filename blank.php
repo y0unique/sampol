@@ -45,7 +45,7 @@
         <!-- Navbar End -->
         
         <!-- Carousel Start -->
-        <?php include 'home/includes/carousel.php'; ?>
+        
         <!-- Carousel End -->
 
         

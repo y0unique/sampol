@@ -19,4 +19,3 @@ $('.navbar-nav a, .mouse-down').on('click', function(event) {
 
 // Scrollspy
 $("#navbarCollapse").scrollspy({ offset: 70 });
-    
