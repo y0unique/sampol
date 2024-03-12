@@ -99,7 +99,7 @@ button:not(:disabled) {
 .nav-pills {
     .nav-link{
         color: $body-color !important;
-        margin: auto 15px;
+        margin: auto 10px;
         border: 1px solid $gray-200;
         transition: all 0.2s ease;
         &.active {

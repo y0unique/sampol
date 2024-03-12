@@ -552,7 +552,7 @@ button:not(:disabled) {
 
 .nav-pills .nav-link {
   color: #535353 !important;
-  margin: auto 15px;
+  margin: auto 10px;
   border: 1px solid #e9ecef;
   transition: all 0.2s ease;
 }

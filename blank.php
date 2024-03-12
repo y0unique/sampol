@@ -7,7 +7,7 @@
     <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Mission Vision Core Values | Deped Manila</title>
+        <title>Blank | Deped Manila</title>
         <meta name="viewport"    content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Department of Education Manila" />
         <meta name="keywords"    content="DepEd, Manila, Schools Division, Division of City Schools, Website of DepEd Manila, Official Website" />
