@@ -1,7 +1,7 @@
 <?php 
     // include 'admin/headers/permission_policy_config.php';
-    include 'home/database/connection.php';
-    include 'home/database/code.php';
+    include 'admin/database/connection.php';
+    include 'admin/database/code.php';
 ?>
 <!DOCTYPE html>
     <html lang="en">
