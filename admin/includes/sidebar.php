@@ -125,11 +125,36 @@
                 <a class="collapse-item" id="afiles" href="files">All Files</a>
                 <a class="collapse-item" id="adownloadables" href="downloadables">Downloadables</a>
                 <a class="collapse-item" id="amaterials" href="materials">Materials</a>
-                <a class="collapse-item" id="aprocurements" href="procurements">Procurement</a>
-                <a class="collapse-item" id="atransparencies" href="transparencies">Transparencies</a>
             </div>
         </div>
     </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        BAC FILES
+    </div>
+    <!-- Nav Item - BAC Menu -->
+    <li class="nav-item" id="files">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBac" aria-expanded="true" aria-controls="collapseBac" id="acollapseBac">
+            <i class="fas fa-file-pdf"></i>
+            <span>BAC Files</span>
+        </a>
+        <div id="collapseBac" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">BAC Files:</h6>
+                <a class="collapse-item" id="aBacfiles" href="#">All Bac Files</a>
+                <a class="collapse-item" id="ainvitationtobid" href="#">Invitation To Bid</a>
+                <a class="collapse-item" id="aprocurements" href="#">Procurement</a>
+                <a class="collapse-item" id="atransparencies" href="#">Transparencies</a>
+                <a class="collapse-item" id="atransparencies" href="#">Invitation To Bid</a>
+            </div>
+        </div>
+    </li>
+
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
 

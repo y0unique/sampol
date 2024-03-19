@@ -1,7 +1,7 @@
 <?php 
     // include 'admin/headers/permission_policy_config.php';
-    include 'admin/database/connection.php';
-    include 'admin/database/code.php';
+    include 'admin/database/home/connection.php';
+    include 'admin/database/home/code.php';
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -24,14 +24,14 @@
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
 
-        <link rel="stylesheet" href="home/datatables/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="admin/datatables/dataTables.bootstrap5.min.css">
 
         <script defer src="admin/datatables/jquery-3.7.0.js"></script>
 		<script defer src="admin/datatables/jquery.dataTables.min.js"></script>
 		<script defer src="admin/datatables/dataTables.bootstrap5.min.js"></script>
 		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
-        <script defer src="home/js/script.js"></script>
+        <script defer src="admin/js/home/script.js"></script>
 
 
         <script>
@@ -46,11 +46,11 @@
         </script>
     </head>
 
-    <?php include 'home/includes/preloader.php'; ?>
+    <?php include 'admin/includes/home/preloader.php'; ?>
     <body>
         <!-- Navbar Start -->
         <?php 
-            include 'home/includes/navbar.php'; 
+            include 'admin/includes/home/navbar.php'; 
             echo '<script>document.getElementById("issuances").classList.add("active");</script>';
         ?>
         <!-- Navbar End -->
@@ -531,14 +531,14 @@
         
 
         <!-- Seals Start -->
-        <?php include 'home/includes/seals.php'; ?>
+        <?php include 'admin/includes/home/seals.php'; ?>
         <!-- Seals End -->
 
         <!-- Footer Start -->
-        <?php include 'home/includes/footer.php'; ?>
+        <?php include 'admin/includes/home/footer.php'; ?>
         <!-- Footer End -->
         <!-- Scripts -->
-        <?php include 'home/includes/scripts.php'; ?>
+        <?php include 'admin/includes/home/scripts.php'; ?>
 
                 
     </body>

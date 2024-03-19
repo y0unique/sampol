@@ -10,13 +10,6 @@ if(isset($_POST['add'])){
     $file_title = mysqli_real_escape_string($con, $_POST['file_title']);
     $file_link = $_POST['file_link'];
     $file_department = $_POST['file_department'];
-    $file_publishDate = $_POST['file_publishDate'];
-    $file_closingDate = $_POST['file_closingDate'];
-    $awarded_to = $_POST['awarded_to'];
-    $reference_number = $_POST['reference_number'];
-    $procurement_mode = $_POST['procurement_mode'];
-    $procurement_year = $_POST['procurement_year'];
-    $procurement_type = $_POST['procurement_type'];
     
     if($file_type == 'downloadable'){
         $sql = "INSERT INTO filestbl (file_type, file_title, file_link, file_date, file_status) 

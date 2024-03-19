@@ -124,7 +124,7 @@
 
                 <!-- resources -->
                 <li class="nav-item" id="resources">
-                    <a class="nav-link" href="#news">Resources</a>
+                    <a class="nav-link" href="resources">Resources</a>
                 </li>
 
             </ul><!--end navbar nav-->

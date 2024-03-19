@@ -18,10 +18,10 @@
     $total_downloadable = $row;
 
     //total downladable in transparencyfilesvw
-    // $sql = "SELECT * FROM transparencyfilesvw WHERE status = 'active'";
-    // $sql1 = mysqli_query($con, $sql);
-    // $row = mysqli_num_rows($sql1);
-    // $total_transparency = $row;
+    $sql = "SELECT * FROM transparencyfilesvw WHERE status = 'active'";
+    $sql1 = mysqli_query($con, $sql);
+    $row = mysqli_num_rows($sql1);
+    $total_transparency = $row;
 
     //total downladable in issuancesvw
     $sql = "SELECT * FROM issuancesvw WHERE status = 'active'";

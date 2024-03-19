@@ -1,7 +1,7 @@
 <?php 
     // include 'admin/headers/permission_policy_config.php';
-    include 'admin/database/connection.php';
-    include 'admin/database/code.php';
+    include 'admin/database/home/connection.php';
+    include 'admin/database/home/code.php';
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -238,7 +238,7 @@
 							                                                    ?>
 							                                                    <tr>
 								                                                    <td><?php echo $row['board_id'];?></td>
-							                                                        <td><a class="text-primary"href="<?php echo $row['board_link'];?>" target="_blank"><?php echo strtoupper($row['board_title']);?></a></td>
+							                                                        <td><a class="text-primary"href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
 							                                                    </tr>
 							
 							                                                    <?php
@@ -248,6 +248,81 @@
 							                                            </table>
 				                                                    </p>
 				                                                </div>
+
+                                                                <div class="tab-pane" id="profile" role="tabpanel">
+                                                                <p class="mb-0">
+                                                                        <div class="col-xl-12">
+                                                                            <div class="card">
+                                                                                <div class="card-body">
+                                                                                    <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                                                                                        <?php
+                                                                                        // Fetch unique procurement types
+                                                                                        $procurementTypesQuery = "SELECT DISTINCT ptype FROM procurementfilesVW";
+                                                                                        $procurementTypesResult = mysqli_query($con, $procurementTypesQuery);
+
+                                                                                        while ($typeRow = mysqli_fetch_assoc($procurementTypesResult)) {
+                                                                                            $currentType = $typeRow['ptype'];
+
+                                                                                            // Fetch unique years for the current type
+                                                                                            $yearsQuery = "SELECT DISTINCT pyear FROM procurementfilesVW WHERE ptype = '$currentType' ORDER BY pyear DESC";
+                                                                                            $yearsResult = mysqli_query($con, $yearsQuery);
+                                                                                        ?>
+
+                                                                                            <div class="accordion-item">
+                                                                                                <h2 class="accordion-header" id="flush-heading<?php echo $currentType; ?>">
+                                                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?php echo $currentType; ?>" aria-expanded="true" aria-controls="flush-collapse<?php echo $currentType; ?>">
+                                                                                                        <?php echo $currentType; ?>
+                                                                                                    </button>
+                                                                                                </h2>
+                                                                                                <div id="flush-collapse<?php echo $currentType; ?>" class="accordion-collapse collapse show" aria-labelledby="flush-heading<?php echo $currentType; ?>" data-bs-parent="#accordionFlushExample">
+                                                                                                    <div class="accordion-body">
+                                                                                                        <?php
+                                                                                                        while ($yearRow = mysqli_fetch_assoc($yearsResult)) {
+                                                                                                            $currentYear = $yearRow['pyear'];
+
+                                                                                                            // Fetch data for the current type and year
+                                                                                                            $procurementsQuery = "SELECT * FROM procurementfilesVW WHERE ptype = '$currentType' AND pyear = $currentYear ORDER BY pyear DESC";
+                                                                                                            $procurementsResult = mysqli_query($con, $procurementsQuery);
+                                                                                                        ?>
+
+                                                                                                            <div class="accordion-item">
+                                                                                                                <h2 class="accordion-header" id="nested-heading<?php echo $currentType . $currentYear; ?>">
+                                                                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse<?php echo $currentType . $currentYear; ?>" aria-expanded="false" aria-controls="nested-collapse<?php echo $currentType . $currentYear; ?>">
+                                                                                                                        <?php echo $currentYear; ?>
+                                                                                                                    </button>
+                                                                                                                </h2>
+                                                                                                                <div id="nested-collapse<?php echo $currentType . $currentYear; ?>" class="accordion-collapse collapse" aria-labelledby="nested-heading<?php echo $currentType . $currentYear; ?>" data-bs-parent="#flush-collapse<?php echo $currentType; ?>">
+                                                                                                                    <div class="accordion-body">
+                                                                                                                        <ul>
+                                                                                                                            <?php
+                                                                                                                            while ($procurementRow = mysqli_fetch_assoc($procurementsResult)) {
+                                                                                                                            ?>
+                                                                                                                                <li><a class="text-primary" href="<?php echo $procurementRow['link']; ?>" target="_blank"><?php echo strtoupper($procurementRow['title']); ?></a></li>
+                                                                                                                            <?php
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </ul>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+
+                                                                                                        <?php
+                                                                                                        }
+                                                                                                        ?>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        <?php
+                                                                                        }
+                                                                                        ?>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </p>
+                                                                </div>
                                                                 
 
 
