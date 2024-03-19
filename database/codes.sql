@@ -114,13 +114,6 @@ CREATE TABLE filestbl(
     file_link longtext NOT NULL,
     file_date datetime NOT NULL DEFAULT current_timestamp(),
     file_department varchar(20) NULL,
-    /file_publishDate date NULL,
-    /file_closingDate date NULL,
-    /file_awardedTo varchar(200) NULL,
-    /file_referenceNum varchar(20) NULL,
-    /file_procurementMode varchar(50) NULL,
-    //file_procurementYear year NULL,
-    //file_procurementType varchar(50) NULL,
     file_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -134,8 +127,9 @@ CREATE TABLE bacfilestbl(
     bacfile_procurementYear year NULL,
     bacfile_procurementType varchar(50) NULL,
     bacfile_publishDate date NULL,
-    bacfile_publishDate date NULL,
+    bacfile_closingDate date NULL,
     bacfile_awardedTo varchar(200) NULL,
+    bacfile_referenceNum varchar(20) NULL,
     bacfile_procurementMode varchar(50) NULL,
     bacfile_status varchar(11) NOT NULL DEFAULT 'active'
 );
@@ -306,15 +300,15 @@ WHERE employee_status = 'active';
 --procurementfilesvw
 CREATE VIEW procurementfilesVW AS
 SELECT
-    file_id AS "id",
-    file_type AS "type",
-    file_title AS "title",
-    file_link AS "link",
-    file_date AS "date",
-    file_procurementYear AS "pyear",
-    file_procurementType AS "ptype",
-    file_status AS "status"
-FROM filestbl WHERE file_type = 'procurement' AND file_status = 'active';
+    bacfile_id AS "id",
+    bacfile_type AS "type",
+    bacfile_title AS "title",
+    bacfile_link AS "link",
+    bacfile_date AS "date",
+    bacfile_procurementYear AS "pyear",
+    bacfile_procurementType AS "ptype",
+    bacfile_status AS "status"
+FROM bacfilestbl WHERE bacfile_type = 'procurement' AND bacfile_status = 'active';
 
 --schoolsvw
 CREATE VIEW schoolsVW AS
@@ -392,18 +386,18 @@ timelogtbl.user_id = userstbl.user_id WHERE log_status = 'active';
 --transparencyfilesvw
 CREATE VIEW transparencyFilesVW AS
 SELECT
-    file_id AS "id",
-    file_type AS "type",
-    file_title AS "title",
-    file_link AS "link",
-    file_date AS "date",
-    file_publishDate AS "publish_date",
-    file_closingDate AS "closing_date",
-    file_awardedTo AS "awarded_to",
-    file_referenceNum AS "reference_number",
-    file_procurementMode AS "procurement_mode",
-    file_status AS "status"
-FROM filestbl WHERE file_type = 'transparency' AND file_status = 'active';
+    bacfile_id AS "id",
+    bacfile_type AS "type",
+    bacfile_title AS "title",
+    bacfile_link AS "link",
+    bacfile_date AS "date",
+    bacfile_publishDate AS "publish_date",
+    bacfile_closingDate AS "closing_date",
+    bacfile_awardedTo AS "awarded_to",
+    bacfile_referenceNum AS "reference_number",
+    bacfile_procurementMode AS "procurement_mode",
+    bacfile_status AS "status"
+FROM bacfilestbl WHERE bacfile_type = 'transparency' AND bacfile_status = 'active';
 
 --usersvw
 CREATE VIEW usersVW AS
@@ -414,4 +408,22 @@ SELECT
     user_type AS "type",
     user_password AS "password",
     user_status AS "status"
-FROM userstbl  WHERE file_status = 'active';;
+FROM userstbl  WHERE file_status = 'active';
+
+--bacfilesvw
+CREATE VIEW bacFilesVW AS
+SELECT
+    bacfile_id AS "id",
+    bacfile_type AS "type",
+    bacfile_title AS "title",
+    bacfile_link AS "link",
+    bacfile_date AS "date",
+    bacfile_procurementYear AS "procurement_year",
+    bacfile_procurementType AS "procurement_type",
+    bacfile_publishDate AS "publish_date",
+    bacfile_closingDate AS "closing_date",
+    bacfile_awardedTo AS "awarded_to",
+    bacfile_referenceNum AS "reference_number",
+    bacfile_procurementMode AS "procurement_mode",
+    bacfile_status AS "status"
+FROM bacfilestbl WHERE bacfile_status = 'active';

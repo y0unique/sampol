@@ -35,7 +35,7 @@
                         Transparencies
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="transparency">
+                        <a class="dropdown-item" href="transparencies">
                             Transparencies
                         </a>
 

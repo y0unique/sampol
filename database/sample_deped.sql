@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2024 at 09:23 AM
+-- Generation Time: Mar 19, 2024 at 04:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bacfilestbl`
+--
+
+CREATE TABLE `bacfilestbl` (
+  `bacfile_id` int(11) NOT NULL,
+  `bacfile_type` varchar(50) NOT NULL,
+  `bacfile_title` varchar(200) NOT NULL,
+  `bacfile_link` longtext NOT NULL,
+  `bacfile_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `bacfile_procurementYear` year(4) DEFAULT NULL,
+  `bacfile_procurementType` varchar(50) DEFAULT NULL,
+  `bacfile_publishDate` date DEFAULT NULL,
+  `bacfile_closingDate` date DEFAULT NULL,
+  `bacfile_awardedTo` varchar(200) DEFAULT NULL,
+  `bacfile_referenceNum` varchar(20) DEFAULT NULL,
+  `bacfile_procurementMode` varchar(50) DEFAULT NULL,
+  `bacfile_status` varchar(11) NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bacfilestbl`
+--
+
+INSERT INTO `bacfilestbl` (`bacfile_id`, `bacfile_type`, `bacfile_title`, `bacfile_link`, `bacfile_date`, `bacfile_procurementYear`, `bacfile_procurementType`, `bacfile_publishDate`, `bacfile_closingDate`, `bacfile_awardedTo`, `bacfile_referenceNum`, `bacfile_procurementMode`, `bacfile_status`) VALUES
+(1, 'sample', 'sample', '', '2024-03-11 10:13:49', '2002', NULL, NULL, NULL, NULL, NULL, NULL, 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `bacfilesvw`
+-- (See below for the actual view)
+--
+CREATE TABLE `bacfilesvw` (
+`id` int(11)
+,`type` varchar(50)
+,`title` varchar(200)
+,`link` longtext
+,`date` datetime
+,`procurement_year` year(4)
+,`procurement_type` varchar(50)
+,`publish_date` date
+,`closing_date` date
+,`awarded_to` varchar(200)
+,`reference_number` varchar(20)
+,`procurement_mode` varchar(50)
+,`status` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `carouselvw`
 -- (See below for the actual view)
 --
@@ -33,36 +84,6 @@ CREATE TABLE `carouselvw` (
 ,`title` varchar(100)
 ,`description` varchar(200)
 ,`type` varchar(20)
-,`status` varchar(11)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `chiefsofficesvw`
--- (See below for the actual view)
---
-CREATE TABLE `chiefsofficesvw` (
-`id` int(11)
-,`name` varchar(50)
-,`office` varchar(100)
-,`position` varchar(200)
-,`email` varchar(50)
-,`status` varchar(11)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `cidofficesvw`
--- (See below for the actual view)
---
-CREATE TABLE `cidofficesvw` (
-`id` int(11)
-,`name` varchar(50)
-,`office` varchar(100)
-,`position` varchar(200)
-,`email` varchar(50)
 ,`status` varchar(11)
 );
 
@@ -2750,78 +2771,8 @@ CREATE TABLE `filestbl` (
   `file_link` longtext NOT NULL,
   `file_date` datetime NOT NULL DEFAULT current_timestamp(),
   `file_department` varchar(20) DEFAULT NULL,
-  `file_publishDate` date DEFAULT NULL,
-  `file_closingDate` date DEFAULT NULL,
-  `file_awardedTo` varchar(200) DEFAULT NULL,
-  `file_referenceNum` varchar(20) DEFAULT NULL,
-  `file_procurementMode` varchar(50) DEFAULT NULL,
-  `file_procurementYear` year(4) NOT NULL,
-  `file_procurementType` varchar(50) NOT NULL,
   `file_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `filestbl`
---
-
-INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_department`, `file_publishDate`, `file_closingDate`, `file_awardedTo`, `file_referenceNum`, `file_procurementMode`, `file_procurementYear`, `file_procurementType`, `file_status`) VALUES
-(1, 'downloadable', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2024-02-09 16:57:14', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(2, 'downloadable', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(3, 'downloadable', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(4, 'downloadable', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(5, 'downloadable', 'Statement of Assets, Liabilities and Networth (SALN)', 'drive.google.com', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(6, 'downloadable', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(7, 'downloadable', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(8, 'transparency', 'BOARD AND LODGING FOR THE ASSESSORS MANUAL RESOURCE PACKAGING', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9330364', '2023-08-03 06:39:25', NULL, '2022-12-08', '2022-12-13', NULL, '9330364', NULL, '0000', '', 'active'),
-(9, 'transparency', 'Procurement of Office and Janitorial Supplies', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '2023-08-03 06:38:59', NULL, '2022-12-14', '2022-12-19', NULL, '9348275', NULL, '0000', '', 'active'),
-(10, 'transparency', 'Procurement of Ink and Toners', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348227', '2023-08-03 06:38:37', '', '2022-12-14', '2022-12-19', NULL, '9348227', NULL, '0000', '', 'active'),
-(11, 'transparency', 'Supplies for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348195', '2023-08-03 06:38:12', '', '2022-12-14', '2022-12-19', NULL, '9348195', NULL, '0000', '', 'active'),
-(12, 'transparency', 'Venue and Meals for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348149', '2023-08-03 06:37:54', '', '2022-12-14', '2022-12-19', NULL, '9348149', NULL, '0000', '', 'active'),
-(13, 'transparency', 'Various Materials for the Schools Division Office', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348109', '2023-08-03 06:37:26', '', '2022-12-14', '2022-12-19', NULL, '9348109', NULL, '0000', '', 'active'),
-(14, 'transparency', 'Materials for the Proposed Additional Storage Room of DCS', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348092', '2023-08-03 06:36:59', '', '2022-12-14', '2022-12-19', NULL, '9348092', NULL, '0000', '', 'active'),
-(15, 'transparency', 'Supplies and Materials for ID Printer', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348044', '2023-08-03 06:36:30', '', '2022-12-14', '2022-12-19', NULL, '9348044', NULL, '0000', '', 'active'),
-(16, 'transparency', 'Supplies and Materials for ICT Program Support', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348027', '2023-08-03 06:36:05', '', '2022-12-14', '2022-12-19', NULL, '9348027', NULL, '0000', '', 'active'),
-(17, 'transparency', 'Procurement of ICT Supplies and Peripherals', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347993', '2023-08-03 06:35:25', '', '2022-12-14', '2022-12-19', NULL, '9347993', NULL, '0000', '', 'active'),
-(18, 'transparency', 'Support Supplies for Bayanihan Laptops Recipients', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347964', '2023-08-03 06:34:48', '', '2022-12-14', '2022-12-19', NULL, '9347964', NULL, '0000', '', 'active'),
-(19, 'transparency', 'Procurement of Printers for Computer Laboratories', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347925', '2023-08-03 06:34:23', '', '2022-12-14', '2022-12-19', NULL, '9347925', NULL, '0000', '', 'active'),
-(20, 'transparency', 'Procurement of Tools and Equipment for Animation NCII, Technical Drafting, Caregiving, and Computer Systems Servicing', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357535', '2023-08-03 06:33:45', '', '2022-12-16', '2022-12-20', NULL, '9357535', NULL, '0000', '', 'active'),
-(21, 'transparency', 'Procurement of TVL Learning Tools and Equipment (Oven Gas Range)', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357490', '2023-08-03 06:33:00', '', '2022-12-16', '2022-12-20', NULL, '9357490', NULL, '0000', '', 'active'),
-(22, 'transparency', 'Board and Lodging for the Creative, Experiental, and Reflective In-Service Training for School Heads and Divisions Office Leaders', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9367451', '2023-08-03 06:32:32', '', '2022-12-21', '2022-12-26', NULL, '9367451', NULL, '0000', '', 'active'),
-(23, 'transparency', 'Procurement of Various Appliances for SDO Manila', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9371788', '2023-08-03 06:31:52', '', '2022-12-22', '2022-12-27', NULL, '9371788', NULL, '0000', '', 'active'),
-(24, 'transparency', 'Procurement of 3-in-1 Continuous Ink Sets for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372588', '2023-08-03 06:30:24', '', '2022-12-22', '2022-12-27', NULL, '9372588', NULL, '0000', '', 'active'),
-(25, 'transparency', 'Procurement of Bond Papers for Elementary Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372632', '2023-08-03 06:29:34', '', '2022-12-22', '2022-12-27', NULL, '9372632', NULL, '0000', '', 'active'),
-(26, 'transparency', 'Procurement of Toner and Master Rolls for Elementary School', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372613', '2023-08-03 06:29:00', '', '2022-12-22', '2022-12-27', NULL, '9372613', NULL, '0000', '', 'active'),
-(27, 'transparency', 'Procurement of Supplies and Materials for Various Trainings', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9373941', '2023-08-03 06:28:32', '', '2022-12-23', '2022-12-28', NULL, '9373941', NULL, '0000', '', 'active'),
-(28, 'transparency', 'Audio Sound System Materials', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377819', '2023-08-03 06:27:36', '', '2022-12-24', '2022-12-27', NULL, '9377819', NULL, '0000', '', 'active'),
-(29, 'transparency', 'Supplies and Materials for the Installation of Additional Hardware in SDO Conference', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377842', '2023-08-03 06:27:03', '', '2022-12-24', '2022-12-27', NULL, '9377842', NULL, '0000', '', 'active'),
-(30, 'transparency', 'Procurement of Face Masks and Vitamins', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377855', '2023-08-03 06:26:26', '', '2022-12-24', '2022-12-27', NULL, '9377855', NULL, '0000', '', 'active'),
-(31, 'transparency', 'Procurement of Smart TV for Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377925', '2023-08-03 06:24:12', '', '2022-12-24', '2022-12-27', NULL, '9377925', NULL, '0000', '', 'active'),
-(32, 'transparency', 'CY 2018 EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASSROOM ', 'https://drive.google.com/file/d/1pdPus7q_o7orbPpu1gSIFbKrw1onrkRI/view', '2023-08-07 03:37:45', '', '2018-03-16', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
-(33, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND REPAIR OF CLASSROOM', 'https://drive.google.com/file/d/1zOxk-gRp9mo9RmWRJnfMEoHeCyGA_AHC/view', '2023-08-03 06:05:40', '', '2018-03-05', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
-(34, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)s', 'https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '2024-02-09 16:30:12', '', '2018-06-08', '2023-08-05', '', '0', '', '0000', '', 'active'),
-(35, 'material', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-02-06 13:36:16', 'cash and budget', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(36, 'material', 'Report on the Physical Count of Inventories Form', 'https://docs.google.com/forms/d/e/1FAIpQLSc09L7qOjI2Q372rUbnzEN_oJk9HynuBoXMr43tJZswvr1b9Q/viewform?usp=sharing', '2024-02-06 13:36:16', 'property', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(37, 'material', 'PrimeDOTS Worksheet for Division Issuances', 'https://docs.google.com/spreadsheets/d/1qCZB4lhQRRYPsb9OX3uq-L2eVuzUXTjcbo_fMb2MNjk/edit#gid=0', '2024-02-06 13:36:16', 'records', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(38, 'downloadable', 's', 's', '2024-02-08 15:11:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(39, 'downloadable', 's', 's', '2024-02-08 15:14:51', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(40, '', 's', 's', '2024-02-08 15:17:52', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(41, 'procurement', 's', 's', '2024-02-08 15:18:02', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
-(42, 'downloadable', 's', 's', '2024-02-08 15:26:21', '', '0000-00-00', '0000-00-00', '', '', '', '0000', '', 'inactive'),
-(43, 'procurement', 's', 's', '2024-02-08 15:26:28', '', '0000-00-00', '0000-00-00', '', '', '', '2025', 'app', 'inactive'),
-(44, 'downloadable', 's', 's', '2024-02-08 15:29:08', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
-(45, 'procurement', 's', 's', '2024-02-08 15:34:58', NULL, NULL, NULL, NULL, NULL, NULL, '2025', '', 'inactive'),
-(46, 'procurement', 'ssdd', 'ssdd', '2024-02-08 15:36:37', NULL, NULL, NULL, NULL, NULL, NULL, '2025', '', 'inactive'),
-(47, 'procurement', 'asd', 'asd', '2024-02-08 15:43:28', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
-(48, 'material', 'asdss', 'asd', '2024-02-09 16:30:05', 'cid', NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
-(49, 'transparency', 'asdasd', 'asdasd', '2024-02-08 15:49:18', NULL, '0000-00-00', '0000-00-00', 'sample', 's', '245', '0000', '', 'inactive'),
-(50, 'transparency', 'asd', 'asd', '2024-02-08 15:49:54', NULL, '0000-00-00', '0000-00-00', '', '', '', '0000', '', 'inactive'),
-(51, 'transparency', 'asd', 'asd', '2024-02-08 15:55:21', NULL, '2024-03-01', '0000-00-00', '', '', '', '0000', '', 'inactive'),
-(52, 'transparency', 'sample 1', 'sa', '2024-02-08 15:55:50', NULL, '2024-01-31', '2024-02-29', '', '', '', '0000', '', 'inactive'),
-(53, 'procurement', '1', '1', '2024-02-09 15:14:13', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
-(54, 'procurement', '12345', '1asdas', '2024-02-09 16:22:45', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
-(55, 'downloadable', '1', '1', '2024-02-09 16:59:10', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(56, 'downloadable', 'test', 'test', '2024-02-20 11:19:22', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(57, 'downloadable', 'DELETE FROM userstbl WHERE user_id = 10;', 'DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20 11:21:14', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -2830,20 +2781,6 @@ INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file
 -- (See below for the actual view)
 --
 CREATE TABLE `filesvw` (
-`id` int(11)
-,`type` varchar(50)
-,`title` varchar(200)
-,`link` longtext
-,`department` varchar(20)
-,`date` datetime
-,`publish_date` date
-,`closing_date` date
-,`awarded_to` varchar(200)
-,`reference_number` varchar(20)
-,`procurement_mode` varchar(50)
-,`procurement_year` year(4)
-,`procurement_type` varchar(50)
-,`status` varchar(11)
 );
 
 -- --------------------------------------------------------
@@ -2887,7 +2824,7 @@ CREATE TABLE `imagestbl` (
 INSERT INTO `imagestbl` (`image_id`, `image_name`, `image_title`, `image_description`, `image_type`, `image_status`) VALUES
 (1, 'Web-banner_v2.gif', 'Matatag', 'Default Banner', 'carousel', 'active'),
 (2, '1.jpg', '', '', 'carousel', 'inactive'),
-(3, 'SDS-Rita.gif', '', '', 'carousel', 'active'),
+(3, 'SDS-Rita.gif', '', '', 'carousel', 'inactive'),
 (4, 'new.gif', '', '', 'carousel', 'active');
 
 -- --------------------------------------------------------
@@ -5706,7 +5643,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (2998, 'rcrdsdarn0725854', 'CENTER FOR HUMAN RESEARCH AND DEVELOPMENT FOUNDATION INC', ' https://gofile.me/71xfF/HLNg1iMKt', '199', '2023-08-04', 'Advisories', 'active'),
 (3000, 'ictmich0718823', 'STRATEGIES FOR HARMONIZING ACADEMIC REINFORCEMENT IN THE K-12 CURRICULUM (SHARK)', ' https://gofile.me/71xfF/aYRz6ouji', '200', '2023-08-07', 'Advisories', 'active'),
 (3001, 'rcrdsdarn0718957', 'LIST OF STUDENTS FROM PUBLIC SCHOOLS IN MANILA WHO WILL BE AFFECTED BY THE RELOCATION TO TRECE MARTICES, CAVITE CITY, FOR INFORMATION AND GUIDANCE', ' https://gofile.me/71xfF/jQZMe82LO', '125', '2023-08-07', 'Circulars', 'active'),
-(3002, 'ictjuan0801325', 'DISSEMINATION OF DEPED ORDER 16, S. 2023 AND ADOPTION OF THE STANDARD INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT) MONITORING TOOLS', ' https://gofile.me/71xfF/tHY7ZDCVo', '391', '2023-08-07', 'Numbered', 'active'),
+(3002, 'ictjuan08013251s', 'DISSEMINATION OF DEPED ORDER 16, S. 2023 AND ADOPTION OF THE STANDARD INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT) MONITORING TOOLS', ' https://gofile.me/71xfF/tHY7ZDCVo', '391', '2023-08-07', 'Numbered', 'active'),
 (3003, 'sgodsias0803799', 'REGIONAL EDUCATION SUMMIT FOR PRIVATE SCHOOLS', ' https://gofile.me/71xfF/rxza73DgX', '392', '2023-08-07', 'Numbered', 'inactive'),
 (3004, 'sgodsias0719997', 'CAREER SERVICE EXAMINATION - PEN AND PAPER TEST (CSE-PPT) SUBPROFESSIONAL LEVEL', ' https://gofile.me/71xfF/sQOv1Ih8L', '393', '2023-08-07', 'Numbered', 'inactive'),
 (3005, 'sgodsias0803936', 'PARTICIPATION IN THE ONLINE VALIDATION OF BASELINE DATA ON THE NON-TEACHING TASKS ASSIGNED TO TEACHERS', ' https://gofile.me/71xfF/u9MX4op1y', '149', '2023-08-07', 'Unnumbered', 'inactive'),
@@ -5728,7 +5665,9 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3021, 'asda', 'asdasdasdsadsss', ' asd', '123', '2024-02-06', 'Advisories', 'inactive'),
 (3022, 'asss23s asss3asdasd4sxxxs', 'ssssssasdasd\n\n\n', ' ssss', '1', '2024-02-06', 'Unnumbered', 'inactive'),
 (3023, '1', '1', ' 1', '1', '2024-02-07', 'Unnumbered', 'inactive'),
-(3024, 'test', '123', ' 123', '123', '2024-02-13', 'Numbered', 'active');
+(3024, '123', 'ST. MARY\'S ACADEMY OF STA. ANAS SCHOOL CAMPAIG\'N', ' 123', '123', '2024-02-13', 'Numbered', 'inactive'),
+(3027, '1234', '123', '123', '123', '2024-03-12', 'Circulars', 'inactive'),
+(3028, '123334455543', '12341231233', ' 123', '123', '2024-03-12', 'Circulars', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -5827,14 +5766,6 @@ CREATE TABLE `officesvw` (
 -- (See below for the actual view)
 --
 CREATE TABLE `procurementfilesvw` (
-`id` int(11)
-,`type` varchar(50)
-,`title` varchar(200)
-,`link` longtext
-,`date` datetime
-,`pyear` year(4)
-,`ptype` varchar(50)
-,`status` varchar(11)
 );
 
 -- --------------------------------------------------------
@@ -5870,7 +5801,7 @@ INSERT INTO `schoolstbl` (`schooltbl_id`, `school_id`, `school_name`, `school_ad
 (4, '136439', 'Isabelo Delos Reyes', 'Morga-Sande St. Tondo, Manila', 'Ms. Eleodora B. Vergara', '8-242-3823', 'idelosreyeses.depedmanila.com', 'eleodora.vergara001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
 (5, '136440', 'Jose Corazon De Jesus', 'N. Zamora St. Tondo, Manila', 'Ms. Emmalyn F. Fortunato-Csiki', '8-354-5734', 'jcdejesuses.depedmanila.com', 'emmalyn.fotunato002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
 (6, '136432', 'Jose Rizal', 'Tayuman-Pingkian St. Tondo, Manila', 'Ms. Marilou S. Calma', '8-354-7207', 'joserizales.depedmanila.com', 'marilou.calma002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
-(7, '136438', 'Magat Salamat', '1429 Sta. Maria St. Tondo, Manila', 'Ms. Blesilda B. Cueto', '8-254-6334', 'magatsalamates.depedmanila.com', 'blesilda.cueto001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
+(7, '136438', 'Magat Salamat', '1429 Sta. Maria St. Tondo, Manila', 'Ms. Blesilda B. Cueto', '8-254-6334', 'magatsalamates.depedmanila.com', 'blesilda.cueto001@deped.gov.ph', '1', 'Elementary', '', '', 'active'),
 (8, '136437', 'Manuel L. Quezon (ES)', 'Perla-Verona St. Tondo, Manila', 'Mr. Marcelo D. Mislang', '8-254-6158', 'mlquezones.depedmanila.com', 'marcelomislang1972@gmail.com', '1', 'Elementary', 'no', 'no', 'active'),
 (9, '136441', 'Rosauro Almario', 'Kagitingan St. Tondo, Manila', 'Mr. Graciano A. Budoy, Jr.', '8-254-1376', 'raes.depedmanila.com', 'graciano.budoy@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
 (10, '136435', 'Teodoro R. Yangco', 'Franco-Dandan St. Tondo, Manila', 'Mr. Romencio L. Rubio', '8-252-2738', 'tryangcoes.depedmanila.com', 'romencio.rubio004@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
@@ -5993,21 +5924,6 @@ CREATE TABLE `schoolsvw` (
 ,`type` varchar(20)
 ,`shs_availability` varchar(11)
 ,`sped_availability` varchar(11)
-,`status` varchar(11)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `sgodofficesvw`
--- (See below for the actual view)
---
-CREATE TABLE `sgodofficesvw` (
-`id` int(11)
-,`name` varchar(50)
-,`office` varchar(100)
-,`position` varchar(200)
-,`email` varchar(50)
 ,`status` varchar(11)
 );
 
@@ -6711,12 +6627,131 @@ INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_t
 (613, 3, 'Deleted School, id: 123', '2024-02-19', '16:05:14', 'inactive'),
 (614, 3, 'Deleted School, id: 123412', '2024-02-19', '16:05:17', 'inactive'),
 (615, 3, 'Deleted School, id: 136440', '2024-02-19', '16:05:21', 'inactive'),
-(616, 3, 'Cleared all time logs', '2024-02-19', '16:05:41', 'active'),
-(617, 3, 'Added downloadable File test', '2024-02-20', '11:19:22', 'active'),
-(618, 3, 'Added downloadable File DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:14', 'active'),
-(619, 3, 'Deleted downloadable file: DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:31', 'active'),
-(620, 3, 'Deleted School, id: 136432', '2024-02-20', '11:50:02', 'active'),
-(621, 3, 'Deleted Issuance sgodsias0803799', '2024-02-20', '11:50:08', 'active');
+(616, 3, 'Cleared all time logs', '2024-02-19', '16:05:41', 'inactive'),
+(617, 3, 'Added downloadable File test', '2024-02-20', '11:19:22', 'inactive'),
+(618, 3, 'Added downloadable File DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:14', 'inactive'),
+(619, 3, 'Deleted downloadable file: DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:31', 'inactive'),
+(620, 3, 'Deleted School, id: 136432', '2024-02-20', '11:50:02', 'inactive'),
+(621, 3, 'Deleted Issuance sgodsias0803799', '2024-02-20', '11:50:08', 'inactive'),
+(622, 3, 'Edited Issuance test', '2024-02-23', '10:11:48', 'inactive'),
+(623, 3, 'Edited Issuance test', '2024-02-23', '10:20:31', 'inactive'),
+(624, 3, 'Edited Issuance test', '2024-02-23', '10:20:41', 'inactive'),
+(625, 3, 'Edited Issuance test', '2024-02-23', '10:20:53', 'inactive'),
+(626, 3, 'Edited Issuance test', '2024-02-23', '10:21:11', 'inactive'),
+(627, 3, 'Edited Issuance test', '2024-02-23', '10:22:21', 'inactive'),
+(628, 3, 'Edited Issuance test', '2024-02-23', '10:22:40', 'inactive'),
+(629, 3, 'Edited Issuance test', '2024-02-23', '10:23:25', 'inactive'),
+(630, 3, 'Edited Issuance test', '2024-02-23', '10:23:51', 'inactive'),
+(631, 3, 'Edited Issuance test', '2024-02-23', '10:24:05', 'inactive'),
+(632, 3, 'Edited Issuance test', '2024-02-23', '10:24:31', 'inactive'),
+(633, 3, 'Edited Issuance test', '2024-02-23', '10:24:40', 'inactive'),
+(634, 3, 'Edited Issuance test', '2024-02-23', '10:25:46', 'inactive'),
+(635, 3, 'Edited Issuance test', '2024-02-23', '10:25:50', 'inactive'),
+(636, 3, 'Edited Issuance test', '2024-02-23', '10:26:02', 'inactive'),
+(637, 3, 'Edited Issuance test', '2024-02-23', '10:36:51', 'inactive'),
+(638, 3, 'Edited Issuance test', '2024-02-23', '10:48:39', 'inactive'),
+(639, 3, 'Edited Issuance test', '2024-02-23', '10:54:36', 'inactive'),
+(640, 3, 'Edited Issuance test', '2024-02-23', '10:55:13', 'inactive'),
+(641, 3, 'Edited Issuance test', '2024-02-23', '10:55:59', 'inactive'),
+(642, 3, 'Edited Issuance test', '2024-02-23', '10:56:12', 'inactive'),
+(643, 3, 'Edited Issuance test', '2024-02-23', '10:56:23', 'inactive');
+INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_time`, `log_status`) VALUES
+(644, 3, 'Edited Issuance test', '2024-02-23', '10:56:41', 'inactive'),
+(645, 3, 'Edited Issuance test', '2024-02-23', '10:56:47', 'inactive'),
+(646, 3, 'Edited Issuance test', '2024-02-23', '10:57:00', 'inactive'),
+(647, 3, 'Edited Issuance test', '2024-02-23', '10:57:07', 'inactive'),
+(648, 3, 'Edited Issuance test', '2024-02-23', '10:57:22', 'inactive'),
+(649, 3, 'Edited Issuance test', '2024-02-23', '10:57:35', 'inactive'),
+(650, 3, 'Edited Issuance test', '2024-02-23', '10:57:41', 'inactive'),
+(651, 3, 'Edited Issuance test', '2024-02-23', '10:57:59', 'inactive'),
+(652, 3, 'Edited Issuance test', '2024-02-23', '10:58:17', 'inactive'),
+(653, 3, 'Edited Issuance test', '2024-02-23', '10:58:25', 'inactive'),
+(654, 3, 'Edited Issuance test', '2024-02-23', '10:58:36', 'inactive'),
+(655, 3, 'Edited Issuance test', '2024-02-23', '11:02:02', 'inactive'),
+(656, 3, 'Edited Issuance tests', '2024-02-23', '11:02:11', 'inactive'),
+(659, 3, 'Edited Issuance tests', '2024-02-23', '11:04:20', 'inactive'),
+(662, 3, 'Edited Issuance tests', '2024-02-23', '11:09:10', 'inactive'),
+(663, 3, 'Edited Issuance ictjuan0801325', '2024-02-23', '11:16:14', 'inactive'),
+(664, 3, 'Edited Issuance ictjuan0801325', '2024-02-23', '11:16:19', 'inactive'),
+(665, 3, 'Edited Issuance rcrdsdarn0718484', '2024-02-23', '11:18:14', 'inactive'),
+(668, 3, 'Edited Issuance tests', '2024-02-23', '11:43:49', 'inactive'),
+(669, 3, 'Edited Issuance tests', '2024-02-23', '11:57:40', 'inactive'),
+(670, 3, 'Edited Issuance tests', '2024-02-23', '13:06:44', 'inactive'),
+(671, 3, 'Edited Issuance tests', '2024-02-23', '13:06:51', 'inactive'),
+(672, 3, 'Edited Issuance tests', '2024-02-23', '13:07:12', 'inactive'),
+(673, 3, 'Edited Issuance tests', '2024-02-23', '13:07:28', 'inactive'),
+(674, 3, 'Edited Issuance tests', '2024-02-23', '13:09:07', 'inactive'),
+(675, 3, 'Edited Issuance tests', '2024-02-23', '13:17:05', 'inactive'),
+(676, 3, 'Edited Issuance tests', '2024-02-23', '13:19:49', 'inactive'),
+(677, 3, 'Edited School, id: 7', '2024-02-23', '13:27:25', 'inactive'),
+(678, 3, 'Edited Issuance ictjuan0801325', '2024-02-23', '13:30:46', 'inactive'),
+(679, 3, 'Edited Issuance ictjuan0801325', '2024-02-23', '13:30:46', 'inactive'),
+(680, 3, 'Edited Issuance ictjuan08013251', '2024-02-23', '13:31:13', 'inactive'),
+(681, 3, 'Edited Issuance ictjuan08013251s', '2024-02-23', '13:31:18', 'inactive'),
+(682, 3, 'Edited Issuance tests', '2024-02-23', '13:33:13', 'inactive'),
+(683, 3, 'Edited Issuance tests', '2024-02-23', '13:34:05', 'inactive'),
+(684, 3, 'Cleared all time logs', '2024-02-27', '15:53:19', 'active'),
+(685, 3, 'Edited Issuance tests', '2024-02-29', '10:35:37', 'active'),
+(686, 3, 'Edited Issuance tests', '2024-02-29', '10:35:44', 'active'),
+(687, 3, 'Edited downloadable file: Personal Data Sheet (CSC Form 212)', '2024-03-07', '09:53:10', 'active'),
+(688, 3, 'ict jon Logged Out', '2024-03-12', '08:36:18', 'active'),
+(689, 4, 'ict kev Logged In', '2024-03-12', '08:36:23', 'active'),
+(690, 4, 'Edited Issuance tests', '2024-03-12', '08:42:20', 'active'),
+(691, 4, 'Added Issuance 123', '2024-03-12', '09:59:35', 'active'),
+(692, 4, 'Edited Issuance 1234', '2024-03-12', '09:59:47', 'active'),
+(693, 4, 'Edited Issuance ', '2024-03-12', '10:02:35', 'active'),
+(694, 4, 'Edited Issuance ', '2024-03-12', '10:02:36', 'active'),
+(695, 4, 'Edited Issuance ', '2024-03-12', '10:02:36', 'active'),
+(696, 4, 'Edited Issuance ', '2024-03-12', '10:02:55', 'active'),
+(697, 4, 'Edited Issuance ', '2024-03-12', '10:02:56', 'active'),
+(698, 4, 'Edited Issuance ', '2024-03-12', '10:02:56', 'active'),
+(699, 4, 'Edited Issuance 123', '2024-03-12', '10:03:29', 'active'),
+(700, 4, 'Edited Issuance 1234', '2024-03-12', '10:07:06', 'active'),
+(701, 4, 'Added Issuance 123', '2024-03-12', '10:08:13', 'active'),
+(702, 4, 'Edited Issuance 1234', '2024-03-12', '10:16:59', 'active'),
+(703, 4, 'Edited Issuance 12345', '2024-03-12', '10:17:08', 'active'),
+(704, 4, 'Edited Issuance 123455', '2024-03-12', '10:21:19', 'active'),
+(705, 4, 'Edited Issuance 1234556', '2024-03-12', '10:22:54', 'active'),
+(706, 4, 'Edited Issuance 12345564', '2024-03-12', '10:23:52', 'active'),
+(707, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:28:48', 'active'),
+(708, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:38:00', 'active'),
+(709, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:39:29', 'active'),
+(710, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:46:44', 'active'),
+(711, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:46:59', 'active'),
+(712, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:47:31', 'active'),
+(713, 4, 'Edited Issuance 1234556466', '2024-03-12', '10:47:50', 'active'),
+(714, 4, 'Edited Issuance 12345564661', '2024-03-12', '10:51:20', 'active'),
+(715, 4, 'Edited Issuance 123455646612', '2024-03-12', '10:52:43', 'active'),
+(716, 4, 'Edited Issuance 1234556466123', '2024-03-12', '10:55:01', 'active'),
+(717, 4, 'Edited Issuance 123', '2024-03-12', '10:55:22', 'active'),
+(718, 4, 'Edited Issuance 1233', '2024-03-12', '10:57:34', 'active'),
+(719, 4, 'Edited Issuance 12333', '2024-03-12', '10:57:52', 'active'),
+(720, 4, 'Edited Issuance 12333', '2024-03-12', '10:57:53', 'active'),
+(721, 4, 'Edited Issuance 12333', '2024-03-12', '10:57:59', 'active'),
+(722, 4, 'Edited Issuance 123334', '2024-03-12', '10:58:06', 'active'),
+(723, 4, 'Edited Issuance 123', '2024-03-12', '10:58:12', 'active'),
+(724, 4, 'Edited Issuance 123', '2024-03-12', '10:58:39', 'active'),
+(725, 4, 'Edited Issuance 123', '2024-03-12', '10:58:51', 'active'),
+(726, 4, 'Edited Issuance 123', '2024-03-12', '10:58:58', 'active'),
+(727, 4, 'Edited Issuance 123', '2024-03-12', '10:59:47', 'active'),
+(728, 4, 'Edited Issuance 1233344', '2024-03-12', '11:01:58', 'active'),
+(729, 4, 'Edited Issuance 1233344555', '2024-03-12', '11:02:08', 'active'),
+(730, 4, 'Edited Issuance 12333445554', '2024-03-12', '11:02:40', 'active'),
+(731, 4, 'Edited Issuance 123334455543', '2024-03-12', '11:03:48', 'active'),
+(732, 4, 'Edited Issuance 123334455543', '2024-03-12', '11:03:53', 'active'),
+(733, 4, 'Edited Issuance 123334455543', '2024-03-12', '11:03:58', 'active'),
+(734, 4, 'Edited Issuance 123334455543', '2024-03-12', '11:04:53', 'active'),
+(735, 4, 'Deleted Issuance 123334455543', '2024-03-12', '11:08:14', 'active'),
+(736, 4, 'Deleted Issuance 123334455543', '2024-03-12', '11:08:34', 'active'),
+(737, 4, 'Deleted Issuance 123334455543', '2024-03-12', '11:08:59', 'active'),
+(738, 4, 'Deleted Issuance 123334455543', '2024-03-12', '11:11:22', 'active'),
+(739, 4, 'Deleted Issuance 1234', '2024-03-12', '11:11:28', 'active'),
+(740, 4, 'Deleted Issuance 123', '2024-03-12', '11:11:31', 'active'),
+(741, 4, 'ict kev Logged Out', '2024-03-15', '14:52:07', 'active'),
+(742, 4, 'Deleted School, id: 136438', '2024-03-15', '15:47:44', 'active'),
+(743, 3, 'ict jon Logged In', '2024-03-15', '15:48:23', 'active'),
+(744, 3, 'ict jon Logged Out', '2024-03-18', '09:00:18', 'active'),
+(745, 3, 'ict jon Logged In', '2024-03-18', '09:00:43', 'active');
 
 -- --------------------------------------------------------
 
@@ -6741,17 +6776,6 @@ CREATE TABLE `timelogvw` (
 -- (See below for the actual view)
 --
 CREATE TABLE `transparencyfilesvw` (
-`id` int(11)
-,`type` varchar(50)
-,`title` varchar(200)
-,`link` longtext
-,`date` datetime
-,`publish_date` date
-,`closing_date` date
-,`awarded_to` varchar(200)
-,`reference_number` varchar(20)
-,`procurement_mode` varchar(50)
-,`status` varchar(11)
 );
 
 -- --------------------------------------------------------
@@ -6775,12 +6799,12 @@ CREATE TABLE `userstbl` (
 --
 
 INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_profile`, `user_status`) VALUES
-(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
-(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
-(3, 'ict jon', 'jon.raguini@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
-(4, 'ict kev', 'kevin.flogen@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'admin', '', 'active'),
-(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
-(10, 'ict trainee', 'trainee@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'trainee', '', 'active');
+(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(3, 'ict jon', 'jon.raguini@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(4, 'ict kev', 'kevin.flogen@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'admin', '', 'active'),
+(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(10, 'ict trainee', 'trainee@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'trainee', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -6793,9 +6817,18 @@ CREATE TABLE `usersvw` (
 ,`username` varchar(50)
 ,`email` varchar(50)
 ,`type` varchar(20)
-,`password` varchar(50)
+,`password` longtext
 ,`status` varchar(11)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `bacfilesvw`
+--
+DROP TABLE IF EXISTS `bacfilesvw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `bacfilesvw`  AS SELECT `bacfilestbl`.`bacfile_id` AS `id`, `bacfilestbl`.`bacfile_type` AS `type`, `bacfilestbl`.`bacfile_title` AS `title`, `bacfilestbl`.`bacfile_link` AS `link`, `bacfilestbl`.`bacfile_date` AS `date`, `bacfilestbl`.`bacfile_procurementYear` AS `procurement_year`, `bacfilestbl`.`bacfile_procurementType` AS `procurement_type`, `bacfilestbl`.`bacfile_publishDate` AS `publish_date`, `bacfilestbl`.`bacfile_closingDate` AS `closing_date`, `bacfilestbl`.`bacfile_awardedTo` AS `awarded_to`, `bacfilestbl`.`bacfile_referenceNum` AS `reference_number`, `bacfilestbl`.`bacfile_procurementMode` AS `procurement_mode`, `bacfilestbl`.`bacfile_status` AS `status` FROM `bacfilestbl` WHERE `bacfilestbl`.`bacfile_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6805,24 +6838,6 @@ CREATE TABLE `usersvw` (
 DROP TABLE IF EXISTS `carouselvw`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `carouselvw`  AS SELECT `imagestbl`.`image_id` AS `id`, `imagestbl`.`image_name` AS `name`, `imagestbl`.`image_title` AS `title`, `imagestbl`.`image_description` AS `description`, `imagestbl`.`image_type` AS `type`, `imagestbl`.`image_status` AS `status` FROM `imagestbl` WHERE `imagestbl`.`image_type` = 'carousel' AND `imagestbl`.`image_status` = 'active' ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `chiefsofficesvw`
---
-DROP TABLE IF EXISTS `chiefsofficesvw`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `chiefsofficesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM `officestbl` WHERE `officestbl`.`employee_post` = 'chief' AND `officestbl`.`employee_status` = 'active' ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `cidofficesvw`
---
-DROP TABLE IF EXISTS `cidofficesvw`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cidofficesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM `officestbl` WHERE `officestbl`.`employee_post` = 'CID' AND `officestbl`.`employee_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6944,15 +6959,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `sgodofficesvw`
---
-DROP TABLE IF EXISTS `sgodofficesvw`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `sgodofficesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM `officestbl` WHERE `officestbl`.`employee_post` = 'SGOD' AND `officestbl`.`employee_status` = 'active' ;
-
--- --------------------------------------------------------
-
---
 -- Structure for view `shsschoolsvw`
 --
 DROP TABLE IF EXISTS `shsschoolsvw`;
@@ -7007,6 +7013,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bacfilestbl`
+--
+ALTER TABLE `bacfilestbl`
+  ADD PRIMARY KEY (`bacfile_id`);
 
 --
 -- Indexes for table `dailyvisitstbl`
@@ -7082,6 +7094,12 @@ ALTER TABLE `userstbl`
 --
 
 --
+-- AUTO_INCREMENT for table `bacfilestbl`
+--
+ALTER TABLE `bacfilestbl`
+  MODIFY `bacfile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `dailyvisitstbl`
 --
 ALTER TABLE `dailyvisitstbl`
@@ -7091,7 +7109,7 @@ ALTER TABLE `dailyvisitstbl`
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
@@ -7103,7 +7121,7 @@ ALTER TABLE `imagestbl`
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3027;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3029;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
@@ -7127,7 +7145,7 @@ ALTER TABLE `socialmediatbl`
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=622;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=746;
 
 --
 -- AUTO_INCREMENT for table `userstbl`

@@ -18,10 +18,10 @@
     $total_downloadable = $row;
 
     //total downladable in transparencyfilesvw
-    $sql = "SELECT * FROM transparencyfilesvw WHERE status = 'active'";
-    $sql1 = mysqli_query($con, $sql);
-    $row = mysqli_num_rows($sql1);
-    $total_transparency = $row;
+    // $sql = "SELECT * FROM transparencyfilesvw WHERE status = 'active'";
+    // $sql1 = mysqli_query($con, $sql);
+    // $row = mysqli_num_rows($sql1);
+    // $total_transparency = $row;
 
     //total downladable in issuancesvw
     $sql = "SELECT * FROM issuancesvw WHERE status = 'active'";
@@ -84,4 +84,10 @@
     $cityMemorandum = "SELECT * FROM issuancesvw WHERE type = 'City Memorandum' ORDER BY date DESC";
     $cityMemorandum1 = mysqli_query($con, $cityMemorandum);
 
+    //transparencies.php
+    $tranparencyInvitation = "SELECT * FROM bacfilesvw ";
+    $tranparencyInvitation1 = mysqli_query($con, $tranparencyInvitation);
+
+    $transparency_board = "SELECT * FROM bacfilesvw";
+    $transparency_board1 = mysqli_query($con, $transparency_board);
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2024 at 03:12 PM
+-- Generation Time: Feb 20, 2024 at 09:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 --
 CREATE TABLE `carouselvw` (
 `id` int(11)
-,`name` varchar(20)
-,`title` varchar(20)
-,`description` varchar(50)
-,`type` varchar(11)
+,`name` longtext
+,`title` varchar(100)
+,`description` varchar(200)
+,`type` varchar(20)
 ,`status` varchar(11)
 );
 
@@ -2654,6 +2654,58 @@ INSERT INTO `dailyvisitstbl` (`daily_visitors_id`, `daily_visitors_ip_address`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `departmentstbl`
+--
+
+CREATE TABLE `departmentstbl` (
+  `department_id` varchar(20) NOT NULL,
+  `department_name` varchar(100) NOT NULL,
+  `department_contact` varchar(30) NOT NULL,
+  `department_email` varchar(50) NOT NULL,
+  `department_status` varchar(11) NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `departmentstbl`
+--
+
+INSERT INTO `departmentstbl` (`department_id`, `department_name`, `department_contact`, `department_email`, `department_status`) VALUES
+('accounting', 'Accounting Services', '', '', 'active'),
+('administrative', 'Administrative Services', '', '', 'active'),
+('budget', 'Budget Services', '', '', 'active'),
+('cash', 'Cash Services', '', '', 'active'),
+('cid', 'Curriculum Implementation Division', '', '', 'active'),
+('coa', 'Comission on Audit', '', '', 'active'),
+('drrm', 'Disaster Risk Reduction Management Office', '', '', 'active'),
+('health', 'Health Services', '', '', 'active'),
+('hrms', 'Human Resources Management Services', '', '', 'active'),
+('ict', 'Information Communicaiton Technology Services', '', '', 'active'),
+('legal', 'Legal Services', '', '', 'active'),
+('oasds', 'Office of the Assistant Schools Division Superintendent', '', '', 'active'),
+('osds', 'Office of the Schools Division Superintendent', '', '', 'active'),
+('property', 'Asset Management Services', '', '', 'active'),
+('publications', 'Publications Services', '', '', 'active'),
+('records', 'Records Management Services', '', 'records.sdomanila@deped.gov.ph', 'active'),
+('school plant', 'School Plant Services', '', '', 'active'),
+('sgod', 'Schools Governance and Operations Division', '', '', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `departmentsvw`
+-- (See below for the actual view)
+--
+CREATE TABLE `departmentsvw` (
+`id` varchar(20)
+,`name` varchar(100)
+,`contact` varchar(30)
+,`email` varchar(50)
+,`status` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `downloadablefilesvw`
 -- (See below for the actual view)
 --
@@ -2661,7 +2713,7 @@ CREATE TABLE `downloadablefilesvw` (
 `id` int(11)
 ,`type` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`date` datetime
 ,`status` varchar(11)
 );
@@ -2678,7 +2730,7 @@ CREATE TABLE `elemschoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -2695,7 +2747,7 @@ CREATE TABLE `filestbl` (
   `file_id` int(11) NOT NULL,
   `file_type` varchar(50) NOT NULL,
   `file_title` varchar(200) NOT NULL,
-  `file_link` varchar(200) NOT NULL,
+  `file_link` longtext NOT NULL,
   `file_date` datetime NOT NULL DEFAULT current_timestamp(),
   `file_department` varchar(20) DEFAULT NULL,
   `file_publishDate` date DEFAULT NULL,
@@ -2704,7 +2756,7 @@ CREATE TABLE `filestbl` (
   `file_referenceNum` varchar(20) DEFAULT NULL,
   `file_procurementMode` varchar(50) DEFAULT NULL,
   `file_procurementYear` year(4) NOT NULL,
-  `file_procurementType` varchar(20) NOT NULL,
+  `file_procurementType` varchar(50) NOT NULL,
   `file_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2713,7 +2765,7 @@ CREATE TABLE `filestbl` (
 --
 
 INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_department`, `file_publishDate`, `file_closingDate`, `file_awardedTo`, `file_referenceNum`, `file_procurementMode`, `file_procurementYear`, `file_procurementType`, `file_status`) VALUES
-(1, 'downloadable', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(1, 'downloadable', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2024-02-09 16:57:14', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (2, 'downloadable', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (3, 'downloadable', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (4, 'downloadable', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
@@ -2721,7 +2773,7 @@ INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file
 (6, 'downloadable', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (7, 'downloadable', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (8, 'transparency', 'BOARD AND LODGING FOR THE ASSESSORS MANUAL RESOURCE PACKAGING', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9330364', '2023-08-03 06:39:25', NULL, '2022-12-08', '2022-12-13', NULL, '9330364', NULL, '0000', '', 'active'),
-(9, 'transparency', 'Procurement of Office and Janitorial Supplies', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '2023-08-03 06:38:59', '', '2022-12-14', '2022-12-19', NULL, '9348275', NULL, '0000', '', 'active'),
+(9, 'transparency', 'Procurement of Office and Janitorial Supplies', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '2023-08-03 06:38:59', NULL, '2022-12-14', '2022-12-19', NULL, '9348275', NULL, '0000', '', 'active'),
 (10, 'transparency', 'Procurement of Ink and Toners', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348227', '2023-08-03 06:38:37', '', '2022-12-14', '2022-12-19', NULL, '9348227', NULL, '0000', '', 'active'),
 (11, 'transparency', 'Supplies for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348195', '2023-08-03 06:38:12', '', '2022-12-14', '2022-12-19', NULL, '9348195', NULL, '0000', '', 'active'),
 (12, 'transparency', 'Venue and Meals for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348149', '2023-08-03 06:37:54', '', '2022-12-14', '2022-12-19', NULL, '9348149', NULL, '0000', '', 'active'),
@@ -2746,10 +2798,30 @@ INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file
 (31, 'transparency', 'Procurement of Smart TV for Schools', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377925', '2023-08-03 06:24:12', '', '2022-12-24', '2022-12-27', NULL, '9377925', NULL, '0000', '', 'active'),
 (32, 'transparency', 'CY 2018 EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASSROOM ', 'https://drive.google.com/file/d/1pdPus7q_o7orbPpu1gSIFbKrw1onrkRI/view', '2023-08-07 03:37:45', '', '2018-03-16', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
 (33, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND REPAIR OF CLASSROOM', 'https://drive.google.com/file/d/1zOxk-gRp9mo9RmWRJnfMEoHeCyGA_AHC/view', '2023-08-03 06:05:40', '', '2018-03-05', '2023-08-03', NULL, '0', NULL, '0000', '', 'active'),
-(34, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', 'https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '2023-08-07 04:01:53', '', '2018-06-08', '2023-08-05', NULL, '0', NULL, '0000', '', 'active'),
+(34, 'transparency', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)s', 'https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '2024-02-09 16:30:12', '', '2018-06-08', '2023-08-05', '', '0', '', '0000', '', 'active'),
 (35, 'material', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-02-06 13:36:16', 'cash and budget', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
 (36, 'material', 'Report on the Physical Count of Inventories Form', 'https://docs.google.com/forms/d/e/1FAIpQLSc09L7qOjI2Q372rUbnzEN_oJk9HynuBoXMr43tJZswvr1b9Q/viewform?usp=sharing', '2024-02-06 13:36:16', 'property', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
-(37, 'material', 'PrimeDOTS Worksheet for Division Issuances', 'https://docs.google.com/spreadsheets/d/1qCZB4lhQRRYPsb9OX3uq-L2eVuzUXTjcbo_fMb2MNjk/edit#gid=0', '2024-02-06 13:36:16', 'records', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active');
+(37, 'material', 'PrimeDOTS Worksheet for Division Issuances', 'https://docs.google.com/spreadsheets/d/1qCZB4lhQRRYPsb9OX3uq-L2eVuzUXTjcbo_fMb2MNjk/edit#gid=0', '2024-02-06 13:36:16', 'records', NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(38, 'downloadable', 's', 's', '2024-02-08 15:11:46', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(39, 'downloadable', 's', 's', '2024-02-08 15:14:51', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(40, '', 's', 's', '2024-02-08 15:17:52', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(41, 'procurement', 's', 's', '2024-02-08 15:18:02', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
+(42, 'downloadable', 's', 's', '2024-02-08 15:26:21', '', '0000-00-00', '0000-00-00', '', '', '', '0000', '', 'inactive'),
+(43, 'procurement', 's', 's', '2024-02-08 15:26:28', '', '0000-00-00', '0000-00-00', '', '', '', '2025', 'app', 'inactive'),
+(44, 'downloadable', 's', 's', '2024-02-08 15:29:08', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
+(45, 'procurement', 's', 's', '2024-02-08 15:34:58', NULL, NULL, NULL, NULL, NULL, NULL, '2025', '', 'inactive'),
+(46, 'procurement', 'ssdd', 'ssdd', '2024-02-08 15:36:37', NULL, NULL, NULL, NULL, NULL, NULL, '2025', '', 'inactive'),
+(47, 'procurement', 'asd', 'asd', '2024-02-08 15:43:28', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
+(48, 'material', 'asdss', 'asd', '2024-02-09 16:30:05', 'cid', NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive'),
+(49, 'transparency', 'asdasd', 'asdasd', '2024-02-08 15:49:18', NULL, '0000-00-00', '0000-00-00', 'sample', 's', '245', '0000', '', 'inactive'),
+(50, 'transparency', 'asd', 'asd', '2024-02-08 15:49:54', NULL, '0000-00-00', '0000-00-00', '', '', '', '0000', '', 'inactive'),
+(51, 'transparency', 'asd', 'asd', '2024-02-08 15:55:21', NULL, '2024-03-01', '0000-00-00', '', '', '', '0000', '', 'inactive'),
+(52, 'transparency', 'sample 1', 'sa', '2024-02-08 15:55:50', NULL, '2024-01-31', '2024-02-29', '', '', '', '0000', '', 'inactive'),
+(53, 'procurement', '1', '1', '2024-02-09 15:14:13', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
+(54, 'procurement', '12345', '1asdas', '2024-02-09 16:22:45', NULL, NULL, NULL, NULL, NULL, NULL, '2025', 'app', 'inactive'),
+(55, 'downloadable', '1', '1', '2024-02-09 16:59:10', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(56, 'downloadable', 'test', 'test', '2024-02-20 11:19:22', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'active'),
+(57, 'downloadable', 'DELETE FROM userstbl WHERE user_id = 10;', 'DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20 11:21:14', NULL, NULL, NULL, NULL, NULL, NULL, '0000', '', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -2761,7 +2833,7 @@ CREATE TABLE `filesvw` (
 `id` int(11)
 ,`type` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`department` varchar(20)
 ,`date` datetime
 ,`publish_date` date
@@ -2770,7 +2842,7 @@ CREATE TABLE `filesvw` (
 ,`reference_number` varchar(20)
 ,`procurement_mode` varchar(50)
 ,`procurement_year` year(4)
-,`procurement_type` varchar(20)
+,`procurement_type` varchar(50)
 ,`status` varchar(11)
 );
 
@@ -2786,7 +2858,7 @@ CREATE TABLE `highschoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -2804,7 +2876,7 @@ CREATE TABLE `imagestbl` (
   `image_name` longtext NOT NULL,
   `image_title` varchar(100) NOT NULL,
   `image_description` varchar(200) NOT NULL,
-  `image_type` varchar(11) NOT NULL,
+  `image_type` varchar(20) NOT NULL,
   `image_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -2838,12 +2910,19 @@ INSERT INTO `issuancescategorytbl` (`issuances_type`, `issuances_type_name`, `is
 ('Advisories', 'Division Advisories', 'active'),
 ('Circulars', 'Division Letters / Circulars', 'active'),
 ('City Memorandum', 'City Memorandum', 'active'),
+('kevin caategory', 'kevin caategory', 'inactive'),
 ('Miscellaneous', 'Miscellaneous', 'active'),
 ('Notices', 'Notices', 'active'),
 ('Numbered', 'Numbered Memo', 'active'),
 ('Office Memorandum', 'Office Memorandum', 'active'),
 ('Office Order', 'Office Order', 'active'),
-('Unnumbered', 'Unnumbered Memo', 'active');
+('test', 'test', 'inactive'),
+('test1', 'test123', 'inactive'),
+('test1234', 'test1234', 'inactive'),
+('test2', 'test2', 'inactive'),
+('test4', 'test4', 'inactive'),
+('Unnumbered', 'Unnumbered Memo', 'active'),
+('z edit', 'For Editing', 'active');
 
 -- --------------------------------------------------------
 
@@ -5551,7 +5630,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (2919, 'hlthjen0713239', 'PROFESSIONAL MEETING AND OATH-TAKING OF THE NEWLY ELECTED OFFICERS', ' https://gofile.me/71xfF/vKaXJ8wKM', '140', '2023-07-14', 'Unnumbered', 'active'),
 (2920, 'cidbren0712422', 'PRACTICE FOR ALS GRADUATION AND COMPLETION CEREMONY', ' https://gofile.me/71xfF/Ljb4sU7wn', '353', '2023-07-14', 'Numbered', 'active'),
 (2921, 'rcrdsmari0613915', 'PHILIPPINE STAR\'S LEARNING EXPERIENCE ACQUIRED THROUGH READING NEWSPAPERS (LEARN)', ' https://gofile.me/71xfF/Qa3BormgI', '121', '2023-07-14', 'Circulars', 'active'),
-(2922, 'sgodsias0714227', 'REQUEST FOR THE INFORMATION OF MEMBERS OF THE CHILD PROTECTION COMMITTEE (CPC) IN SCHOOLS', 'https://gofile.me/71xfF/IIWJTnDEO', '354', '2023-07-17', 'Numbered', 'active'),
+(2922, 'sgodsias0714227', 'REQUEST FOR THE INFORMATION OF MEMBERS OF THE CHILD PROTECTION COMMITTEE (CPC) IN SCHOOLS', ' https://gofile.me/71xfF/IIWJTnDEO', '354', '2023-07-17', 'Numbered', 'active'),
 (2923, 'sgodsias0713234', 'REQUEST FOR THE CONSOLIDATED REPORTS OF LEARNER RIGHTS AND PROTECTION CASES', ' https://gofile.me/71xfF/73nHLjyf7', '355', '2023-07-17', 'Numbered', 'active'),
 (2924, 'sgodsias0711672', 'DIVISION GUIDELINES ON THE SUBMISSION OF SCHOOL FORMS FOR END OF SCHOOL YEAR (EOSY) 2022 - 2023 AND OTHER RELATED REPORTS', ' https://gofile.me/71xfF/3RHt55wNS', '359', '2023-07-17', 'Numbered', 'active'),
 (2925, 'cidchar0713969', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 348, S. 2023 (SCHOOL ASSIGNMENTS OF PUBLIC SCHOOLS DISTRICT SUPERVISORS FOR SCHOOL YEARS 2023-2024 AND 2024-2025)', ' https://gofile.me/71xfF/8TV8vDPzw', '141', '2023-07-17', 'Unnumbered', 'active'),
@@ -5628,7 +5707,7 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3000, 'ictmich0718823', 'STRATEGIES FOR HARMONIZING ACADEMIC REINFORCEMENT IN THE K-12 CURRICULUM (SHARK)', ' https://gofile.me/71xfF/aYRz6ouji', '200', '2023-08-07', 'Advisories', 'active'),
 (3001, 'rcrdsdarn0718957', 'LIST OF STUDENTS FROM PUBLIC SCHOOLS IN MANILA WHO WILL BE AFFECTED BY THE RELOCATION TO TRECE MARTICES, CAVITE CITY, FOR INFORMATION AND GUIDANCE', ' https://gofile.me/71xfF/jQZMe82LO', '125', '2023-08-07', 'Circulars', 'active'),
 (3002, 'ictjuan0801325', 'DISSEMINATION OF DEPED ORDER 16, S. 2023 AND ADOPTION OF THE STANDARD INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT) MONITORING TOOLS', ' https://gofile.me/71xfF/tHY7ZDCVo', '391', '2023-08-07', 'Numbered', 'active'),
-(3003, 'sgodsias0803799', 'REGIONAL EDUCATION SUMMIT FOR PRIVATE SCHOOLS', ' https://gofile.me/71xfF/rxza73DgX', '392', '2023-08-07', 'Numbered', 'active'),
+(3003, 'sgodsias0803799', 'REGIONAL EDUCATION SUMMIT FOR PRIVATE SCHOOLS', ' https://gofile.me/71xfF/rxza73DgX', '392', '2023-08-07', 'Numbered', 'inactive'),
 (3004, 'sgodsias0719997', 'CAREER SERVICE EXAMINATION - PEN AND PAPER TEST (CSE-PPT) SUBPROFESSIONAL LEVEL', ' https://gofile.me/71xfF/sQOv1Ih8L', '393', '2023-08-07', 'Numbered', 'inactive'),
 (3005, 'sgodsias0803936', 'PARTICIPATION IN THE ONLINE VALIDATION OF BASELINE DATA ON THE NON-TEACHING TASKS ASSIGNED TO TEACHERS', ' https://gofile.me/71xfF/u9MX4op1y', '149', '2023-08-07', 'Unnumbered', 'inactive'),
 (3006, 'cidbren0802797', 'CORRIGENDUM TO DIVISION MEMORANDUM NO. 348 s. 2023 (SCHOOL ASSIGNMENTS OF PUBLIC SCHOOLS DISTRICT SUPERVISORS FOR SCHOOL YEARS 2023-2024 AND 2024-2025) AND ADDITIONAL SCHOOL ASSIGNMENTS', ' https://gofile.me/71xfF/zeK5XP5xI', '150', '2023-08-07', 'Unnumbered', 'inactive'),
@@ -5641,14 +5720,15 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3013, '7315022023', '123', ' 123', '123', '2222-03-12', 'Numbered', 'inactive'),
 (3014, '7315022023', '123', '123 ', '1233', '2023-12-31', 'Numbered', 'inactive'),
 (3015, '7315022023', '123', ' 1234555', '12345', '2023-09-13', 'Numbered', 'inactive'),
-(3016, 'asds', 'asdasdfghjk', 'asd', '123', '2023-09-13', 'Numbered', 'inactive'),
-(3017, 'asdss', '1', '1', '1', '2024-02-06', 'City Memorandum', 'inactive'),
-(3018, 'test12312451234324', '123', '123', '12321', '2024-02-06', 'City Memorandum', 'inactive'),
-(3019, 'as', 's', 's', '123', '2024-02-06', 'Circulars', 'inactive'),
+(3016, 'asds', 'asdasdfghjk', ' asd', '123', '2023-09-13', 'Numbered', 'inactive'),
+(3017, 'asdss', '1', ' 1', '1', '2024-02-06', 'City Memorandum', 'inactive'),
+(3018, 'test12312451234324', '123', ' 123', '12321', '2024-02-06', 'City Memorandum', 'inactive'),
+(3019, 'as', 's', ' s', '123', '2024-02-06', 'Circulars', 'inactive'),
 (3020, 'asdssss', '12345sssssss', ' 1', '1', '2024-02-06', 'Miscellaneous', 'inactive'),
 (3021, 'asda', 'asdasdasdsadsss', ' asd', '123', '2024-02-06', 'Advisories', 'inactive'),
 (3022, 'asss23s asss3asdasd4sxxxs', 'ssssssasdasd\n\n\n', ' ssss', '1', '2024-02-06', 'Unnumbered', 'inactive'),
-(3023, '1', '1', ' 1', '1', '2024-02-07', 'Unnumbered', 'inactive');
+(3023, '1', '1', ' 1', '1', '2024-02-07', 'Unnumbered', 'inactive'),
+(3024, 'test', '123', ' 123', '123', '2024-02-13', 'Numbered', 'active');
 
 -- --------------------------------------------------------
 
@@ -5679,7 +5759,7 @@ CREATE TABLE `jhsschoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -5696,7 +5776,7 @@ CREATE TABLE `materialfilesvw` (
 `id` int(11)
 ,`type` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`department` varchar(20)
 ,`date` datetime
 ,`status` varchar(11)
@@ -5710,106 +5790,16 @@ CREATE TABLE `materialfilesvw` (
 
 CREATE TABLE `officestbl` (
   `offices_id` int(11) NOT NULL,
+  `department_id` varchar(20) NOT NULL,
   `employee_name` varchar(50) NOT NULL,
+  `employee_picture` longtext NOT NULL,
   `employee_office` varchar(100) NOT NULL,
   `employee_position` varchar(200) NOT NULL,
   `employee_post` varchar(50) NOT NULL,
+  `employee_type` varchar(100) NOT NULL,
   `employee_email` varchar(50) NOT NULL,
   `employee_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `officestbl`
---
-
-INSERT INTO `officestbl` (`offices_id`, `employee_name`, `employee_office`, `employee_position`, `employee_post`, `employee_email`, `employee_status`) VALUES
-(1, 'RITA E. RIDDLE', 'OSDS', 'Schools Division Superintendent', 'chief', '', 'active'),
-(2, 'Atty. ANTONIO C. CASANGKAPAN', 'ASDS', 'Assistant Schools Division Superintendent', 'chief', '', 'active'),
-(3, 'MELODY P. CRUZ', 'ASDS', 'Assistant Schools Division Superintendent', 'chief', '', 'active'),
-(4, 'PEDRO M. ARAO', 'ASDS', 'Assistant Schools Division Superintendent', 'chief', '', 'active'),
-(5, 'ANGELITA P. CORNEJO', 'Chief Education Supervisor', 'Officer-in-Charge, Office of the Assistant Schools Division Superintendent', 'chief', '', 'active'),
-(6, 'CAROLINA C. QUERI', 'Supervising Administrative Officer', 'Officer-in-Charge, Asset Management Services', 'chief', '', 'active'),
-(7, 'CARLO OLIVER M. GONZALES', 'Administrative Officer IV', 'Asset Management Services', 'chief', '', 'active'),
-(8, 'JESUSA L. DELA CRUZ', 'Chief Administrative Officer', 'Human Resources Management Services', 'chief', '', 'active'),
-(9, 'MAY F. LOPEZ', 'Administrative Officer IV', 'Human Resources Management Services', 'chief', '', 'active'),
-(10, 'VIVENCIO Jr. M. TALEGON', 'Chief Administrative Officer', 'Administrative Services', 'chief', '', 'active'),
-(11, 'SHEILA M. REGERO', 'Administrative Officer IV', 'Records Services', 'chief', '', 'active'),
-(12, 'MARVIN P. MABBORANG', 'Administrative Officer V', 'Administrative Services', 'chief', '', 'active'),
-(13, 'EUFRANCIA C. PANGANIBAN', 'Administrative Officer IV', 'Cash Unit', 'chief', '', 'active'),
-(14, 'FERDINAND P. CABALUNA', 'Administrative Officer IV', 'Records Services', 'chief', '', 'active'),
-(15, 'JEANINE MAE G. VRUZ', 'Accountant IV', 'Accounting Services', 'chief', '', 'active'),
-(16, 'ADEBIE S. SANSOLIS', 'Accountant III', 'Accounting Services', 'chief', '', 'active'),
-(17, 'LILIAN O. SAAVEDRA', 'Supervising Administrative Officer', 'Budget Services', 'chief', '', 'active'),
-(18, 'MAXIMA C. CATAPANG', 'Administrative Officer V', 'Budget Services', 'chief', '', 'active'),
-(19, 'Atty. GRACE R. REPELENTE', 'Attorney III', 'Legal Services', 'chief', '', 'active'),
-(20, 'JENNETE A. ALDE', 'Attorney III', 'Legal Services', 'chief', '', 'active'),
-(21, 'JUAN CARLOS D. SARMIENTO', 'Information Technology Officer I', 'ICT Unit', 'chief', '', 'active'),
-(22, 'VIRGILIO A. SANTOS', '', 'Chief Education Supervisor', 'CID', '', 'active'),
-(23, 'LUCKY S. CARPIO', 'Learning Resource Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(24, 'LADY HANNAH C. GILLO', 'Learning Resource Management Section', 'Librarian II', 'CID', '', 'active'),
-(25, 'ALBERT JAMES P. MACARAEG', 'Learning Resource Management Section', 'Project Development Officer II', 'CID', '', 'active'),
-(26, 'AMALIA C. SOLIS', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(27, 'ARIEL D. TOSIO', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(28, 'AMCY M. ESTEBAN', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(29, 'VICENTE M. VICTORIO', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(30, 'MERIE GERLIE CAPIRAL', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(31, 'EDWIN R. MABILIN', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(32, 'LUCITA A. GENER', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(33, 'CONRADO Jr. S. CONTRERAS ', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(34, 'REMYLINDA T. SORIANO', 'Instructional Management Section', 'Education Program Supervisor', 'CID', '', 'active'),
-(35, 'LEA V. FAA', 'Instructional Management Section', 'Education Program Specialist II', 'CID', '', 'active'),
-(36, 'LEAH AMOR E. ANTONIO', 'Instructional Management Section', 'Education Program Specialist II', 'CID', '', 'active'),
-(37, 'SEVILLA A. ARCINAS', 'Instructional Management Section', 'Education Program Specialist II', 'CID', '', 'active'),
-(38, 'MYLENE U. RIZALDO', 'Instructional Management Section', 'Education Program Specialist II', 'CID', '', 'active'),
-(39, 'WENDELLA B. TABOI', 'Instructional Management Section', 'Education Program Specialist II', 'CID', '', 'active'),
-(40, 'PAULO T. ADORIO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(41, 'AYLA B. URREA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(42, 'JOEI FE D. ANCHETA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(43, 'MARICEL A. BASA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(44, 'FE B. BELE', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(45, 'LORNA V. CANDELARIO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(46, 'JONATHAN P. DEREZ', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(47, 'FLORENCE I. EDIM', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(48, 'RENATO Jr. N. FELIPE', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(49, 'MEDARDO T. MERCADO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(50, 'ANGELITA Z. MODESTO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(51, 'EDNA G. VALENCIA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(52, 'MA. VICTORIA L. SANTOS', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(53, 'GEORGE G. SENIO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(54, 'ANDREI NICOLAI E. PACHECO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(55, 'RONIKO C. NATIVIDAD', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(56, 'ROSALINA P. ARANZAMENDEZ', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(57, 'SIMONETTE A. CASTRENCE', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(58, 'MA. TERESA M. CHICO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(59, 'MUSETA R. DANTES', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(60, 'ALVIN G. GACOS', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(61, 'ARLEN S. GATPO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(62, 'REYNALDO Jr. S. PINEDA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(63, 'TEOFILO R. NOROMBABA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(64, 'MANOLITO F. OLAN', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(65, 'LOLITA T. RABAGO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(66, 'MYRNA G. SORIANO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(67, 'CARMELINDA DM. TAN', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(68, 'RONALD VINCENT SALVA', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(69, 'GEORGE B. BORROMEO', 'District Instruction Supervisor Section', 'Public Schools District Supervisor', 'CID', '', 'active'),
-(70, 'VIRGILIO A. SANTOS', '', 'Chief Education Supervisor ', 'SGOD', '', 'active'),
-(71, 'JOEL L. DIONICIO', '', 'Education Program Supervisor', 'SGOD', '', 'active'),
-(72, 'PAULYNE JOANNE R. PASCUAL', 'Planning and Research', 'Senior Education Program Specialist', 'SGOD', '', 'active'),
-(73, 'MENERISA E. PASCUAL', 'Planning and Research', 'Planning Officer III', 'SGOD', '', 'active'),
-(74, 'JONATHAN T. DIANO', 'Monitoring and Evaluation', 'Senior Education Program Specialist', 'SGOD', '', 'active'),
-(75, 'JHUNRED B. TAMBIS', 'Education Facilities', 'Division Engineer III', 'SGOD', '', 'active'),
-(76, 'JOSEPH CHRISTOPHER S. DE GUZMAN', 'School Health & Nutrition Section', 'Nurse in Charge', 'SGOD', '', 'active'),
-(77, 'ALVIN M. LANUZA', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(78, 'IMELDA O. LOZANO ', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(79, 'VIRGILIO A. SANTOS', '', 'Chief Education Supervisor ', 'SGOD', '', 'active'),
-(80, 'ROANNE V. PERINA', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(81, 'SHARON M. VALLO', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(82, 'MARIA CRISTINA B. LEONOR ', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(83, 'IMELDA F. TOSIO ', 'School Health & Nutrition Section', 'Dentist II', 'SGOD', '', 'active'),
-(84, 'MARY ANTONETTE T. BUNAG', 'Human Resources Development', 'Senior Education Program Specialist', 'SGOD', '', 'active'),
-(85, 'LEA YEE', 'Human Resources Development', 'Education Program Specialist II', 'SGOD', '', 'active'),
-(86, 'KAREN R. VERANO', 'Youth Formation Unit', 'Project Development Officer I', 'SGOD', '', 'active'),
-(87, 'RENE P. TAROY', 'Youth Formation Unit', 'Project Development Officer I', 'SGOD', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -5819,10 +5809,13 @@ INSERT INTO `officestbl` (`offices_id`, `employee_name`, `employee_office`, `emp
 --
 CREATE TABLE `officesvw` (
 `id` int(11)
+,`department` varchar(100)
 ,`name` varchar(50)
+,`picture` longtext
 ,`office` varchar(100)
 ,`position` varchar(200)
 ,`post` varchar(50)
+,`type` varchar(100)
 ,`email` varchar(50)
 ,`status` varchar(11)
 );
@@ -5837,10 +5830,10 @@ CREATE TABLE `procurementfilesvw` (
 `id` int(11)
 ,`type` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`date` datetime
 ,`pyear` year(4)
-,`ptype` varchar(20)
+,`ptype` varchar(50)
 ,`status` varchar(11)
 );
 
@@ -5857,7 +5850,7 @@ CREATE TABLE `schoolstbl` (
   `school_address` varchar(200) NOT NULL,
   `school_principal` varchar(50) NOT NULL,
   `school_contact` varchar(30) NOT NULL,
-  `school_link` varchar(100) NOT NULL,
+  `school_link` longtext NOT NULL,
   `school_email` varchar(50) NOT NULL,
   `school_district` varchar(5) NOT NULL,
   `school_type` varchar(20) NOT NULL,
@@ -5871,12 +5864,12 @@ CREATE TABLE `schoolstbl` (
 --
 
 INSERT INTO `schoolstbl` (`schooltbl_id`, `school_id`, `school_name`, `school_address`, `school_principal`, `school_contact`, `school_link`, `school_email`, `school_district`, `school_type`, `school_shsAvailability`, `school_spedAvailablity`, `school_status`) VALUES
-(1, '136436', 'Amado V. Hernandez', 'Bo. Magsaysay, Tondo, Manila', 'Mr. Emmanuel R. Soriano', '8-289-6962', 'avhernandezes.depedmanila.com', 'emmanuel.soriano001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
-(2, '136430', 'Arsenio H. Lacson', 'Younger St,  Balut Tondo, Manila', 'Ms. Jenneth P. Salanga', '8-523-0618', 'alacsones.depedmanila.com', 'jenneth.salanga@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
-(3, '136433', 'Emilio Jacinto', 'Velasquez St. Tondo, Manila', 'Ms. Minerva M. Rosco', '8-244-1015', 'ejacintoes.depedmanila.com', 'minerva.rosco001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
-(4, '136439', 'Isabelo Delos Reyes', 'Morga-Sande St. Tondo, Manila', 'Ms. Eleodora B. Vergara', '8-242-3823', 'idelosreyeses.depedmanila.com', 'eleodora.vergara001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
-(5, '136440', 'Jose Corazon De Jesus', 'N. Zamora St. Tondo, Manila', 'Ms. Emmalyn F. Fortunato-Csiki', '8-354-5734', 'jcdejesuses.depedmanila.com', 'emmalyn.fotunato002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
-(6, '136432', 'Jose Rizal', 'Tayuman-Pingkian St. Tondo, Manila', 'Ms. Marilou S. Calma', '8-354-7207', 'joserizales.depedmanila.com', 'marilou.calma002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
+(1, '136436', 'Amado V. Hernandez', 'Bo. Magsaysay, Tondo, Manila', 'Mr. Emmanuel R. Soriano', '8-289-6962', 'avhernandezes.depedmanila.com', 'emmanuel.soriano001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
+(2, '136430', 'Arsenio H. Lacson', 'Younger St,  Balut Tondo, Manila', 'Ms. Jenneth P. Salanga', '8-523-0618', 'alacsones.depedmanila.com', 'jenneth.salanga@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
+(3, '136433', 'Emilio Jacinto', 'Velasquez St. Tondo, Manila', 'Ms. Minerva M. Rosco', '8-244-1015', 'ejacintoes.depedmanila.com', 'minerva.rosco001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
+(4, '136439', 'Isabelo Delos Reyes', 'Morga-Sande St. Tondo, Manila', 'Ms. Eleodora B. Vergara', '8-242-3823', 'idelosreyeses.depedmanila.com', 'eleodora.vergara001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
+(5, '136440', 'Jose Corazon De Jesus', 'N. Zamora St. Tondo, Manila', 'Ms. Emmalyn F. Fortunato-Csiki', '8-354-5734', 'jcdejesuses.depedmanila.com', 'emmalyn.fotunato002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
+(6, '136432', 'Jose Rizal', 'Tayuman-Pingkian St. Tondo, Manila', 'Ms. Marilou S. Calma', '8-354-7207', 'joserizales.depedmanila.com', 'marilou.calma002@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'inactive'),
 (7, '136438', 'Magat Salamat', '1429 Sta. Maria St. Tondo, Manila', 'Ms. Blesilda B. Cueto', '8-254-6334', 'magatsalamates.depedmanila.com', 'blesilda.cueto001@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
 (8, '136437', 'Manuel L. Quezon (ES)', 'Perla-Verona St. Tondo, Manila', 'Mr. Marcelo D. Mislang', '8-254-6158', 'mlquezones.depedmanila.com', 'marcelomislang1972@gmail.com', '1', 'Elementary', 'no', 'no', 'active'),
 (9, '136441', 'Rosauro Almario', 'Kagitingan St. Tondo, Manila', 'Mr. Graciano A. Budoy, Jr.', '8-254-1376', 'raes.depedmanila.com', 'graciano.budoy@deped.gov.ph', '1', 'Elementary', 'no', 'no', 'active'),
@@ -5976,7 +5969,10 @@ INSERT INTO `schoolstbl` (`schooltbl_id`, `school_id`, `school_name`, `school_ad
 (103, '305317', 'Elpidio Quirino', 'Bacood St. Sta Mesa, Manila', 'Ma. Teresa Custodio', '8559-54-83 / 8256-64-47', 'elpidioquirinohs.depedmanila.com', '305317@deped.gov.ph', '6', 'HighSchool', 'no', 'no', 'active'),
 (104, '305310', 'Carlos P. Garcia', 'Jesus St. Pandacan, Manila', 'Diosdado DG. Florendo', '8562-76-87', 'cpgarciahs.depedmanila.com', '305310@deped.gov.ph', '6', 'HighSchool', 'no', 'no', 'active'),
 (105, '305319', 'Eulogio Rodriguez', 'Nagtahan St. Sampaloc, Manila', 'Divina T. Maninang', '8714-07-53', 'ervhs.depedmanila.com', '305319@deped.gov.ph', '6', 'HighSchool', 'no', 'no', 'active'),
-(106, '500569', 'Gen. Emilio Aguinaldo', 'Punta St. Sta. Ana, Manila', 'Nilo T. Salazar', '8535-17-14', 'emilioaguinaldohs.depedmanila.com', '500569@deped.gov.ph', '6', 'HighSchool', 'no', 'no', 'active');
+(106, '500569', 'Gen. Emilio Aguinaldo', 'Punta St. Sta. Ana, Manila', 'Nilo T. Salazar', '8535-17-14', 'emilioaguinaldohs.depedmanila.com', '500569@deped.gov.ph', '6', 'HighSchool', 'no', 'no', 'active'),
+(107, '123123', '123', '123', '123', '123', '123', '123', '1', 'Elementary', '', 'yes', 'inactive'),
+(108, '123', '123', '123', '123', '123', '123', '123', '1', 'Elementary', '', 'yes', 'inactive'),
+(109, '123412', '1234123', '12341234123412341231234123412341234123123412341234123412312341234123412341231234123412341234123123412341234123412312341234123412341231234123412341234123123412341234123412312341234123412341231234123412', '1234', '1234', '1234', '1234', '1', 'HighSchool', 'yes', 'yes', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -5991,7 +5987,7 @@ CREATE TABLE `schoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -6027,7 +6023,7 @@ CREATE TABLE `shsschoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -6043,9 +6039,9 @@ CREATE TABLE `shsschoolsvw` (
 CREATE TABLE `socialmediatbl` (
   `socialMedia_id` int(11) NOT NULL,
   `socialMedia_type` varchar(50) NOT NULL,
-  `socialMedia_link` varchar(100) NOT NULL,
+  `socialMedia_link` longtext NOT NULL,
   `socialMedia_title` varchar(100) NOT NULL,
-  `socialMedia_post` mediumtext NOT NULL,
+  `socialMedia_post` longtext NOT NULL,
   `socialMedia_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -6068,9 +6064,9 @@ INSERT INTO `socialmediatbl` (`socialMedia_id`, `socialMedia_type`, `socialMedia
 CREATE TABLE `socialmediavw` (
 `id` int(11)
 ,`type` varchar(50)
-,`link` varchar(100)
+,`link` longtext
 ,`title` varchar(100)
-,`post` mediumtext
+,`post` longtext
 ,`status` varchar(11)
 );
 
@@ -6086,7 +6082,7 @@ CREATE TABLE `spedschoolsvw` (
 ,`address` varchar(200)
 ,`principal` varchar(50)
 ,`contact` varchar(30)
-,`link` varchar(100)
+,`link` longtext
 ,`email` varchar(50)
 ,`district` varchar(5)
 ,`type` varchar(20)
@@ -6102,7 +6098,7 @@ CREATE TABLE `spedschoolsvw` (
 CREATE TABLE `timelogtbl` (
   `time_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `log_action` varchar(100) NOT NULL,
+  `log_action` longtext NOT NULL,
   `log_date` date NOT NULL,
   `log_time` time NOT NULL,
   `log_status` varchar(11) NOT NULL DEFAULT 'active'
@@ -6113,499 +6109,614 @@ CREATE TABLE `timelogtbl` (
 --
 
 INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_time`, `log_status`) VALUES
-(8, 4, 'Added Issuance recrtnic030224', '2023-05-22', '13:54:31', 'active'),
-(9, 4, 'Added Issuance  recrtnic0302214', '2023-05-22', '13:55:45', 'active'),
-(10, 4, 'Added Issuance recrtnic0309830', '2023-05-22', '14:57:50', 'active'),
-(11, 4, 'Added Issuance RECRTNIC0317979', '2023-05-22', '15:03:43', 'active'),
-(12, 4, 'Added Issuance recrtnic0317534', '2023-05-22', '15:04:34', 'active'),
-(13, 4, 'Added Issuance CIDBREN0206946', '2023-05-22', '16:07:59', 'active'),
-(14, 4, 'Added Issuance RECRTNIC0203794', '2023-05-22', '16:10:00', 'active'),
-(15, 4, 'Added Issuance SGODGAY 020312', '2023-05-22', '16:11:40', 'active'),
-(16, 4, 'Added Issuance RCRDSKAEL0131477', '2023-05-22', '16:15:46', 'active'),
-(17, 4, 'Added Issuance RCRDSDARN0207344', '2023-05-22', '16:18:17', 'active'),
-(18, 4, 'Added Issuance HLTHJEN0207517', '2023-05-22', '16:21:50', 'active'),
-(19, 4, 'Added Issuance SGODELIZ0208425', '2023-05-22', '16:22:46', 'active'),
-(20, 4, 'Added Issuance CIDBREN0207342', '2023-05-22', '16:23:43', 'active'),
-(21, 4, 'Added Issuance PUBLICHRI0210232', '2023-05-22', '16:28:19', 'active'),
-(22, 4, 'Added Issuance RECRTNIC02107', '2023-05-22', '16:30:32', 'active'),
-(23, 4, 'Added Issuance CIDBREN0209733', '2023-05-22', '16:35:13', 'active'),
-(24, 4, 'Added Issuance RECRTHAN021382', '2023-05-22', '16:41:59', 'active'),
-(25, 4, 'Added Issuance 7315022023', '2023-05-22', '16:45:24', 'active'),
-(26, 4, 'Added Issuance rcrdsmari0512585', '2023-05-23', '18:09:44', 'active'),
-(27, 4, 'Added Issuance publiadri0523759', '2023-05-23', '18:23:00', 'active'),
-(28, 4, 'Added Issuance sgodsias0522767', '2023-05-23', '18:31:12', 'active'),
-(29, 4, 'Added Issuance sgodsias0522793', '2023-05-23', '18:42:33', 'active'),
-(30, 4, 'Added Issuance publiadri0519831', '2023-05-23', '18:51:08', 'active'),
-(31, 4, 'Added Issuance recrtnic0518926', '2023-05-23', '18:59:20', 'active'),
-(32, 4, 'Added Issuance recrtnic0518873', '2023-05-23', '19:07:09', 'active'),
-(33, 4, 'Added Issuance recrtnic0518660', '2023-05-23', '19:14:33', 'active'),
-(34, 3, 'Added Issuance test', '2023-05-23', '19:56:51', 'active'),
-(35, 4, 'Updated Issuance publiabbi0228484', '2023-05-23', '21:32:16', 'active'),
-(36, 3, 'Updated Issuance publiadri052375910', '2023-05-23', '21:32:46', 'active'),
-(37, 4, 'Updated Issuance publiabbi0228562', '2023-05-23', '21:33:39', 'active'),
-(38, 3, 'Updated Issuance publiadri0523759', '2023-05-23', '21:33:50', 'active'),
-(39, 4, 'Updated Issuance publiabbi0228971', '2023-05-23', '21:34:57', 'active'),
-(40, 4, 'Updated Issuance publiabbi0228544', '2023-05-23', '21:36:33', 'active'),
-(41, 4, 'Updated Issuance publiabbi0228826', '2023-05-23', '21:37:47', 'active'),
-(42, 4, 'Updated Issuance', '2023-05-23', '21:38:50', 'active'),
-(43, 4, 'Updated Issuance', '2023-05-23', '21:40:15', 'active'),
-(44, 4, 'Updated Issuance', '2023-05-23', '21:41:11', 'active'),
-(45, 4, 'Updated Issuance SGODGAY 0214836', '2023-05-23', '21:41:49', 'active'),
-(46, 4, 'Updated Issuance RCRDSELSA0208268', '2023-05-23', '21:42:17', 'active'),
-(47, 4, 'Updated Issuance CIDBREN0215998', '2023-05-23', '21:43:24', 'active'),
-(48, 4, 'Updated Issuance RECRTDAL0214544', '2023-05-23', '21:43:49', 'active'),
-(49, 4, 'Updated Issuance CIDBREN0209601', '2023-05-23', '21:44:09', 'active'),
-(50, 4, 'Updated Issuance CIDBREN0214703', '2023-05-23', '21:44:31', 'active'),
-(51, 4, 'Updated Issuance CIDBREN0215558', '2023-05-23', '21:44:45', 'active'),
-(52, 4, 'Updated Issuance RCRDSDARN0210894', '2023-05-23', '21:45:04', 'active'),
-(53, 4, 'Updated Issuance rcrdselsa0209453', '2023-05-23', '21:46:24', 'active'),
-(54, 4, 'Updated Issuance PUBLIABBI0117549', '2023-05-23', '22:49:47', 'active'),
-(55, 4, 'Updated Issuance CIDNORS011086', '2023-05-23', '22:51:22', 'active'),
-(56, 4, 'Updated Issuance SGODELIZ0111169', '2023-05-23', '22:52:04', 'active'),
-(57, 4, 'Updated Issuance SGODELIZ0112368', '2023-05-23', '23:01:24', 'active'),
-(58, 4, 'Updated Issuance CIDROCH0113186', '2023-05-23', '23:02:23', 'active'),
-(59, 4, 'Updated Issuance CIDROCH0112772', '2023-05-23', '23:04:16', 'active'),
-(60, 4, 'Updated Issuance RCRDSDARN0111193', '2023-05-23', '23:07:15', 'active'),
-(61, 4, 'Updated Issuance SGODGAY 011374', '2023-05-23', '23:08:00', 'active'),
-(62, 4, 'Updated Issuance CIDROCH011352', '2023-05-23', '23:11:21', 'active'),
-(63, 4, 'Updated Issuance CIDROCH0112286', '2023-05-23', '23:12:09', 'active'),
-(64, 4, 'Updated Issuance RECRTHAN0112494', '2023-05-23', '23:20:55', 'active'),
-(65, 4, 'Updated Issuance SGODGAY 0117964', '2023-05-23', '23:22:02', 'active'),
-(66, 4, 'Updated Issuance sgodgay 0112978', '2023-05-23', '23:27:59', 'active'),
-(67, 4, 'Updated Issuance RCRDSDARN0106426', '2023-05-23', '23:29:11', 'active'),
-(68, 4, 'Updated Issuance RCRDSDARN0106129', '2023-05-23', '23:31:10', 'active'),
-(69, 4, 'Updated Issuance rcrdsdarn0113520', '2023-05-23', '23:32:01', 'active'),
-(70, 4, 'Updated Issuance rcrdsdarn0106420', '2023-05-23', '23:32:27', 'active'),
-(71, 4, 'Updated Issuance CIDNORS0116696', '2023-05-23', '23:33:33', 'active'),
-(72, 4, 'Updated Issuance RCRDSKAEL0112465', '2023-05-23', '23:35:05', 'active'),
-(73, 4, 'Updated Issuance SGODGAY 01172', '2023-05-23', '23:36:01', 'active'),
-(74, 4, 'Updated Issuance RCRDSDARN0111282', '2023-05-23', '23:37:30', 'active'),
-(75, 4, 'Updated Issuance CIDNORS0116366', '2023-05-23', '23:38:44', 'active'),
-(76, 3, 'Updated Issuance recrtnic05186601', '2023-05-23', '23:54:47', 'active'),
-(77, 3, 'Updated Issuance recrtnic0518660', '2023-05-23', '23:54:54', 'active'),
-(78, 3, 'Added Issuance test', '2023-05-23', '23:55:05', 'active'),
-(79, 3, 'Updated Issuance test123', '2023-05-23', '23:55:10', 'active'),
-(81, 4, 'Updated Issuance RECRTHAN0118354', '2023-05-23', '23:59:50', 'active'),
-(82, 4, 'Updated Issuance adminmich0120853', '2023-05-24', '00:01:15', 'active'),
-(83, 4, 'Updated Issuance ADMINMICH0111712', '2023-05-24', '00:02:02', 'active'),
-(84, 4, 'Updated Issuance CIDNORS011632', '2023-05-24', '00:03:16', 'active'),
-(85, 4, 'Updated Issuance ADMINMICH0119465', '2023-05-24', '00:04:25', 'active'),
-(86, 4, 'Updated Issuance PUBLIABBI012341', '2023-05-24', '00:05:10', 'active'),
-(87, 4, 'Updated Issuance SGODELIZ0123815', '2023-05-24', '00:06:18', 'active'),
-(88, 3, 'Updated Issuance test1', '2023-05-24', '00:09:13', 'active'),
-(89, 4, 'Updated Issuance SGODELIZ0124488', '2023-05-24', '00:09:31', 'active'),
-(90, 3, 'Added Issuance test', '2023-05-24', '00:10:14', 'active'),
-(91, 4, 'Updated Issuance SGODGAY 0123494', '2023-05-24', '00:10:30', 'active'),
-(92, 4, 'Updated Issuance RECRTDAR0124285', '2023-05-24', '00:15:34', 'active'),
-(93, 4, 'Updated Issuance  CIDBREN0118396', '2023-05-24', '00:16:20', 'active'),
-(94, 4, 'Updated Issuance PUBLIABBI0130954', '2023-05-24', '00:21:09', 'active'),
-(95, 4, 'Updated Issuance ADMINMICH0126153', '2023-05-24', '00:22:02', 'active'),
-(96, 4, 'Updated Issuance recrtale0125476', '2023-05-24', '00:26:01', 'active'),
-(97, 4, 'Updated Issuance PUBLIABBI0130201', '2023-05-24', '00:27:33', 'active'),
-(98, 4, 'Updated Issuance ICTMICH0130901', '2023-05-24', '00:28:46', 'active'),
-(99, 4, 'Updated Issuance SGODGAY 0124771', '2023-05-24', '00:29:42', 'active'),
-(100, 4, 'Updated Issuance RECRTDAR0126301', '2023-05-24', '00:30:32', 'active'),
-(101, 4, 'Updated Issuance SGODELIZ0126140', '2023-05-24', '00:31:11', 'active'),
-(102, 4, 'Added Issuance RCRDSMARI0517355', '2023-05-24', '01:50:01', 'active'),
-(103, 4, 'Added Issuance sgodsias0523918', '2023-05-24', '02:49:29', 'active'),
-(104, 4, 'Added Issuance sgodsias0523679', '2023-05-24', '03:06:07', 'active'),
-(105, 4, 'Added Issuance ictnath0517159', '2023-05-24', '20:52:30', 'active'),
-(106, 4, 'Added Issuance ictnath0517603', '2023-05-24', '21:03:19', 'active'),
-(107, 4, 'Added Issuance rcrdsdarn051166', '2023-05-24', '21:14:17', 'active'),
-(108, 4, 'Added Issuance rcrdsmari0517592', '2023-05-24', '21:24:19', 'active'),
-(109, 4, 'Added Issuance RCRDSDARN0511606', '2023-05-25', '02:49:38', 'active'),
-(110, 4, 'Added Issuance rcrdsmari0517791', '2023-05-25', '02:58:15', 'active'),
-(111, 4, 'Added Issuance rcrdskael0504718', '2023-05-25', '03:07:08', 'active'),
-(112, 4, 'Added Issuance rcrdsmari0414947', '2023-05-25', '03:13:40', 'active'),
-(113, 4, 'Added Issuance publiadri0522155', '2023-05-25', '03:20:25', 'active'),
-(114, 4, 'Added Issuance publiadri0523775', '2023-05-25', '03:25:06', 'active'),
-(115, 4, 'Added Issuance publiadri0523191', '2023-05-25', '03:31:25', 'active'),
-(116, 4, 'Added Issuance CIDBREN0522672', '2023-05-25', '23:14:58', 'active'),
-(117, 4, 'Added Issuance publiadri05231000', '2023-05-25', '23:22:03', 'active'),
-(118, 4, 'Added Issuance HLTHJEN0524636', '2023-05-25', '23:31:01', 'active'),
-(119, 4, 'Added Issuance publiadri0525163', '2023-05-25', '23:39:22', 'active'),
-(120, 4, 'Added Issuance publiadri0525223', '2023-05-25', '23:44:04', 'active'),
-(121, 4, 'Added Issuance publiadri0525729', '2023-05-25', '23:47:56', 'active'),
-(122, 4, 'Added Issuance publiadri0525595', '2023-05-25', '23:51:55', 'active'),
-(123, 4, 'Added Issuance publiadri0525721', '2023-05-25', '23:54:45', 'active'),
-(124, 4, 'Added Issuance publiadri0525638', '2023-05-25', '23:59:56', 'active'),
-(125, 4, 'Added Issuance publiadri0525102', '2023-05-26', '00:04:56', 'active'),
-(126, 4, 'Added Issuance publiadri0525503', '2023-05-26', '00:18:35', 'active'),
-(127, 4, 'Added Issuance publiadri0525533', '2023-05-26', '00:25:07', 'active'),
-(128, 4, 'Added Issuance publiadri0517294', '2023-05-26', '00:29:07', 'active'),
-(129, 4, 'Added Issuance publiadri0517984', '2023-05-26', '00:33:34', 'active'),
-(130, 4, 'Added Issuance CIDAMCY0522249', '2023-05-26', '01:25:45', 'active'),
-(131, 4, 'Added Issuance CIDBREN0526528', '2023-05-28', '21:26:14', 'active'),
-(132, 4, 'Added Issuance PROPEMARI0525587', '2023-05-28', '22:44:59', 'active'),
-(133, 4, 'Added Issuance publiadri0525854', '2023-05-28', '22:50:40', 'active'),
-(134, 4, 'Added Issuance cidbren0522996', '2023-05-28', '22:57:08', 'active'),
-(135, 4, 'Added Issuance publiadri0525368', '2023-05-28', '23:03:38', 'active'),
-(136, 4, 'Added Issuance rcrdsmari0517209', '2023-05-29', '01:32:17', 'active'),
-(137, 4, 'Added Issuance cidchar0524282', '2023-05-29', '01:41:43', 'active'),
-(138, 4, 'Added Issuance SGODSIAS0524544', '2023-05-29', '02:22:54', 'active'),
-(139, 4, 'Added Issuance 01172023', '2023-05-29', '17:52:19', 'active'),
-(140, 4, 'Added Issuance 01242023', '2023-05-29', '17:55:28', 'active'),
-(141, 4, 'Added Issuance 01062023', '2023-05-29', '19:11:37', 'active'),
-(142, 4, 'Added Issuance SGODELIZ0120528', '2023-05-29', '19:15:50', 'active'),
-(143, 4, 'Added Issuance ASDSMLALA0516133', '2023-05-29', '19:25:52', 'active'),
-(144, 4, 'Added Issuance sgodsias0525882', '2023-05-29', '20:41:05', 'active'),
-(145, 4, 'Added Issuance sgodsias0524851', '2023-05-29', '20:50:54', 'active'),
-(146, 4, 'Added Issuance sgodmarl0526856', '2023-05-29', '21:03:15', 'active'),
-(147, 4, 'Added Issuance rcrdsmari0518816', '2023-05-29', '21:09:38', 'active'),
-(148, 4, 'Added Issuance publiadri0517697', '2023-05-30', '00:27:13', 'active'),
-(149, 4, 'Added Issuance publiadri0524733', '2023-05-30', '00:32:23', 'active'),
-(150, 4, 'Added Issuance publiadri0524179', '2023-05-30', '00:37:03', 'active'),
-(151, 4, 'Added Issuance recrtnic0529651', '2023-05-30', '02:15:03', 'active'),
-(152, 4, 'Added Issuance ASDSMLALA0530967', '2023-05-30', '02:21:46', 'active'),
-(153, 4, 'Added Issuance publiadri0525286', '2023-05-30', '02:28:12', 'active'),
-(154, 4, 'Added Issuance publiadri0525821', '2023-05-30', '02:34:17', 'active'),
-(155, 4, 'Added Issuance rcrdsmari0509475', '2023-05-30', '02:44:05', 'active'),
-(156, 4, 'Added Issuance sgodmarl0529128', '2023-05-30', '02:58:38', 'active'),
-(157, 4, 'Added Issuance sgodsias0523848', '2023-05-30', '03:04:50', 'active'),
-(158, 4, 'Added Issuance rcrdsdani0523558', '2023-05-30', '20:13:33', 'active'),
-(159, 4, 'Added Issuance rcrdsdani0524312', '2023-05-30', '20:21:40', 'active'),
-(160, 4, 'Added Issuance rcrdsdani0523424', '2023-05-30', '20:26:33', 'active'),
-(161, 4, 'Added Issuance publiadri0524180', '2023-05-30', '20:31:21', 'active'),
-(162, 4, 'Added Issuance cidbren0530786', '2023-05-30', '20:39:59', 'active'),
-(163, 4, 'Added Issuance cidbren0529892', '2023-05-30', '20:56:28', 'active'),
-(164, 4, 'Added Issuance cidbren0531799', '2023-05-30', '21:06:23', 'active'),
-(165, 4, 'Added Issuance accimar0524222', '2023-05-30', '21:55:26', 'active'),
-(166, 4, 'Added Issuance publiadri052675', '2023-05-31', '00:43:16', 'active'),
-(167, 4, 'Added Issuance publiadri0526384', '2023-05-31', '00:49:22', 'active'),
-(168, 4, 'Added Issuance publiadri0526282', '2023-05-31', '00:53:07', 'active'),
-(169, 4, 'Added Issuance publiadri051727', '2023-05-31', '00:58:25', 'active'),
-(170, 4, 'Added Issuance publiadri0526262', '2023-05-31', '01:05:38', 'active'),
-(171, 4, 'Added Issuance RCRDSDANI052352', '2023-05-31', '18:40:59', 'active'),
-(172, 4, 'Added Issuance accimar0531519', '2023-05-31', '20:05:17', 'active'),
-(173, 4, 'Added Issuance publiabbi0531491', '2023-06-01', '00:36:14', 'active'),
-(174, 4, 'Updated Issuance publiabbi0531491', '2023-06-04', '18:40:11', 'active'),
-(175, 4, 'Added Issuance cidbren0529196', '2023-06-04', '18:45:21', 'active'),
-(176, 4, 'Added Issuance publiadri0526701', '2023-06-04', '19:02:43', 'active'),
-(177, 4, 'Added Issuance publiadri0523370', '2023-06-04', '19:09:55', 'active'),
-(178, 4, 'Added Issuance RCRDSDANI0529453', '2023-06-05', '16:30:40', 'active'),
-(179, 4, 'Added Issuance rcrdsdani0522801', '2023-06-05', '16:49:35', 'active'),
-(180, 4, 'Deleted Issuance rcrdsdani0522801', '2023-06-05', '16:49:40', 'active'),
-(181, 4, 'Added Issuance rcrdsdani0522801', '2023-06-05', '16:50:36', 'active'),
-(182, 4, 'Added Issuance publiadri0526407', '2023-06-05', '16:57:12', 'active'),
-(183, 4, 'Added Issuance rcrdsdarn060130', '2023-06-05', '17:04:11', 'active'),
-(184, 4, 'Added Issuance rcrdsdarn0601235', '2023-06-05', '17:08:57', 'active'),
-(185, 4, 'Added Issuance rcrdsdarn0601340', '2023-06-05', '17:13:31', 'active'),
-(186, 4, 'Added Issuance sgodsias0605417', '2023-06-06', '15:23:09', 'active'),
-(187, 4, 'Added Issuance sgodsias0605640', '2023-06-06', '15:42:36', 'active'),
-(188, 4, 'Added Issuance cidchar0531944', '2023-06-06', '15:50:38', 'active'),
-(189, 4, 'Added Issuance ictjuan0605895', '2023-06-06', '15:57:12', 'active'),
-(190, 4, 'Added Issuance cidbren060165', '2023-06-06', '16:04:35', 'active'),
-(191, 4, 'Added Issuance rcrdsdarn0601141', '2023-06-06', '16:10:20', 'active'),
-(192, 4, 'Added Issuance rcrdsdarn0530821', '2023-06-06', '16:17:19', 'active'),
-(193, 4, 'Added Issuance rcrdsdarn0601358', '2023-06-06', '16:26:30', 'active'),
-(194, 4, 'Added Issuance rcrdsdarn0530510', '2023-06-06', '16:32:21', 'active'),
-(195, 4, 'Added Issuance cidchar0606530', '2023-06-08', '14:18:32', 'active'),
-(196, 4, 'Added Issuance sgodsias0606809', '2023-06-08', '14:28:31', 'active'),
-(197, 4, 'Added Issuance cidbren0605897', '2023-06-08', '16:16:15', 'active'),
-(198, 4, 'Added Issuance sgodsias0601838', '2023-06-08', '16:27:43', 'active'),
-(199, 4, 'Added Issuance rcrdsdani0523614', '2023-06-08', '17:02:03', 'active'),
-(200, 4, 'Added Issuance CIDBREN0602734', '2023-06-09', '10:12:28', 'active'),
-(201, 4, 'Added Issuance ictjuan052643', '2023-06-09', '10:30:36', 'active'),
-(202, 4, 'Added Issuance rcrdsdarn0602898', '2023-06-09', '10:58:21', 'active'),
-(203, 4, 'Added Issuance icttrai052458', '2023-06-09', '11:06:33', 'active'),
-(204, 4, 'Added Issuance rcrdsdani052416', '2023-06-09', '11:17:14', 'active'),
-(205, 4, 'Added Issuance cidbren0607268', '2023-06-09', '15:51:17', 'active'),
-(206, 4, 'Added Issuance rapjea0609227', '2023-06-09', '16:06:13', 'active'),
-(207, 4, 'Added Issuance recrtnic06067', '2023-06-09', '16:29:15', 'active'),
-(208, 4, 'Added Issuance recrthan0606888', '2023-06-09', '16:36:41', 'active'),
-(209, 4, 'Added Issuance sgodsias06067', '2023-06-09', '16:46:05', 'active'),
-(210, 4, 'Added Issuance cidbren0608712', '2023-06-09', '17:04:39', 'active'),
-(211, 4, 'Added Issuance ADMINMICH0609898', '2023-06-09', '17:13:14', 'active'),
-(212, 4, 'Added Issuance sgodsias0609729', '2023-06-09', '17:19:33', 'active'),
-(213, 4, 'Added Issuance rcrdsdarn0529107', '2023-06-13', '13:34:05', 'active'),
-(214, 4, 'Deleted Issuance recrthan0606888', '2023-06-13', '13:58:34', 'active'),
-(215, 4, 'Updated Issuance rcrdsdarn0529107', '2023-06-13', '14:45:46', 'active'),
-(216, 4, 'Added Issuance recrthan0606888', '2023-06-13', '14:48:30', 'active'),
-(217, 4, 'Added Issuance rcrdsdarn0602265', '2023-06-13', '14:54:56', 'active'),
-(218, 4, 'Added Issuance ictkevi0601354', '2023-06-13', '15:38:32', 'active'),
-(219, 4, 'Added Issuance rcrdsmari0606529', '2023-06-13', '16:42:14', 'active'),
-(220, 4, 'Added Issuance rcrdsdarn0608484', '2023-06-13', '16:49:28', 'active'),
-(221, 4, 'Added Issuance recrtden060857', '2023-06-13', '16:58:29', 'active'),
-(222, 4, 'Added Issuance rcrdsmari0601553', '2023-06-14', '14:39:18', 'active'),
-(223, 4, 'Added Issuance sgodsias0607965', '2023-06-15', '15:14:51', 'active'),
-(224, 4, 'Added Issuance rcrdsbryl0607747', '2023-06-15', '15:24:28', 'active'),
-(225, 4, 'Added Issuance sgodsias0608285', '2023-06-15', '16:02:56', 'active'),
-(226, 4, 'Added Issuance rcrdsmari0614528', '2023-06-15', '17:02:34', 'active'),
-(227, 1, 'Added Issuance RECRTNIC0614933', '2023-06-16', '09:35:47', 'active'),
-(228, 1, 'Added Issuance RCRDSMARI061491', '2023-06-16', '09:36:57', 'active'),
-(229, 1, 'Added Issuance RAPJEA0614847', '2023-06-16', '09:41:19', 'active'),
-(230, 1, 'Added Issuance sgodsias0615466', '2023-06-16', '10:39:12', 'active'),
-(231, 1, 'Added Issuance sgodsias0614506', '2023-06-16', '10:39:51', 'active'),
-(232, 1, 'Added Issuance sgodsias0614502', '2023-06-16', '11:28:43', 'active'),
-(233, 1, 'Added Issuance rcrdsdarn0601927', '2023-06-16', '11:29:54', 'active'),
-(234, 1, 'Added Issuance rcrdsdarn0602542', '2023-06-16', '11:31:13', 'active'),
-(235, 1, 'Added Issuance rcrdsdarn0607685', '2023-06-16', '11:32:12', 'active'),
-(236, 1, 'Added Issuance rcrdsdarn0608351', '2023-06-16', '11:33:44', 'active'),
-(237, 1, 'Added Issuance RCRDSDARN0609212', '2023-06-16', '11:44:36', 'active'),
-(238, 1, 'Added Issuance cidbren061319', '2023-06-16', '13:40:23', 'active'),
-(239, 1, 'Added Issuance cidmeri0613268', '2023-06-16', '13:47:33', 'active'),
-(240, 1, 'Added Issuance rcrdsmari0605234', '2023-06-16', '16:08:03', 'active'),
-(241, 4, 'Added Issuance CIDBREN0615492', '2023-06-19', '15:59:44', 'active'),
-(242, 4, 'Added Issuance rcrdsbryl060776', '2023-06-19', '16:15:21', 'active'),
-(243, 4, 'Added Issuance CIDAMCY0616679', '2023-06-19', '16:24:03', 'active'),
-(244, 4, 'Updated Issuance RCRDSMARI061491', '2023-06-19', '16:31:20', 'active'),
-(245, 4, 'Added Issuance accimar0619743', '2023-06-20', '10:05:04', 'active'),
-(246, 4, 'Added Issuance sgodmarl0616501', '2023-06-20', '10:51:42', 'active'),
-(247, 1, 'Added Issuance RCRDSDARN0616729', '2023-06-21', '08:52:24', 'active'),
-(248, 4, 'Added Issuance ictkevi0613911', '2023-06-21', '10:29:01', 'active'),
-(249, 4, 'Added Issuance sgodsias0620783', '2023-06-21', '10:42:55', 'active'),
-(250, 4, 'Added Issuance ictnath0613792', '2023-06-21', '10:50:43', 'active'),
-(251, 4, 'Added Issuance rapjea062191', '2023-06-21', '10:59:55', 'active'),
-(252, 4, 'Added Issuance rcrdsdarn0615177', '2023-06-21', '11:09:46', 'active'),
-(253, 4, 'Added Issuance cidbren0616551', '2023-06-21', '11:16:04', 'active'),
-(254, 4, 'Added Issuance cidbren0619481', '2023-06-21', '11:24:21', 'active'),
-(255, 4, 'Added Issuance rcrdsmari0615732', '2023-06-21', '11:35:31', 'active'),
-(256, 4, 'Added Issuance ictmich0613222', '2023-06-21', '11:43:20', 'active'),
-(257, 4, 'Added Issuance ictmich0613746', '2023-06-21', '11:50:56', 'active'),
-(258, 4, 'Added Issuance ictnath061337', '2023-06-21', '12:53:28', 'active'),
-(259, 4, 'Added Issuance rcrdsmari0614514', '2023-06-21', '13:26:28', 'active'),
-(260, 4, 'Added Issuance ICTJOHN0613595', '2023-06-23', '09:43:47', 'active'),
-(261, 4, 'Added Issuance rcrdsdarn0620826', '2023-06-23', '09:59:26', 'active'),
-(262, 4, 'Added Issuance rcrdsdarn0620730', '2023-06-23', '10:00:12', 'active'),
-(263, 4, 'Added Issuance rcrdsdarn0620402', '2023-06-23', '10:01:07', 'active'),
-(264, 4, 'Added Issuance cidremy062279', '2023-06-23', '11:13:47', 'active'),
-(265, 4, 'Added Issuance rcrdsdarn0614589', '2023-06-23', '15:31:18', 'active'),
-(266, 4, 'Added Issuance rcrdsdarn0614130', '2023-06-23', '15:38:23', 'active'),
-(267, 4, 'Added Issuance rcrdsdarn060874', '2023-06-23', '15:44:55', 'active'),
-(268, 4, 'Added Issuance rcrdsdarn060921', '2023-06-23', '15:49:27', 'active'),
-(269, 4, 'Added Issuance rcrdsdarn0607737', '2023-06-23', '15:53:19', 'active'),
-(270, 4, 'Added Issuance rcrdsdarn0616222', '2023-06-23', '15:58:34', 'active'),
-(271, 4, 'Added Issuance rcrdsdarn0614695', '2023-06-23', '16:10:55', 'active'),
-(272, 4, 'Added Issuance rcrdsdarn0616666', '2023-06-23', '16:15:45', 'active'),
-(273, 4, 'Added Issuance rcrdsdarn0530470', '2023-06-23', '16:19:27', 'active'),
-(274, 4, 'Added Issuance rcrdsdarn0614795', '2023-06-23', '16:23:52', 'active'),
-(275, 4, 'Added Issuance NO TRACKING NUMBER', '2023-06-23', '16:47:43', 'active'),
-(276, 4, 'Added Issuance cidchar06219', '2023-06-23', '16:56:14', 'active'),
-(277, 4, 'Added Issuance RCRDSDARN0605690', '2023-06-26', '10:58:15', 'active'),
-(278, 4, 'Added Issuance CIDCHAR062283', '2023-06-26', '10:59:06', 'active'),
-(279, 4, 'Updated Issuance CIDCHAR062283', '2023-06-26', '11:00:28', 'active'),
-(280, 4, 'Added Issuance RCRDSBRYL0607691', '2023-06-26', '11:01:24', 'active'),
-(281, 4, 'Added Issuance cidedwi0622995', '2023-06-27', '17:07:22', 'active'),
-(282, 4, 'Added Issuance cidbren0623145', '2023-06-27', '17:15:50', 'active'),
-(283, 4, 'Added Issuance cidchar0627299', '2023-06-29', '08:43:01', 'active'),
-(284, 4, 'Added Issuance rcrdsdani0626589', '2023-06-29', '10:17:34', 'active'),
-(285, 4, 'Added Issuance rcrdsdani0623478', '2023-06-29', '10:21:47', 'active'),
-(286, 4, 'Added Issuance rcrdsdani0623377', '2023-06-29', '10:26:09', 'active'),
-(287, 4, 'Added Issuance rcrdsdani0623301', '2023-06-29', '10:31:07', 'active'),
-(288, 4, 'Added Issuance rcrdsdani0626988', '2023-06-29', '10:34:58', 'active'),
-(289, 4, 'Added Issuance rcrdsdarn0622257', '2023-06-29', '10:39:03', 'active'),
-(290, 4, 'Added Issuance rcrdsdarn0613871', '2023-06-29', '10:50:37', 'active'),
-(291, 4, 'Added Issuance rcrdsdarn0606392', '2023-06-29', '11:02:49', 'active'),
-(292, 4, 'Added Issuance rcrdsdarn0615463', '2023-06-29', '11:16:54', 'active'),
-(293, 4, 'Added Issuance rcrdsdani0626376', '2023-06-29', '11:25:44', 'active'),
-(294, 4, 'Added Issuance cidbren0627165', '2023-06-29', '11:31:45', 'active'),
-(295, 4, 'Added Issuance cidbren0623472', '2023-06-29', '11:39:15', 'active'),
-(296, 4, 'Added Issuance cidbren0623137', '2023-06-29', '11:48:16', 'active'),
-(297, 4, 'Added Issuance cidarie0616345', '2023-06-29', '13:06:27', 'active'),
-(298, 4, 'Added Issuance sgodsias0626414', '2023-06-29', '17:06:13', 'active'),
-(299, 4, 'Added Issuance recrtshe0623475', '2023-06-30', '10:18:20', 'active'),
-(300, 4, 'Added Issuance sgodsias062789', '2023-06-30', '10:59:00', 'active'),
-(301, 4, 'Added Issuance rcrdsmari0620579', '2023-06-30', '11:10:05', 'active'),
-(302, 4, 'Added Issuance rcrdsdarn0622851', '2023-06-30', '11:18:47', 'active'),
-(303, 4, 'Added Issuance sgodsias0629266', '2023-06-30', '11:28:53', 'active'),
-(304, 4, 'Added Issuance SGODSIAS0629128', '2023-06-30', '12:50:08', 'active'),
-(305, 4, 'Added Issuance rcrdsdani0626741', '2023-06-30', '13:03:42', 'active'),
-(306, 4, 'Added Issuance recrtmar0626720', '2023-06-30', '13:42:56', 'active'),
-(307, 4, 'Deleted Issuance recrtshe0623475', '2023-06-30', '16:52:15', 'active'),
-(308, 4, 'Added Issuance recrtshe0623372', '2023-07-03', '10:15:56', 'active'),
-(309, 4, 'Added Issuance recrtnic06298', '2023-07-03', '10:26:57', 'active'),
-(310, 4, 'Added Issuance asdsmlala0703857', '2023-07-03', '13:14:59', 'active'),
-(311, 4, 'Added Issuance hlthjen0626464', '2023-07-03', '14:06:12', 'active'),
-(312, 4, 'Added Issuance sgodsias062944', '2023-07-03', '14:16:45', 'active'),
-(313, 4, 'Added Issuance rcrdsdarn0627127', '2023-07-03', '15:39:24', 'active'),
-(314, 4, 'Added Issuance rcrdsdarn0608426', '2023-07-03', '15:45:46', 'active'),
-(315, 4, 'Added Issuance sgodsias063069', '2023-07-03', '15:58:28', 'active'),
-(316, 4, 'Added Issuance rcrdsdarn0615803', '2023-07-04', '10:39:35', 'active'),
-(317, 4, 'Added Issuance adminmich0630610', '2023-07-04', '10:54:56', 'active'),
-(318, 4, 'Added Issuance cidbren0703454', '2023-07-04', '13:43:35', 'active'),
-(319, 4, 'Added Issuance rcrdsdarn0630337', '2023-07-05', '14:44:09', 'active'),
-(320, 4, 'Added Issuance cidchar070435', '2023-07-05', '14:52:09', 'active'),
-(321, 4, 'Added Issuance adminmich0619753', '2023-07-05', '15:02:00', 'active'),
-(322, 4, 'Added Issuance hlthjen0703157', '2023-07-05', '15:15:43', 'active'),
-(323, 4, 'Added Issuance RCRDSBRYL0627616', '2023-07-06', '11:25:51', 'active'),
-(324, 4, 'Added Issuance HLTHJEN062938', '2023-07-06', '11:26:34', 'active'),
-(325, 4, 'Added Issuance HLTHJEN0704496', '2023-07-06', '11:29:24', 'active'),
-(326, 4, 'Added Issuance sgodsias0629544', '2023-07-06', '15:09:41', 'active'),
-(327, 3, 'Added Issuance 123456789', '2023-07-06', '15:58:17', 'active'),
-(328, 4, 'Added Issuance ictmich0630702', '2023-07-06', '16:21:06', 'active'),
-(329, 4, 'Added Issuance cidchar0704842', '2023-07-06', '16:30:39', 'active'),
-(330, 4, 'Added Issuance RECRTSHE0623475', '2023-07-06', '17:17:30', 'active'),
-(331, 4, 'Added Issuance tertfesfsef', '2023-07-06', '17:20:33', 'active'),
-(332, 4, 'Deleted Issuance tertfesfsef', '2023-07-06', '17:20:44', 'active'),
-(333, 4, 'Added Issuance recrtnic0704181', '2023-07-07', '08:20:56', 'active'),
-(334, 4, 'Added Issuance 12345678', '2023-07-07', '09:25:46', 'active'),
-(335, 4, 'Added Issuance 12345678', '2023-07-07', '09:25:46', 'active'),
-(336, 4, 'Updated Issuance 12345678', '2023-07-07', '09:27:17', 'active'),
-(337, 4, 'Deleted Issuance 12345678', '2023-07-07', '09:27:22', 'active'),
-(338, 4, 'Added Issuance 1234', '2023-07-07', '09:27:57', 'active'),
-(339, 4, 'Deleted Issuance 1234', '2023-07-07', '09:29:39', 'active'),
-(340, 4, 'Deleted Issuance 12345678', '2023-07-07', '09:29:42', 'active'),
-(341, 3, 'Added Issuance 12345', '2023-07-07', '10:55:50', 'active'),
-(342, 3, 'Deleted Issuance 12345', '2023-07-07', '10:56:04', 'active'),
-(343, 3, 'Added Issuance 1234', '2023-07-07', '10:56:32', 'active'),
-(344, 3, 'Deleted Issuance 1234', '2023-07-07', '11:00:01', 'active'),
-(345, 3, 'Added Issuance 1234', '2023-07-07', '11:08:41', 'active'),
-(346, 3, 'Updated Issuance 12345', '2023-07-07', '11:08:57', 'active'),
-(347, 3, 'Deleted Issuance 12345', '2023-07-07', '11:09:34', 'active'),
-(348, 4, 'Added Issuance cidremy0703628', '2023-07-10', '10:27:09', 'active'),
-(349, 4, 'Added Issuance sgodsias0706467', '2023-07-10', '10:38:22', 'active'),
-(350, 4, 'Added Issuance rcrdsbryl0703528', '2023-07-10', '10:49:37', 'active'),
-(351, 4, 'Added Issuance recrthan070797', '2023-07-10', '11:30:03', 'active'),
-(352, 4, 'Added Issuance rcrdsmari063026', '2023-07-10', '13:24:00', 'active'),
-(353, 4, 'Added Issuance cidchar070545', '2023-07-10', '13:34:04', 'active'),
-(354, 4, 'Added Issuance cidbren0706278', '2023-07-10', '13:55:17', 'active'),
-(355, 4, 'Added Issuance sgodsias0705347', '2023-07-10', '14:04:15', 'active'),
-(356, 4, 'Added Issuance sgodmarl0706264', '2023-07-10', '14:11:02', 'active'),
-(357, 4, 'Added Issuance cidchar0706684', '2023-07-10', '14:18:01', 'active'),
-(358, 4, 'Added Issuance cidchar0707667', '2023-07-10', '14:25:04', 'active'),
-(359, 4, 'Added Issuance cidlea 0704530', '2023-07-10', '14:35:30', 'active'),
-(360, 4, 'Added Issuance rcrdsdarn0704205', '2023-07-11', '09:13:44', 'active'),
-(361, 4, 'Added Issuance publiadri0707414', '2023-07-11', '11:21:45', 'active'),
-(362, 4, 'Added Issuance recrtjan0707988', '2023-07-11', '11:34:34', 'active'),
-(363, 4, 'Added Issuance cidbren0711330', '2023-07-11', '17:03:09', 'active'),
-(364, 4, 'Added Issuance cidbren0710382', '2023-07-12', '10:44:39', 'active'),
-(365, 4, 'Added Issuance cidbren0710434', '2023-07-12', '10:51:58', 'active'),
-(366, 4, 'Added Issuance recrtjan0711487', '2023-07-12', '13:46:53', 'active'),
-(367, 4, 'Added Issuance sgodsias0706798', '2023-07-12', '13:56:25', 'active'),
-(368, 4, 'Added Issuance cidbren071161', '2023-07-12', '14:04:41', 'active'),
-(369, 4, 'Added Issuance cidremy0710355', '2023-07-13', '10:26:39', 'active'),
-(371, 3, 'Added Issuance 123', '2023-07-13', '15:16:22', 'active'),
-(372, 3, 'Updated Issuance 1234', '2023-07-13', '15:16:29', 'active'),
-(373, 1, 'Added Issuance asdsmaria0713693', '2023-07-13', '15:18:18', 'active'),
-(374, 3, 'Deleted Issuance 1234', '2023-07-13', '15:18:29', 'active'),
-(375, 1, 'Added Issuance recrtnic070621', '2023-07-13', '16:39:28', 'active'),
-(376, 4, 'Added Issuance hlthjen0713239', '2023-07-14', '10:38:02', 'active'),
-(377, 4, 'Added Issuance cidbren0712422', '2023-07-14', '14:02:40', 'active'),
-(378, 4, 'Added Issuance rcrdsmari0613915', '2023-07-14', '14:11:59', 'active'),
-(379, 4, 'Added Issuance sgodsias0714227', '2023-07-17', '11:07:38', 'active'),
-(380, 4, 'Added Issuance sgodsias0713234', '2023-07-17', '11:29:26', 'active'),
-(381, 4, 'Added Issuance sgodsias0711672', '2023-07-17', '11:38:37', 'active'),
-(382, 4, 'Added Issuance cidchar0713969', '2023-07-17', '11:45:15', 'active'),
-(383, 4, 'Added Issuance cidlea 0713528', '2023-07-17', '12:53:15', 'active'),
-(384, 4, 'Added Issuance recrtnic0714149', '2023-07-17', '14:29:25', 'active'),
-(385, 4, 'Added Issuance rcrdsdarn0710776', '2023-07-17', '14:58:51', 'active'),
-(386, 4, 'Added Issuance rcrdsmari0707753', '2023-07-18', '13:06:57', 'active'),
-(387, 4, 'Added Issuance rcrdsbryl0711409', '2023-07-18', '13:11:04', 'active'),
-(388, 4, 'Added Issuance cidmeri0717992', '2023-07-18', '13:12:05', 'active'),
-(389, 4, 'Added Issuance CIDLEA 071726', '2023-07-18', '13:13:12', 'active'),
-(390, 4, 'Added Issuance cidmeri0712643', '2023-07-18', '13:39:30', 'active'),
-(391, 4, 'Updated Issuance CIDLEA 071726', '2023-07-18', '15:23:47', 'active'),
-(392, 4, 'Updated Issuance cidmeri0717992', '2023-07-18', '15:27:40', 'active'),
-(393, 4, 'Added Issuance rcrdsdarn0714745', '2023-07-18', '16:02:00', 'active'),
-(394, 4, 'Deleted Issuance rcrdsdarn0714745', '2023-07-18', '16:08:57', 'active'),
-(395, 4, 'Added Issuance lnpchr0717701', '2023-07-19', '11:27:50', 'active'),
-(396, 4, 'Added Issuance sgodeliz0718126', '2023-07-19', '16:31:35', 'active'),
-(397, 4, 'Added Issuance sgodeliz0718785', '2023-07-20', '09:53:24', 'active'),
-(398, 4, 'Added Issuance rcrdsdarn0717985', '2023-07-20', '10:02:27', 'active'),
-(399, 4, 'Added Issuance sgodsias0718723', '2023-07-20', '11:11:44', 'active'),
-(400, 4, 'Added Issuance rcrdsdarn0714116', '2023-07-20', '13:36:49', 'active'),
-(401, 4, 'Added Issuance cidbren0714556', '2023-07-20', '13:44:05', 'active'),
-(402, 4, 'Added Issuance sgodrodo071829', '2023-07-20', '13:59:29', 'active'),
-(403, 1, 'Deleted Issuance cidbren0714556', '2023-07-20', '17:02:38', 'active'),
-(404, 4, 'Added Issuance SGODELIZ072013', '2023-07-21', '11:18:50', 'active'),
-(405, 4, 'Added Issuance ictmich0720624', '2023-07-21', '12:05:20', 'active'),
-(406, 4, 'Added Issuance rapjey0719299', '2023-07-21', '12:47:27', 'active'),
-(407, 4, 'Deleted Issuance ictmich0720624', '2023-07-21', '13:15:55', 'active'),
-(408, 4, 'Added Issuance rcrdsmari0714473', '2023-07-21', '13:20:01', 'active'),
-(409, 4, 'Added Issuance sgodmarl0719462', '2023-07-21', '15:21:50', 'active'),
-(410, 4, 'Added Issuance rcrdsmari0710867', '2023-07-21', '16:39:30', 'active'),
-(411, 4, 'Added Issuance sgodsias0719473', '2023-07-21', '16:46:24', 'active'),
-(412, 4, 'Added Issuance hlthjen0719377', '2023-07-21', '16:50:38', 'active'),
-(413, 4, 'Added Issuance CIDAMCY0719913', '2023-07-21', '16:56:46', 'active'),
-(414, 4, 'Added Issuance RECRSVICT0725507', '2023-07-25', '15:41:57', 'active'),
-(415, 4, 'Updated Issuance RCRDSVICT0725507', '2023-07-25', '15:47:20', 'active'),
-(416, 4, 'Added Issuance rcrdsdarn0718484', '2023-07-26', '10:32:08', 'active'),
-(417, 4, 'Added Issuance rcrdsdarn0718811', '2023-07-26', '10:37:40', 'active'),
-(418, 4, 'Added Issuance rcrdsdarn0718729', '2023-07-26', '10:42:27', 'active'),
-(419, 4, 'Added Issuance rcrdsdarn0718822', '2023-07-26', '10:46:22', 'active'),
-(420, 4, 'Added Issuance accimar0720795', '2023-07-26', '10:59:39', 'active'),
-(421, 4, 'Added Issuance rcrdsdarn0718778', '2023-07-26', '13:35:14', 'active'),
-(422, 4, 'Added Issuance rcrdsdarn0718351', '2023-07-26', '13:40:54', 'active'),
-(423, 4, 'Added Issuance rcrdsdarn0718199', '2023-07-26', '13:45:00', 'active'),
-(424, 4, 'Added Issuance rcrdsdarn0721448', '2023-07-26', '13:50:05', 'active'),
-(425, 4, 'Added Issuance CIDCHAR0725498', '2023-07-26', '13:59:03', 'active'),
-(426, 4, 'Updated Issuance 465122022', '2023-07-27', '09:19:42', 'active'),
-(427, 4, 'Added Issuance rcrdsdarn0721284', '2023-07-27', '09:53:08', 'active'),
-(428, 4, 'Added Issuance cidchar0720270', '2023-07-27', '10:02:56', 'active'),
-(429, 4, 'Added Issuance sgodsias0726692', '2023-07-27', '10:25:14', 'active'),
-(430, 4, 'Updated Issuance sgodsias0726692', '2023-07-27', '11:58:30', 'active'),
-(431, 4, 'Added Issuance publiabbi0726655', '2023-07-27', '13:09:41', 'active'),
-(432, 4, 'Added Issuance CIDCHAR0721624', '2023-07-27', '13:37:08', 'active'),
-(433, 4, 'Added Issuance CIDAMCY0720858', '2023-07-27', '13:48:42', 'active'),
-(434, 4, 'Added Issuance sgodanna0725987', '2023-07-27', '14:40:58', 'active'),
-(435, 4, 'Added Issuance recrtden0718536', '2023-07-27', '15:17:00', 'active'),
-(436, 4, 'Added Issuance 12282022', '2023-07-28', '10:20:45', 'active'),
-(437, 4, 'Updated Issuance recrtden0718536', '2023-07-28', '12:08:20', 'active'),
-(438, 4, 'Added Issuance accima0727303', '2023-07-28', '13:18:33', 'active'),
-(439, 4, 'Added Issuance sgodsias0630450', '2023-07-28', '13:27:02', 'active'),
-(440, 4, 'Added Issuance hlthjen0717981', '2023-07-31', '10:12:40', 'active'),
-(441, 4, 'Added Issuance cidbren0728394', '2023-07-31', '10:21:32', 'active'),
-(442, 4, 'Added Issuance cidbren0726215', '2023-07-31', '13:45:42', 'active'),
-(443, 4, 'Added Issuance recrtnic0726911', '2023-07-31', '13:46:58', 'active'),
-(444, 4, 'Added Issuance icttrai072513', '2023-08-01', '11:46:19', 'active'),
-(445, 4, 'Added Issuance sgodsias0726543', '2023-08-01', '11:52:32', 'active'),
-(446, 4, 'Added Issuance sgodsias0731655', '2023-08-01', '12:01:37', 'active'),
-(447, 4, 'Added Issuance rcrdsdani0725366', '2023-08-01', '13:02:41', 'active'),
-(448, 4, 'Added Issuance rcrdsdani072548', '2023-08-01', '13:09:02', 'active'),
-(449, 4, 'Added Issuance rcrdsdani0725503', '2023-08-01', '13:12:34', 'active'),
-(450, 4, 'Added Issuance rcrdselsa0727174', '2023-08-01', '13:15:07', 'active'),
-(451, 4, 'Added Issuance rcrdsdarn0727415', '2023-08-01', '15:28:03', 'active'),
-(452, 4, 'Added Issuance rcrdsdarn0727253', '2023-08-01', '15:32:13', 'active'),
-(453, 4, 'Added Issuance rcrdsdarn0727604', '2023-08-01', '15:36:27', 'active'),
-(454, 4, 'Added Issuance rcrdsdarn0727736', '2023-08-01', '15:40:15', 'active'),
-(455, 4, 'Added Issuance rcrdsdarn0727736', '2023-08-01', '15:40:19', 'active'),
-(456, 4, 'Added Issuance rcrdsdarn0727558', '2023-08-01', '15:45:37', 'active'),
-(457, 4, 'Added Issuance rcrdsdarn0727109', '2023-08-01', '15:50:29', 'active'),
-(458, 4, 'Added Issuance rcrdsdarn0727565', '2023-08-01', '15:54:12', 'active'),
-(459, 4, 'Added Issuance rcrdsdarn0727761', '2023-08-01', '15:58:47', 'active'),
-(460, 3, 'Updated Issuance rcrdsdarn0727761', '2023-08-03', '09:15:01', 'active'),
-(461, 3, 'Updated Issuance rcrdsdarn0727761', '2023-08-03', '09:15:16', 'active'),
-(462, 3, 'Updated Issuance', '2023-08-03', '09:41:04', 'active'),
-(463, 3, 'Updated Issuance', '2023-08-03', '09:41:18', 'active'),
-(464, 3, 'Updated Issuance', '2023-08-03', '09:41:25', 'active'),
-(465, 1, 'Added Issuance ictmich0718238', '2023-08-03', '16:21:05', 'active'),
-(466, 1, 'Added Issuance icttrai0725315', '2023-08-03', '16:21:54', 'active'),
-(467, 1, 'Added Issuance rcrdselsa0728536', '2023-08-03', '17:10:20', 'active'),
-(468, 4, 'Added Issuance rcrdsdarn0717590', '2023-08-04', '16:58:13', 'active'),
-(469, 4, 'Added Issuance rcrdsdarn0725854', '2023-08-04', '17:07:34', 'active'),
-(470, 3, 'Added Issuance sampl123', '2023-08-07', '12:47:31', 'active'),
-(471, 3, 'Deleted Issuance sampl123', '2023-08-07', '12:48:25', 'active'),
-(472, 4, 'Added Issuance ictmich0718823', '2023-08-07', '14:09:58', 'active'),
-(473, 4, 'Added Issuance rcrdsdarn0718957', '2023-08-07', '14:24:11', 'active'),
-(474, 4, 'Added Issuance ictjuan0801325', '2023-08-07', '14:35:04', 'active'),
-(475, 4, 'Added Issuance sgodsias0803799', '2023-08-07', '14:40:29', 'active'),
-(476, 4, 'Added Issuance sgodsias0719997', '2023-08-07', '14:45:10', 'active'),
-(477, 4, 'Added Issuance sgodsias0803936', '2023-08-07', '14:55:03', 'active'),
-(478, 4, 'Added Issuance cidbren0802797', '2023-08-07', '15:04:44', 'active'),
-(479, 4, 'Added Issuance CIDLEA 0802251', '2023-08-07', '15:18:36', 'active'),
-(480, 4, 'Added Issuance sgodeliz0802446', '2023-08-07', '15:29:34', 'active'),
-(481, 4, 'Added Issuance cidbren0803330', '2023-08-07', '15:36:49', 'active'),
-(482, 4, 'Added Issuance cidbren0801239', '2023-08-07', '16:30:47', 'active'),
-(483, 3, 'Added Issuance', '2023-08-22', '15:24:22', 'active'),
-(484, 3, 'Added Issuance', '2023-08-22', '15:25:11', 'active'),
-(485, 3, 'Added Issuance Numbered', '2023-08-22', '15:53:24', 'active'),
-(486, 3, 'Added Issuance 7315022023', '2023-08-22', '15:53:44', 'active'),
-(487, 3, 'Added Issuance 7315022023', '2023-09-13', '10:47:15', 'active'),
-(488, 3, 'Added Issuance asd', '2023-09-13', '11:07:04', 'active'),
-(489, 3, 'Added Issuance asd', '2024-02-06', '14:27:56', 'active'),
-(490, 3, 'Added Issuance test12312451234324', '2024-02-06', '14:28:07', 'active'),
-(491, 3, 'Added Issuance as', '2024-02-06', '14:28:41', 'active'),
-(492, 3, 'Added Issuance asd', '2024-02-06', '14:28:49', 'active'),
-(493, 3, 'Added Issuance asda', '2024-02-06', '15:27:27', 'active'),
-(494, 3, 'Added Issuance s', '2024-02-06', '15:32:29', 'active'),
-(495, 3, 'Added Issuance 1', '2024-02-07', '11:43:10', 'active'),
-(500, 3, 'Edited Issuance cidbren08027971', '2024-02-07', '14:19:33', 'active'),
-(501, 3, 'Edited Issuance cidbren0802797', '2024-02-07', '14:20:24', 'active'),
-(502, 3, 'Deleted Issuance ', '2024-02-07', '14:21:30', 'active'),
-(503, 3, 'Deleted Issuance sgodsias0803936', '2024-02-07', '14:22:31', 'active'),
-(504, 3, 'Edited Issuance sgodsias0719997s', '2024-02-07', '15:17:38', 'active'),
-(505, 3, 'Edited Issuance sgodsias0719997', '2024-02-07', '15:17:41', 'active'),
-(506, 3, 'Deleted Issuance sgodsias0719997', '2024-02-07', '15:25:13', 'active');
+(8, 4, 'Added Issuance recrtnic030224', '2023-05-22', '13:54:31', 'inactive'),
+(9, 4, 'Added Issuance  recrtnic0302214', '2023-05-22', '13:55:45', 'inactive'),
+(10, 4, 'Added Issuance recrtnic0309830', '2023-05-22', '14:57:50', 'inactive'),
+(11, 4, 'Added Issuance RECRTNIC0317979', '2023-05-22', '15:03:43', 'inactive'),
+(12, 4, 'Added Issuance recrtnic0317534', '2023-05-22', '15:04:34', 'inactive'),
+(13, 4, 'Added Issuance CIDBREN0206946', '2023-05-22', '16:07:59', 'inactive'),
+(14, 4, 'Added Issuance RECRTNIC0203794', '2023-05-22', '16:10:00', 'inactive'),
+(15, 4, 'Added Issuance SGODGAY 020312', '2023-05-22', '16:11:40', 'inactive'),
+(16, 4, 'Added Issuance RCRDSKAEL0131477', '2023-05-22', '16:15:46', 'inactive'),
+(17, 4, 'Added Issuance RCRDSDARN0207344', '2023-05-22', '16:18:17', 'inactive'),
+(18, 4, 'Added Issuance HLTHJEN0207517', '2023-05-22', '16:21:50', 'inactive'),
+(19, 4, 'Added Issuance SGODELIZ0208425', '2023-05-22', '16:22:46', 'inactive'),
+(20, 4, 'Added Issuance CIDBREN0207342', '2023-05-22', '16:23:43', 'inactive'),
+(21, 4, 'Added Issuance PUBLICHRI0210232', '2023-05-22', '16:28:19', 'inactive'),
+(22, 4, 'Added Issuance RECRTNIC02107', '2023-05-22', '16:30:32', 'inactive'),
+(23, 4, 'Added Issuance CIDBREN0209733', '2023-05-22', '16:35:13', 'inactive'),
+(24, 4, 'Added Issuance RECRTHAN021382', '2023-05-22', '16:41:59', 'inactive'),
+(25, 4, 'Added Issuance 7315022023', '2023-05-22', '16:45:24', 'inactive'),
+(26, 4, 'Added Issuance rcrdsmari0512585', '2023-05-23', '18:09:44', 'inactive'),
+(27, 4, 'Added Issuance publiadri0523759', '2023-05-23', '18:23:00', 'inactive'),
+(28, 4, 'Added Issuance sgodsias0522767', '2023-05-23', '18:31:12', 'inactive'),
+(29, 4, 'Added Issuance sgodsias0522793', '2023-05-23', '18:42:33', 'inactive'),
+(30, 4, 'Added Issuance publiadri0519831', '2023-05-23', '18:51:08', 'inactive'),
+(31, 4, 'Added Issuance recrtnic0518926', '2023-05-23', '18:59:20', 'inactive'),
+(32, 4, 'Added Issuance recrtnic0518873', '2023-05-23', '19:07:09', 'inactive'),
+(33, 4, 'Added Issuance recrtnic0518660', '2023-05-23', '19:14:33', 'inactive'),
+(34, 3, 'Added Issuance test', '2023-05-23', '19:56:51', 'inactive'),
+(35, 4, 'Updated Issuance publiabbi0228484', '2023-05-23', '21:32:16', 'inactive'),
+(36, 3, 'Updated Issuance publiadri052375910', '2023-05-23', '21:32:46', 'inactive'),
+(37, 4, 'Updated Issuance publiabbi0228562', '2023-05-23', '21:33:39', 'inactive'),
+(38, 3, 'Updated Issuance publiadri0523759', '2023-05-23', '21:33:50', 'inactive'),
+(39, 4, 'Updated Issuance publiabbi0228971', '2023-05-23', '21:34:57', 'inactive'),
+(40, 4, 'Updated Issuance publiabbi0228544', '2023-05-23', '21:36:33', 'inactive'),
+(41, 4, 'Updated Issuance publiabbi0228826', '2023-05-23', '21:37:47', 'inactive'),
+(42, 4, 'Updated Issuance', '2023-05-23', '21:38:50', 'inactive'),
+(43, 4, 'Updated Issuance', '2023-05-23', '21:40:15', 'inactive'),
+(44, 4, 'Updated Issuance', '2023-05-23', '21:41:11', 'inactive'),
+(45, 4, 'Updated Issuance SGODGAY 0214836', '2023-05-23', '21:41:49', 'inactive'),
+(46, 4, 'Updated Issuance RCRDSELSA0208268', '2023-05-23', '21:42:17', 'inactive'),
+(47, 4, 'Updated Issuance CIDBREN0215998', '2023-05-23', '21:43:24', 'inactive'),
+(48, 4, 'Updated Issuance RECRTDAL0214544', '2023-05-23', '21:43:49', 'inactive'),
+(49, 4, 'Updated Issuance CIDBREN0209601', '2023-05-23', '21:44:09', 'inactive'),
+(50, 4, 'Updated Issuance CIDBREN0214703', '2023-05-23', '21:44:31', 'inactive'),
+(51, 4, 'Updated Issuance CIDBREN0215558', '2023-05-23', '21:44:45', 'inactive'),
+(52, 4, 'Updated Issuance RCRDSDARN0210894', '2023-05-23', '21:45:04', 'inactive'),
+(53, 4, 'Updated Issuance rcrdselsa0209453', '2023-05-23', '21:46:24', 'inactive'),
+(54, 4, 'Updated Issuance PUBLIABBI0117549', '2023-05-23', '22:49:47', 'inactive'),
+(55, 4, 'Updated Issuance CIDNORS011086', '2023-05-23', '22:51:22', 'inactive'),
+(56, 4, 'Updated Issuance SGODELIZ0111169', '2023-05-23', '22:52:04', 'inactive'),
+(57, 4, 'Updated Issuance SGODELIZ0112368', '2023-05-23', '23:01:24', 'inactive'),
+(58, 4, 'Updated Issuance CIDROCH0113186', '2023-05-23', '23:02:23', 'inactive'),
+(59, 4, 'Updated Issuance CIDROCH0112772', '2023-05-23', '23:04:16', 'inactive'),
+(60, 4, 'Updated Issuance RCRDSDARN0111193', '2023-05-23', '23:07:15', 'inactive'),
+(61, 4, 'Updated Issuance SGODGAY 011374', '2023-05-23', '23:08:00', 'inactive'),
+(62, 4, 'Updated Issuance CIDROCH011352', '2023-05-23', '23:11:21', 'inactive'),
+(63, 4, 'Updated Issuance CIDROCH0112286', '2023-05-23', '23:12:09', 'inactive'),
+(64, 4, 'Updated Issuance RECRTHAN0112494', '2023-05-23', '23:20:55', 'inactive'),
+(65, 4, 'Updated Issuance SGODGAY 0117964', '2023-05-23', '23:22:02', 'inactive'),
+(66, 4, 'Updated Issuance sgodgay 0112978', '2023-05-23', '23:27:59', 'inactive'),
+(67, 4, 'Updated Issuance RCRDSDARN0106426', '2023-05-23', '23:29:11', 'inactive'),
+(68, 4, 'Updated Issuance RCRDSDARN0106129', '2023-05-23', '23:31:10', 'inactive'),
+(69, 4, 'Updated Issuance rcrdsdarn0113520', '2023-05-23', '23:32:01', 'inactive'),
+(70, 4, 'Updated Issuance rcrdsdarn0106420', '2023-05-23', '23:32:27', 'inactive'),
+(71, 4, 'Updated Issuance CIDNORS0116696', '2023-05-23', '23:33:33', 'inactive'),
+(72, 4, 'Updated Issuance RCRDSKAEL0112465', '2023-05-23', '23:35:05', 'inactive'),
+(73, 4, 'Updated Issuance SGODGAY 01172', '2023-05-23', '23:36:01', 'inactive'),
+(74, 4, 'Updated Issuance RCRDSDARN0111282', '2023-05-23', '23:37:30', 'inactive'),
+(75, 4, 'Updated Issuance CIDNORS0116366', '2023-05-23', '23:38:44', 'inactive'),
+(76, 3, 'Updated Issuance recrtnic05186601', '2023-05-23', '23:54:47', 'inactive'),
+(77, 3, 'Updated Issuance recrtnic0518660', '2023-05-23', '23:54:54', 'inactive'),
+(78, 3, 'Added Issuance test', '2023-05-23', '23:55:05', 'inactive'),
+(79, 3, 'Updated Issuance test123', '2023-05-23', '23:55:10', 'inactive'),
+(81, 4, 'Updated Issuance RECRTHAN0118354', '2023-05-23', '23:59:50', 'inactive'),
+(82, 4, 'Updated Issuance adminmich0120853', '2023-05-24', '00:01:15', 'inactive'),
+(83, 4, 'Updated Issuance ADMINMICH0111712', '2023-05-24', '00:02:02', 'inactive'),
+(84, 4, 'Updated Issuance CIDNORS011632', '2023-05-24', '00:03:16', 'inactive'),
+(85, 4, 'Updated Issuance ADMINMICH0119465', '2023-05-24', '00:04:25', 'inactive'),
+(86, 4, 'Updated Issuance PUBLIABBI012341', '2023-05-24', '00:05:10', 'inactive'),
+(87, 4, 'Updated Issuance SGODELIZ0123815', '2023-05-24', '00:06:18', 'inactive'),
+(88, 3, 'Updated Issuance test1', '2023-05-24', '00:09:13', 'inactive'),
+(89, 4, 'Updated Issuance SGODELIZ0124488', '2023-05-24', '00:09:31', 'inactive'),
+(90, 3, 'Added Issuance test', '2023-05-24', '00:10:14', 'inactive'),
+(91, 4, 'Updated Issuance SGODGAY 0123494', '2023-05-24', '00:10:30', 'inactive'),
+(92, 4, 'Updated Issuance RECRTDAR0124285', '2023-05-24', '00:15:34', 'inactive'),
+(93, 4, 'Updated Issuance  CIDBREN0118396', '2023-05-24', '00:16:20', 'inactive'),
+(94, 4, 'Updated Issuance PUBLIABBI0130954', '2023-05-24', '00:21:09', 'inactive'),
+(95, 4, 'Updated Issuance ADMINMICH0126153', '2023-05-24', '00:22:02', 'inactive'),
+(96, 4, 'Updated Issuance recrtale0125476', '2023-05-24', '00:26:01', 'inactive'),
+(97, 4, 'Updated Issuance PUBLIABBI0130201', '2023-05-24', '00:27:33', 'inactive'),
+(98, 4, 'Updated Issuance ICTMICH0130901', '2023-05-24', '00:28:46', 'inactive'),
+(99, 4, 'Updated Issuance SGODGAY 0124771', '2023-05-24', '00:29:42', 'inactive'),
+(100, 4, 'Updated Issuance RECRTDAR0126301', '2023-05-24', '00:30:32', 'inactive'),
+(101, 4, 'Updated Issuance SGODELIZ0126140', '2023-05-24', '00:31:11', 'inactive'),
+(102, 4, 'Added Issuance RCRDSMARI0517355', '2023-05-24', '01:50:01', 'inactive'),
+(103, 4, 'Added Issuance sgodsias0523918', '2023-05-24', '02:49:29', 'inactive'),
+(104, 4, 'Added Issuance sgodsias0523679', '2023-05-24', '03:06:07', 'inactive'),
+(105, 4, 'Added Issuance ictnath0517159', '2023-05-24', '20:52:30', 'inactive'),
+(106, 4, 'Added Issuance ictnath0517603', '2023-05-24', '21:03:19', 'inactive'),
+(107, 4, 'Added Issuance rcrdsdarn051166', '2023-05-24', '21:14:17', 'inactive'),
+(108, 4, 'Added Issuance rcrdsmari0517592', '2023-05-24', '21:24:19', 'inactive'),
+(109, 4, 'Added Issuance RCRDSDARN0511606', '2023-05-25', '02:49:38', 'inactive'),
+(110, 4, 'Added Issuance rcrdsmari0517791', '2023-05-25', '02:58:15', 'inactive'),
+(111, 4, 'Added Issuance rcrdskael0504718', '2023-05-25', '03:07:08', 'inactive'),
+(112, 4, 'Added Issuance rcrdsmari0414947', '2023-05-25', '03:13:40', 'inactive'),
+(113, 4, 'Added Issuance publiadri0522155', '2023-05-25', '03:20:25', 'inactive'),
+(114, 4, 'Added Issuance publiadri0523775', '2023-05-25', '03:25:06', 'inactive'),
+(115, 4, 'Added Issuance publiadri0523191', '2023-05-25', '03:31:25', 'inactive'),
+(116, 4, 'Added Issuance CIDBREN0522672', '2023-05-25', '23:14:58', 'inactive'),
+(117, 4, 'Added Issuance publiadri05231000', '2023-05-25', '23:22:03', 'inactive'),
+(118, 4, 'Added Issuance HLTHJEN0524636', '2023-05-25', '23:31:01', 'inactive'),
+(119, 4, 'Added Issuance publiadri0525163', '2023-05-25', '23:39:22', 'inactive'),
+(120, 4, 'Added Issuance publiadri0525223', '2023-05-25', '23:44:04', 'inactive'),
+(121, 4, 'Added Issuance publiadri0525729', '2023-05-25', '23:47:56', 'inactive'),
+(122, 4, 'Added Issuance publiadri0525595', '2023-05-25', '23:51:55', 'inactive'),
+(123, 4, 'Added Issuance publiadri0525721', '2023-05-25', '23:54:45', 'inactive'),
+(124, 4, 'Added Issuance publiadri0525638', '2023-05-25', '23:59:56', 'inactive'),
+(125, 4, 'Added Issuance publiadri0525102', '2023-05-26', '00:04:56', 'inactive'),
+(126, 4, 'Added Issuance publiadri0525503', '2023-05-26', '00:18:35', 'inactive'),
+(127, 4, 'Added Issuance publiadri0525533', '2023-05-26', '00:25:07', 'inactive'),
+(128, 4, 'Added Issuance publiadri0517294', '2023-05-26', '00:29:07', 'inactive'),
+(129, 4, 'Added Issuance publiadri0517984', '2023-05-26', '00:33:34', 'inactive'),
+(130, 4, 'Added Issuance CIDAMCY0522249', '2023-05-26', '01:25:45', 'inactive'),
+(131, 4, 'Added Issuance CIDBREN0526528', '2023-05-28', '21:26:14', 'inactive'),
+(132, 4, 'Added Issuance PROPEMARI0525587', '2023-05-28', '22:44:59', 'inactive'),
+(133, 4, 'Added Issuance publiadri0525854', '2023-05-28', '22:50:40', 'inactive'),
+(134, 4, 'Added Issuance cidbren0522996', '2023-05-28', '22:57:08', 'inactive'),
+(135, 4, 'Added Issuance publiadri0525368', '2023-05-28', '23:03:38', 'inactive'),
+(136, 4, 'Added Issuance rcrdsmari0517209', '2023-05-29', '01:32:17', 'inactive'),
+(137, 4, 'Added Issuance cidchar0524282', '2023-05-29', '01:41:43', 'inactive'),
+(138, 4, 'Added Issuance SGODSIAS0524544', '2023-05-29', '02:22:54', 'inactive'),
+(139, 4, 'Added Issuance 01172023', '2023-05-29', '17:52:19', 'inactive'),
+(140, 4, 'Added Issuance 01242023', '2023-05-29', '17:55:28', 'inactive'),
+(141, 4, 'Added Issuance 01062023', '2023-05-29', '19:11:37', 'inactive'),
+(142, 4, 'Added Issuance SGODELIZ0120528', '2023-05-29', '19:15:50', 'inactive'),
+(143, 4, 'Added Issuance ASDSMLALA0516133', '2023-05-29', '19:25:52', 'inactive'),
+(144, 4, 'Added Issuance sgodsias0525882', '2023-05-29', '20:41:05', 'inactive'),
+(145, 4, 'Added Issuance sgodsias0524851', '2023-05-29', '20:50:54', 'inactive'),
+(146, 4, 'Added Issuance sgodmarl0526856', '2023-05-29', '21:03:15', 'inactive'),
+(147, 4, 'Added Issuance rcrdsmari0518816', '2023-05-29', '21:09:38', 'inactive'),
+(148, 4, 'Added Issuance publiadri0517697', '2023-05-30', '00:27:13', 'inactive'),
+(149, 4, 'Added Issuance publiadri0524733', '2023-05-30', '00:32:23', 'inactive'),
+(150, 4, 'Added Issuance publiadri0524179', '2023-05-30', '00:37:03', 'inactive'),
+(151, 4, 'Added Issuance recrtnic0529651', '2023-05-30', '02:15:03', 'inactive'),
+(152, 4, 'Added Issuance ASDSMLALA0530967', '2023-05-30', '02:21:46', 'inactive'),
+(153, 4, 'Added Issuance publiadri0525286', '2023-05-30', '02:28:12', 'inactive'),
+(154, 4, 'Added Issuance publiadri0525821', '2023-05-30', '02:34:17', 'inactive'),
+(155, 4, 'Added Issuance rcrdsmari0509475', '2023-05-30', '02:44:05', 'inactive'),
+(156, 4, 'Added Issuance sgodmarl0529128', '2023-05-30', '02:58:38', 'inactive'),
+(157, 4, 'Added Issuance sgodsias0523848', '2023-05-30', '03:04:50', 'inactive'),
+(158, 4, 'Added Issuance rcrdsdani0523558', '2023-05-30', '20:13:33', 'inactive'),
+(159, 4, 'Added Issuance rcrdsdani0524312', '2023-05-30', '20:21:40', 'inactive'),
+(160, 4, 'Added Issuance rcrdsdani0523424', '2023-05-30', '20:26:33', 'inactive'),
+(161, 4, 'Added Issuance publiadri0524180', '2023-05-30', '20:31:21', 'inactive'),
+(162, 4, 'Added Issuance cidbren0530786', '2023-05-30', '20:39:59', 'inactive'),
+(163, 4, 'Added Issuance cidbren0529892', '2023-05-30', '20:56:28', 'inactive'),
+(164, 4, 'Added Issuance cidbren0531799', '2023-05-30', '21:06:23', 'inactive'),
+(165, 4, 'Added Issuance accimar0524222', '2023-05-30', '21:55:26', 'inactive'),
+(166, 4, 'Added Issuance publiadri052675', '2023-05-31', '00:43:16', 'inactive'),
+(167, 4, 'Added Issuance publiadri0526384', '2023-05-31', '00:49:22', 'inactive'),
+(168, 4, 'Added Issuance publiadri0526282', '2023-05-31', '00:53:07', 'inactive'),
+(169, 4, 'Added Issuance publiadri051727', '2023-05-31', '00:58:25', 'inactive'),
+(170, 4, 'Added Issuance publiadri0526262', '2023-05-31', '01:05:38', 'inactive'),
+(171, 4, 'Added Issuance RCRDSDANI052352', '2023-05-31', '18:40:59', 'inactive'),
+(172, 4, 'Added Issuance accimar0531519', '2023-05-31', '20:05:17', 'inactive'),
+(173, 4, 'Added Issuance publiabbi0531491', '2023-06-01', '00:36:14', 'inactive'),
+(174, 4, 'Updated Issuance publiabbi0531491', '2023-06-04', '18:40:11', 'inactive'),
+(175, 4, 'Added Issuance cidbren0529196', '2023-06-04', '18:45:21', 'inactive'),
+(176, 4, 'Added Issuance publiadri0526701', '2023-06-04', '19:02:43', 'inactive'),
+(177, 4, 'Added Issuance publiadri0523370', '2023-06-04', '19:09:55', 'inactive'),
+(178, 4, 'Added Issuance RCRDSDANI0529453', '2023-06-05', '16:30:40', 'inactive'),
+(179, 4, 'Added Issuance rcrdsdani0522801', '2023-06-05', '16:49:35', 'inactive'),
+(180, 4, 'Deleted Issuance rcrdsdani0522801', '2023-06-05', '16:49:40', 'inactive'),
+(181, 4, 'Added Issuance rcrdsdani0522801', '2023-06-05', '16:50:36', 'inactive'),
+(182, 4, 'Added Issuance publiadri0526407', '2023-06-05', '16:57:12', 'inactive'),
+(183, 4, 'Added Issuance rcrdsdarn060130', '2023-06-05', '17:04:11', 'inactive'),
+(184, 4, 'Added Issuance rcrdsdarn0601235', '2023-06-05', '17:08:57', 'inactive'),
+(185, 4, 'Added Issuance rcrdsdarn0601340', '2023-06-05', '17:13:31', 'inactive'),
+(186, 4, 'Added Issuance sgodsias0605417', '2023-06-06', '15:23:09', 'inactive'),
+(187, 4, 'Added Issuance sgodsias0605640', '2023-06-06', '15:42:36', 'inactive'),
+(188, 4, 'Added Issuance cidchar0531944', '2023-06-06', '15:50:38', 'inactive'),
+(189, 4, 'Added Issuance ictjuan0605895', '2023-06-06', '15:57:12', 'inactive'),
+(190, 4, 'Added Issuance cidbren060165', '2023-06-06', '16:04:35', 'inactive'),
+(191, 4, 'Added Issuance rcrdsdarn0601141', '2023-06-06', '16:10:20', 'inactive'),
+(192, 4, 'Added Issuance rcrdsdarn0530821', '2023-06-06', '16:17:19', 'inactive'),
+(193, 4, 'Added Issuance rcrdsdarn0601358', '2023-06-06', '16:26:30', 'inactive'),
+(194, 4, 'Added Issuance rcrdsdarn0530510', '2023-06-06', '16:32:21', 'inactive'),
+(195, 4, 'Added Issuance cidchar0606530', '2023-06-08', '14:18:32', 'inactive'),
+(196, 4, 'Added Issuance sgodsias0606809', '2023-06-08', '14:28:31', 'inactive'),
+(197, 4, 'Added Issuance cidbren0605897', '2023-06-08', '16:16:15', 'inactive'),
+(198, 4, 'Added Issuance sgodsias0601838', '2023-06-08', '16:27:43', 'inactive'),
+(199, 4, 'Added Issuance rcrdsdani0523614', '2023-06-08', '17:02:03', 'inactive'),
+(200, 4, 'Added Issuance CIDBREN0602734', '2023-06-09', '10:12:28', 'inactive'),
+(201, 4, 'Added Issuance ictjuan052643', '2023-06-09', '10:30:36', 'inactive'),
+(202, 4, 'Added Issuance rcrdsdarn0602898', '2023-06-09', '10:58:21', 'inactive'),
+(203, 4, 'Added Issuance icttrai052458', '2023-06-09', '11:06:33', 'inactive'),
+(204, 4, 'Added Issuance rcrdsdani052416', '2023-06-09', '11:17:14', 'inactive'),
+(205, 4, 'Added Issuance cidbren0607268', '2023-06-09', '15:51:17', 'inactive'),
+(206, 4, 'Added Issuance rapjea0609227', '2023-06-09', '16:06:13', 'inactive'),
+(207, 4, 'Added Issuance recrtnic06067', '2023-06-09', '16:29:15', 'inactive'),
+(208, 4, 'Added Issuance recrthan0606888', '2023-06-09', '16:36:41', 'inactive'),
+(209, 4, 'Added Issuance sgodsias06067', '2023-06-09', '16:46:05', 'inactive'),
+(210, 4, 'Added Issuance cidbren0608712', '2023-06-09', '17:04:39', 'inactive'),
+(211, 4, 'Added Issuance ADMINMICH0609898', '2023-06-09', '17:13:14', 'inactive'),
+(212, 4, 'Added Issuance sgodsias0609729', '2023-06-09', '17:19:33', 'inactive'),
+(213, 4, 'Added Issuance rcrdsdarn0529107', '2023-06-13', '13:34:05', 'inactive'),
+(214, 4, 'Deleted Issuance recrthan0606888', '2023-06-13', '13:58:34', 'inactive'),
+(215, 4, 'Updated Issuance rcrdsdarn0529107', '2023-06-13', '14:45:46', 'inactive'),
+(216, 4, 'Added Issuance recrthan0606888', '2023-06-13', '14:48:30', 'inactive'),
+(217, 4, 'Added Issuance rcrdsdarn0602265', '2023-06-13', '14:54:56', 'inactive'),
+(218, 4, 'Added Issuance ictkevi0601354', '2023-06-13', '15:38:32', 'inactive'),
+(219, 4, 'Added Issuance rcrdsmari0606529', '2023-06-13', '16:42:14', 'inactive'),
+(220, 4, 'Added Issuance rcrdsdarn0608484', '2023-06-13', '16:49:28', 'inactive'),
+(221, 4, 'Added Issuance recrtden060857', '2023-06-13', '16:58:29', 'inactive'),
+(222, 4, 'Added Issuance rcrdsmari0601553', '2023-06-14', '14:39:18', 'inactive'),
+(223, 4, 'Added Issuance sgodsias0607965', '2023-06-15', '15:14:51', 'inactive'),
+(224, 4, 'Added Issuance rcrdsbryl0607747', '2023-06-15', '15:24:28', 'inactive'),
+(225, 4, 'Added Issuance sgodsias0608285', '2023-06-15', '16:02:56', 'inactive'),
+(226, 4, 'Added Issuance rcrdsmari0614528', '2023-06-15', '17:02:34', 'inactive'),
+(227, 1, 'Added Issuance RECRTNIC0614933', '2023-06-16', '09:35:47', 'inactive'),
+(228, 1, 'Added Issuance RCRDSMARI061491', '2023-06-16', '09:36:57', 'inactive'),
+(229, 1, 'Added Issuance RAPJEA0614847', '2023-06-16', '09:41:19', 'inactive'),
+(230, 1, 'Added Issuance sgodsias0615466', '2023-06-16', '10:39:12', 'inactive'),
+(231, 1, 'Added Issuance sgodsias0614506', '2023-06-16', '10:39:51', 'inactive'),
+(232, 1, 'Added Issuance sgodsias0614502', '2023-06-16', '11:28:43', 'inactive'),
+(233, 1, 'Added Issuance rcrdsdarn0601927', '2023-06-16', '11:29:54', 'inactive'),
+(234, 1, 'Added Issuance rcrdsdarn0602542', '2023-06-16', '11:31:13', 'inactive'),
+(235, 1, 'Added Issuance rcrdsdarn0607685', '2023-06-16', '11:32:12', 'inactive'),
+(236, 1, 'Added Issuance rcrdsdarn0608351', '2023-06-16', '11:33:44', 'inactive'),
+(237, 1, 'Added Issuance RCRDSDARN0609212', '2023-06-16', '11:44:36', 'inactive'),
+(238, 1, 'Added Issuance cidbren061319', '2023-06-16', '13:40:23', 'inactive'),
+(239, 1, 'Added Issuance cidmeri0613268', '2023-06-16', '13:47:33', 'inactive'),
+(240, 1, 'Added Issuance rcrdsmari0605234', '2023-06-16', '16:08:03', 'inactive'),
+(241, 4, 'Added Issuance CIDBREN0615492', '2023-06-19', '15:59:44', 'inactive'),
+(242, 4, 'Added Issuance rcrdsbryl060776', '2023-06-19', '16:15:21', 'inactive'),
+(243, 4, 'Added Issuance CIDAMCY0616679', '2023-06-19', '16:24:03', 'inactive'),
+(244, 4, 'Updated Issuance RCRDSMARI061491', '2023-06-19', '16:31:20', 'inactive'),
+(245, 4, 'Added Issuance accimar0619743', '2023-06-20', '10:05:04', 'inactive'),
+(246, 4, 'Added Issuance sgodmarl0616501', '2023-06-20', '10:51:42', 'inactive'),
+(247, 1, 'Added Issuance RCRDSDARN0616729', '2023-06-21', '08:52:24', 'inactive'),
+(248, 4, 'Added Issuance ictkevi0613911', '2023-06-21', '10:29:01', 'inactive'),
+(249, 4, 'Added Issuance sgodsias0620783', '2023-06-21', '10:42:55', 'inactive'),
+(250, 4, 'Added Issuance ictnath0613792', '2023-06-21', '10:50:43', 'inactive'),
+(251, 4, 'Added Issuance rapjea062191', '2023-06-21', '10:59:55', 'inactive'),
+(252, 4, 'Added Issuance rcrdsdarn0615177', '2023-06-21', '11:09:46', 'inactive'),
+(253, 4, 'Added Issuance cidbren0616551', '2023-06-21', '11:16:04', 'inactive'),
+(254, 4, 'Added Issuance cidbren0619481', '2023-06-21', '11:24:21', 'inactive'),
+(255, 4, 'Added Issuance rcrdsmari0615732', '2023-06-21', '11:35:31', 'inactive'),
+(256, 4, 'Added Issuance ictmich0613222', '2023-06-21', '11:43:20', 'inactive'),
+(257, 4, 'Added Issuance ictmich0613746', '2023-06-21', '11:50:56', 'inactive'),
+(258, 4, 'Added Issuance ictnath061337', '2023-06-21', '12:53:28', 'inactive'),
+(259, 4, 'Added Issuance rcrdsmari0614514', '2023-06-21', '13:26:28', 'inactive'),
+(260, 4, 'Added Issuance ICTJOHN0613595', '2023-06-23', '09:43:47', 'inactive'),
+(261, 4, 'Added Issuance rcrdsdarn0620826', '2023-06-23', '09:59:26', 'inactive'),
+(262, 4, 'Added Issuance rcrdsdarn0620730', '2023-06-23', '10:00:12', 'inactive'),
+(263, 4, 'Added Issuance rcrdsdarn0620402', '2023-06-23', '10:01:07', 'inactive'),
+(264, 4, 'Added Issuance cidremy062279', '2023-06-23', '11:13:47', 'inactive'),
+(265, 4, 'Added Issuance rcrdsdarn0614589', '2023-06-23', '15:31:18', 'inactive'),
+(266, 4, 'Added Issuance rcrdsdarn0614130', '2023-06-23', '15:38:23', 'inactive'),
+(267, 4, 'Added Issuance rcrdsdarn060874', '2023-06-23', '15:44:55', 'inactive'),
+(268, 4, 'Added Issuance rcrdsdarn060921', '2023-06-23', '15:49:27', 'inactive'),
+(269, 4, 'Added Issuance rcrdsdarn0607737', '2023-06-23', '15:53:19', 'inactive'),
+(270, 4, 'Added Issuance rcrdsdarn0616222', '2023-06-23', '15:58:34', 'inactive'),
+(271, 4, 'Added Issuance rcrdsdarn0614695', '2023-06-23', '16:10:55', 'inactive'),
+(272, 4, 'Added Issuance rcrdsdarn0616666', '2023-06-23', '16:15:45', 'inactive'),
+(273, 4, 'Added Issuance rcrdsdarn0530470', '2023-06-23', '16:19:27', 'inactive'),
+(274, 4, 'Added Issuance rcrdsdarn0614795', '2023-06-23', '16:23:52', 'inactive'),
+(275, 4, 'Added Issuance NO TRACKING NUMBER', '2023-06-23', '16:47:43', 'inactive'),
+(276, 4, 'Added Issuance cidchar06219', '2023-06-23', '16:56:14', 'inactive'),
+(277, 4, 'Added Issuance RCRDSDARN0605690', '2023-06-26', '10:58:15', 'inactive'),
+(278, 4, 'Added Issuance CIDCHAR062283', '2023-06-26', '10:59:06', 'inactive'),
+(279, 4, 'Updated Issuance CIDCHAR062283', '2023-06-26', '11:00:28', 'inactive'),
+(280, 4, 'Added Issuance RCRDSBRYL0607691', '2023-06-26', '11:01:24', 'inactive'),
+(281, 4, 'Added Issuance cidedwi0622995', '2023-06-27', '17:07:22', 'inactive'),
+(282, 4, 'Added Issuance cidbren0623145', '2023-06-27', '17:15:50', 'inactive'),
+(283, 4, 'Added Issuance cidchar0627299', '2023-06-29', '08:43:01', 'inactive'),
+(284, 4, 'Added Issuance rcrdsdani0626589', '2023-06-29', '10:17:34', 'inactive'),
+(285, 4, 'Added Issuance rcrdsdani0623478', '2023-06-29', '10:21:47', 'inactive'),
+(286, 4, 'Added Issuance rcrdsdani0623377', '2023-06-29', '10:26:09', 'inactive'),
+(287, 4, 'Added Issuance rcrdsdani0623301', '2023-06-29', '10:31:07', 'inactive'),
+(288, 4, 'Added Issuance rcrdsdani0626988', '2023-06-29', '10:34:58', 'inactive'),
+(289, 4, 'Added Issuance rcrdsdarn0622257', '2023-06-29', '10:39:03', 'inactive'),
+(290, 4, 'Added Issuance rcrdsdarn0613871', '2023-06-29', '10:50:37', 'inactive'),
+(291, 4, 'Added Issuance rcrdsdarn0606392', '2023-06-29', '11:02:49', 'inactive'),
+(292, 4, 'Added Issuance rcrdsdarn0615463', '2023-06-29', '11:16:54', 'inactive'),
+(293, 4, 'Added Issuance rcrdsdani0626376', '2023-06-29', '11:25:44', 'inactive'),
+(294, 4, 'Added Issuance cidbren0627165', '2023-06-29', '11:31:45', 'inactive'),
+(295, 4, 'Added Issuance cidbren0623472', '2023-06-29', '11:39:15', 'inactive'),
+(296, 4, 'Added Issuance cidbren0623137', '2023-06-29', '11:48:16', 'inactive'),
+(297, 4, 'Added Issuance cidarie0616345', '2023-06-29', '13:06:27', 'inactive'),
+(298, 4, 'Added Issuance sgodsias0626414', '2023-06-29', '17:06:13', 'inactive'),
+(299, 4, 'Added Issuance recrtshe0623475', '2023-06-30', '10:18:20', 'inactive'),
+(300, 4, 'Added Issuance sgodsias062789', '2023-06-30', '10:59:00', 'inactive'),
+(301, 4, 'Added Issuance rcrdsmari0620579', '2023-06-30', '11:10:05', 'inactive'),
+(302, 4, 'Added Issuance rcrdsdarn0622851', '2023-06-30', '11:18:47', 'inactive'),
+(303, 4, 'Added Issuance sgodsias0629266', '2023-06-30', '11:28:53', 'inactive'),
+(304, 4, 'Added Issuance SGODSIAS0629128', '2023-06-30', '12:50:08', 'inactive'),
+(305, 4, 'Added Issuance rcrdsdani0626741', '2023-06-30', '13:03:42', 'inactive'),
+(306, 4, 'Added Issuance recrtmar0626720', '2023-06-30', '13:42:56', 'inactive'),
+(307, 4, 'Deleted Issuance recrtshe0623475', '2023-06-30', '16:52:15', 'inactive'),
+(308, 4, 'Added Issuance recrtshe0623372', '2023-07-03', '10:15:56', 'inactive'),
+(309, 4, 'Added Issuance recrtnic06298', '2023-07-03', '10:26:57', 'inactive'),
+(310, 4, 'Added Issuance asdsmlala0703857', '2023-07-03', '13:14:59', 'inactive'),
+(311, 4, 'Added Issuance hlthjen0626464', '2023-07-03', '14:06:12', 'inactive'),
+(312, 4, 'Added Issuance sgodsias062944', '2023-07-03', '14:16:45', 'inactive'),
+(313, 4, 'Added Issuance rcrdsdarn0627127', '2023-07-03', '15:39:24', 'inactive'),
+(314, 4, 'Added Issuance rcrdsdarn0608426', '2023-07-03', '15:45:46', 'inactive'),
+(315, 4, 'Added Issuance sgodsias063069', '2023-07-03', '15:58:28', 'inactive'),
+(316, 4, 'Added Issuance rcrdsdarn0615803', '2023-07-04', '10:39:35', 'inactive'),
+(317, 4, 'Added Issuance adminmich0630610', '2023-07-04', '10:54:56', 'inactive'),
+(318, 4, 'Added Issuance cidbren0703454', '2023-07-04', '13:43:35', 'inactive'),
+(319, 4, 'Added Issuance rcrdsdarn0630337', '2023-07-05', '14:44:09', 'inactive'),
+(320, 4, 'Added Issuance cidchar070435', '2023-07-05', '14:52:09', 'inactive'),
+(321, 4, 'Added Issuance adminmich0619753', '2023-07-05', '15:02:00', 'inactive'),
+(322, 4, 'Added Issuance hlthjen0703157', '2023-07-05', '15:15:43', 'inactive'),
+(323, 4, 'Added Issuance RCRDSBRYL0627616', '2023-07-06', '11:25:51', 'inactive'),
+(324, 4, 'Added Issuance HLTHJEN062938', '2023-07-06', '11:26:34', 'inactive'),
+(325, 4, 'Added Issuance HLTHJEN0704496', '2023-07-06', '11:29:24', 'inactive'),
+(326, 4, 'Added Issuance sgodsias0629544', '2023-07-06', '15:09:41', 'inactive'),
+(327, 3, 'Added Issuance 123456789', '2023-07-06', '15:58:17', 'inactive'),
+(328, 4, 'Added Issuance ictmich0630702', '2023-07-06', '16:21:06', 'inactive'),
+(329, 4, 'Added Issuance cidchar0704842', '2023-07-06', '16:30:39', 'inactive'),
+(330, 4, 'Added Issuance RECRTSHE0623475', '2023-07-06', '17:17:30', 'inactive'),
+(331, 4, 'Added Issuance tertfesfsef', '2023-07-06', '17:20:33', 'inactive'),
+(332, 4, 'Deleted Issuance tertfesfsef', '2023-07-06', '17:20:44', 'inactive'),
+(333, 4, 'Added Issuance recrtnic0704181', '2023-07-07', '08:20:56', 'inactive'),
+(334, 4, 'Added Issuance 12345678', '2023-07-07', '09:25:46', 'inactive'),
+(335, 4, 'Added Issuance 12345678', '2023-07-07', '09:25:46', 'inactive'),
+(336, 4, 'Updated Issuance 12345678', '2023-07-07', '09:27:17', 'inactive'),
+(337, 4, 'Deleted Issuance 12345678', '2023-07-07', '09:27:22', 'inactive'),
+(338, 4, 'Added Issuance 1234', '2023-07-07', '09:27:57', 'inactive'),
+(339, 4, 'Deleted Issuance 1234', '2023-07-07', '09:29:39', 'inactive'),
+(340, 4, 'Deleted Issuance 12345678', '2023-07-07', '09:29:42', 'inactive'),
+(341, 3, 'Added Issuance 12345', '2023-07-07', '10:55:50', 'inactive'),
+(342, 3, 'Deleted Issuance 12345', '2023-07-07', '10:56:04', 'inactive'),
+(343, 3, 'Added Issuance 1234', '2023-07-07', '10:56:32', 'inactive'),
+(344, 3, 'Deleted Issuance 1234', '2023-07-07', '11:00:01', 'inactive'),
+(345, 3, 'Added Issuance 1234', '2023-07-07', '11:08:41', 'inactive'),
+(346, 3, 'Updated Issuance 12345', '2023-07-07', '11:08:57', 'inactive'),
+(347, 3, 'Deleted Issuance 12345', '2023-07-07', '11:09:34', 'inactive'),
+(348, 4, 'Added Issuance cidremy0703628', '2023-07-10', '10:27:09', 'inactive'),
+(349, 4, 'Added Issuance sgodsias0706467', '2023-07-10', '10:38:22', 'inactive'),
+(350, 4, 'Added Issuance rcrdsbryl0703528', '2023-07-10', '10:49:37', 'inactive'),
+(351, 4, 'Added Issuance recrthan070797', '2023-07-10', '11:30:03', 'inactive'),
+(352, 4, 'Added Issuance rcrdsmari063026', '2023-07-10', '13:24:00', 'inactive'),
+(353, 4, 'Added Issuance cidchar070545', '2023-07-10', '13:34:04', 'inactive'),
+(354, 4, 'Added Issuance cidbren0706278', '2023-07-10', '13:55:17', 'inactive'),
+(355, 4, 'Added Issuance sgodsias0705347', '2023-07-10', '14:04:15', 'inactive'),
+(356, 4, 'Added Issuance sgodmarl0706264', '2023-07-10', '14:11:02', 'inactive'),
+(357, 4, 'Added Issuance cidchar0706684', '2023-07-10', '14:18:01', 'inactive'),
+(358, 4, 'Added Issuance cidchar0707667', '2023-07-10', '14:25:04', 'inactive'),
+(359, 4, 'Added Issuance cidlea 0704530', '2023-07-10', '14:35:30', 'inactive'),
+(360, 4, 'Added Issuance rcrdsdarn0704205', '2023-07-11', '09:13:44', 'inactive'),
+(361, 4, 'Added Issuance publiadri0707414', '2023-07-11', '11:21:45', 'inactive'),
+(362, 4, 'Added Issuance recrtjan0707988', '2023-07-11', '11:34:34', 'inactive'),
+(363, 4, 'Added Issuance cidbren0711330', '2023-07-11', '17:03:09', 'inactive'),
+(364, 4, 'Added Issuance cidbren0710382', '2023-07-12', '10:44:39', 'inactive'),
+(365, 4, 'Added Issuance cidbren0710434', '2023-07-12', '10:51:58', 'inactive'),
+(366, 4, 'Added Issuance recrtjan0711487', '2023-07-12', '13:46:53', 'inactive'),
+(367, 4, 'Added Issuance sgodsias0706798', '2023-07-12', '13:56:25', 'inactive'),
+(368, 4, 'Added Issuance cidbren071161', '2023-07-12', '14:04:41', 'inactive'),
+(369, 4, 'Added Issuance cidremy0710355', '2023-07-13', '10:26:39', 'inactive'),
+(371, 3, 'Added Issuance 123', '2023-07-13', '15:16:22', 'inactive'),
+(372, 3, 'Updated Issuance 1234', '2023-07-13', '15:16:29', 'inactive'),
+(373, 1, 'Added Issuance asdsmaria0713693', '2023-07-13', '15:18:18', 'inactive'),
+(374, 3, 'Deleted Issuance 1234', '2023-07-13', '15:18:29', 'inactive'),
+(375, 1, 'Added Issuance recrtnic070621', '2023-07-13', '16:39:28', 'inactive'),
+(376, 4, 'Added Issuance hlthjen0713239', '2023-07-14', '10:38:02', 'inactive'),
+(377, 4, 'Added Issuance cidbren0712422', '2023-07-14', '14:02:40', 'inactive'),
+(378, 4, 'Added Issuance rcrdsmari0613915', '2023-07-14', '14:11:59', 'inactive'),
+(379, 4, 'Added Issuance sgodsias0714227', '2023-07-17', '11:07:38', 'inactive'),
+(380, 4, 'Added Issuance sgodsias0713234', '2023-07-17', '11:29:26', 'inactive'),
+(381, 4, 'Added Issuance sgodsias0711672', '2023-07-17', '11:38:37', 'inactive'),
+(382, 4, 'Added Issuance cidchar0713969', '2023-07-17', '11:45:15', 'inactive'),
+(383, 4, 'Added Issuance cidlea 0713528', '2023-07-17', '12:53:15', 'inactive'),
+(384, 4, 'Added Issuance recrtnic0714149', '2023-07-17', '14:29:25', 'inactive'),
+(385, 4, 'Added Issuance rcrdsdarn0710776', '2023-07-17', '14:58:51', 'inactive'),
+(386, 4, 'Added Issuance rcrdsmari0707753', '2023-07-18', '13:06:57', 'inactive'),
+(387, 4, 'Added Issuance rcrdsbryl0711409', '2023-07-18', '13:11:04', 'inactive'),
+(388, 4, 'Added Issuance cidmeri0717992', '2023-07-18', '13:12:05', 'inactive'),
+(389, 4, 'Added Issuance CIDLEA 071726', '2023-07-18', '13:13:12', 'inactive'),
+(390, 4, 'Added Issuance cidmeri0712643', '2023-07-18', '13:39:30', 'inactive'),
+(391, 4, 'Updated Issuance CIDLEA 071726', '2023-07-18', '15:23:47', 'inactive'),
+(392, 4, 'Updated Issuance cidmeri0717992', '2023-07-18', '15:27:40', 'inactive'),
+(393, 4, 'Added Issuance rcrdsdarn0714745', '2023-07-18', '16:02:00', 'inactive'),
+(394, 4, 'Deleted Issuance rcrdsdarn0714745', '2023-07-18', '16:08:57', 'inactive'),
+(395, 4, 'Added Issuance lnpchr0717701', '2023-07-19', '11:27:50', 'inactive'),
+(396, 4, 'Added Issuance sgodeliz0718126', '2023-07-19', '16:31:35', 'inactive'),
+(397, 4, 'Added Issuance sgodeliz0718785', '2023-07-20', '09:53:24', 'inactive'),
+(398, 4, 'Added Issuance rcrdsdarn0717985', '2023-07-20', '10:02:27', 'inactive'),
+(399, 4, 'Added Issuance sgodsias0718723', '2023-07-20', '11:11:44', 'inactive'),
+(400, 4, 'Added Issuance rcrdsdarn0714116', '2023-07-20', '13:36:49', 'inactive'),
+(401, 4, 'Added Issuance cidbren0714556', '2023-07-20', '13:44:05', 'inactive'),
+(402, 4, 'Added Issuance sgodrodo071829', '2023-07-20', '13:59:29', 'inactive'),
+(403, 1, 'Deleted Issuance cidbren0714556', '2023-07-20', '17:02:38', 'inactive'),
+(404, 4, 'Added Issuance SGODELIZ072013', '2023-07-21', '11:18:50', 'inactive'),
+(405, 4, 'Added Issuance ictmich0720624', '2023-07-21', '12:05:20', 'inactive'),
+(406, 4, 'Added Issuance rapjey0719299', '2023-07-21', '12:47:27', 'inactive'),
+(407, 4, 'Deleted Issuance ictmich0720624', '2023-07-21', '13:15:55', 'inactive'),
+(408, 4, 'Added Issuance rcrdsmari0714473', '2023-07-21', '13:20:01', 'inactive'),
+(409, 4, 'Added Issuance sgodmarl0719462', '2023-07-21', '15:21:50', 'inactive'),
+(410, 4, 'Added Issuance rcrdsmari0710867', '2023-07-21', '16:39:30', 'inactive'),
+(411, 4, 'Added Issuance sgodsias0719473', '2023-07-21', '16:46:24', 'inactive'),
+(412, 4, 'Added Issuance hlthjen0719377', '2023-07-21', '16:50:38', 'inactive'),
+(413, 4, 'Added Issuance CIDAMCY0719913', '2023-07-21', '16:56:46', 'inactive'),
+(414, 4, 'Added Issuance RECRSVICT0725507', '2023-07-25', '15:41:57', 'inactive'),
+(415, 4, 'Updated Issuance RCRDSVICT0725507', '2023-07-25', '15:47:20', 'inactive'),
+(416, 4, 'Added Issuance rcrdsdarn0718484', '2023-07-26', '10:32:08', 'inactive'),
+(417, 4, 'Added Issuance rcrdsdarn0718811', '2023-07-26', '10:37:40', 'inactive'),
+(418, 4, 'Added Issuance rcrdsdarn0718729', '2023-07-26', '10:42:27', 'inactive'),
+(419, 4, 'Added Issuance rcrdsdarn0718822', '2023-07-26', '10:46:22', 'inactive'),
+(420, 4, 'Added Issuance accimar0720795', '2023-07-26', '10:59:39', 'inactive'),
+(421, 4, 'Added Issuance rcrdsdarn0718778', '2023-07-26', '13:35:14', 'inactive'),
+(422, 4, 'Added Issuance rcrdsdarn0718351', '2023-07-26', '13:40:54', 'inactive'),
+(423, 4, 'Added Issuance rcrdsdarn0718199', '2023-07-26', '13:45:00', 'inactive'),
+(424, 4, 'Added Issuance rcrdsdarn0721448', '2023-07-26', '13:50:05', 'inactive'),
+(425, 4, 'Added Issuance CIDCHAR0725498', '2023-07-26', '13:59:03', 'inactive'),
+(426, 4, 'Updated Issuance 465122022', '2023-07-27', '09:19:42', 'inactive'),
+(427, 4, 'Added Issuance rcrdsdarn0721284', '2023-07-27', '09:53:08', 'inactive'),
+(428, 4, 'Added Issuance cidchar0720270', '2023-07-27', '10:02:56', 'inactive'),
+(429, 4, 'Added Issuance sgodsias0726692', '2023-07-27', '10:25:14', 'inactive'),
+(430, 4, 'Updated Issuance sgodsias0726692', '2023-07-27', '11:58:30', 'inactive'),
+(431, 4, 'Added Issuance publiabbi0726655', '2023-07-27', '13:09:41', 'inactive'),
+(432, 4, 'Added Issuance CIDCHAR0721624', '2023-07-27', '13:37:08', 'inactive'),
+(433, 4, 'Added Issuance CIDAMCY0720858', '2023-07-27', '13:48:42', 'inactive'),
+(434, 4, 'Added Issuance sgodanna0725987', '2023-07-27', '14:40:58', 'inactive'),
+(435, 4, 'Added Issuance recrtden0718536', '2023-07-27', '15:17:00', 'inactive'),
+(436, 4, 'Added Issuance 12282022', '2023-07-28', '10:20:45', 'inactive'),
+(437, 4, 'Updated Issuance recrtden0718536', '2023-07-28', '12:08:20', 'inactive'),
+(438, 4, 'Added Issuance accima0727303', '2023-07-28', '13:18:33', 'inactive'),
+(439, 4, 'Added Issuance sgodsias0630450', '2023-07-28', '13:27:02', 'inactive'),
+(440, 4, 'Added Issuance hlthjen0717981', '2023-07-31', '10:12:40', 'inactive'),
+(441, 4, 'Added Issuance cidbren0728394', '2023-07-31', '10:21:32', 'inactive'),
+(442, 4, 'Added Issuance cidbren0726215', '2023-07-31', '13:45:42', 'inactive'),
+(443, 4, 'Added Issuance recrtnic0726911', '2023-07-31', '13:46:58', 'inactive'),
+(444, 4, 'Added Issuance icttrai072513', '2023-08-01', '11:46:19', 'inactive'),
+(445, 4, 'Added Issuance sgodsias0726543', '2023-08-01', '11:52:32', 'inactive'),
+(446, 4, 'Added Issuance sgodsias0731655', '2023-08-01', '12:01:37', 'inactive'),
+(447, 4, 'Added Issuance rcrdsdani0725366', '2023-08-01', '13:02:41', 'inactive'),
+(448, 4, 'Added Issuance rcrdsdani072548', '2023-08-01', '13:09:02', 'inactive'),
+(449, 4, 'Added Issuance rcrdsdani0725503', '2023-08-01', '13:12:34', 'inactive'),
+(450, 4, 'Added Issuance rcrdselsa0727174', '2023-08-01', '13:15:07', 'inactive'),
+(451, 4, 'Added Issuance rcrdsdarn0727415', '2023-08-01', '15:28:03', 'inactive'),
+(452, 4, 'Added Issuance rcrdsdarn0727253', '2023-08-01', '15:32:13', 'inactive'),
+(453, 4, 'Added Issuance rcrdsdarn0727604', '2023-08-01', '15:36:27', 'inactive'),
+(454, 4, 'Added Issuance rcrdsdarn0727736', '2023-08-01', '15:40:15', 'inactive'),
+(455, 4, 'Added Issuance rcrdsdarn0727736', '2023-08-01', '15:40:19', 'inactive'),
+(456, 4, 'Added Issuance rcrdsdarn0727558', '2023-08-01', '15:45:37', 'inactive'),
+(457, 4, 'Added Issuance rcrdsdarn0727109', '2023-08-01', '15:50:29', 'inactive'),
+(458, 4, 'Added Issuance rcrdsdarn0727565', '2023-08-01', '15:54:12', 'inactive'),
+(459, 4, 'Added Issuance rcrdsdarn0727761', '2023-08-01', '15:58:47', 'inactive'),
+(460, 3, 'Updated Issuance rcrdsdarn0727761', '2023-08-03', '09:15:01', 'inactive'),
+(461, 3, 'Updated Issuance rcrdsdarn0727761', '2023-08-03', '09:15:16', 'inactive'),
+(462, 3, 'Updated Issuance', '2023-08-03', '09:41:04', 'inactive'),
+(463, 3, 'Updated Issuance', '2023-08-03', '09:41:18', 'inactive'),
+(464, 3, 'Updated Issuance', '2023-08-03', '09:41:25', 'inactive'),
+(465, 1, 'Added Issuance ictmich0718238', '2023-08-03', '16:21:05', 'inactive'),
+(466, 1, 'Added Issuance icttrai0725315', '2023-08-03', '16:21:54', 'inactive'),
+(467, 1, 'Added Issuance rcrdselsa0728536', '2023-08-03', '17:10:20', 'inactive'),
+(468, 4, 'Added Issuance rcrdsdarn0717590', '2023-08-04', '16:58:13', 'inactive'),
+(469, 4, 'Added Issuance rcrdsdarn0725854', '2023-08-04', '17:07:34', 'inactive'),
+(470, 3, 'Added Issuance sampl123', '2023-08-07', '12:47:31', 'inactive'),
+(471, 3, 'Deleted Issuance sampl123', '2023-08-07', '12:48:25', 'inactive'),
+(472, 4, 'Added Issuance ictmich0718823', '2023-08-07', '14:09:58', 'inactive'),
+(473, 4, 'Added Issuance rcrdsdarn0718957', '2023-08-07', '14:24:11', 'inactive'),
+(474, 4, 'Added Issuance ictjuan0801325', '2023-08-07', '14:35:04', 'inactive'),
+(475, 4, 'Added Issuance sgodsias0803799', '2023-08-07', '14:40:29', 'inactive'),
+(476, 4, 'Added Issuance sgodsias0719997', '2023-08-07', '14:45:10', 'inactive'),
+(477, 4, 'Added Issuance sgodsias0803936', '2023-08-07', '14:55:03', 'inactive'),
+(478, 4, 'Added Issuance cidbren0802797', '2023-08-07', '15:04:44', 'inactive'),
+(479, 4, 'Added Issuance CIDLEA 0802251', '2023-08-07', '15:18:36', 'inactive'),
+(480, 4, 'Added Issuance sgodeliz0802446', '2023-08-07', '15:29:34', 'inactive'),
+(481, 4, 'Added Issuance cidbren0803330', '2023-08-07', '15:36:49', 'inactive'),
+(482, 4, 'Added Issuance cidbren0801239', '2023-08-07', '16:30:47', 'inactive'),
+(483, 3, 'Added Issuance', '2023-08-22', '15:24:22', 'inactive'),
+(484, 3, 'Added Issuance', '2023-08-22', '15:25:11', 'inactive'),
+(485, 3, 'Added Issuance Numbered', '2023-08-22', '15:53:24', 'inactive'),
+(486, 3, 'Added Issuance 7315022023', '2023-08-22', '15:53:44', 'inactive'),
+(487, 3, 'Added Issuance 7315022023', '2023-09-13', '10:47:15', 'inactive'),
+(488, 3, 'Added Issuance asd', '2023-09-13', '11:07:04', 'inactive'),
+(489, 3, 'Added Issuance asd', '2024-02-06', '14:27:56', 'inactive'),
+(490, 3, 'Added Issuance test12312451234324', '2024-02-06', '14:28:07', 'inactive'),
+(491, 3, 'Added Issuance as', '2024-02-06', '14:28:41', 'inactive'),
+(492, 3, 'Added Issuance asd', '2024-02-06', '14:28:49', 'inactive'),
+(493, 3, 'Added Issuance asda', '2024-02-06', '15:27:27', 'inactive'),
+(494, 3, 'Added Issuance s', '2024-02-06', '15:32:29', 'inactive'),
+(495, 3, 'Added Issuance 1', '2024-02-07', '11:43:10', 'inactive'),
+(500, 3, 'Edited Issuance cidbren08027971', '2024-02-07', '14:19:33', 'inactive'),
+(501, 3, 'Edited Issuance cidbren0802797', '2024-02-07', '14:20:24', 'inactive'),
+(502, 3, 'Deleted Issuance ', '2024-02-07', '14:21:30', 'inactive'),
+(503, 3, 'Deleted Issuance sgodsias0803936', '2024-02-07', '14:22:31', 'inactive'),
+(504, 3, 'Edited Issuance sgodsias0719997s', '2024-02-07', '15:17:38', 'inactive'),
+(505, 3, 'Edited Issuance sgodsias0719997', '2024-02-07', '15:17:41', 'inactive'),
+(506, 3, 'Deleted Issuance sgodsias0719997', '2024-02-07', '15:25:13', 'inactive'),
+(507, 3, 'Edited Issuance sgodsias0803799', '2024-02-08', '09:14:32', 'inactive'),
+(508, 3, 'Deleted Issuance sgodsias0803799', '2024-02-08', '09:14:36', 'inactive'),
+(509, 3, 'Deleted Issuance ictjuan0801325', '2024-02-08', '09:14:38', 'inactive'),
+(510, 3, 'Added Issuance asds', '2024-02-08', '13:42:39', 'inactive'),
+(511, 3, 'Added Issuance ', '2024-02-08', '14:52:37', 'inactive'),
+(512, 3, 'Added Issuance ', '2024-02-08', '14:52:38', 'inactive'),
+(513, 3, 'Added Issuance ', '2024-02-08', '14:52:38', 'inactive'),
+(514, 3, 'Added Issuance ', '2024-02-08', '15:11:46', 'inactive'),
+(515, 3, 'Added Issuance ', '2024-02-08', '15:14:51', 'inactive'),
+(516, 3, 'Added Issuance ', '2024-02-08', '15:17:52', 'inactive'),
+(517, 3, 'Added Issuance procurement', '2024-02-08', '15:18:02', 'inactive'),
+(518, 3, 'Added Issuance downloadable', '2024-02-08', '15:26:21', 'inactive'),
+(519, 3, 'Added Issuance procurement', '2024-02-08', '15:26:28', 'inactive'),
+(520, 3, 'Added downloadable File s', '2024-02-08', '15:29:08', 'inactive'),
+(521, 3, 'Added procurement File s', '2024-02-08', '15:34:58', 'inactive'),
+(522, 3, 'Added procurement File ssdd', '2024-02-08', '15:36:37', 'inactive'),
+(523, 3, 'Added procurement File asd', '2024-02-08', '15:43:28', 'inactive'),
+(524, 3, 'Added material File asd', '2024-02-08', '15:45:10', 'inactive'),
+(525, 3, 'Added transparency File asdasd', '2024-02-08', '15:49:18', 'inactive'),
+(526, 3, 'Added transparency File asd', '2024-02-08', '15:49:54', 'inactive'),
+(527, 3, 'Added transparency File asd', '2024-02-08', '15:55:21', 'inactive'),
+(528, 3, 'Added transparency File sample 1', '2024-02-08', '15:55:50', 'inactive'),
+(529, 3, 'Deleted Issuance rcrdsdarn0718957', '2024-02-09', '13:32:13', 'inactive'),
+(530, 3, 'Added Issuance q', '2024-02-09', '13:32:33', 'inactive'),
+(531, 3, 'Deleted Issuance q', '2024-02-09', '13:32:37', 'inactive'),
+(532, 3, 'Added downloadable File Personal Data Sheet (CSC Form 212)s', '2024-02-09', '14:00:29', 'inactive'),
+(533, 3, 'Added downloadable File Personal Data Sheet (CSC Form 212)', '2024-02-09', '14:00:34', 'inactive'),
+(534, 3, 'Added procurement File 1', '2024-02-09', '15:14:13', 'inactive'),
+(535, 3, 'Added procurement File 1', '2024-02-09', '15:17:30', 'inactive'),
+(536, 3, 'Edited downloadable File Personal Data Sheet (CSC Form 212)s', '2024-02-09', '15:19:21', 'inactive'),
+(537, 3, 'Edited downloadable File Personal Data Sheet (CSC Form 212)', '2024-02-09', '15:19:35', 'inactive'),
+(538, 3, 'Edited procurement File 12', '2024-02-09', '15:19:39', 'inactive'),
+(539, 3, 'Edited downloadable File Personal Data Sheet (CSC Form 212)s', '2024-02-09', '15:20:09', 'inactive'),
+(540, 3, 'Edited procurement File 123', '2024-02-09', '15:20:20', 'inactive'),
+(541, 3, 'Edited procurement File 123s', '2024-02-09', '15:21:29', 'inactive'),
+(542, 3, 'Edited procurement File 123ss', '2024-02-09', '15:21:49', 'inactive'),
+(543, 3, 'Edited procurement File 123ss', '2024-02-09', '15:22:06', 'inactive'),
+(544, 3, 'Edited procurement File 123sss', '2024-02-09', '15:22:07', 'inactive'),
+(545, 3, 'Edited procurement File 123sssss', '2024-02-09', '15:22:26', 'inactive'),
+(546, 3, 'Edited procurement File 12', '2024-02-09', '15:22:36', 'inactive'),
+(547, 3, 'Edited procurement File 123', '2024-02-09', '15:25:00', 'inactive'),
+(548, 3, 'Edited procurement File 1234', '2024-02-09', '16:21:55', 'inactive'),
+(549, 3, 'Edited procurement File 12345', '2024-02-09', '16:22:45', 'inactive'),
+(550, 3, 'Edited downloadable File: Personal Data Sheet (CSC Form 212)ss', '2024-02-09', '16:29:37', 'inactive'),
+(551, 3, 'Edited downloadable File: Personal Data Sheet (CSC Form 212)sss', '2024-02-09', '16:29:59', 'inactive'),
+(552, 3, 'Edited material File: asdss', '2024-02-09', '16:30:05', 'inactive'),
+(553, 3, 'Added transparency File: CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', '2024-02-09', '16:30:12', 'inactive'),
+(554, 3, 'Edited procurement File: Personal Data Sheet (CSC Form 212)sss', '2024-02-09', '16:41:09', 'inactive'),
+(555, 3, 'Edited downloadable File: Personal Data Sheet (CSC Form 212)sss', '2024-02-09', '16:41:19', 'inactive'),
+(556, 3, 'Deleted procurement File: 12345', '2024-02-09', '16:54:27', 'inactive'),
+(557, 3, 'Deleted procurement File: 1', '2024-02-09', '16:54:31', 'inactive'),
+(558, 3, 'Deleted procurement File: 1', '2024-02-09', '16:54:34', 'inactive'),
+(559, 3, 'Deleted procurement File: 12345', '2024-02-09', '16:54:55', 'inactive'),
+(560, 3, 'Deleted procurement File: 12345', '2024-02-09', '16:55:40', 'inactive'),
+(561, 3, 'Deleted procurement File: 1', '2024-02-09', '16:55:43', 'inactive'),
+(562, 3, 'Deleted transparency File: sample 1', '2024-02-09', '16:55:51', 'inactive'),
+(563, 3, 'Deleted transparency File: asd', '2024-02-09', '16:55:56', 'inactive'),
+(564, 3, 'Deleted transparency File: asd', '2024-02-09', '16:55:59', 'inactive'),
+(565, 3, 'Edited downloadable File: Personal Data Sheet (CSC Form 212)', '2024-02-09', '16:57:14', 'inactive'),
+(566, 3, 'Deleted transparency file: asdasd', '2024-02-09', '16:58:22', 'inactive'),
+(567, 3, 'Deleted material file: asdss', '2024-02-09', '16:58:25', 'inactive'),
+(568, 3, 'Deleted procurement file: asd', '2024-02-09', '16:58:31', 'inactive'),
+(569, 3, 'Deleted procurement file: ssdd', '2024-02-09', '16:58:36', 'inactive'),
+(570, 3, 'Deleted procurement file: s', '2024-02-09', '16:58:39', 'inactive'),
+(571, 3, 'Deleted downloadable file: s', '2024-02-09', '16:58:42', 'inactive'),
+(572, 3, 'Deleted procurement file: s', '2024-02-09', '16:58:44', 'inactive'),
+(573, 3, 'Deleted downloadable file: s', '2024-02-09', '16:58:47', 'inactive'),
+(574, 3, 'Deleted procurement file: s', '2024-02-09', '16:58:50', 'inactive'),
+(575, 3, 'Added downloadable File 1', '2024-02-09', '16:59:10', 'inactive'),
+(576, 3, 'Deleted  file: ', '2024-02-09', '17:26:50', 'inactive'),
+(577, 3, 'Cleared all time logs', '2024-02-09', '17:31:45', 'inactive'),
+(578, 3, 'Cleared all time logs', '2024-02-09', '17:43:44', 'inactive'),
+(579, 3, 'Cleared all time logs', '2024-02-09', '17:43:48', 'inactive'),
+(580, 3, 'Cleared all time logs', '2024-02-13', '09:22:15', 'inactive'),
+(581, 3, 'Cleared all time logs', '2024-02-13', '09:22:17', 'inactive'),
+(582, 3, 'Added Issuance test', '2024-02-13', '10:41:31', 'inactive'),
+(583, 3, 'Edited Issuance test', '2024-02-13', '11:00:01', 'inactive'),
+(584, 3, 'Added Issuance Category test', '2024-02-13', '11:11:58', 'inactive'),
+(585, 3, 'Added Issuance Category test1', '2024-02-13', '11:12:49', 'inactive'),
+(586, 3, 'Added Issuance Category test2', '2024-02-13', '11:13:27', 'inactive'),
+(587, 3, 'Edited Issuance ', '2024-02-13', '11:22:13', 'inactive'),
+(588, 3, 'Added Issuance Category test4', '2024-02-13', '13:32:47', 'inactive'),
+(589, 3, 'Edited Issuance Category test1', '2024-02-13', '15:12:31', 'inactive'),
+(590, 3, 'Edited Issuance Category test12', '2024-02-13', '15:12:37', 'inactive'),
+(591, 3, 'Edited Issuance Category test1', '2024-02-13', '15:13:15', 'inactive'),
+(592, 3, 'Cleared all time logs', '2024-02-13', '15:13:23', 'inactive'),
+(593, 3, 'Deleted Issuance Category test1', '2024-02-13', '15:21:07', 'inactive'),
+(594, 3, 'Deleted Issuance Category test2', '2024-02-13', '15:21:13', 'inactive'),
+(595, 3, 'Deleted Issuance Category test4', '2024-02-13', '15:21:15', 'inactive'),
+(596, 3, 'Deleted Issuance Category test', '2024-02-13', '15:21:17', 'inactive'),
+(597, 4, 'Added Issuance Category test1234', '2024-02-13', '15:42:02', 'inactive'),
+(598, 4, 'Added Issuance Category kevin caategory', '2024-02-13', '15:42:29', 'inactive'),
+(599, 4, 'Deleted Issuance Category kevin caategory', '2024-02-13', '15:42:41', 'inactive'),
+(600, 4, 'Deleted Issuance Category test1234', '2024-02-13', '15:42:44', 'inactive'),
+(601, 3, 'Added School 123123', '2024-02-19', '13:45:47', 'inactive'),
+(602, 3, 'Added School 123', '2024-02-19', '13:47:51', 'inactive'),
+(603, 3, 'Added School 1234', '2024-02-19', '13:48:13', 'inactive'),
+(604, 3, 'Edited School, id: 107', '2024-02-19', '15:39:16', 'inactive'),
+(605, 3, 'Edited School, id: 109', '2024-02-19', '15:39:38', 'inactive'),
+(606, 3, 'Edited School, id: 109', '2024-02-19', '15:39:49', 'inactive'),
+(607, 3, 'Deleted School, id: 136436', '2024-02-19', '16:04:01', 'inactive'),
+(608, 3, 'Deleted School, id: 136436', '2024-02-19', '16:04:04', 'inactive'),
+(609, 3, 'Deleted School, id: 136430', '2024-02-19', '16:04:07', 'inactive'),
+(610, 3, 'Deleted School, id: 123123', '2024-02-19', '16:04:36', 'inactive'),
+(611, 3, 'Deleted School, id: 136433', '2024-02-19', '16:05:09', 'inactive'),
+(612, 3, 'Deleted School, id: 136439', '2024-02-19', '16:05:11', 'inactive'),
+(613, 3, 'Deleted School, id: 123', '2024-02-19', '16:05:14', 'inactive'),
+(614, 3, 'Deleted School, id: 123412', '2024-02-19', '16:05:17', 'inactive'),
+(615, 3, 'Deleted School, id: 136440', '2024-02-19', '16:05:21', 'inactive'),
+(616, 3, 'Cleared all time logs', '2024-02-19', '16:05:41', 'active'),
+(617, 3, 'Added downloadable File test', '2024-02-20', '11:19:22', 'active'),
+(618, 3, 'Added downloadable File DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:14', 'active'),
+(619, 3, 'Deleted downloadable file: DELETE FROM userstbl WHERE user_id = 10;', '2024-02-20', '11:21:31', 'active'),
+(620, 3, 'Deleted School, id: 136432', '2024-02-20', '11:50:02', 'active'),
+(621, 3, 'Deleted Issuance sgodsias0803799', '2024-02-20', '11:50:08', 'active');
 
 -- --------------------------------------------------------
 
@@ -6617,7 +6728,7 @@ CREATE TABLE `timelogvw` (
 `id` int(11)
 ,`user_id` int(11)
 ,`username` varchar(50)
-,`action` varchar(100)
+,`action` longtext
 ,`date` date
 ,`time` time
 ,`status` varchar(11)
@@ -6633,7 +6744,7 @@ CREATE TABLE `transparencyfilesvw` (
 `id` int(11)
 ,`type` varchar(50)
 ,`title` varchar(200)
-,`link` varchar(200)
+,`link` longtext
 ,`date` datetime
 ,`publish_date` date
 ,`closing_date` date
@@ -6653,8 +6764,9 @@ CREATE TABLE `userstbl` (
   `user_id` int(11) NOT NULL,
   `user_username` varchar(50) NOT NULL,
   `user_email` varchar(50) NOT NULL,
-  `user_password` varchar(50) NOT NULL,
+  `user_password` longtext NOT NULL,
   `user_type` varchar(20) NOT NULL DEFAULT 'admin',
+  `user_profile` longtext NOT NULL,
   `user_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -6662,13 +6774,13 @@ CREATE TABLE `userstbl` (
 -- Dumping data for table `userstbl`
 --
 
-INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_status`) VALUES
-(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(3, 'ict jon', 'jon.raguini@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(4, 'ict kev', 'kevin.flogen@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'admin', 'active'),
-(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', 'active'),
-(10, 'ict trainee', 'trainee@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'trainee', 'active');
+INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_profile`, `user_status`) VALUES
+(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
+(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
+(3, 'ict jon', 'jon.raguini@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
+(4, 'ict kev', 'kevin.flogen@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'admin', '', 'active'),
+(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'superadmin', '', 'active'),
+(10, 'ict trainee', 'trainee@deped.gov.ph', 'abd19b582a86bcd45eb9047eb590d81b', 'trainee', '', 'active');
 
 -- --------------------------------------------------------
 
@@ -6720,6 +6832,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `dailyvisitorsvw`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dailyvisitorsvw`  AS SELECT `dailyvisitstbl`.`daily_visitors_ip_address` AS `ip address`, `dailyvisitstbl`.`daily_visitors_visit_date` AS `date`, `dailyvisitstbl`.`daily_visitors_visit_status` AS `status` FROM `dailyvisitstbl` WHERE `dailyvisitstbl`.`daily_visitors_visit_status` = 'active' ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `departmentsvw`
+--
+DROP TABLE IF EXISTS `departmentsvw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `departmentsvw`  AS SELECT `departmentstbl`.`department_id` AS `id`, `departmentstbl`.`department_name` AS `name`, `departmentstbl`.`department_contact` AS `contact`, `departmentstbl`.`department_email` AS `email`, `departmentstbl`.`department_status` AS `status` FROM `departmentstbl` WHERE `departmentstbl`.`department_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6800,7 +6921,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `officesvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `officesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_post` AS `post`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM `officestbl` WHERE `officestbl`.`employee_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `officesvw`  AS SELECT `officestbl`.`offices_id` AS `id`, `departmentstbl`.`department_name` AS `department`, `officestbl`.`employee_name` AS `name`, `officestbl`.`employee_picture` AS `picture`, `officestbl`.`employee_office` AS `office`, `officestbl`.`employee_position` AS `position`, `officestbl`.`employee_post` AS `post`, `officestbl`.`employee_type` AS `type`, `officestbl`.`employee_email` AS `email`, `officestbl`.`employee_status` AS `status` FROM (`officestbl` join `departmentstbl` on(`officestbl`.`department_id` = `departmentstbl`.`department_id`)) WHERE `officestbl`.`employee_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -6894,6 +7015,12 @@ ALTER TABLE `dailyvisitstbl`
   ADD PRIMARY KEY (`daily_visitors_id`);
 
 --
+-- Indexes for table `departmentstbl`
+--
+ALTER TABLE `departmentstbl`
+  ADD PRIMARY KEY (`department_id`);
+
+--
 -- Indexes for table `filestbl`
 --
 ALTER TABLE `filestbl`
@@ -6922,7 +7049,8 @@ ALTER TABLE `issuancestbl`
 -- Indexes for table `officestbl`
 --
 ALTER TABLE `officestbl`
-  ADD PRIMARY KEY (`offices_id`);
+  ADD PRIMARY KEY (`offices_id`),
+  ADD KEY `officestbl_department_idFK` (`department_id`);
 
 --
 -- Indexes for table `schoolstbl`
@@ -6957,55 +7085,55 @@ ALTER TABLE `userstbl`
 -- AUTO_INCREMENT for table `dailyvisitstbl`
 --
 ALTER TABLE `dailyvisitstbl`
-  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `daily_visitors_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2553;
 
 --
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
 --
 ALTER TABLE `imagestbl`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3027;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
 --
 ALTER TABLE `officestbl`
-  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `offices_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schoolstbl`
 --
 ALTER TABLE `schoolstbl`
-  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `socialmediatbl`
 --
 ALTER TABLE `socialmediatbl`
-  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `socialMedia_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=622;
 
 --
 -- AUTO_INCREMENT for table `userstbl`
 --
 ALTER TABLE `userstbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -7016,6 +7144,12 @@ ALTER TABLE `userstbl`
 --
 ALTER TABLE `issuancestbl`
   ADD CONSTRAINT `issuestbl_issuances_typeFK` FOREIGN KEY (`issuances_type`) REFERENCES `issuancescategorytbl` (`issuances_type`);
+
+--
+-- Constraints for table `officestbl`
+--
+ALTER TABLE `officestbl`
+  ADD CONSTRAINT `officestbl_department_idFK` FOREIGN KEY (`department_id`) REFERENCES `departmentstbl` (`department_id`);
 
 --
 -- Constraints for table `timelogtbl`

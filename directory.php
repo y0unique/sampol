@@ -1,7 +1,7 @@
 <?php 
     // include 'admin/headers/permission_policy_config.php';
-    include 'home/database/connection.php';
-    include 'home/database/code.php';
+    include 'admin/database/connection.php';
+    include 'admin/database/code.php';
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -13,16 +13,16 @@
         <meta name="keywords"    content="DepEd, Manila, Schools Division, Division of City Schools, Website of DepEd Manila, Official Website" />
         <meta name="author"      content="zeraphm"  />
         <!-- favicon -->
-        <link rel="shortcut icon" href="home/images/logo/favicon.ico">
+        <link rel="shortcut icon" href="admin/images/logo/favicon.ico">
         <!-- Magnific -->
-        <link href="home/css/magnific-popup.css" rel="stylesheet" type="text/css" />
+        <link href="admin/css/home/magnific-popup.css" rel="stylesheet" type="text/css" />
         <!-- css -->
-        <link href="home/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="home/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="home/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="admin/css/home/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="admin/css/home/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="admin/css/home/style.css" rel="stylesheet" type="text/css" />
         <!-- Slider -->        
-        <link rel="stylesheet" href="home/css/slick-theme.css"/>
-        <link rel="stylesheet" href="home/css/slick.css"/>
+        <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
+        <link rel="stylesheet" href="admin/css/home/slick.css"/>
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 
@@ -30,7 +30,7 @@
         <script defer src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
         <script defer src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" ></script>
 
-        <script defer src="home/js/script.js"></script>
+        <script defer src="admin/js/home/script.js"></script>
 
         <script>
             document.addEventListener('contextmenu', function (e) {
@@ -44,11 +44,11 @@
         </script>
     </head>
 
-    <?php include 'home/includes/preloader.php'; ?>
+    <?php include 'admin/includes/home/preloader.php'; ?>
     <body>
         <!-- Navbar Start -->
         <?php 
-            include 'home/includes/navbar.php'; 
+            include 'admin/includes/home/navbar.php'; 
             echo '<script>document.getElementById("aboutus").classList.add("active");</script>';
         ?>
         <!-- Navbar End -->
@@ -312,14 +312,14 @@
         
 
         <!-- Seals Start -->
-        <?php include 'home/includes/seals.php'; ?>
+        <?php include 'admin/includes/home/seals.php'; ?>
         <!-- Seals End -->
 
         <!-- Footer Start -->
-        <?php include 'home/includes/footer.php'; ?>
+        <?php include 'admin/includes/home/footer.php'; ?>
         <!-- Footer End -->
         <!-- Scripts -->
-        <?php include 'home/includes/scripts.php'; ?>
+        <?php include 'admin/includes/home/scripts.php'; ?>
 
                 
     </body>

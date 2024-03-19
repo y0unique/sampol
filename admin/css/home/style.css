@@ -708,6 +708,10 @@ button:not(:disabled) {
   transition: all 0.5s;
   font-family: "Rubik", sans-serif;
 }
+.navbar-custom .navbar-nav li a .text-transform-none{
+  text-transform: none;
+  font-family: "Rubik", sans-serif;
+}
 .navbar-custom .navbar-nav li a:hover, .navbar-custom .navbar-nav li a:active {
   color: #666def !important;
 }
@@ -851,6 +855,12 @@ button:not(:disabled) {
   padding: 12px 30px;
 }
 .subcribe-form form {
+  position: relative;
+  max-width: 600px;
+  margin: 0px auto;
+}
+
+.tnt-error {
   position: relative;
   max-width: 600px;
   margin: 0px auto;
