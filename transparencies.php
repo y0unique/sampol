@@ -67,6 +67,13 @@
         <!-- Transparency Start -->
         <section class="section bg-light" id="transparency">
             <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-custom" href="index.php">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Transparencies</li>
+                        <li class="breadcrumb-item active" aria-current="page">Transparancy</li>
+                    </ol>
+                </nav>
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
                         <div class="section-title">
