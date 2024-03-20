@@ -5,4 +5,12 @@
 	RewriteRule ^([^\.]+)$ $1.php [NC,L,PT]
 	AddType application/x-httpd-php .php .html
 
+	ErrorDocument 404 /sampol/404.php
+	ErrorDocument 500 /sampol/500.php
+	
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} ^/sampol/404/$
+	RewriteRule ^(.*)$ /sampol/404.php [L]
+	
+
 </IfModule>

@@ -45,15 +45,15 @@
                             BAC
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="javascript:void(0)">PhilGEPS</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Invitation To Bid</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Request for Quotation</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Bid Bulletin</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Awarded</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Annual Procurement Plan</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Project Procurement Management Plan</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Procurement Monitoring Report</a>
-                            <a class="dropdown-item" href="javascript:void(0)">Agency Procurement Compliannce and Performance Indicators</a>
+                            <a class="dropdown-item" href="philgeps">PhilGEPS</a>
+                            <a class="dropdown-item" href="invitation-to-bid">Invitation To Bid</a>
+                            <a class="dropdown-item" href="request-quotation">Request for Quotation</a>
+                            <a class="dropdown-item" href="bid-bulletin">Bid Bulletin</a>
+                            <a class="dropdown-item" href="awarded">Awarded</a>
+                            <a class="dropdown-item" href="annual-procurement-plan">Annual Procurement Plan</a>
+                            <a class="dropdown-item" href="project-procurement-management-plan">Project Procurement Management Plan</a>
+                            <a class="dropdown-item" href="procurement-monitoring-report">Procurement Monitoring Report</a>
+                            <a class="dropdown-item" href="agency-procurement-compliance-and-performance">Agency Procurement Compliannce and Performance Indicators</a>
                         </div>
                             
                     </div>
