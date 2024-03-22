@@ -29,6 +29,11 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 });
+$(document).ready(function () {
+    $('#city-memorandum-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
 
 $(document).ready(function () {
     $('#numbered-table1').DataTable({

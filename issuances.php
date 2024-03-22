@@ -389,7 +389,7 @@
                                         <div class="col-md-12">
                                             <h4 class="title">CITY MEMORANDUM</h4>
                                             
-                                            <table id="miscellaneous-table" class="table table-striped" style="width:100%">
+                                            <table id="city-memorandum-table" class="table table-striped" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <th>Date</th> 

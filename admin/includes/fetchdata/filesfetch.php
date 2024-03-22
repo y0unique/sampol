@@ -15,14 +15,7 @@ $columns = array(
 	3 => 'link',
 	4 => 'department',
 	5 => 'date',
-	6 => 'publish_date',
-	7 => 'closing_date',
-	8 => 'awarded_to',
-	9 => 'reference_number',
-	10 => 'procurement_mode',
-	11 => 'procurement_year',
-	12 => 'procurement_type',
-	13 => 'status'
+	6 => 'status'
 );
 
 //Search
@@ -67,13 +60,6 @@ while($row = mysqli_fetch_assoc($query))
 	$sub_array[] = '<a href="'.$row['link'].'" target="_blank">'.$row['title'].'</a>';
 	$sub_array[] = $row['date'];
 	$sub_array[] = $row['department'];
-	$sub_array[] = $row['publish_date'];
-	$sub_array[] = $row['closing_date'];
-	$sub_array[] = $row['awarded_to'];
-	$sub_array[] = $row['reference_number'];
-	$sub_array[] = $row['procurement_mode'];
-	$sub_array[] = $row['procurement_year'];
-	$sub_array[] = $row['procurement_type'];
 	$sub_array[] = $row['status'];
 	$data[] = $sub_array;
 }

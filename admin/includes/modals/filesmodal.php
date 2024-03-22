@@ -18,9 +18,7 @@
                             <select class="form-control" id="file_type" name="file_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="downloadable"> Downloadables </option>
-                                <option value="procurement"> Procurement </option>
                                 <option value="material"> Materials </option>
-                                <option value="transparency"> Transparencies </option>
                              </select>
                         </div>
                     </div>
@@ -65,68 +63,6 @@
                             <textarea class="form-control" type="text" id="file_link" name="file_link" rows="3" required></textarea>
                         </div>
                     </div>
-                    <!-- For Transparencies: Publish Date and Closing Date -->
-                    <div class="mb-3 row" id="transparencies_div" hidden>
-                        <label for="addFileField" class="col-md-3 form-label">Publish Date:</label>
-                        <div class="col-md-9 mb-2">
-                            <input class="form-control" type="date" id="file_publishDate" name="file_publishDate" disabled>
-                        </div>
-                        
-                        <label for="addFileField" class="col-md-3 form-label">Closing Date:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="date" id="file_closingDate" name="file_closingDate" disabled>
-                        </div>
-                    </div>
-                    <!-- For Transparencies: Awarded To -->
-                    <div class="mb-3 row" id="transparencies_div1" hidden>
-                        <label for="addFileField" class="col-md-3 form-label">Awarded To:</label>
-                        <div class="col-md-9 mb-3">
-                            <input class="form-control" type="text" id="awarded_to" name="awarded_to" disabled>
-                        </div>
-
-                        <label for="addFileField" class="col-md-3 form-label">Reference Number:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" id="reference_number" name="reference_number" disabled>
-                        </div>
-                    </div>
-                    <!-- For Transparencies: Procurement Mode -->
-                    <div class="mb-3 row" id="transparencies_div2" hidden>
-                        <label for="addFileField" class="col-md-3 form-label">Procurement Mode:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" id="procurement_mode" name="procurement_mode" disabled>
-                        </div>
-                    </div>
-                    <!-- For Procurement:Procurement Type and Procurement Year -->
-                    <div class="mb-3 row" id="procurement_div" hidden>
-                        <label for="addFileField" class="col-md-3 form-label">Procurement Type:</label>
-                        <div class="col-md-9">
-                            <select class="form-control" id="procurement_type" name="procurement_type" disabled>
-                                <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="app"> Annual Procurement Plan </option>
-                                <option value="pmr"> pmr  </option>
-                                <option value="apcpi"> apcpi </option>
-                                <option value="epa"> epa </option>
-                             </select>
-                        </div>
-
-                        <!-- Options are auto generated from year 2020 to year today -->
-                        <label for="addFileField" class="col-md-3 form-label">Procurement Year:</label>
-                        <div class="col-md-9">
-                            <select class="form-control" id="procurement_year" name="procurement_year" disabled>
-                                <option disabled selected hidden> <-- SELECT --> </option>
-                                <?php
-                                // Get the current year
-                                $currentYear = date("Y")+1;
-
-                                // Generate options from 2020 to the current year
-                                for ($year = $currentYear; $year >= 2022; $year--) {
-                                    echo "<option value=\"$year\"> $year </option>";
-                                }
-                                ?>
-                             </select>
-                        </div>
-
-                    </div>
 
                     <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
                     <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
@@ -145,33 +81,10 @@
     $(document).ready(function() {
         var fileType = $('#file_type');
         var fileDepartment = $('#file_department');
-        var filePublishDate = $('#file_publishDate');
-        var fileClosingDate = $('#file_closingDate');
-        var awardedTo = $('#awarded_to');
-        var referenceNumber = $('#reference_number');
-        var procurementMode = $('#procurement_mode');
-        var procurementType = $('#procurement_type');
-        var procurementYear = $('#procurement_year');
-        var procurementDiv = $('#procurement_div');
-        var transparenciesDiv = $('#transparencies_div');
-        var transparenciesDiv1 = $('#transparencies_div1');
-        var transparenciesDiv2 = $('#transparencies_div2');
         var departmentDiv = $('#department_div');
 
         function disableAndHideElements() {
             fileDepartment.prop('disabled', true);
-            filePublishDate.prop('disabled', true);
-            fileClosingDate.prop('disabled', true);
-            awardedTo.prop('disabled', true);
-            referenceNumber.prop('disabled', true);
-            procurementMode.prop('disabled', true);
-            procurementType.prop('disabled', true);
-            procurementYear.prop('disabled', true);
-
-            procurementDiv.prop('hidden', true);
-            transparenciesDiv.prop('hidden', true);
-            transparenciesDiv1.prop('hidden', true);
-            transparenciesDiv2.prop('hidden', true);
             departmentDiv.prop('hidden', true);
         }
 
@@ -182,23 +95,13 @@
 
             if (selectedFileType === 'procurement') {
                 fileDepartment.prop('disabled', true);
-                procurementType.prop('disabled', false);
-                procurementYear.prop('disabled', false);
-                procurementDiv.prop('hidden', false);
             } else if (selectedFileType === 'downloadable') {
                 // No need to do anything extra, elements are already disabled and hidden
             } else if (selectedFileType === 'material') {
                 fileDepartment.prop('disabled', false);
                 departmentDiv.prop('hidden', false);
             } else {
-                filePublishDate.prop('disabled', false);
-                fileClosingDate.prop('disabled', false);
-                awardedTo.prop('disabled', false);
-                referenceNumber.prop('disabled', false);
-                procurementMode.prop('disabled', false);
-                transparenciesDiv.prop('hidden', false);
-                transparenciesDiv1.prop('hidden', false);
-                transparenciesDiv2.prop('hidden', false);
+
             }
         }
 
@@ -233,8 +136,6 @@
                             <select class="form-control" id="_file_type" name="file_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="downloadable"> Downloadables </option>
-                                <option value="procurement"> Procurement </option>
-                                <option value="transparency"> Transparencies </option>
                                 <option value="material"> Materials </option>
                              </select>
                         </div>
@@ -281,68 +182,6 @@
                             <textarea class="form-control" type="text" id="_file_link" name="file_link" rows="3"></textarea>
                         </div>
                     </div>
-                    <!-- For Transparencies: Publish Date and Closing Date -->
-                    <div class="mb-3 row" id="_transparencies_div" hidden>
-                        <label for="editFilesField" class="col-md-3 form-label">Publish Date:</label>
-                        <div class="col-md-9 mb-2">
-                            <input class="form-control" type="date" id="_file_publishDate" name="file_publishDate" disabled>
-                        </div>
-                        
-                        <label for="editFilesField" class="col-md-3 form-label">Closing Date:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="date" id="_file_closingDate" name="file_closingDate" disabled>
-                        </div>
-                    </div>
-                    <!-- For Transparencies: Awarded To -->
-                    <div class="mb-3 row" id="_transparencies_div1" hidden>
-                        <label for="editFilesField" class="col-md-3 form-label">Awarded To:</label>
-                        <div class="col-md-9 mb-3">
-                            <input class="form-control" type="text" id="_awarded_to" name="awarded_to" disabled>
-                        </div>
-
-                        <label for="editFilesField" class="col-md-3 form-label">Reference Number:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" id="_reference_number" name="reference_number" disabled>
-                        </div>
-                    </div>
-                    <!-- For Transparencies: Procurement Mode -->
-                    <div class="mb-3 row" id="_transparencies_div2" hidden>
-                        <label for="editFilesField" class="col-md-3 form-label">Procurement Mode:</label>
-                        <div class="col-md-9">
-                            <input class="form-control" type="text" id="_procurement_mode" name="procurement_mode" disabled>
-                        </div>
-                    </div>
-                    <!-- For Procurement:Procurement Type and Procurement Year -->
-                    <div class="mb-3 row" id="_procurement_div" hidden>
-                        <label for="editFilesField" class="col-md-3 form-label">Procurement Type:</label>
-                        <div class="col-md-9">
-                            <select class="form-control" id="_procurement_type" name="procurement_type" disabled>
-                                <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="app"> Annual Procurement Plan </option>
-                                <option value="pmr"> pmr  </option>
-                                <option value="apcpi"> apcpi </option>
-                                <option value="epa"> epa </option>
-                             </select>
-                        </div>
-
-                        <!-- Options are auto generated from year 2020 to year today -->
-                        <label for="editFilesField" class="col-md-3 form-label">Procurement Year:</label>
-                        <div class="col-md-9">
-                            <select class="form-control" id="_procurement_year" name="procurement_year" disabled>
-                                <option disabled selected hidden> <-- SELECT --> </option>
-                                <?php
-                                // Get the current year
-                                $currentYear = date("Y")+1;
-
-                                // Generate options from 2020 to the current year
-                                for ($year = $currentYear; $year >= 2022; $year--) {
-                                    echo "<option value=\"$year\"> $year </option>";
-                                }
-                                ?>
-                             </select>
-                        </div>
-
-                    </div>
 
                     <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
                     <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
@@ -361,17 +200,6 @@
         // Function to disable or enable textareas based on the selected _file_type
     function disableElementsBasedOnFileType(fileType) {
         var fileDepartment = $('#_file_department');
-        var filePublishDate = $('#_file_publishDate');
-        var fileClosingDate = $('#_file_closingDate');
-        var awardedTo = $('#_awarded_to');
-        var referenceNumber = $('#_reference_number');
-        var procurementMode = $('#_procurement_mode');
-        var procurementType = $('#_procurement_type');
-        var procurementYear = $('#_procurement_year');
-        var procurementDiv = $('#_procurement_div');
-        var transparenciesDiv = $('#_transparencies_div');
-        var transparenciesDiv1 = $('#_transparencies_div1');
-        var transparenciesDiv2 = $('#_transparencies_div2');
         var departmentDiv = $('#_department_div');
 
         // Disable and hide all elements
@@ -380,55 +208,21 @@
         // Enable and show elements based on _file_type
         if (fileType === 'procurement') {
             fileDepartment.prop('disabled', true);
-            procurementType.prop('disabled', false);
-            procurementYear.prop('disabled', false);
-            procurementDiv.prop('hidden', false);
         } else if (fileType === 'downloadable') {
             // No need to do anything extra, elements are already disabled and hidden
         } else if (fileType === 'material') {
             fileDepartment.prop('disabled', false);
             departmentDiv.prop('hidden', false);
         } else {
-            filePublishDate.prop('disabled', false);
-            fileClosingDate.prop('disabled', false);
-            awardedTo.prop('disabled', false);
-            referenceNumber.prop('disabled', false);
-            procurementMode.prop('disabled', false);
-            transparenciesDiv.prop('hidden', false);
-            transparenciesDiv1.prop('hidden', false);
-            transparenciesDiv2.prop('hidden', false);
         }
     }
 
     // Function to disable and hide all relevant elements
     function disableAndHideElements() {
         var fileDepartment = $('#_file_department');
-        var filePublishDate = $('#_file_publishDate');
-        var fileClosingDate = $('#_file_closingDate');
-        var awardedTo = $('#_awarded_to');
-        var referenceNumber = $('#_reference_number');
-        var procurementMode = $('#_procurement_mode');
-        var procurementType = $('#_procurement_type');
-        var procurementYear = $('#_procurement_year');
-        var procurementDiv = $('#_procurement_div');
-        var transparenciesDiv = $('#_transparencies_div');
-        var transparenciesDiv1 = $('#_transparencies_div1');
-        var transparenciesDiv2 = $('#_transparencies_div2');
         var departmentDiv = $('#_department_div');
 
         fileDepartment.prop('disabled', true);
-        filePublishDate.prop('disabled', true);
-        fileClosingDate.prop('disabled', true);
-        awardedTo.prop('disabled', true);
-        referenceNumber.prop('disabled', true);
-        procurementMode.prop('disabled', true);
-        procurementType.prop('disabled', true);
-        procurementYear.prop('disabled', true);
-
-        procurementDiv.prop('hidden', true);
-        transparenciesDiv.prop('hidden', true);
-        transparenciesDiv1.prop('hidden', true);
-        transparenciesDiv2.prop('hidden', true);
         departmentDiv.prop('hidden', true);
     }
 </script>

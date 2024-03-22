@@ -68,13 +68,6 @@
                                             <th>Title</th>
                                             <th>Date</th>
                                             <th>Department</th>
-                                            <th>Published Date</th>
-                                            <th>Closing Date</th>
-                                            <th>Awarded To</th>
-                                            <th>Reference Number</th>
-                                            <th>Procurement Mode</th>
-                                            <th>Procurement Type</th>
-                                            <th>Procurement Year</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -122,7 +115,7 @@
                 'type':'post',
             },
             "columnDefs": [{
-                'target':[0,13],
+                'target':[0,6],
                 'orderable' :false
             }]
         });
@@ -137,13 +130,6 @@
         var file_title = $('#file_title').val();
         var file_link = $('#file_link').val();
         var file_department = $('#file_department').val();
-        var file_publishDate = $('#file_publishDate').val();
-        var file_closingDate = $('#file_closingDate').val();
-        var awarded_to = $('#awarded_to').val();
-        var reference_number = $('#reference_number').val();
-        var procurement_mode = $('#procurement_mode').val();
-        var procurement_type = $('#procurement_type').val();
-        var procurement_year = $('#procurement_year').val();
 
         if(file_type != '' && file_title != '' && file_link != ''){
             $.ajax({
@@ -157,13 +143,6 @@
                     file_title:file_title,
                     file_link:file_link,
                     file_department:file_department,
-                    file_publishDate:file_publishDate,
-                    file_closingDate:file_closingDate,
-                    awarded_to:awarded_to,
-                    reference_number:reference_number,
-                    procurement_mode:procurement_mode,
-                    procurement_type:procurement_type,
-                    procurement_year:procurement_year,
                     add: true
                 },
                 success:function(data){
@@ -209,13 +188,6 @@
                 $('#_file_title').val(json.title);
                 $('#_file_link').val(json.link);
                 $('#_file_department').val(json.department);
-                $('#_file_publishDate').val(json.publish_date);
-                $('#_file_closingDate').val(json.closing_date);
-                $('#_awarded_to').val(json.awarded_to);
-                $('#_reference_number').val(json.reference_number);
-                $('#_procurement_mode').val(json.procurement_mode);
-                $('#_procurement_type').val(json.procurement_type);
-                $('#_procurement_year').val(json.procurement_year);
                 $('#_id').val(id);
                 $('#_trid').val(trid);
 
@@ -239,13 +211,6 @@
         var file_title = $('#_file_title').val();
         var file_link = $('#_file_link').val();
         var file_department = $('#_file_department').val();
-        var file_publishDate = $('#_file_publishDate').val();
-        var file_closingDate = $('#_file_closingDate').val();
-        var awarded_to = $('#_awarded_to').val();
-        var reference_number = $('#_reference_number').val();
-        var procurement_mode = $('#_procurement_mode').val();
-        var procurement_type = $('#_procurement_type').val();
-        var procurement_year = $('#_procurement_year').val();
         var id = $('#_id').val();
         var trid = $('#_trid').val();
         if (file_type != '' && file_title != '' && file_link != '') {
@@ -260,13 +225,6 @@
                 file_title:file_title,
                 file_link:file_link,
                 file_department:file_department,
-                file_publishDate:file_publishDate,
-                file_closingDate:file_closingDate,
-                awarded_to:awarded_to,
-                reference_number:reference_number,
-                procurement_mode:procurement_mode,
-                procurement_type:procurement_type,
-                procurement_year:procurement_year,
                 update: true
             },
             success: function(data) {
@@ -287,7 +245,7 @@
                             'type': 'post',
                         },
                         "columnDefs": [{
-                            'target': [0, 13],
+                            'target': [0, 6],
                             'orderable': false
                         }]
                     });
