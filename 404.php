@@ -64,7 +64,7 @@
                             <!-- 404 Error Text -->
                             <div class="text-center">
                                 <div class="error404 mx-auto" data-text="404">404</div>
-                                <p class="lead text-gray-800 mb-5">Page Not Found</p>
+                                <p class="lead text-gray-800 mb-5">This requested URL was not found on this server.</p>
                             </div>
                         </div>
                         <!-- /.container-fluid -->

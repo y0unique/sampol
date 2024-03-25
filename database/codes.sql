@@ -408,7 +408,7 @@ SELECT
     user_type AS "type",
     user_password AS "password",
     user_status AS "status"
-FROM userstbl  WHERE file_status = 'active';
+FROM userstbl  WHERE user_status = 'active';
 
 --bacfilesvw
 CREATE VIEW bacFilesVW AS

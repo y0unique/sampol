@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="slider autoplay">
-                        <div><img src="admin/images/testi/freedomOfInfo.png" class="img-fluid mx-auto d-block" alt="partners"></div>
+                            <div><img src="admin/images/testi/freedomOfInfo.png" class="img-fluid mx-auto d-block" alt="partners"></div>
                             <div><img src="admin/images/testi/Department_of_Education.png" class="img-fluid mx-auto d-block" alt="partners"></div>
                             <div><img src="admin/images/testi/TransSeal.png" class="img-fluid mx-auto d-block" alt="partners"></div>
                             <div><img src="admin/images/testi/freedomOfInfo.png" class="img-fluid mx-auto d-block" alt="partners"></div>
