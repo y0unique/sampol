@@ -244,7 +244,7 @@
 							                                                        while($row = mysqli_fetch_array($transparency_board1)){
 							                                                    ?>
 							                                                    <tr>
-								                                                    <td><?php echo $row['board_id'];?></td>
+								                                                    <td><?php echo $row['id'];?></td>
 							                                                        <td><a class="text-primary"href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
 							                                                    </tr>
 							

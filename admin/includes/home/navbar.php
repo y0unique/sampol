@@ -26,6 +26,7 @@
                         <a class="dropdown-item" href="history" id="history">History</a>
                         <a class="dropdown-item" href="mission-vision" id="visionMision">Mission, Vision.  <br>Core Values, Quality Objectives</a>
                         <a class="dropdown-item" href="directory" id="directory">Directory</a>
+                        <a class="dropdown-item" href="citizenscharter" id="citizenscharter">Citizen's Charter</a>
                     </div>
                 </li>
 
