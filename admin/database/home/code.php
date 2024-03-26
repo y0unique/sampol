@@ -138,6 +138,6 @@
     $materials1 = mysqli_query($con, $materials);
 
     //Facebook
-    $facebook = "SELECT * FROM socialmediavw WHERE type = 'facebook' AND status = 'active' LIMIT 1";
+    $facebook = "SELECT * FROM socialmediavw WHERE type = 'facebook' AND status = 'active' ORDER BY id DESC LIMIT 3 ";
     $facebook1 = mysqli_query($con, $facebook);
 ?>
