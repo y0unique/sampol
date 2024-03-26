@@ -19,6 +19,12 @@
     $sped1 = mysqli_query($con, $sped);
 
     //issuances.php
+    $issuancestype = "SELECT * FROM issuancescategoryvw WHERE status = 'active'";
+    $issuancestype1 = mysqli_query($con, $issuancestype);
+
+    $issuances = "SELECT * FROM issuancesvw WHERE status = 'active' ORDER BY date DESC";
+    $issuances1 = mysqli_query($con, $issuances);
+
     //Numbered Memo
     $numbered2 = "SELECT * FROM issuancesvw WHERE type = 'Numbered' ORDER BY date DESC";
     $numbered3 = mysqli_query($con, $numbered2);
@@ -34,6 +40,10 @@
     //Circulars
     $circulars2 = "SELECT * FROM issuancesvw WHERE type = 'Circulars' ORDER BY date DESC";
     $circulars3 = mysqli_query($con, $circulars2);
+
+    //Division Order
+    $divisionorders = "SELECT * FROM issuancesvw WHERE type = 'Division Order' ORDER BY date DESC";
+    $divisionorders1 = mysqli_query($con, $divisionorders);
 
     //Miscellaneous
     $miscellaneous2 = "SELECT * FROM issuancesvw WHERE type = 'Miscellaneous' ORDER BY number DESC";

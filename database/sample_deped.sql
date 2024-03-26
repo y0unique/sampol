@@ -2834,7 +2834,7 @@ INSERT INTO `imagestbl` (`image_id`, `image_name`, `image_title`, `image_descrip
 --
 
 CREATE TABLE `issuancescategorytbl` (
-  `issuances_type` varchar(20) NOT NULL,
+  `issuances_type` varchar(50) NOT NULL,
   `issuances_type_name` varchar(50) NOT NULL,
   `issuances_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -2844,22 +2844,14 @@ CREATE TABLE `issuancescategorytbl` (
 --
 
 INSERT INTO `issuancescategorytbl` (`issuances_type`, `issuances_type_name`, `issuances_status`) VALUES
-('Advisories', 'Division Advisories', 'active'),
-('Circulars', 'Division Letters / Circulars', 'active'),
-('City Memorandum', 'City Memorandum', 'active'),
-('kevin caategory', 'kevin caategory', 'inactive'),
-('Miscellaneous', 'Miscellaneous', 'active'),
-('Notices', 'Notices', 'active'),
-('Numbered', 'Numbered Memo', 'active'),
-('Office Memorandum', 'Office Memorandum', 'active'),
-('Office Order', 'Office Order', 'active'),
-('test', 'test', 'inactive'),
-('test1', 'test123', 'inactive'),
-('test1234', 'test1234', 'inactive'),
-('test2', 'test2', 'inactive'),
-('test4', 'test4', 'inactive'),
-('Unnumbered', 'Unnumbered Memo', 'active'),
-('z edit', 'For Editing', 'active');
+('NUMBERED MEMORANDUM', 'NUMBERED MEMORANDUM', 'active'),
+('UNNUMBERED MEMORANDUM', 'UNNUMBERED MEMORANDUM', 'active'),
+('DIVISION ADVISORIES', 'DIVISION ADVISORIES', 'active'),
+('DIVISION CIRCULARS', 'DIVISION CIRCULARS', 'active'),
+('DIVISION ORDERS', 'DIVISION ORDERS', 'active'),
+('OFFICE ORDER', 'OFFICE ORDER', 'active'),
+('MISCELLANEOUS MEMOS', 'MISCELLANEOUS MEMOS', 'active'),
+('CITY MEMORANDUM', 'CITY MEMORANDUM', 'active');
 
 -- --------------------------------------------------------
 

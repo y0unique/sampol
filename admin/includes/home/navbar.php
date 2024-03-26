@@ -26,7 +26,7 @@
                         <a class="dropdown-item" href="history" id="history">History</a>
                         <a class="dropdown-item" href="mission-vision" id="visionMision">Mission, Vision.  <br>Core Values, Quality Objectives</a>
                         <a class="dropdown-item" href="directory" id="directory">Directory</a>
-                        <a class="dropdown-item" href="citizenscharter" id="citizenscharter">Citizen's Charter</a>
+                        <a class="dropdown-item" href="undeconstruction" id="citizenscharter">Citizen's Charter</a>
                     </div>
                 </li>
 
@@ -46,15 +46,15 @@
                             BAC
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="philgeps">PhilGEPS</a>
-                            <a class="dropdown-item" href="invitation-to-bid">Invitation To Bid</a>
-                            <a class="dropdown-item" href="request-quotation">Request for Quotation</a>
-                            <a class="dropdown-item" href="bid-bulletin">Bid Bulletin</a>
-                            <a class="dropdown-item" href="awarded">Awarded</a>
-                            <a class="dropdown-item" href="annual-procurement-plan">Annual Procurement Plan</a>
-                            <a class="dropdown-item" href="project-procurement-management-plan">Project Procurement Management Plan</a>
-                            <a class="dropdown-item" href="procurement-monitoring-report">Procurement Monitoring Report</a>
-                            <a class="dropdown-item" href="agency-procurement-compliance-and-performance">Agency Procurement Compliannce and Performance Indicators</a>
+                            <a class="dropdown-item" href="undeconstruction">PhilGEPS</a>
+                            <a class="dropdown-item" href="undeconstruction">Invitation To Bid</a>
+                            <a class="dropdown-item" href="undeconstruction">Request for Quotation</a>
+                            <a class="dropdown-item" href="undeconstruction">Bid Bulletin</a>
+                            <a class="dropdown-item" href="undeconstruction">Awarded</a>
+                            <a class="dropdown-item" href="undeconstruction">Annual Procurement Plan</a>
+                            <a class="dropdown-item" href="undeconstruction">Project Procurement Management Plan</a>
+                            <a class="dropdown-item" href="undeconstruction">Procurement Monitoring Report</a>
+                            <a class="dropdown-item" href="undeconstruction">Agency Procurement Compliannce and Performance Indicators</a>
                         </div>
                             
                     </div>

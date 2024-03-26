@@ -1,31 +1,36 @@
 // ISSUANCES
 $(document).ready(function () {
-    $('#numbered-table').DataTable({
+    $('#numbered-memorandum-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#unnumbered-table').DataTable({
+    $('#unnumbered-memorandum-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#adivsories-table').DataTable({
+    $('#division-advisories-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#circulars-table').DataTable({
+    $('#division-circulars-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#office-table').DataTable({
+    $('#division-orders-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#miscellaneous-table').DataTable({
+    $('#office-memorandum-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#office-order-table').DataTable({
         order: [[0, 'desc']]
     });
 });
@@ -34,6 +39,8 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 });
+
+
 
 $(document).ready(function () {
     $('#numbered-table1').DataTable({

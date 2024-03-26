@@ -58,7 +58,6 @@
         <!-- Issuances Start -->
         <section class="section" id="issuances">
             <div class="container">
-
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-custom" href="index.php">Home</a></li>
@@ -78,350 +77,88 @@
                 
                 <div class="row mt-4">
                     <div class="col-12">
+                        <!-- Tab navigation -->
                         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link active" id="numbered-memorandum-tab" data-toggle="pill" href="#numbered-memorandum" role="tab" aria-controls="numbered-memorandum" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-bullhorn text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">NUMBERED<br>MEMORANDUM</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="unnumbered-memorandum-tab" data-toggle="pill" href="#unnumbered-memorandum" role="tab" aria-controls="unnumbered-memorandum" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-alarm text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">UNNUMBERED<br>MEMORANDUM</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="division-advisories-tab" data-toggle="pill" href="#division-advisories" role="tab" aria-controls="division-advisories" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-note text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">DIVISION<br>ADVISORIES</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
+                            <?php
+                                // Array containing issuance types and their corresponding icons
+                                $issuancestype1 = array(
+                                    "numbered-memorandum" => array("mdi-bullhorn", "NUMBERED MEMORANDUM"),
+                                    "unnumbered-memorandum" => array("mdi-alarm", "UNNUMBERED MEMORANDUM"),
+                                    "division-advisories" => array("mdi-note", "DIVISION ADVISORIES"),
+                                    "division-circulars" => array("mdi-email", "DIVISION CIRCULARS"),
+                                    "division-orders" => array("mdi-email", "DIVISION ORDERS"),
+                                    "office-memorandum" => array("mdi-file-multiple", "OFFICE ORDER"),
+                                    "office-order" => array("mdi-file-document", "MISCELLANEOUS MEMOS"),
+                                    "city-memorandum" => array("mdi-file-document", "CITY MEMORANDUM")
+                                );
 
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="division-circulars-tab" data-toggle="pill" href="#division-circulars" role="tab" aria-controls="division-circulars" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-email text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">DIVISION<br>CIRCULARS</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="office-memorandum-tab" data-toggle="pill" href="#office-memorandum" role="tab" aria-controls="office-memorandum" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-multiple text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">OFFICE<br>MEMORANDUM/ORDER</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="office-order-tab" data-toggle="pill" href="#office-order" role="tab" aria-controls="office-order" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-document text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">MISCELLANEOUS <br> MEMOS</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="city-memorandum-tab" data-toggle="pill" href="#city-memorandum" role="tab" aria-controls="city-memorandum" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-document text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">CITY <br> MEMORANDUM</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
+                                // Iterate through the issuance types array to generate tabs
+                                foreach ($issuancestype1 as $tabId => $tabInfo) {
+                                    $iconClass = $tabInfo[0];
+                                    $title = $tabInfo[1];
+                                    $isActive = ($tabId === "numbered-memorandum") ? "active" : "";
+                                    echo '<li class="nav-item mb-4 pt-2">';
+                                    echo '<a class="nav-link ' . $isActive . '" id="' . $tabId . '-tab" data-toggle="pill" href="#' . $tabId . '" role="tab" aria-controls="' . $tabId . '" aria-selected="false">';
+                                    echo '<div class="capabilities text-center rounded pt-2 pb-2">';
+                                    echo '<div class="icon bg-custom mb-3">';
+                                    echo '<i class="mdi ' . $iconClass . ' text-white"></i>';
+                                    echo '</div>';
+                                    echo '<h4 class="title font-weight-normal mb-0">' . $title . '</h4>';
+                                    echo '</div>';
+                                    echo '</a><!--end nav link-->';
+                                    echo '</li><!--end nav item-->';
+                                }
+                            ?>
                         </ul><!--end nav pills-->
 
+                        <!-- Tab content -->
                         <div class="tab-content mt-3" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="numbered-memorandum" role="tabpanel" aria-labelledby="numbered-memorandum-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">NUMBERED MEMORANDUM</h4>
-                                            
-                                            <table id="numbered-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($numbered3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><a class="text-primary"href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="unnumbered-memorandum" role="tabpanel" aria-labelledby="unnumbered-memorandum-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">UNNUMBERED MEMORANDUM</h4>
-                                            
-                                            <table id="unnumbered-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($unnumbered3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-
-                            <div class="tab-pane fade" id="division-advisories" role="tabpanel" aria-labelledby="division-advisories-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">DIVISION ADVISORIES</h4>
-                                            
-                                            <table id="adivsories-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($advisory3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-
-                            <div class="tab-pane fade" id="division-circulars" role="tabpanel" aria-labelledby="division-circulars-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">DIVISION CIRCULARS</h4>
-                                            
-                                            <table id="circulars-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($circulars3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-
-                            <div class="tab-pane fade" id="office-memorandum" role="tabpanel" aria-labelledby="office-memorandum-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">OFFICE MEMORANDUM / ORDER</h4>
-                                            
-                                            <table id="office-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($officeMemorandum3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-
-                            <div class="tab-pane fade" id="office-order" role="tabpanel" aria-labelledby="office-order-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">MISCELLANEOUS</h4>
-                                            
-                                            <table id="miscellaneous-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($miscellaneous3)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                        
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="city-memorandum" role="tabpanel" aria-labelledby="city-memorandum-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">CITY MEMORANDUM</h4>
-                                            
-                                            <table id="city-memorandum-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Date</th> 
-                                                        <th style="display:none;">Tracking Number</th> 
-                                                        <th>No.</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($cityMemorandum1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['date'];?></td>
-                                                        <td style="display:none;"><?php echo $row['tracking_number'];?></td>
-                                                        <td><?php echo $row['number'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link']?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                        
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            
+                            <?php
+                                // Iterate through the issuance types array to generate tab content
+                                foreach ($issuancestype1 as $tabId => $tabInfo) {
+                                    $isActive = ($tabId === "numbered-memorandum") ? "show active" : "";
+                                    echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
+                                    echo '<div class="capabilities-content border rounded p-4">';
+                                    echo '<div class="row align-items-center">';
+                                    echo '<div class="col-md-12">';
+                                    echo '<h4 class="title">' . $tabInfo[1] . '</h4>';
+                                    echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
+                                    echo '<thead>';
+                                    echo '<tr>';
+                                    echo '<th>Date</th> ';
+                                    echo '<th style="display:none;">Tracking Number</th> ';
+                                    if($tabId=='unnumbered-memorandum'){
+                                        echo '<th style="display:none;">No.</th>  ';
+                                    }else{
+                                        echo '<th>No.</th>  ';
+                                    }
+                                    echo '<th>Title</th>';
+                                    echo '</tr>';
+                                    echo '</thead>';
+                                    echo '<tbody>';
+                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
+                                    $issuances = "SELECT * FROM issuancesvw WHERE status = 'active'AND type = '" . $tabInfo[1] . "' ORDER BY date DESC";
+                                    $issuances1 = mysqli_query($con, $issuances);
+                                    while($row = mysqli_fetch_array($issuances1)){
+                                        echo '<tr>';
+                                        echo '<td>'.$row['date'].'</td>';
+                                        if($tabId=='unnumbered-memorandum'){
+                                            echo '<td style="display:none;">'.$row['number'].'</td>';
+                                        }else{
+                                            echo '<td>'.$row['number'].'</td>';
+                                        }
+                                        echo '<td style="display:none;">'.$row['tracking_number'].'</td>';
+                                        echo '<td><a class="text-primary" href="'.$row['link'].'" target="_blank">'.$row['title'].'</a></td>';
+                                        echo '</tr>';
+                                    }
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div><!--end col-->';
+                                    echo '</div><!--end row-->';
+                                    echo '</div>';
+                                    echo '</div><!--end teb pane-->';
+                                }
+                            ?>
                         </div><!--end tab content-->
                     </div><!--end col-->
                 </div><!--end row-->

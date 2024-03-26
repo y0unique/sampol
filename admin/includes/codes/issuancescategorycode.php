@@ -6,8 +6,8 @@ if(isset($_POST['add'])){
 
     $webID = $_POST['webID'];
     $webUsername = $_POST['webUsername'];
-    $issuancecategory_type = $_POST['issuancecategory_type'];
-    $issuancecategory_name = $_POST['issuancecategory_name'];
+    $issuancecategory_type = strtoupper($_POST['issuancecategory_type']);
+    $issuancecategory_name = strtoupper($_POST['issuancecategory_name']);
  
     $sql = "INSERT INTO issuancescategorytbl (issuances_type, issuances_type_name, issuances_status) 
                               values ('$issuancecategory_type','$issuancecategory_name', 'active')";

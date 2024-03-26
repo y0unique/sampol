@@ -7,7 +7,7 @@
     <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Blank | Deped Manila</title>
+        <title>Home | Deped Manila</title>
         <meta name="viewport"    content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Department of Education Manila" />
         <meta name="keywords"    content="DepEd, Manila, Schools Division, Division of City Schools, Website of DepEd Manila, Official Website" />
@@ -19,13 +19,7 @@
         <!-- css -->
         <link href="admin/css/home/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="admin/css/home/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- <link href="admin/css/home/404.css" rel="stylesheet" type="text/css" /> -->
         <link href="admin/css/home/style.css" rel="stylesheet" type="text/css" />
-
-        <!-- Custom fonts for this template-->
-        <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
@@ -41,7 +35,7 @@
         </script>
     </head>
 
-    <?php //include 'admin/includes/home/preloader.php'; ?>
+    <?php include 'admin/includes/home/preloader.php'; ?>
     <body>
         <!-- Navbar Start -->
         <?php 
@@ -50,7 +44,7 @@
         ?>
         <!-- Navbar End -->
         
-        <!-- under work Start -->
+        <!-- Under Construction Start -->
         <section class="section" id="underwork">
             <div class="container">
                 <div class="row justify-content-center">
@@ -76,7 +70,7 @@
                 </div>
             </div>
         </section><!--end section-->
-        <!-- under work End -->
+        <!-- Under Construction End -->
 
         
 

@@ -78,7 +78,7 @@ CREATE TABLE officestbl(
 
 --TABLE FOR ISSUANCES CATEGORY
 CREATE TABLE issuancescategorytbl(
-    issuances_type varchar(20) NOT NULL PRIMARY KEY,
+    issuances_type varchar(50) NOT NULL PRIMARY KEY,
     issuances_type_name varchar(50) NOT NULL,
     issuances_status varchar(11) NOT NULL DEFAULT 'active'
 );
@@ -91,7 +91,7 @@ CREATE TABLE issuancestbl(
     issuances_link longtext NOT NULL,
     issuances_number varchar(20) NOT NULL,
     issuances_date date NOT NULL,
-    issuances_type varchar(20) NOT NULL,
+    issuances_type varchar(50) NOT NULL,
     issuances_status varchar(11) NOT NULL DEFAULT 'active',
     CONSTRAINT issuestbl_issuances_typeFK	FOREIGN KEY (issuances_type) REFERENCES issuancescategorytbl(issuances_type)
 );
