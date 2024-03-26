@@ -41,6 +41,63 @@ $(document).ready(function () {
 });
 
 
+//INDEX
+$(document).ready(function () {
+    $('#numbered-memorandum-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#unnumbered-memorandum-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#division-advisories-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#division-circulars-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#division-orders-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#office-memorandum-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#office-order-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#city-memorandum-tableindex').DataTable({
+        pageLength : 5,
+    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        order: [[0, 'desc']]
+    });
+});
 
 $(document).ready(function () {
     $('#numbered-table1').DataTable({

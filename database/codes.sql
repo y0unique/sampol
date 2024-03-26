@@ -30,7 +30,7 @@ CREATE TABLE socialmediatbl(
     socialMedia_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     socialMedia_type varchar(50) NOT NULL,
     socialMedia_link longtext NOT NULL,
-    socialMedia_title varchar(100) NOT NULL,
+    socialMedia_title longtext NOT NULL,
     socialMedia_post longtext NOT NULL,
     socialMedia_status varchar(11) NOT NULL DEFAULT 'active'
 );

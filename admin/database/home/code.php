@@ -136,4 +136,8 @@
 
     $materials = "SELECT * FROM materialfilesvw";
     $materials1 = mysqli_query($con, $materials);
+
+    //Facebook
+    $facebook = "SELECT * FROM socialmediavw WHERE type = 'facebook' AND status = 'active' LIMIT 1";
+    $facebook1 = mysqli_query($con, $facebook);
 ?>

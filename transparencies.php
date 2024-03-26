@@ -23,7 +23,6 @@
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
-
         
         <!-- css -->
         <link href="admin/css/home/bootstrap1.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -71,7 +70,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-custom" href="index.php">Home</a></li>
                         <li class="breadcrumb-item" aria-current="page">Transparencies</li>
-                        <li class="breadcrumb-item active" aria-current="page">Transparancy</li>
+                        <li class="breadcrumb-item active" aria-current="page">Transparency</li>
                     </ol>
                 </nav>
                 <div class="row justify-content-center">

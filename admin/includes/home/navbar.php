@@ -26,7 +26,7 @@
                         <a class="dropdown-item" href="history" id="history">History</a>
                         <a class="dropdown-item" href="mission-vision" id="visionMision">Mission, Vision.  <br>Core Values, Quality Objectives</a>
                         <a class="dropdown-item" href="directory" id="directory">Directory</a>
-                        <a class="dropdown-item" href="undeconstruction" id="citizenscharter">Citizen's Charter</a>
+                        <a class="dropdown-item" href="underconstruction" id="citizenscharter">Citizen's Charter</a>
                     </div>
                 </li>
 
@@ -46,15 +46,15 @@
                             BAC
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
-                            <a class="dropdown-item" href="undeconstruction">PhilGEPS</a>
-                            <a class="dropdown-item" href="undeconstruction">Invitation To Bid</a>
-                            <a class="dropdown-item" href="undeconstruction">Request for Quotation</a>
-                            <a class="dropdown-item" href="undeconstruction">Bid Bulletin</a>
-                            <a class="dropdown-item" href="undeconstruction">Awarded</a>
-                            <a class="dropdown-item" href="undeconstruction">Annual Procurement Plan</a>
-                            <a class="dropdown-item" href="undeconstruction">Project Procurement Management Plan</a>
-                            <a class="dropdown-item" href="undeconstruction">Procurement Monitoring Report</a>
-                            <a class="dropdown-item" href="undeconstruction">Agency Procurement Compliannce and Performance Indicators</a>
+                            <a class="dropdown-item" href="underconstruction">PhilGEPS</a>
+                            <a class="dropdown-item" href="underconstruction">Invitation To Bid</a>
+                            <a class="dropdown-item" href="underconstruction">Request for Quotation</a>
+                            <a class="dropdown-item" href="underconstruction">Bid Bulletin</a>
+                            <a class="dropdown-item" href="underconstruction">Awarded</a>
+                            <a class="dropdown-item" href="underconstruction">Annual Procurement Plan</a>
+                            <a class="dropdown-item" href="underconstruction">Project Procurement Management Plan</a>
+                            <a class="dropdown-item" href="underconstruction">Procurement Monitoring Report</a>
+                            <a class="dropdown-item" href="underconstruction">Agency Procurement Compliannce and Performance Indicators</a>
                         </div>
                             
                     </div>

@@ -136,7 +136,6 @@
                                     echo '</tr>';
                                     echo '</thead>';
                                     echo '<tbody>';
-                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $issuances = "SELECT * FROM issuancesvw WHERE status = 'active'AND type = '" . $tabInfo[1] . "' ORDER BY date DESC";
                                     $issuances1 = mysqli_query($con, $issuances);
                                     while($row = mysqli_fetch_array($issuances1)){
@@ -291,3 +290,7 @@
  
     tr { height: 50px; }
 </style>
+<?php
+// Close database connection
+$con->close();
+?>
