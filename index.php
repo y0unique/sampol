@@ -1,5 +1,5 @@
 <?php 
-    // include 'admin/headers/permission_policy_config.php';
+    include 'admin/headers/permission_policy_config.php';
     include 'admin/database/home/connection.php';
     include 'admin/database/home/code.php';
 ?>
