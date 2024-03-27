@@ -25,7 +25,7 @@
                                     $sql = "SELECT * FROM issuancescategoryvw";
                                     $result = mysqli_query($con, $sql);
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<option value='".$row['type']."'>".$row['name']."</option>";
+                                        echo "<option value='".$row['type']."'>".strtolower($row['name'])."</option>";
                                     }
                                 ?>
                             </select>
@@ -106,7 +106,7 @@
                                     $sql = "SELECT * FROM issuancescategoryvw";
                                     $result = mysqli_query($con, $sql);
                                     while($row = mysqli_fetch_assoc($result)){
-                                        echo "<option value='".$row['type']."'>".$row['name']."</option>";
+                                        echo "<option value='".$row['type']."'>".strtolower($row['name'])."</option>";
                                     }
                                 ?>
                             </select>

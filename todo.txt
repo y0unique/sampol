@@ -1,9 +1,6 @@
 --priority
-index.php put the home and stuff
 -admin
-•Add bac files to database
 •Push notifications using ajax
-•edit database
 •
 
 offices, fetch, code, modals

@@ -4,23 +4,14 @@
     $carousel = "SELECT * FROM carouselvw WHERE type = 'carousel' AND status = 'active' ORDER BY id DESC";
     $carousel1 = mysqli_query($con , $carousel);
 
-    //directory.php
-    //selecting active elementary schools
-    $elem = "SELECT * FROM elemschoolsvw";
-    $elem1 = mysqli_query($con, $elem);
-    //selecting active junior high schools
-    $jhs = "SELECT * FROM jhsschoolsvw";
-    $jhs1 = mysqli_query($con, $jhs);
-    //selecting active senior high schools
-    $shs = "SELECT * FROM shsschoolsvw";
-    $shs1 = mysqli_query($con, $shs);
-    //selecting active alternative learning schools
-    $sped = "SELECT * FROM spedschoolsvw";
-    $sped1 = mysqli_query($con, $sped);
-
     //issuances.php
     $issuancestype = "SELECT * FROM issuancescategoryvw WHERE status = 'active'";
     $issuancestype1 = mysqli_query($con, $issuancestype);
+    
+
+    //directory.php
+    $schoolstype = "SELECT * FROM schoolsvw WHERE status = 'active'";
+    $schoolstype1 = mysqli_query($con, $schoolstype);
 
     $issuances = "SELECT * FROM issuancesvw WHERE status = 'active' ORDER BY date DESC";
     $issuances1 = mysqli_query($con, $issuances);

@@ -1,46 +1,3 @@
-// ISSUANCES
-$(document).ready(function () {
-    $('#numbered-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#unnumbered-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-advisories-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-circulars-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-orders-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#office-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#office-order-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#city-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-
-
 //INDEX
 $(document).ready(function () {
     $('#numbered-memorandum-tableindex').DataTable({
@@ -99,64 +56,61 @@ $(document).ready(function () {
     });
 });
 
+// ISSUANCES
 $(document).ready(function () {
-    $('#numbered-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#numbered-memorandum-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#unnumbered-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#unnumbered-memorandum-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#adivsories-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#division-advisories-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#circulars-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#division-circulars-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#office-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#division-orders-table').DataTable({
         order: [[0, 'desc']]
     });
 });
 $(document).ready(function () {
-    $('#miscellaneous-table1').DataTable({
-    	pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
+    $('#office-memorandum-table').DataTable({
         order: [[0, 'desc']]
     });
 });
-
-
+$(document).ready(function () {
+    $('#office-order-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#city-memorandum-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
 
 // DIRECTORY OF SCHOOLS
 $(document).ready(function () {
-    $('#elementary-table').DataTable({
+    $('#elementary-school-table').DataTable({
         order: [[0, 'asc']]
     });
 });
 $(document).ready(function () {
-    $('#junior-highschool-table').DataTable({
+    $('#junior-high-school-table').DataTable({
         order: [[0, 'asc']]
     });
 });
 $(document).ready(function () {
-    $('#senior-highschool-table').DataTable({
+    $('#senior-high-school-table').DataTable({
         order: [[0, 'asc']]
     });
 });

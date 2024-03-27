@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="text-uppercase under-construction-text">
-                            <h1>Under Construction</h1>
+                            <h1>WORK IN PROGRESS</h1>
                             <p class="text-dark text-center mx-auto para-desc mb-0">Sorry, we're doing some work on the site</p>
                             <p>Thank you for being patient. We are doing some work on the site and will be back shortly.</p>
                         </div>

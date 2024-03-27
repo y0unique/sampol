@@ -61,7 +61,7 @@ while($row = mysqli_fetch_assoc($query))
 	$sub_array[] = $row['issuances_id'];
 	$sub_array[] = $row['tracking_number'];
 	$sub_array[] = $row['issuances_number'];
-	$sub_array[] = $row['issuances_type'];
+	$sub_array[] = strtolower($row['issuances_type']);
 	$sub_array[] = $row['issuances_date'];
 	$sub_array[] = '<a href="'.$row['issuances_link'].'" target="_blank">'.$row['issuances_title'].'</a>';
 	$sub_array[] = $row['issuances_status'];

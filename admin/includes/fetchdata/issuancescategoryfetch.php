@@ -51,7 +51,7 @@ while($row = mysqli_fetch_assoc($query))
 	$sub_array[] = '<a href="javascript:void();" data-id="'.$row['type'].'" class="btn btn-info btn-sm editissuancecategorybtn" ><i class="fas fa-edit"></i></a>  
 					<a href="javascript:void();" data-id="'.$row['type'].'" class="btn btn-danger btn-sm deleteissuancecategorybtn" ><i class="fas fa-trash"></i></a>';
 	$sub_array[] = $row['type'];
-	$sub_array[] = $row['name'];
+	$sub_array[] = strtolower($row['name']);
 	$sub_array[] = $row['status'];
     
 	$data[] = $sub_array;

@@ -24,11 +24,12 @@
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
 
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="admin/datatables/dataTables.bootstrap5.min.css">
 
-        <script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script defer src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-        <script defer src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" ></script>
+        <script defer src="admin/datatables/jquery-3.7.0.js"></script>
+		<script defer src="admin/datatables/jquery.dataTables.min.js"></script>
+		<script defer src="admin/datatables/dataTables.bootstrap5.min.js"></script>
+		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
         <script defer src="admin/js/home/script.js"></script>
 
@@ -75,241 +76,88 @@
                 
                 <div class="row mt-4">
                     <div class="col-12">
+                        <!-- Tab navigation -->
                         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link active" id="elementary-school-tab" data-toggle="pill" href="#elementary-school" role="tab" aria-controls="elementary-school" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-bus-school text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">ELEMENTARY<br>SCHOOL</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="junior-high-school-tab" data-toggle="pill" href="#junior-high-school" role="tab" aria-controls="junior-high-school" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-school text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">JUNIOR HIGH<br>SCHOOL</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="senior-high-school-tab" data-toggle="pill" href="#senior-high-school" role="tab" aria-controls="senior-high-school" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-school text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">SENIOR HIGH<br>SCHOOL</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="special-education-tab" data-toggle="pill" href="#special-education" role="tab" aria-controls="special-education" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-school text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">SPECIAL EDUCATION<br>CENTERS</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
+                            <?php
+                                // Array containing issuance types and their corresponding icons
+                                $schoolstype1 = array(
+                                    "elementary-school" => array("mdi mdi-bus-school", "ELEMENTARY SCHOOLS"),
+                                    "junior-high-school" => array("mdi mdi-school", "JUNIOR HIGH SCHOOLS"),
+                                    "senior-high-school" => array("mdi mdi-school", "SENIOR HIGH SCHOOLS"),
+                                    "special-education" => array("mdi mdi-school", "SPECIAL EDUCATION CENTERS"),
+                                );
+
+                                // Iterate through the issuance types array to generate tabs
+                                foreach ($schoolstype1 as $tabId => $tabInfo) {
+                                    $iconClass = $tabInfo[0];
+                                    $title = $tabInfo[1];
+                                    $isActive = ($tabId === "elementary-school") ? "active" : "";
+                                    echo '<li class="nav-item mb-4 pt-2">';
+                                    echo '<a class="nav-link ' . $isActive . '" id="' . $tabId . '-tab" data-toggle="pill" href="#' . $tabId . '" role="tab" aria-controls="' . $tabId . '" aria-selected="false">';
+                                    echo '<div class="capabilities text-center rounded pt-2 pb-2">';
+                                    echo '<div class="icon bg-custom mb-3">';
+                                    echo '<i class="mdi ' . $iconClass . ' text-white"></i>';
+                                    echo '</div>';
+                                    echo '<h4 class="title font-weight-normal mb-0">' . $title . '</h4>';
+                                    echo '</div>';
+                                    echo '</a><!--end nav link-->';
+                                    echo '</li><!--end nav item-->';
+                                }
+                            ?>
                         </ul><!--end nav pills-->
 
+                        <!-- Tab content -->
                         <div class="tab-content mt-3" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="elementary-school" role="tabpanel" aria-labelledby="elementary-school-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">ELEMENTARY SCHOOL</h4>
-                                            
-                                            <table id="elementary-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                    <th>District</th>
-                                                    <th>School ID</th>
-                                                    <th>School</th>
-                                                    <th>School Address</th>
-                                                    <th>Principal</th>
-                                                    <th>Contact #</th>
-                                                    <th>Email</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($elem1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['district'];?></td>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><?php echo $row['name'];?></td>
-                                                        <td><?php echo $row['address'];?></td>
-                                                        <td><?php echo $row['principal'];?></td>
-                                                        <td><?php echo $row['contact'];?></td>
-                                                        <td><?php echo $row['email'];?></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="junior-high-school" role="tabpanel" aria-labelledby="junior-high-school-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">JUNIOR HIGH SCHOOL</h4>
-                                            
-                                            <table id="junior-highschool-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                    <th>District</th>
-                                                    <th>School ID</th>
-                                                    <th>School</th>
-                                                    <th>School Address</th>
-                                                    <th>Principal</th>
-                                                    <th>Contact #</th>
-                                                    <th>Email</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($jhs1)){
-                                                    ?>
-                                                    <tr>
-                                                    <td>
-                                                        <?php echo $row['district'];?></td>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><?php echo $row['name'];?></td>
-                                                        <td><?php echo $row['address'];?></td>
-                                                        <td><?php echo $row['principal'];?></td>
-                                                        <td><?php echo $row['contact'];?></td>
-                                                        <td><?php echo $row['email'];?></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="senior-high-school" role="tabpanel" aria-labelledby="senior-high-school-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">SENIOR HIGH SCHOOL</h4>
-                                            
-                                            <table id="senior-highschool-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                    <th>District</th>
-                                                    <th>School ID</th>
-                                                    <th>School</th>
-                                                    <th>School Address</th>
-                                                    <th>Principal</th>
-                                                    <th>Contact #</th>
-                                                    <th>Email</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($shs1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['district'];?></td>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><?php echo $row['name'];?></td>
-                                                        <td><?php echo $row['address'];?></td>
-                                                        <td><?php echo $row['principal'];?></td>
-                                                        <td><?php echo $row['contact'];?></td>
-                                                        <td><?php echo $row['email'];?></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="special-education" role="tabpanel" aria-labelledby="special-education-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">SPECIAL EDUCATION CENTER</h4>
-                                            
-                                            <table id="special-education-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                    <th>District</th>
-                                                    <th>School ID</th>
-                                                    <th>School</th>
-                                                    <th>School Address</th>
-                                                    <th>Principal</th>
-                                                    <th>Contact #</th>
-                                                    <th>Tracks Offered</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($sped1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['district'];?></td>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><?php echo $row['name'];?></td>
-                                                        <td><?php echo $row['address'];?></td>
-                                                        <td><?php echo $row['principal'];?></td>
-                                                        <td><?php echo $row['contact'];?></td>
-                                                        <td><?php echo $row['email'];?></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
+                            <?php
+                                // Iterate through the issuance types array to generate tab content
+                                foreach ($schoolstype1 as $tabId => $tabInfo) {
+                                    $isActive = ($tabId === "elementary-school") ? "show active" : "";
+                                    echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
+                                    echo '<div class="capabilities-content border rounded p-4">';
+                                    echo '<div class="row align-items-center">';
+                                    echo '<div class="col-md-12">';
+                                    echo '<h4 class="title">' . $tabInfo[1] . '</h4>';
+                                    echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
+                                    echo '<thead>';
+                                    echo '<tr>';
+                                    echo '<th>District</th>';
+                                    echo '<th>School ID</th>';
+                                    echo '<th>School</th>';
+                                    echo '<th>School Address</th>';
+                                    echo '<th>Principal</th>';
+                                    echo '<th>Contact #</th>';
+                                    echo '<th>Email</th>';
+                                    echo '</tr>';
+                                    echo '</thead>';
+                                    echo '<tbody>';
+                                    $schools = "SELECT * FROM schoolsvw WHERE status = 'active' AND type = '" . $tabInfo[1] . "' ORDER BY district DESC";
+                                    $schools1 = mysqli_query($con, $schools);
+                                    while($row = mysqli_fetch_array($schools1)){
+                                        echo '<tr>';
+                                        echo '<td>'.$row['district'].'</td>';
+                                        echo '<td>'.$row['school_id'].'</td>';
+                                        echo '<td>'.$row['name'].'</td>';
+                                        echo '<td>'.$row['address'].'</td>';
+                                        echo '<td>'.$row['principal'].'</td>';
+                                        echo '<td>'.$row['contact'].'</td>';
+                                        echo '<td>'.$row['email'].'</td>';
+                                        echo '</tr>';
+                                    }
+                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div><!--end col-->';
+                                    echo '</div><!--end row-->';
+                                    echo '</div>';
+                                    echo '</div><!--end teb pane-->';
+                                }
+                            ?>
                         </div><!--end tab content-->
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
         </section><!--end section-->
         <!-- Directory of Schools End -->
-
-        <!-- Directory of Schools Start -->
-        
-        <!-- Directory of Schools End -->
-
-        
 
         <!-- Seals Start -->
         <?php include 'admin/includes/home/seals.php'; ?>
