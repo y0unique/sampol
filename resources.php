@@ -30,6 +30,8 @@
 		<script defer src="admin/datatables/dataTables.bootstrap5.min.js"></script>
 		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
+        <script defer src="admin/js/home/script.js"></script>
+
         <script>
             document.addEventListener('contextmenu', function (e) {
                 e.preventDefault();

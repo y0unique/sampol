@@ -249,11 +249,11 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-10">           
                         <div class="section-title">
-                            <h4 class="title text-uppercase text-dark mb-4">2023 MANILA RESEARCH CONGRESS</h4>
+                            <h4 class="title text-uppercase text-dark mb-4">LATEST IN OUR YOUTUBE</h4>
                             <p class="text-white-50 mx-auto para-desc mb-0"><a class="text-custom" href="https://www.youtube.com/@depedmanilaYT/featured" target="_blank">@depedmanilaYT</a></p>
                         </div>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rt0Uss9GLlc?si=w9eLVsesp5kJneOY" allowfullscreen></iframe>
+                            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rt0Uss9GLlc?si=w9eLVsesp5kJneOY" allowfullscreen></iframe> -->
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
