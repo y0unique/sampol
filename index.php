@@ -22,7 +22,7 @@
         <link href="admin/css/home/style.css" rel="stylesheet" type="text/css" />
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
-        <link rel="stylesheet" href="admin/css/home/slick.css"/>
+        <!-- <link rel="stylesheet" href="admin/css/home/slick.css"/> -->
 
         <link rel="stylesheet" href="admin/datatables/dataTables.bootstrap5.min.css">
 
