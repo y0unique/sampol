@@ -221,11 +221,20 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-10">           
                         <div class="section-title">
-                            <h4 class="title text-uppercase text-dark mb-4">LATEST IN OUR YOUTUBE</h4>
-                            <p class="text-white-50 mx-auto para-desc mb-0"><a class="text-custom" href="https://www.youtube.com/@depedmanilaYT/featured" target="_blank">@depedmanilaYT</a></p>
+
+                            <?php 
+                            // Fetch YouTube data from the database
+                            $youtube = "SELECT * FROM socialmediavw WHERE type = 'youtube' AND status = 'active' LIMIT 1";
+                            $youtubePosts = mysqli_query($con, $youtube);
+                            $row = mysqli_fetch_array($youtubePosts);
+                            
+                            echo "<h2 class='title text-uppercase text-dark mb-4'>LATEST IN OUR YOUTUBE</h2>";
+                            echo "<p class='text-white-50 mx-auto para-desc mb-0'><a class='text-custom' href='" . $row['link'] . "' target='_blank'>@depedmanilaYT</a></p>";
+                            
+                            ?>
                         </div>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rt0Uss9GLlc?si=w9eLVsesp5kJneOY" allowfullscreen></iframe> -->
+                            <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>" allowfullscreen></iframe>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -271,8 +280,6 @@
         </section><!--end section-->
         <!-- Facebook News End -->
 
-        
-
         <!-- Seals Start -->
         <?php include 'admin/includes/home/seals.php'; ?>
         <!-- Seals End -->
@@ -282,7 +289,6 @@
         <!-- Footer End -->
         <!-- Scripts -->
         <?php include 'admin/includes/home/scripts.php'; ?>
-
                 
     </body>
 
