@@ -220,6 +220,21 @@
             <div class="container">
                 <div class="row justify-content-center text-center">
                     <div class="col-10"> 
+                    <div class="section-title">
+                        <?php 
+                            // Fetch YouTube data from the database
+                            $youtube = "SELECT * FROM socialmediavw WHERE type = 'youtube' AND status = 'active' LIMIT 1";
+                            $youtubePosts = mysqli_query($con, $youtube);
+                            $row = mysqli_fetch_array($youtubePosts);
+
+                            echo "<h2 class='title text-uppercase text-dark mb-4'>LATEST IN OUR YOUTUBE</h2>";
+                            echo "<p class='text-white-50 mx-auto para-desc mb-0'><a class='text-custom' href='" . $row['link'] . "' target='_blank'>@depedmanilaYT</a></p>";
+
+                        ?>
+                        </div>
+                        <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>" allowfullscreen></iframe>
+                        </div>
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
@@ -229,10 +244,37 @@
         <!-- Facebook News Start -->
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0" nonce="zrv8fLqR"></script>
         <section class="section bg-light" id="facebookPosts">
-            <div class="fb-root container">
-            <div class="fb-post" data-href="https://www.facebook.com/DepEdManilaOfficial/posts/pfbid02qteJ76Vs1zdjyWTiwJYm9gw5zGoPkN1hyEN4ibuoKgqrqujZBzw37Gw1WESzJnSUl" data-width="500" data-show-text="true"><blockquote cite="https://www.facebook.com/DepEdManilaOfficial/posts/850594560202882" class="fb-xfbml-parse-ignore"><p>DM. No. 109, s. 2024
-
-VACANCIES FOR RELATED TEACHING AND NON-TEACHING POSITIONS IN THE SCHOOLS DIVISION OFFICE OF MANILA</p>Posted by <a href="https://www.facebook.com/DepEdManilaOfficial">DepEd - Schools Division Office of Manila</a> on&nbsp;<a href="https://www.facebook.com/DepEdManilaOfficial/posts/850594560202882">Friday 22 March 2024</a></blockquote></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="section-title">
+                            <h4 class="title text-uppercase mb-4">Facebook News</h4>
+                            <p class="text-muted mx-auto para-desc mb-0">Be updated with news regarding DepEd Manila with our <a class="text-primary" href="<?php echo ($row['link']);?>" target="_blank">facebook page</a></p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->    
+                <div class="row">
+                    <?php 
+                    // Fetch Facebook posts from the database
+                    $facebook = "SELECT * FROM socialmediavw WHERE type = 'facebook' AND status = 'active' LIMIT 3";
+                    $facebookPosts = mysqli_query($con, $facebook);
+                    
+                    // Loop through each Facebook post
+                    while($row = mysqli_fetch_array($facebookPosts)) { 
+                    ?>
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="blog-post rounded bg-light">
+                            <div class="fb-post" data-href="<?php echo ($row['post']);?>" data-width="350" data-show-text="true">
+                            </div>
+                            <div class="content pt-4 pb-4 p-3">
+                                <a href="<?php echo ($row['link']);?>" target="_blank"><h6 class="tag text-primary font-weight-normal">Department of Education - Division of City Schools, Manila</h6></a> 
+                                <a href="<?php echo ($row['post']);?>" target="_blank" class="text-dark">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                <hr>
+                            </div><!--end content-->
+                        </div><!--end blog post-->
+                    </div><!--end col-->
+                    <?php } ?>
+                </div><!--end row-->
             </div><!--end container-->
         </section><!--end section-->
         <!-- Facebook News End -->
