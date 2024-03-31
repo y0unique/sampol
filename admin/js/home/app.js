@@ -9,9 +9,15 @@
     "use strict";  
     // Back to top
     $('.back-to-top').click(function(){
-        $("html, body").animate({ scrollTop: 0 }, 3000);
+        $("html, body").animate({ scrollTop: 0 }, 750);
         return false;
-    });  
+    });
+    $('.past-issuances').click(function(){
+        $('html, body').animate({
+            scrollTop: $('#pastIssuances').offset().top
+        }, 750);
+        return false;
+    });
     //Slider
     $('.autoplay').slick({
         slidesToShow: 5,

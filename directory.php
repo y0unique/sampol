@@ -81,10 +81,10 @@
                             <?php
                                 // Array containing issuance types and their corresponding icons
                                 $schoolstype1 = array(
-                                    "elementary-school" => array("mdi mdi-bus-school", "ELEMENTARY SCHOOLS"),
-                                    "junior-high-school" => array("mdi mdi-school", "JUNIOR HIGH SCHOOLS"),
-                                    "senior-high-school" => array("mdi mdi-school", "SENIOR HIGH SCHOOLS"),
-                                    "special-education" => array("mdi mdi-school", "SPECIAL EDUCATION CENTERS"),
+                                    "elementary-school" => array("mdi-chair-school", "ELEMENTARY SCHOOLS"),
+                                    "junior-high-school" => array("mdi mdi-bus-school", "JUNIOR HIGH SCHOOLS"),
+                                    "senior-high-school" => array("mdi-school", "SENIOR HIGH SCHOOLS"),
+                                    "special-education" => array("mdi-star-outline", "SPECIAL EDUCATION CENTERS"),
                                 );
 
                                 // Iterate through the issuance types array to generate tabs

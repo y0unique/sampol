@@ -97,6 +97,16 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 });
+$(document).ready(function () {
+    $('#past-2022-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
+$(document).ready(function () {
+    $('#past-2023-table').DataTable({
+        order: [[0, 'desc']]
+    });
+});
 
 // DIRECTORY OF SCHOOLS
 $(document).ready(function () {

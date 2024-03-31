@@ -71,6 +71,7 @@
                         <div class="section-title">
                             <h4 class="title text-uppercase mb-4">ISSUANCES</h4>
                             <p class="text-danger mx-auto para-desc mb-0" style="font-style: italic;"> *To look for an issuance, please use the search field to filter the table.*</p>
+                            <p class="text-danger mx-auto para-desc mb-0" style="font-style: italic;"> *For past issuances click <a class="past-issuances text-primary" href="#pastIssuances">here</a>*</p>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -166,7 +167,7 @@
         <!-- Issuances End -->
 
         <!-- Archives Start -->
-        <section class="section" id="archives">
+        <section class="section" id="pastIssuances">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 text-center">
@@ -178,89 +179,89 @@
                 
                 <div class="row mt-4">
                     <div class="col-12">
+                        <!-- Tab navigation -->
                         <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link active" id="invitaion-bid-tab" data-toggle="pill" href="#invitaion-bid" role="tab" aria-controls="invitaion-bid" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-multiple text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">2019</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="projects-completed-tab" data-toggle="pill" href="#projects-completed" role="tab" aria-controls="projects-completed" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-multiple text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">2020</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="financial-reports-tab" data-toggle="pill" href="#financial-reports" role="tab" aria-controls="financial-reports" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-multiple text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">2021</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
+                            <?php
+                            // Array containing issuance types and their corresponding icons
+                            $issuancestype1 = array(
+                                "2019" => "2019",
+                                "2020" => "2020",
+                                "2021" => "2021",
+                                "2022" => "2022",
+                                "2023" => "2023"
+                            );
 
+                            // Iterate through the issuance types array to generate tabs
+                            foreach ($issuancestype1 as $tabId => $title) {
+                                $isActive = ($tabId === "2019") ? "active" : "";
+                                echo '<li class="nav-item mb-4 pt-2">';
+                                echo '<a class="nav-link ' . $isActive . '" id="past-' . $tabId . '-tab" data-toggle="pill" href="#past-' . $tabId . '" role="tab" aria-controls="past-' . $tabId . '" aria-selected="false">';
+                                echo '<div class="capabilities text-center rounded pt-2 pb-2">';
+                                echo '<div class="icon bg-custom mb-3">';
+                                echo '<i class="mdi mdi-file-multiple text-white"></i>';
+                                echo '</div>';
+                                echo '<h4 class="title font-weight-normal mb-0">' . $title . '</h4>';
+                                echo '</div>';
+                                echo '</a><!--end nav link-->';
+                                echo '</li><!--end nav item-->';
+                            }
+                            ?>
                         </ul><!--end nav pills-->
 
+                        <!-- Tab content -->
                         <div class="tab-content mt-3" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="invitaion-bid" role="tabpanel" aria-labelledby="invitaion-bid-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">2019</h4>
-                                        	
-                                        	<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSp9NyIpsd60bSwcSGSR-XT7LTN8If-_Dpis23lBFSn5LJh4sIAPc4JV4bjL0Ue4kPrW65gqqEsuqgM/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>
-                                            
-                                            
+                            <?php
+                            // Iterate through the issuance types array to generate tab content
+                            foreach ($issuancestype1 as $tabId => $title) {
+                                $isActive = ($tabId === "2019") ? "show active" : "";
+                                echo '<div class="tab-pane fade ' . $isActive . '" id="past-' . $tabId . '" role="tabpanel" aria-labelledby="past-' . $tabId . '-tab">';
+                                echo '<div class="capabilities-content border rounded p-4">';
+                                echo '<div class="row align-items-center">';
+                                echo '<div class="col-md-12">';
+                                echo '<h4 class="title">' . $title . '</h4>';
+                                if (in_array($tabId, array("2019"))) {
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSp9NyIpsd60bSwcSGSR-XT7LTN8If-_Dpis23lBFSn5LJh4sIAPc4JV4bjL0Ue4kPrW65gqqEsuqgM/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>';
+                                }
+                                if (in_array($tabId, array("2020"))) {
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTG3yIf5CgEzqCfaWI78lIfi83s57gBxKp0DBSZV7ye1NVNU3iq_yLoJr2NFZUavzP8jyuvAbbOubUf/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>';
+                                }
+                                if (in_array($tabId, array("2021"))) {
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>';
+                                }
+                                // If tab is for year 2022 or 2023, display issuances table
+                                if ($tabId == "2022" || $tabId == "2023") {
+                                    $issuances = "SELECT * FROM issuancesvw WHERE status = 'active' AND YEAR(date) = $tabId ORDER BY date DESC";
+                                    $issuances1 = mysqli_query($con, $issuances);
+                                    echo '<table id="past-' . $tabId . '-table" class="table table-striped" style="width:100%">';
+                                    echo '<thead>';
+                                    echo '<tr>';
+                                    echo '<th>Date</th>';
+                                    echo '<th>No.</th>';
+                                    echo '<th>Title</th>';
+                                    echo '</tr>';
+                                    echo '</thead>';
+                                    echo '<tbody>';
+                                    while ($row = mysqli_fetch_array($issuances1)) {
+                                        echo '<tr>';
+                                        echo '<td>' . $row['date'] . '</td>';
+                                        echo '<td>' . $row['number'] . '</td>';
+                                        echo '<td><a class="text-primary" href="' . $row['link'] . '" target="_blank">' . $row['title'] . '</a></td>';
+                                        echo '</tr>';
+                                    }
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                }
 
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="projects-completed" role="tabpanel" aria-labelledby="projects-completed-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">2020</h4>
-                                            
-                                            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTG3yIf5CgEzqCfaWI78lIfi83s57gBxKp0DBSZV7ye1NVNU3iq_yLoJr2NFZUavzP8jyuvAbbOubUf/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-
-                            <div class="tab-pane fade" id="financial-reports" role="tabpanel" aria-labelledby="financial-reports-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">2021</h4>
-                                            
-                                            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
+                                echo '</div><!--end col-->';
+                                echo '</div><!--end row-->';
+                                echo '</div>';
+                                echo '</div><!--end teb pane-->';
+                            }
+                            ?>
                         </div><!--end tab content-->
                     </div><!--end col-->
                 </div><!--end row-->
+
             </div><!--end container-->
         </section><!--end section-->
         <!-- Archives End -->
