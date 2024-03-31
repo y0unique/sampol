@@ -131,6 +131,8 @@
                                     echo '</thead>';
                                     echo '<tbody>';
                                     $schools = "SELECT * FROM schoolsvw WHERE status = 'active' AND type = '" . $tabInfo[1] . "' ORDER BY district DESC";
+                                    
+                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $schools1 = mysqli_query($con, $schools);
                                     while($row = mysqli_fetch_array($schools1)){
                                         echo '<tr>';

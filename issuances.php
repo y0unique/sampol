@@ -86,10 +86,10 @@
                                     "unnumbered-memorandum" => array("mdi-alarm", "UNNUMBERED MEMORANDUM"),
                                     "division-advisories" => array("mdi-note", "DIVISION ADVISORIES"),
                                     "division-circulars" => array("mdi-email", "DIVISION CIRCULARS"),
-                                    "division-orders" => array("mdi-email", "DIVISION ORDERS"),
+                                    "division-orders" => array("mdi-email-alert", "DIVISION ORDERS"),
                                     "office-memorandum" => array("mdi-file-multiple", "OFFICE ORDER"),
                                     "office-order" => array("mdi-file-document", "MISCELLANEOUS MEMOS"),
-                                    "city-memorandum" => array("mdi-file-document", "CITY MEMORANDUM")
+                                    "city-memorandum" => array("mdi-email-open", "CITY MEMORANDUM")
                                 );
 
                                 // Iterate through the issuance types array to generate tabs
