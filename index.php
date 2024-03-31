@@ -187,57 +187,29 @@
                 </div><!--end row-->
 
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 mt-5 pt-4">
-                        <div class="services border pt-5 p-4 rounded bg-white">
-                            <div class="icon position-relative border rounded bg-white mb-4">
-                                <i class="mdi mdi-book-open-variant"></i>
-                            </div>
-                            <div class="content">
-                                <h4 class="title mb-3">SEND US YOUR FEEDBACK</h4>
-                                <p class="text-muted">Click the "Click Here" to be redirected to the link</p>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScp81_6TY8Bbgj6AShy33Vc0NLpvRaEc6YHFfpDC8qov4oPPw/viewform?fbclid=IwAR26DFy2TFXLzGvAa_csNJRnaZZhgcdPRiA15L7-YVHkfdEj0Xd6Kj-ijXI" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
-                            </div>
-                        </div>
-                    </div><!--end col-->
+                    <?php
+                    // Fetch services data from the database
+                    $servicesQuery = "SELECT * FROM servicesVW";
+                    $servicesResult = mysqli_query($con, $servicesQuery);
 
-                    <div class="col-lg-6 col-md-6 mt-5 pt-4">
-                        <div class="services border pt-5 p-4 rounded bg-white">
-                            <div class="icon position-relative border rounded bg-white mb-4">
-                                <i class="mdi mdi-book-open-page-variant"></i>
+                    // Loop through each service
+                    while ($row = mysqli_fetch_array($servicesResult)) {
+                        ?>
+                        <div class="col-lg-6 col-md-6 mt-5 pt-4">
+                            <div class="services border pt-5 p-4 rounded bg-white">
+                                <div class="icon position-relative border rounded bg-white mb-4">
+                                    <i class="<?php echo $row['icon']; ?>"></i>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title mb-3"><?php echo $row['title']; ?></h4>
+                                    <p class="text-muted"><?php echo $row['description']; ?></p>
+                                    <a href="<?php echo $row['link']; ?>" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
+                                </div>
                             </div>
-                            <div class="content">
-                                <h4 class="title mb-3">DEPED MANILA E-LIBRARY</h4>
-                                <p class="text-muted">Click the "Click Here" to be redirected to the link</p>
-                                <a href="https://sites.google.com/depedmanila.net/depedmanila-e-library?fbclid=IwAR1Xl7lOouFN-_pZjzG2LGJoRivq0PlJW85SWpX9OCDF9u5t7n8iy_CVBa4" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-6 col-md-6 mt-5 pt-4">
-                        <div class="services border pt-5 p-4 rounded bg-white">
-                            <div class="icon position-relative border rounded bg-white mb-4">
-                                <i class="mdi mdi-google"></i>
-                            </div>
-                            <div class="content">
-                                <h4 class="title mb-3">CLIENT SATISFACTORY SURVEY</h4>
-                                <p class="text-muted">Click the "Click Here" to be redirected to the link</p>
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScBxijSldifsao8d8tlnbThfIokvNtKJWpRO1upKcwc4xpFRw/viewform?fbclid=IwAR3l1de7NsOIe_exJbmFe8AVZop6NqfX4fwUFKENnbuk-gnLW9V7HByQmWw" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-6 col-md-6 mt-5 pt-4">
-                        <div class="services border pt-5 p-4 rounded bg-white">
-                            <div class="icon position-relative border rounded bg-white mb-4">
-                                <i class="mdi mdi-gmail"></i>
-                            </div>
-                            <div class="content">
-                                <h4 class="title mb-3">RESET DEPED EMAIL</h4>
-                                <p class="text-muted">Click the "Click Here" to be redirected to the link</p>
-                                <a href="https://forms.gle/hmdzvWR5g29WQiEx8" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
-                            </div>
-                        </div>
-                    </div><!--end col-->
+                        </div><!--end col-->
+                        <?php
+                    }
+                    ?>
                 </div><!--end row-->
             </div><!--end container-->
         </section><!--end section-->

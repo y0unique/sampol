@@ -143,7 +143,6 @@
                                         echo '<td>'.$row['email'].'</td>';
                                         echo '</tr>';
                                     }
-                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     echo '</tbody>';
                                     echo '</table>';
                                     echo '</div><!--end col-->';

@@ -35,6 +35,16 @@ CREATE TABLE socialmediatbl(
     socialMedia_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
+--TABLE FOR SERVICES
+CREATE TABLE servicestbl(
+    services_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    services_title varchar(100) NOT NULL,
+    services_description longtext NOT NULL,
+    services_link longtext NOT NULL,
+    services_icon shorttext NOT NULL,
+    services_status varchar(11) NOT NULL DEFAULT 'active'
+);
+
 --TABLE FOR SCHOOLS
 CREATE TABLE schoolstbl(
     schooltbl_id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -353,6 +363,17 @@ SELECT
     socialMedia_post AS "post",
     socialMedia_status AS "status"
 FROM socialmediatbl WHERE socialMedia_status = 'active';
+
+--servicesvw
+CREATE VIEW servicesVW AS
+SELECT
+    services_id AS "id",
+    services_title AS "title",
+    services_description AS "description",
+    services_link AS "link",
+    services_status AS "status",
+    services_icon AS "icon"
+FROM servicestbl WHERE services_status = 'active';
 
 --spedschoolsvw
 CREATE VIEW spedSchoolsVW AS
