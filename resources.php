@@ -105,7 +105,7 @@
                                     echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
                                     echo '<thead>';
                                     echo '<tr>';
-                                    echo '<th>Id</th> ';
+                                    echo '<th>Date</th> ';
                                     if($tabId=='downloadables'){
                                         echo '<th style="display:none;">Department</th>  ';
                                     }else{
@@ -119,7 +119,7 @@
                                     $files1 = mysqli_query($con, $files);
                                     while($row = mysqli_fetch_array($files1)){
                                         echo '<tr>';
-                                        echo '<td>'.$row['id'].'</td>';
+                                        echo '<td>'.$row['date'].'</td>';
                                         if($tabId=='downloadables'){
                                             echo '<td style="display:none;">'.$row['department'].'</td>';
                                         }else{
