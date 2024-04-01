@@ -191,25 +191,41 @@
                 <div class="row">
                     <?php
                     // Fetch services data from the database
-                    $servicesQuery = "SELECT * FROM servicesVW";
+                    $servicesQuery = "SELECT * FROM servicesVW WHERE status = 'active' ORDER BY id ASC";
                     $servicesResult = mysqli_query($con, $servicesQuery);
+                    
+                    $servicesCheckQuery = "SHOW TABLES LIKE 'servicesvw'";
+                    $servicesCheckResult = mysqli_query($con, $servicesCheckQuery);
 
                     // Loop through each service
-                    while ($row = mysqli_fetch_array($servicesResult)) {
-                        ?>
-                        <div class="col-lg-6 col-md-6 mt-5 pt-4">
-                            <div class="services border pt-5 p-4 rounded bg-white">
-                                <div class="icon position-relative border rounded bg-white mb-4">
-                                    <i class="<?php echo $row['icon']; ?>"></i>
-                                </div>
-                                <div class="content">
-                                    <h4 class="title mb-3"><?php echo $row['title']; ?></h4>
-                                    <p class="text-muted"><?php echo $row['description']; ?></p>
-                                    <a href="<?php echo $row['link']; ?>" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
-                                </div>
-                            </div>
-                        </div><!--end col-->
-                        <?php
+                    if(mysqli_num_rows($servicesCheckResult) == 0){
+                        echo '<div class="col-sm-6 mx-auto">';
+                        echo '  <div class="text-center alert alert-danger" role="alert">No services available at the moment. Sorry for the inconvenience</div>';
+                        echo '</div>';
+                    }
+                    else{
+                        if (mysqli_num_rows($servicesResult) == 0) {
+                            echo '<div class="col-sm-6 mx-auto">';
+                            echo '  <div class="text-center alert alert-danger" role="alert">No services available at the moment. Sorry for the inconvenience</div>';
+                            echo '</div>';
+                        } else {
+                            while ($row = mysqli_fetch_array($servicesResult)) {
+                                ?>
+                                <div class="col-lg-6 col-md-6 mt-5 pt-4">
+                                    <div class="services border pt-5 p-4 rounded bg-white">
+                                        <div class="icon position-relative border rounded bg-white mb-4">
+                                            <i class="<?php echo $row['icon']; ?>"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title mb-3"><?php echo $row['title']; ?></h4>
+                                            <p class="text-muted"><?php echo $row['description']; ?></p>
+                                            <a href="<?php echo $row['link']; ?>" target="_blank" class="text-custom">Click here<i class="mdi mdi-chevron-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                <?php
+                            }
+                        }
                     }
                     ?>
                 </div><!--end row-->
@@ -223,20 +239,34 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-10"> 
                     <div class="section-title">
+                            <h2 class='title text-uppercase text-dark mb-4'>LATEST IN OUR YOUTUBE</h2>
+                            <p class='text-white-50 mx-auto para-desc mb-0'><a class='text-custom' href='https://www.youtube.com/@depedmanilaYT/featured' target='_blank'>@depedmanilaYT</a></p>
                         <?php 
                             // Fetch YouTube data from the database
                             $youtube = "SELECT * FROM socialmediavw WHERE type = 'youtube' AND status = 'active' LIMIT 1";
                             $youtubePosts = mysqli_query($con, $youtube);
                             $row = mysqli_fetch_array($youtubePosts);
 
-                            echo "<h2 class='title text-uppercase text-dark mb-4'>LATEST IN OUR YOUTUBE</h2>";
-                            echo "<p class='text-white-50 mx-auto para-desc mb-0'><a class='text-custom' href='" . $row['link'] . "' target='_blank'>@depedmanilaYT</a></p>";
-
+                            $youtubeCheckQuery = "SHOW TABLES LIKE 'socialmediavw'";
+                            $youtubeCheckResult = mysqli_query($con, $youtubeCheckQuery);
+                            
+                            
+                            if(mysqli_num_rows($servicesCheckResult) == 0){
+                                echo '<div class="col-sm-6 mx-auto">';
+                                echo '  <div class="text-center alert alert-danger" role="alert">No youtube posts available at the moment. Sorry for the inconvenience</div>';
+                                echo '</div>';
+                            }else{
+                                if(mysqli_num_rows($youtubePosts) == 0){
+                                    echo '<div class="col-sm-6 mx-auto">';
+                                    echo '  <div class="text-center alert alert-danger" role="alert">No youtube posts available at the moment. Sorry for the inconvenience</div>';
+                                    echo '</div>';
+                                } else {
                         ?>
                         </div>
                         <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>" allowfullscreen></iframe>
                         </div>
+                        <?php } } ?>
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
@@ -260,22 +290,35 @@
                     // Fetch Facebook posts from the database
                     $facebook = "SELECT * FROM socialmediavw WHERE type = 'facebook' AND status = 'active' LIMIT 3";
                     $facebookPosts = mysqli_query($con, $facebook);
+
+                    $facebookCheckQuery = "SHOW TABLES LIKE 'socialmediavw'";
+                    $facebookCheckResult = mysqli_query($con, $facebookCheckQuery);
                     
-                    // Loop through each Facebook post
-                    while($row = mysqli_fetch_array($facebookPosts)) { 
-                    ?>
-                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                        <div class="blog-post rounded bg-light">
-                            <div class="fb-post" data-href="<?php echo ($row['post']);?>" data-width="350" data-show-text="true">
-                            </div>
-                            <div class="content pt-4 pb-4 p-3">
-                                <a href="<?php echo ($row['link']);?>" target="_blank"><h6 class="tag text-primary font-weight-normal">Department of Education - Division of City Schools, Manila</h6></a> 
-                                <a href="<?php echo ($row['post']);?>" target="_blank" class="text-dark">Read More <i class="mdi mdi-chevron-right"></i></a>
-                                <hr>
-                            </div><!--end content-->
-                        </div><!--end blog post-->
-                    </div><!--end col-->
-                    <?php } ?>
+                    if(mysqli_num_rows($facebookCheckResult) == 0){
+                        echo '<div class="col-sm-6 mx-auto">';
+                        echo '  <div class="text-center alert alert-danger" role="alert">No facebook post available at the moment. Sorry for the inconvenience</div>';
+                        echo '</div>';
+                    }else{
+                        if(mysqli_num_rows($facebookPosts) == 0){
+                            echo '<div class="col-sm-6 mx-auto">';
+                            echo '  <div class="text-center alert alert-danger" role="alert">No facebook posts available at the moment. Sorry for the inconvenience</div>';
+                            echo '</div>';
+                        } else {  
+                             // Loop through each Facebook post
+                            while($row = mysqli_fetch_array($facebookPosts)) { 
+                            ?>
+                            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                                <div class="blog-post rounded bg-light">
+                                    <div class="fb-post" data-href="<?php echo ($row['post']);?>" data-width="350" data-show-text="true">
+                                    </div>
+                                    <div class="content pt-4 pb-4 p-3">
+                                        <a href="<?php echo ($row['link']);?>" target="_blank"><h6 class="tag text-primary font-weight-normal">Department of Education - Division of City Schools, Manila</h6></a> 
+                                        <a href="<?php echo ($row['post']);?>" target="_blank" class="text-dark">Read More <i class="mdi mdi-chevron-right"></i></a>
+                                        <hr>
+                                    </div><!--end content-->
+                                </div><!--end blog post-->
+                            </div><!--end col-->
+                            <?php }}} ?>
                 </div><!--end row-->
             </div><!--end container-->
         </section><!--end section-->
