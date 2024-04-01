@@ -66,111 +66,82 @@
                 
                 <div class="row mt-4">
                     <div class="col-12">
-                        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link active" id="downloadables-tab" data-toggle="pill" href="#downloadable" role="tab" aria-controls="downloadables" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">DOWNLOADABLE<br>FILES</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
-                            <li class="nav-item mb-4 pt-2">
-                                <a class="nav-link" id="materials-tab" data-toggle="pill" href="#materials" role="tab" aria-controls="materials" aria-selected="false">
-                                    <div class="capabilities text-center rounded pt-2 pb-2">
-                                        <div class="icon bg-custom mb-3">
-                                            <i class="mdi mdi-file-alert text-white"></i>
-                                        </div>
-                                        <h4 class="title font-weight-normal mb-0">MONITORING<br>LINKS</h4>
-                                    </div>
-                                </a><!--end nav link-->
-                            </li><!--end nav item-->
-                            
+                    <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                            <?php
+                                $filestype1 = array(
+                                    "downloadables" => array("mdi mdi-file", "DOWNLOADABLES"),
+                                    "materials" => array("mdi mdi-file-alert", "MATERIALS"),
+                                );
+                                foreach ($filestype1 as $tabId => $tabInfo) {
+                                    $iconClass = $tabInfo[0];
+                                    $title = $tabInfo[1];
+                                    $isActive = ($tabId === "downloadables") ? "active" : "";
+                                    echo '<li class="nav-item mb-4 pt-2">';
+                                    echo '<a class="nav-link ' . $isActive . '" id="' . $tabId . '-tab" data-toggle="pill" href="#' . $tabId . '" role="tab" aria-controls="' . $tabId . '" aria-selected="false">';
+                                    echo '<div class="capabilities text-center rounded pt-2 pb-2">';
+                                    echo '<div class="icon bg-custom mb-3">';
+                                    echo '<i class="mdi ' . $iconClass . ' text-white"></i>';
+                                    echo '</div>';
+                                    echo '<h4 class="title font-weight-normal mb-0">' . $title . '</h4>';
+                                    echo '</div>';
+                                    echo '</a><!--end nav link-->';
+                                    echo '</li><!--end nav item-->';
+                                }
+                            ?>
                         </ul><!--end nav pills-->
 
+                        <!-- Tab content -->
                         <div class="tab-content mt-3" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="downloadable" role="tabpanel" aria-labelledby="downloadables-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">DOWNLOADABLE FILES</h4>
-                                            
-                                            <table id="downloadables-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                    <th>ID</th>
-                                                    <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($downloadbles1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><a class="text-primary"href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-                            <div class="tab-pane fade" id="materials" role="tabpanel" aria-labelledby="materials-tab">
-                                <div class="capabilities-content border rounded p-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-12">
-                                            <h4 class="title">materials</h4>
-                                            
-                                            <table id="materials-table" class="table table-striped" style="width:100%">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="display:none;">Tracking Number</th>
-                                                        <th>Department</th>  
-                                                        <th>Title</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
-                                                        while($row = mysqli_fetch_array($materials1)){
-                                                    ?>
-                                                    <tr>
-                                                        <td style="display:none;"><?php echo $row['ID'];?></td>
-                                                        <td><?php echo $row['id'];?></td>
-                                                        <td><a class="text-primary" href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
-                                                    </tr>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
-
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </div>
-                            </div><!--end teb pane-->
-                            
-
+                            <?php
+                                // Iterate through the issuance types array to generate tab content
+                                foreach ($filestype1 as $tabId => $tabInfo) {
+                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
+                                    $isActive = ($tabId === "downloadables") ? "show active" : "";
+                                    echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
+                                    echo '<div class="capabilities-content border rounded p-4">';
+                                    echo '<div class="row align-items-center">';
+                                    echo '<div class="col-md-12">';
+                                    echo '<h4 class="title">' . $tabInfo[1] . '</h4>';
+                                    echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
+                                    echo '<thead>';
+                                    echo '<tr>';
+                                    echo '<th>Id</th> ';
+                                    if($tabId=='downloadables'){
+                                        echo '<th style="display:none;">Department</th>  ';
+                                    }else{
+                                        echo '<th>Department</th>  ';
+                                    }
+                                    echo '<th>Title</th> ';
+                                    echo '</tr>';
+                                    echo '</thead>';
+                                    echo '<tbody>';
+                                    $files = "SELECT * FROM filesvw WHERE status = 'active'AND type = '" . $tabInfo[1] . "' ORDER BY date DESC";
+                                    $files1 = mysqli_query($con, $files);
+                                    while($row = mysqli_fetch_array($files1)){
+                                        echo '<tr>';
+                                        echo '<td>'.$row['id'].'</td>';
+                                        if($tabId=='downloadables'){
+                                            echo '<td style="display:none;">'.$row['department'].'</td>';
+                                        }else{
+                                            echo '<td>'.$row['department'].'</td>';
+                                        }
+                                        echo '<td><a class="text-primary" href="'.$row['link'].'" target="_blank">'.$row['title'].'</a></td>';
+                                        echo '</tr>';
+                                    }
+                                    echo '</tbody>';
+                                    echo '</table>';
+                                    echo '</div><!--end col-->';
+                                    echo '</div><!--end row-->';
+                                    echo '</div>';
+                                    echo '</div><!--end teb pane-->';
+                                }
+                            ?>
                         </div><!--end tab content-->
                     </div><!--end col-->
                 </div><!--end row-->
             </div><!--end container-->
         </section><!--end section-->
         <!-- Resources End -->
-
-        
 
         <!-- Seals Start -->
         <?php include 'admin/includes/home/seals.php'; ?>

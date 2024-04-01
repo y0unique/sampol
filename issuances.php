@@ -117,6 +117,7 @@
                             <?php
                                 // Iterate through the issuance types array to generate tab content
                                 foreach ($issuancestype1 as $tabId => $tabInfo) {
+                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $isActive = ($tabId === "numbered-memorandum") ? "show active" : "";
                                     echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
                                     echo '<div class="capabilities-content border rounded p-4">';
