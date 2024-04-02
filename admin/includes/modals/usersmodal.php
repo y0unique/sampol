@@ -118,7 +118,7 @@
                             <input class="form-control" type="text" id="_user_password" name="user_password" readonly>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-danger"><i class="fas fa-undo"></i></button>
+                            <button id="resetPassword" type="button" class="btn btn-danger"><i class="fas fa-undo"></i></button>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -149,4 +149,8 @@
         </div>
     </div>
 </div>
-
+<script>
+    document.getElementById('resetPassword').addEventListener('click', function() {
+        document.getElementById('_user_password').value = 'sdomanilaq1';
+    });
+</script>
