@@ -66,7 +66,9 @@
                                             <th>ID</th>
                                             <th>Username</th>
                                             <th>Email</th>
+                                            <th>Department</th>
                                             <th>User Type</th>
+                                            <th>Profile</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -104,7 +106,7 @@
     $(document).ready(function() {
       $('#usersTable').DataTable({
         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
+          $(nRow).attr('user_id', aData[0]);
         },
         'serverSide':'true',
         'processing':'true',
@@ -115,16 +117,63 @@
           'type':'post',
         },
         "columnDefs": [{
-          'target':[0,4],
+          'target':[0,5],
           'orderable' :false
         }]
       });
     } );
 
+    //add issuances
+    $(document).on('submit','#addUserModal',function(e){
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var user_username= $('#user_username').val();
+        var user_email= $('#user_email').val();
+        var user_type= $('#user_type').val();
+        var user_department= $('#user_department').val();
+
+        if(user_username != '' && user_email != '' && user_type != ''&& user_department != ''){
+            $.ajax({
+                url:"includes/codes/userscode.php",
+                type:"post",
+                data:
+                {
+                    webID:webID,
+                    webUsername:webUsername,
+                    user_username:user_username,
+                    user_email:user_email,
+                    user_type:user_type,
+                    user_department:user_department,
+                    add: true
+                },
+                success:function(data){
+                    var json = JSON.parse(data);
+                    var addUserStatus = json.addUserStatus;
+                    if(addUserStatus =='true'){
+                        mytable =$('#usersTable').DataTable();
+                        mytable.draw();
+                        $('#addUserModal').modal('hide');
+                        $('#addUser')[0].reset();
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.success(json.message);
+                    }else if(addUserStatus == 'false'){
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.warning(json.message);
+                    }else{
+                        alert('failed');
+                    }
+                }
+            });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
     //view user for edit modal
     $('#usersTable').on('click', '.edituserbtn ', function(event) {
         var table = $('#usersTable').DataTable();
-        var trid = $(this).closest('tr').attr('id');
+        var trid = $(this).closest('tr').attr('user_id');
         var id = $(this).data('id');
         $('#editUserModal').modal('show');
 
@@ -138,15 +187,95 @@
         success: function(data) {
             var json = JSON.parse(data);
 
-            $('#_user_id').val(json.id);
-            $('#_user_username').val(json.username);
-            $('#_user_email').val(json.email);
-            $('#_user_type').val(json.type);
-            $('#_user_password').val(json.password);
-            $('#_user_status').val(json.status);
+            $('#_user_id').val(json.user_id);
+            $('#_user_username').val(json.user_username);
+            $('#_user_email').val(json.user_email);
+            $('#_user_department').val(json.user_department);
+            $('#_user_type').val(json.user_type);
+            $('#_user_password').val(json.user_password);
+            $('#_user_status').val(json.user_status);
             $('#_id').val(id);
             $('#_trid').val(trid);
         }
         })
+    });
+    //edit user
+    $(document).on('submit', '#editEmployee', function(e) {
+        e.preventDefault();;
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var tracking_number = $('#_tracking_number').val();
+        var issuances_title= $('#_issuances_title').val();
+        var issuances_link= $('#_issuances_link').val();
+        var issuances_number= $('#_issuances_number').val();
+        var issuances_date= $('#_issuances_date').val();
+        var issuances_type= $('#_issuances_type').val();
+        var id = $('#_id').val();
+        var trid = $('#_trid').val();
+        if (tracking_number != '' && issuances_title != '' && issuances_link != '' && issuances_number != '' && issuances_date != '' && issuances_type != '') {
+        $.ajax({
+            url: "includes/codes/issuancescode.php",
+            type: "post",
+            data: {
+                id:id,
+                webID:webID,
+                webUsername:webUsername,
+                tracking_number:tracking_number,
+                issuances_title:issuances_title,
+                issuances_link:issuances_link,
+                issuances_number:issuances_number,
+                issuances_date:issuances_date,
+                issuances_type:issuances_type,
+                update: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var editIssuanceStatus = json.editIssuanceStatus;
+                if (editIssuanceStatus == 'true') {
+                    $('#issuancesTable').DataTable().destroy();
+                    mytable = $('#issuancesTable').DataTable({
+                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                            $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide': 'true',
+                        'processing': 'true',
+                        'paging': 'true',
+                        'order': [],
+                        'ajax': {
+                            'url': 'includes/fetchdata/issuancesfetch.php',
+                            'type': 'post',
+                        },
+                        "columnDefs": [{
+                            'target': [0, 6],
+                            'orderable': false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.success(json.message);
+                    $('#editIssuancesModal').modal('hide');
+                } else if(editIssuanceStatus == 'false'){
+                    alertify.set('notifier','position', 'top-right');
+            	    alertify.error(json.message);
+                }else{
+                    alert('Error communicating with the database');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
+    //clear modal add
+    $('#addUserModal').on('hidden.bs.modal', function() {
+        $('#addUser')[0].reset();
+    });
+    //clear modal edit
+    $('#editUserModal').on('hidden.bs.modal', function() {
+        $('#editEmployee')[0].reset();
+    });
+    //clear modal delete
+    $('#deleteUserModal').on('hidden.bs.modal', function() {
+        $('#deleteUser')[0].reset();
     });
 </script>

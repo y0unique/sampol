@@ -72,7 +72,6 @@
                         <label for="addSchoolField" class="col-md-2 form-label">School Type:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_type" name="school_type" required>
-                                <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="ELEMENTARY SCHOOLS"> Elementary School </option>
                                 <option value="JUNIOR HIGH SCHOOLS"> High School </option>
                             </select>
@@ -83,18 +82,16 @@
                         <label for="addSchoolField" class="col-md-2 form-label">SHS Availability:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="school_shsAvailability" name="school_shsAvailability" disabled>
-                                <option value ="no"disabled selected hidden> <-- SELECT --> </option>
-                                <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
+                                <option value="yes"> YES </option>
                             </select>
                         </div>
 
                         <label for="addSchoolField" class="col-md-2 form-label">SPED Availability:</label>
                         <div class="col-md-4">
-                            <select class="form-control" id="school_spedAvailablity" name="school_spedAvailablity" required>
-                                <option value ="no" disabled selected hidden> <-- SELECT --> </option>
-                                <option value="yes"> YES </option>
+                            <select class="form-control" id="school_spedAvailablity" name="school_spedAvailablity" required>    
                                 <option value="no"> NO </option>
+                                <option value="yes"> YES </option>
                             </select>
                         </div>
                     </div>
@@ -212,7 +209,6 @@
                         <label for="editSchoolField" class="col-md-2 form-label">School Type:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="_school_type" name="school_type" required>
-                                <option disabled selected hidden> <-- SELECT --> </option>
                                 <option value="ELEMENTARY SCHOOLS"> Elementary School </option>
                                 <option value="JUNIOR HIGH SCHOOLS"> High School </option>
                             </select>
@@ -224,18 +220,16 @@
                         <label for="editSchoolField" class="col-md-2 form-label">SHS Availability:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="_school_shsAvailability" name="school_shsAvailability" required>
-                                <option value ="no"disabled selected hidden> <-- SELECT --> </option>
-                                <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
+                                <option value="yes"> YES </option>
                             </select>
                         </div>
 
                         <label for="editSchoolField" class="col-md-2 form-label">SPED Availability:</label>
                         <div class="col-md-4">
                             <select class="form-control" id="_school_spedAvailablity" name="school_spedAvailablity" required>
-                                <option value ="no" disabled selected hidden> <-- SELECT --> </option>
-                                <option value="yes"> YES </option>
                                 <option value="no"> NO </option>
+                                <option value="yes"> YES </option>
                             </select>
                         </div>
                     </div>

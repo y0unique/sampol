@@ -43,6 +43,7 @@
                     $_SESSION['webEmail'] = $row['user_email'];
                     $_SESSION['webType'] = $row['user_type'];
                     $_SESSION['webPassword'] = $row['user_password'];
+                    $_SESSION['webDepartment'] = $row['user_department'];
                     $_SESSION['webStatus'] = $row['user_status'];
                 } else {
                     $response = array('status' => 'error', 'message' => 'Failed to connect to the database.');

@@ -2,7 +2,7 @@
 -admin
 •Push notifications using ajax
 •
-
+• editing users, delete, reseting password
 offices, fetch, code, modals
 add to database picture and type of employee
 --

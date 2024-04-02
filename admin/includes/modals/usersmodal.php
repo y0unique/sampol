@@ -9,9 +9,8 @@
                 </button>
             </div>
 
-            <div class="modal-body">
-                <form action="addUser">
-
+            <div class="modal-body text-gray-900">
+                <form id="addUser" action="">
                     <div class="mb-3 row">
                         <label for="addUserField" class="col-md-3 form-label">Username:</label>
                         <div class="col-md-9">
@@ -22,7 +21,7 @@
                     <div class="mb-3 row">
                         <label for="addUserField" class="col-md-3 form-label">Email:</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" id="user_email" name="user_email">
+                            <input class="form-control" type="email" id="user_email" name="user_email">
                         </div>
                     </div>
 
@@ -38,14 +37,24 @@
                         </div>
                     </div>
 
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                </form>
-            </div>
+                    <div class="mb-3 row">
+                        <label for="addUserField" class="col-md-3 form-label">User Department:</label>
+                        <div class="col-md-9">
+                            <select class="form-control" id="user_department" name="user_department" required>
+                                <option disabled selected hidden></option>
+                                <option value="ICT"> ICT </option>
+                            </select>
+                        </div>
+                    </div>
 
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+                    <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
+                    <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -63,7 +72,7 @@
             </div>
 
             <div class="modal-body">
-                <form action="editEmployee">
+                <form id="editEmployee" >
                     <input class="form-control" type="hidden" name="id" id="_id" value="">
                     <input class="form-control" type="hidden" name="trid" id="_trid" value="">
                     <div class="mb-3 row">
@@ -105,8 +114,20 @@
                     <?php }?>
                     <div class="mb-3 row">
                         <label for="editUserField" class="col-md-3 form-label">Password:</label>
+                        <div class="col-md-6">
+                            <input class="form-control" type="text" id="_user_password" name="user_password" readonly>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-danger"><i class="fas fa-undo"></i></button>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="editUserField" class="col-md-3 form-label">Department:</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="password" id="_user_password" name="user_password" readonly>
+                            <select class="form-control" id="_user_department" name="user_department" required>
+                                <option disabled selected hidden></option>
+                                <option value="ICT"> ICT </option>
+                            </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -119,15 +140,11 @@
                             </select>
                         </div>
                     </div>
-
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
-                    <input class="form-control" type="hidden" id="" value="<?php echo "id"//echo $_SESSION[''] ?>">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
-            </div>
-
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>

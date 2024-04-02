@@ -11,6 +11,7 @@ CREATE TABLE userstbl(
     user_password longtext NOT NULL,
     user_type varchar(20) NOT NULL,
     user_profile longtext NOT NULL,
+    user_department varchar (250) NOT NULL,
     user_status varchar(11) NOT NULL DEFAULT 'active'
 );
 
@@ -212,7 +213,7 @@ SELECT
     school_district AS "district",
     school_type AS "type",
     school_status AS "status"
-FROM schoolstbl WHERE school_type = 'Elementary' AND school_status = 'active';
+FROM schoolstbl WHERE school_type = 'ELEMENTARY SCHOOLS' AND school_status = 'active';
 
 --filesvw
 CREATE VIEW filesVW AS
@@ -275,7 +276,7 @@ SELECT
     school_district AS "district",
     school_type AS "type",
     school_status AS "status"
-FROM schoolstbl WHERE school_type = 'HighSchool'  AND school_shsAvailability = 'no' AND school_status = 'active';
+FROM schoolstbl WHERE school_type = 'JUNIOR HIGH SCHOOLS'  AND school_shsAvailability = 'no' AND school_status = 'active';
 
 --materialfilesvw
 CREATE VIEW materialfilesVW AS
@@ -351,7 +352,7 @@ SELECT
     school_district AS "district",
     school_type AS "type",
     school_status AS "status"
-FROM schoolstbl WHERE school_type = 'HighSchool' AND school_shsAvailability = 'yes' AND school_status = 'active';
+FROM schoolstbl WHERE school_type = 'JUNIOR HIGH SCHOOLS' AND school_shsAvailability = 'yes' AND school_status = 'active';
 
 --socialmediavw
 CREATE VIEW socialmediaVW AS
@@ -428,6 +429,7 @@ SELECT
     user_email AS "email",
     user_type AS "type",
     user_password AS "password",
+    user_department AS "department",
     user_status AS "status"
 FROM userstbl  WHERE user_status = 'active';
 

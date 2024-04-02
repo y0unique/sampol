@@ -71,21 +71,9 @@
 
     <!-- Nav Item - Schools Menu -->
     <li class="nav-item" id="schools">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSchools" aria-expanded="true" aria-controls="collapseSchools" id="acollapseSchools">
-            <i class="fas fa-school"></i>
-            <span>Schools</span>
-        </a>
-        <div id="collapseSchools" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Schools:</h6>
-                <a class="collapse-item" id="aschools" href="schools">All Schools</a>
-                <a class="collapse-item" id="aelementary" href="elementary">Elementary Schools</a>
-                <a class="collapse-item" id="ajhschool" href="jhschool">Junior High School</a>
-                <a class="collapse-item" id="ashschool" href="shschool">Senior High School</a>
-                <a class="collapse-item" id="aspedschool" href="spedschool">Special Education</a>
-            </div>
-        </div>
+    <a class="nav-link" href="schools">
+        <i class="fas fa-school"></i>
+        <span>Schools</span></a>
     </li>
 
     <!-- Divider -->
