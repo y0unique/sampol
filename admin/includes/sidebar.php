@@ -145,7 +145,7 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">BAC Files:</h6>
-                <a class="collapse-item" id="aBacfiles" href="#">All Bac Files</a>
+                <a class="collapse-item" id="aBacfiles" href="bac">All Bac Files</a>
                 <a class="collapse-item" id="ainvitationtobid" href="#">Invitation To Bid</a>
                 <a class="collapse-item" id="aprocurements" href="#">Procurement</a>
                 <a class="collapse-item" id="atransparencies" href="#">Transparencies</a>

@@ -111,6 +111,9 @@
                             <?php
                                 // Iterate through the issuance types array to generate tab content
                                 foreach ($schoolstype1 as $tabId => $tabInfo) {
+                                    
+
+                                echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $isActive = ($tabId === "elementary-school") ? "show active" : "";
                                     echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
                                     echo '<div class="capabilities-content border rounded p-4">';
@@ -132,7 +135,8 @@
                                     echo '<tbody>';
                                     $schools = "SELECT * FROM schoolsvw WHERE status = 'active' AND type = '" . $tabInfo[1] . "' ORDER BY district DESC";
                                     $schools1 = mysqli_query($con, $schools);
-                                    while($row = mysqli_fetch_array($schools1)){
+                                    if($tabId=='elementary-school' || $tabId=='junior-high-school'){
+                                        while($row = mysqli_fetch_array($schools1)){
                                         echo '<tr>';
                                         echo '<td>'.$row['district'].'</td>';
                                         echo '<td>'.$row['school_id'].'</td>';
@@ -141,6 +145,39 @@
                                         echo '<td>'.$row['principal'].'</td>';
                                         echo '<td>'.$row['contact'].'</td>';
                                         echo '<td>'.$row['email'].'</td>';
+                                        echo '</tr>';
+                                        }
+                                    }else if($tabId=='senior-high-school'){
+                                        $schools2 = "SELECT * FROM schoolsvw WHERE status = 'active' AND shs_availability = 'yes' ORDER BY district DESC";
+                                        $schools3 = mysqli_query($con, $schools2);
+                                        while($row = mysqli_fetch_array($schools3)){
+                                            echo '<tr>';
+                                            echo '<td>'.$row['district'].'</td>';
+                                            echo '<td>'.$row['school_id'].'</td>';
+                                            echo '<td>'.$row['name'].'</td>';
+                                            echo '<td>'.$row['address'].'</td>';
+                                            echo '<td>'.$row['principal'].'</td>';
+                                            echo '<td>'.$row['contact'].'</td>';
+                                            echo '<td>'.$row['email'].'</td>';
+                                            echo '</tr>';
+                                        }
+                                    }else if($tabId=='special-education'){
+                                        $schools2 = "SELECT * FROM schoolsvw WHERE status = 'active' AND sped_availability = 'yes' ORDER BY district DESC";
+                                        $schools3 = mysqli_query($con, $schools2);
+                                        while($row = mysqli_fetch_array($schools3)){
+                                            echo '<tr>';
+                                            echo '<td>'.$row['district'].'</td>';
+                                            echo '<td>'.$row['school_id'].'</td>';
+                                            echo '<td>'.$row['name'].'</td>';
+                                            echo '<td>'.$row['address'].'</td>';
+                                            echo '<td>'.$row['principal'].'</td>';
+                                            echo '<td>'.$row['contact'].'</td>';
+                                            echo '<td>'.$row['email'].'</td>';
+                                            echo '</tr>';
+                                        }
+                                    }else{
+                                        echo '<tr>';
+                                        echo '<td colspan="7">No data available</td>';
                                         echo '</tr>';
                                     }
                                     echo '</tbody>';

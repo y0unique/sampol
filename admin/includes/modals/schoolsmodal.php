@@ -73,8 +73,8 @@
                         <div class="col-md-4">
                             <select class="form-control" id="school_type" name="school_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="Elementary"> Elementary School </option>
-                                <option value="HighSchool"> High School </option>
+                                <option value="ELEMENTARY SCHOOLS"> Elementary School </option>
+                                <option value="JUNIOR HIGH SCHOOLS"> High School </option>
                             </select>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
             var selectedType = $(this).val();
 
             // Enable or disable school_shsAvailability based on the selected school type
-            if (selectedType === 'HighSchool') {
+            if (selectedType === 'JUNIOR HIGH SCHOOLS') {
                 $('#school_shsAvailability').prop('disabled', false);
             } else {
                 // If not HighSchool, disable and reset the value
@@ -213,8 +213,8 @@
                         <div class="col-md-4">
                             <select class="form-control" id="_school_type" name="school_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="Elementary"> Elementary School </option>
-                                <option value="HighSchool"> High School </option>
+                                <option value="ELEMENTARY SCHOOLS"> Elementary School </option>
+                                <option value="JUNIOR HIGH SCHOOLS"> High School </option>
                             </select>
                         </div>
                         
@@ -269,7 +269,7 @@
             var selectedType = $(this).val();
 
             // Enable or disable school_shsAvailability based on the selected school type
-            if (selectedType === 'HighSchool') {
+            if (selectedType === 'JUNIOR HIGH SCHOOLS') {
                 $('#_school_shsAvailability').prop('disabled', false);
             } else {
                 // If not HighSchool, disable, reset the value, and trigger change event

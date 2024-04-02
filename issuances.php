@@ -196,8 +196,6 @@
                             foreach ($pastissuances1 as $tabId => $tabInfo) {
                                 $iconClass = $tabInfo[0];
                                 $title = $tabInfo[1];
-
-                                echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                 $isActive = ($tabId === "past-2019") ? "active" : "";
                                 echo '<li class="nav-item mb-4 pt-2">';
                                 echo '<a class="nav-link ' . $isActive . '" id="' . $tabId . '-tab" data-toggle="pill" href="#' . $tabId . '" role="tab" aria-controls="' . $tabId . '" aria-selected="false">';
