@@ -448,3 +448,5 @@ SELECT
     bacfile_procurementMode AS "procurement_mode",
     bacfile_status AS "status"
 FROM bacfilestbl WHERE bacfile_status = 'active';
+
+ALTER TABLE tablename AUTO_INCREMENT = 1

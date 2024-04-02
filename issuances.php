@@ -119,7 +119,6 @@
                                 // Iterate through the issuance types array to generate tab content
                                 foreach ($issuancestype1 as $tabId => $tabInfo) {
                                     
-                                    echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $isActive = ($tabId === "numbered-memorandum") ? "show active" : "";
                                     echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
                                     echo '<div class="capabilities-content border rounded p-4">';
@@ -198,6 +197,7 @@
                                 $iconClass = $tabInfo[0];
                                 $title = $tabInfo[1];
 
+                                echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                 $isActive = ($tabId === "past-2019") ? "active" : "";
                                 echo '<li class="nav-item mb-4 pt-2">';
                                 echo '<a class="nav-link ' . $isActive . '" id="' . $tabId . '-tab" data-toggle="pill" href="#' . $tabId . '" role="tab" aria-controls="' . $tabId . '" aria-selected="false">';
@@ -227,8 +227,18 @@
                                 echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
                                 echo '<thead>';
                                 echo '<tr>';
-                                echo '<th>Column Header 1</th>';
-                                echo '<th>Column Header 2</th>';
+                                if($tabId=='past-2019' || $tabId=='past-2020'){
+                                    echo '<th style="display:none;">Date</th> ';
+                                    echo '<th style="display:none;">Tracking Number</th> ';
+                                    echo '<th style="display:none;">No.</th>  ';
+                                    echo '<th style="display:none;">Title</th>';
+                                }else{
+                                    echo '<th>Date</th> ';
+                                    echo '<th>Tracking Number</th> ';
+                                    echo '<th>No.</th>  ';
+                                    echo '<th>Title</th>';
+                                }
+                                echo '</tr>';
                                 // Add more headers as needed
                                 echo '</tr>';
                                 echo '</thead>';
@@ -239,9 +249,19 @@
                                 $issuances1 = mysqli_query($con, $issuances);
                                 while($row = mysqli_fetch_array($issuances1)){
                                     echo '<tr>';
-                                    echo '<td>' . $row['column1'] . '</td>'; 
-                                    echo '<td>' . $row['column2'] . '</td>'; 
+                                    echo '<td>' . $row['date'] . '</td>';
+                                    echo '<td>' . $row['tracking_number'] . '</td>';
+                                    echo '<td>' . $row['number'] . '</td>';
+                                    echo '<td><a class="text-primary" href="' . $row['link'] . '" target="_blank">' . $row['title'] . '</a></td>';
+                                    
                                     echo '</tr>';
+                                }
+                                if($tabId=='past-2019'){
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSp9NyIpsd60bSwcSGSR-XT7LTN8If-_Dpis23lBFSn5LJh4sIAPc4JV4bjL0Ue4kPrW65gqqEsuqgM/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>';
+                                }else if($tabId=='past-2020'){
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTG3yIf5CgEzqCfaWI78lIfi83s57gBxKp0DBSZV7ye1NVNU3iq_yLoJr2NFZUavzP8jyuvAbbOubUf/pubhtml?widget=true&amp;headers=false" style="width:100%; height:1000px; border: 2px solid black;"></iframe>';
+                                }else if($tabId=='past-2021'){
+                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&amp;headers=false" style="width:100%; height:500px; border: 2px solid black;"></iframe>';
                                 }
                                 echo '</tbody>';
                                 echo '</table>';
