@@ -17,8 +17,8 @@
                         <div class="col-md-9">
                             <select class="form-control" id="file_type" name="file_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="downloadables"> Downloadables </option>
-                                <option value="materials"> Materials </option>
+                                <option value="DOWNLOADABLES"> Downloadables </option>
+                                <option value="MATERIALS"> Materials </option>
                              </select>
                         </div>
                     </div>
@@ -135,8 +135,8 @@
                         <div class="col-md-9">
                             <select class="form-control" id="_file_type" name="file_type" required>
                                 <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="downloadables"> Downloadables </option>
-                                <option value="materials"> Materials </option>
+                                <option value="DOWNLOADABLES"> Downloadables </option>
+                                <option value="MATERIALS"> Materials </option>
                              </select>
                         </div>
                     </div>

@@ -66,8 +66,8 @@
                                             <th>ID</th>
                                             <th>Username</th>
                                             <th>Email</th>
-                                            <th>Department</th>
                                             <th>User Type</th>
+                                            <th>Department</th>
                                             <th>Profile</th>
                                             <th>Status</th>
                                         </tr>
@@ -123,7 +123,7 @@
       });
     } );
 
-    //add issuances
+    //add User
     $(document).on('submit','#addUserModal',function(e){
         e.preventDefault();
         var webID = $('#webID').val();
@@ -204,59 +204,146 @@
         e.preventDefault();;
         var webID = $('#webID').val();
         var webUsername = $('#webUsername').val();
-        var tracking_number = $('#_tracking_number').val();
-        var issuances_title= $('#_issuances_title').val();
-        var issuances_link= $('#_issuances_link').val();
-        var issuances_number= $('#_issuances_number').val();
-        var issuances_date= $('#_issuances_date').val();
-        var issuances_type= $('#_issuances_type').val();
+        var user_id = $('#_user_id').val();
+        var user_username= $('#_user_username').val();
+        var user_email= $('#_user_email').val();
+        var user_department= $('#_user_department').val();
+        var user_type= $('#_user_type').val();
+        var user_password= $('#_user_password').val();
+        var user_status= $('#_user_status').val();
         var id = $('#_id').val();
         var trid = $('#_trid').val();
-        if (tracking_number != '' && issuances_title != '' && issuances_link != '' && issuances_number != '' && issuances_date != '' && issuances_type != '') {
+        if (user_id != '' && user_username != '' && user_email != '' && user_department != '' && user_type != '' && user_password != '' && user_status != '') {
         $.ajax({
-            url: "includes/codes/issuancescode.php",
+            url: "includes/codes/userscode.php",
             type: "post",
             data: {
                 id:id,
                 webID:webID,
                 webUsername:webUsername,
-                tracking_number:tracking_number,
-                issuances_title:issuances_title,
-                issuances_link:issuances_link,
-                issuances_number:issuances_number,
-                issuances_date:issuances_date,
-                issuances_type:issuances_type,
+                user_id:user_id,
+                user_username:user_username,
+                user_email:user_email,
+                user_department:user_department,
+                user_type:user_type,
+                user_password:user_password,
+                user_status:user_status,
                 update: true
             },
             success: function(data) {
                 var json = JSON.parse(data);
-                var editIssuanceStatus = json.editIssuanceStatus;
-                if (editIssuanceStatus == 'true') {
-                    $('#issuancesTable').DataTable().destroy();
-                    mytable = $('#issuancesTable').DataTable({
-                        "fnCreatedRow": function(nRow, aData, iDataIndex) {
-                            $(nRow).attr('id', aData[0]);
+                var editUserStatus = json.editUserStatus;
+                if (editUserStatus == 'true') {
+                    $('#usersTable').DataTable().destroy();
+                    mytable = $('#usersTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('user_id', aData[0]);
                         },
-                        'serverSide': 'true',
-                        'processing': 'true',
-                        'paging': 'true',
-                        'order': [],
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
                         'ajax': {
-                            'url': 'includes/fetchdata/issuancesfetch.php',
-                            'type': 'post',
+                        'url':'includes/fetchdata/usersfetch.php',
+                        'type':'post',
                         },
                         "columnDefs": [{
-                            'target': [0, 6],
-                            'orderable': false
+                        'target':[0,5],
+                        'orderable' :false
                         }]
                     });
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
-                    $('#editIssuancesModal').modal('hide');
-                } else if(editIssuanceStatus == 'false'){
+                    $('#editUserModal').modal('hide');
+                } else if(editUserStatus == 'false'){
                     alertify.set('notifier','position', 'top-right');
-            	    alertify.error(json.message);
+            	    alertify.warning(json.message);
                 }else{
+                    alert('Error communicating with the database');
+                }
+            }
+        });
+        } else {
+            alert('Fill all the required fields');
+        }
+    });
+
+    //view user for delete modal
+    $('#usersTable').on('click', '.deleteuserBtn ', function(event) {
+        var table = $('#usersTable').DataTable();
+        var id = $(this).data('id');
+        var trid = $(this).closest('tr').attr('user_id');
+        $('#deleteUserModal').modal('show');
+
+        $.ajax({
+        url: "includes/codes/userscode.php",
+        data: {
+            id: id,
+            deleteview: true
+        },
+        type: 'post',
+        success: function(data) {
+            var json = JSON.parse(data);
+
+            $('#_user_id_').val(json.user_id);
+            $('#_user_username_').val(json.user_username);
+            $('#_status_').val(json.tracking_status);
+            $('#_id_').val(id);
+            $('#_trid_').val(trid);
+        }
+        })
+    });
+
+    //delete User
+    $(document).on('submit', '#deleteUser', function(e) {
+        e.preventDefault();
+        var webID = $('#webID').val();
+        var webUsername = $('#webUsername').val();
+        var user_id = $('#_user_id_').val();
+        var user_username = $('#_user_username_').val();
+        var status= $('#_status_').val();
+        var id = $('#_id_').val();
+        var trid = $('#_trid_').val();
+        if (user_id != '' && user_username != '') {
+        $.ajax({
+            url: "includes/codes/userscode.php",
+            type: "post",
+            data: {
+                id:id,
+                webID:webID,
+                webUsername:webUsername,
+                user_id:user_id,
+                user_username:user_username,
+                status:status,
+                delete: true
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                var deleteUserStatus = json.deleteUserStatus;
+                if (deleteUserStatus == 'true') {
+                    $('#usersTable').DataTable().destroy();
+                    mytable = $('#usersTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('user_id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/usersfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,5],
+                        'orderable' :false
+                        }]
+                    });
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.defaults.notifier.classes = 'custom-notifier';
+                    alertify.success(json.message);
+                    $('#deleteUserModal').modal('hide');
+                } else {
                     alert('Error communicating with the database');
                 }
             }

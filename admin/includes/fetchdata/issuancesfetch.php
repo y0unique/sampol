@@ -38,7 +38,7 @@ if(isset($_POST['order']))
 }
 else
 {
-	$sql .= " ORDER BY issuances_id desc";
+	$sql .= " ORDER BY issuances_status asc, issuances_id desc";
     
 }
 

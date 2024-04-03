@@ -337,3 +337,17 @@
     </body>
 
 </html>
+<style>
+/* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        margin: 0 auto;
+        overflow-x: scroll;
+    }
+ 
+    tr { height: 50px; }
+    /* table{ 
+        width: 100% !important;
+        table-layout: fixed;
+    } */
+</style>

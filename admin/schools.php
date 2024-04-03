@@ -80,126 +80,139 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Elementary -->
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Accordion -->
-                        <a href="#collapseElementary" class="d-block card-header py-3" data-toggle="collapse"
-                            role="button" aria-expanded="true" aria-controls="collapseElementary">
-                            <h6 class="m-0 font-weight-bold text-primary">Elementary Schools</h6>
-                        </a>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse" id="collapseElementary">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped display compact text-gray-900" id="elemschoolTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>School ID</th>
-                                                <th>Disctrict</th>
-                                                <th>School</th> 
-                                                <th>Address</th>
-                                                <th>Principal</th>
-                                                <th>Contact</th>
-                                                <th>Link</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+
+
+                    <!-- Schools list -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Elementary -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseElementary" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseElementary">
+                                    <h6 class="m-0 font-weight-bold text-primary">Elementary Schools</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseElementary">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="elemschoolTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>School ID</th>
+                                                        <th>Disctrict</th>
+                                                        <th>School</th> 
+                                                        <th>Address</th>
+                                                        <th>Principal</th>
+                                                        <th>Contact</th>
+                                                        <th>Link</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Junior High School -->
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Accordion -->
-                        <a href="#collapseJHS" class="d-block card-header py-3" data-toggle="collapse"
-                            role="button" aria-expanded="true" aria-controls="collapseJHS">
-                            <h6 class="m-0 font-weight-bold text-primary">Junior High Schools</h6>
-                        </a>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse" id="collapseJHS">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped display compact text-gray-900" id="jhschoolTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>School ID</th>
-                                                <th>Disctrict</th>
-                                                <th>School</th> 
-                                                <th>Address</th>
-                                                <th>Principal</th>
-                                                <th>Contact</th>
-                                                <th>Link</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <div class="col-lg-6">
+                            <!-- Junior High School -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseJHS" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseJHS">
+                                    <h6 class="m-0 font-weight-bold text-primary">Junior High Schools</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseJHS">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="jhschoolTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>School ID</th>
+                                                        <th>Disctrict</th>
+                                                        <th>School</th> 
+                                                        <th>Address</th>
+                                                        <th>Principal</th>
+                                                        <th>Contact</th>
+                                                        <th>Link</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Senior High School -->
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Accordion -->
-                        <a href="#collapseSHS" class="d-block card-header py-3" data-toggle="collapse"
-                            role="button" aria-expanded="true" aria-controls="collapseSHS">
-                            <h6 class="m-0 font-weight-bold text-primary">Senior High Schools</h6>
-                        </a>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse" id="collapseSHS">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped display compact text-gray-900" id="shschoolTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>School ID</th>
-                                                <th>Disctrict</th>
-                                                <th>School</th> 
-                                                <th>Address</th>
-                                                <th>Principal</th>
-                                                <th>Contact</th>
-                                                <th>Link</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <div class="col-lg-6">
+                            <!-- Senior High School -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseSHS" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseSHS">
+                                    <h6 class="m-0 font-weight-bold text-primary">Senior High Schools</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseSHS">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="shschoolTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>School ID</th>
+                                                        <th>Disctrict</th>
+                                                        <th>School</th> 
+                                                        <th>Address</th>
+                                                        <th>Principal</th>
+                                                        <th>Contact</th>
+                                                        <th>Link</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Special Education -->
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Accordion -->
-                        <a href="#collapseSpecialEducation" class="d-block card-header py-3" data-toggle="collapse"
-                            role="button" aria-expanded="true" aria-controls="collapseSpecialEducation">
-                            <h6 class="m-0 font-weight-bold text-primary">Special Education Centers</h6>
-                        </a>
-                        <!-- Card Content - Collapse -->
-                        <div class="collapse" id="collapseSpecialEducation">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped display compact text-gray-900" id="spedschoolTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>School ID</th>
-                                                <th>Disctrict</th>
-                                                <th>School</th> 
-                                                <th>Address</th>
-                                                <th>Principal</th>
-                                                <th>Contact</th>
-                                                <th>Link</th>
-                                                <th>Email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                        <div class="col-lg-6">
+                            <!-- Special Education -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseSpecialEducation" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseSpecialEducation">
+                                    <h6 class="m-0 font-weight-bold text-primary">Special Education Centers</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseSpecialEducation">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="spedschoolTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>School ID</th>
+                                                        <th>Disctrict</th>
+                                                        <th>School</th> 
+                                                        <th>Address</th>
+                                                        <th>Principal</th>
+                                                        <th>Contact</th>
+                                                        <th>Link</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -414,71 +427,75 @@
                             'target': [0, 6],
                             'orderable': false
                         }]
-                    });$('#elemschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/elemschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });$('#jhschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/jhschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });$('#shschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/shschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });$('#spedschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/spedschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });
+                    });
+                    $('#elemschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/elemschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#jhschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/jhschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#shschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/shschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#spedschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/spedschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
                     $('#editSchoolModal').modal('hide');
@@ -546,6 +563,10 @@
                 var deleteSchoolStatus = json.deleteSchoolStatus;
                 if (deleteSchoolStatus == 'true') {
                     $('#schoolTable').DataTable().destroy();
+                    $('#elemschoolTable').DataTable().destroy();
+                    $('#jhschoolTable').DataTable().destroy();
+                    $('#shschoolTable').DataTable().destroy();
+                    $('#spedschoolTable').DataTable().destroy();
                     mytable = $('#schoolTable').DataTable({
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
                             $(nRow).attr('id', aData[0]);
@@ -563,6 +584,76 @@
                             'orderable': false
                         }]
                     });
+                    $('#elemschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/elemschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#jhschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/jhschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#shschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/shschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    $('#spedschoolTable').DataTable({
+                        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+                        $(nRow).attr('id', aData[0]);
+                        },
+                        'serverSide':'true',
+                        'processing':'true',
+                        'paging':'true',
+                        'order':[],
+                        'ajax': {
+                        'url':'includes/fetchdata/spedschoolfetch.php',
+                        'type':'post',
+                        },
+                        "columnDefs": [{
+                        'target':[0,7],
+                        'orderable' :false
+                        }]
+                    });
+                    
+                    
                     alertify.set('notifier','position', 'top-right');
                     alertify.defaults.notifier.classes = 'custom-notifier';
                     alertify.success(json.message);

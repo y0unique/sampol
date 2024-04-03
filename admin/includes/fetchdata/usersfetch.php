@@ -37,7 +37,7 @@ if(isset($_POST['order']))
 }
 else
 {
-	$sql .= " ORDER BY user_id  asc";
+	$sql .= " ORDER BY user_status asc, user_id asc";
     
 }
 
@@ -56,7 +56,7 @@ while($row = mysqli_fetch_assoc($query))
 {
 	$sub_array = array();
 	$sub_array[] = '<a href="javascript:void();" data-id="'.$row['user_id'].'" class="btn btn-info btn-sm edituserbtn" ><i class="fas fa-edit"></i></a>  
-					<a href="javascript:void();" data-id="'.$row['user_id'].'" class="btn btn-danger btn-sm deleteBtn_issuances" ><i class="fas fa-trash"></i></a>';
+					<a href="javascript:void();" data-id="'.$row['user_id'].'" class="btn btn-danger btn-sm deleteuserBtn" ><i class="fas fa-trash"></i></a>';
 	$sub_array[] = $row['user_id'];
 	$sub_array[] = $row['user_username'];
 	$sub_array[] = $row['user_email'];
