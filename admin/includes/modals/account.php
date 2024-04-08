@@ -104,21 +104,21 @@
                     <div class="mb-3 row">
                         <label for="UserField" class="col-md-3 form-label">Current Password:</label>
                         <div class="col">
-                            <input class="form-control" type="text" id="userpassword" name="userpassword">
+                            <input class="form-control" type="text" id="currpassword" name="currpassword">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="UserField" class="col-md-3 form-label">New Password:</label>
                         <div class="col">
-                            <input class="form-control" type="text" id="userpassword" name="userpassword">
+                            <input class="form-control" type="text" id="newuserpassword" name="newuserpassword">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="UserField" class="col-md-3 form-label">Retype New Password:</label>
                         <div class="col">
-                            <input class="form-control" type="text" id="userpassword" name="userpassword">
+                            <input class="form-control" type="text" id="reuserpassword" name="reuserpassword">
                         </div>
                     </div>
 
@@ -185,7 +185,10 @@
         var user_id = $('#userid').val();
         var user_username= $('#username').val();
         var user_email= $('#useremail').val();
-        var user_password= $('#userpassword').val();
+        var currpassword= $('#currpassword').val();
+        var newuserpassword= $('#newuserpassword').val();
+        var reuserpassword= $('#reuserpassword').val();
+
         var id = $('#_id').val();
         var trid = $('#_trid').val();
         if (user_id != '' && user_username != '' && user_email != '' && user_password != '') {
