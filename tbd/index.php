@@ -1221,3 +1221,6 @@
     </body>
 
 </html>
+
+// Remove readonly attribute from all input fields
+            $('#accountInfo input').removeAttr('readonly');

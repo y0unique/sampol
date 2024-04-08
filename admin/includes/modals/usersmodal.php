@@ -102,7 +102,6 @@
                         <label for="addUserField" class="col-md-3 form-label">User Type:</label>
                         <div class="col-md-9">
                             <select class="form-control" id="_user_type" name="user_type" required>
-                                <option disabled selected hidden></option>
                                 <option value="trainee"> Trainee </option>
                                 <option value="admin"> Admin </option>
                                 <option value="superadmin"> Super Admin </option>
