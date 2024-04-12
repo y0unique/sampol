@@ -90,14 +90,14 @@
                     <div class="mb-3 row">
                         <label for="UserField" class="col-md-3 form-label">Username:</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="text" id="username" name="username">
+                            <input class="form-control" type="text" id="username" name="username" required>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <label for="UserField" class="col-md-3 form-label">Email:</label>
                         <div class="col-md-9">
-                            <input class="form-control" type="email" id="useremail" name="useremail">
+                            <input class="form-control" type="email" id="useremail" name="useremail" required>
                         </div>
                     </div>
 
@@ -272,7 +272,11 @@
                     
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
-                    $('#editUserModal').modal('hide');
+                    //alertify message warning "you will be locked out in 10 seconds" with a timer
+                    alertify.warning('You will be logged out in 5 seconds');
+                    setTimeout(function(){ location.href = "database/logoutcode.php" }, 5000);
+                    $("#editUserModal").modal("hide"); 
+
                 } else if(updateAccount == 'false'){
                     alertify.set('notifier','position', 'top-right');
             	    alertify.warning(json.message);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 10:27 AM
+-- Generation Time: Apr 01, 2024 at 10:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -188,15 +188,14 @@ CREATE TABLE `filestbl` (
 --
 
 INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_department`, `file_status`) VALUES
-(1, 'DOWNLOADABLES', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2024-04-02 10:07:15', NULL, 'active'),
+(1, 'DOWNLOADABLES', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, 'active'),
 (2, 'DOWNLOADABLES', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, 'active'),
 (3, 'DOWNLOADABLES', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, 'active'),
 (4, 'DOWNLOADABLES', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, 'active'),
 (5, 'DOWNLOADABLES', 'Statement of Assets, Liabilities and Networth (SALN)', 'drive.google.com', '2023-06-13 14:17:53', NULL, 'active'),
 (6, 'DOWNLOADABLES', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, 'active'),
 (7, 'DOWNLOADABLES', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, 'active'),
-(8, 'MATERIALS', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-04-01 11:25:12', 'budget', 'active'),
-(9, 'downloadable', '123', '123', '2024-04-02 10:01:32', NULL, 'active');
+(8, 'MATERIALS', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-04-01 11:25:12', 'budget', 'active');
 
 -- --------------------------------------------------------
 
@@ -3846,10 +3845,9 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3807, '2024-2-13-10303', 'LIKNAYAN 2024', ' http://depedmanila.net:5000/d/s/xKAMq419oOTdiahfPeKBBgpyyt8dM6LB/-pyEeymDBTAbqAQvbUj3SoDM7e0DKDie-or7gn28nJQs', '65', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
 (3808, '2024-2-19-10553', 'VENUE FOR THE WORKSHOP-TRAINING ON ISSUANCE OF SPECIAL ORDER SYSTEM (ISO SYS) FOR PRIVATE SCHOOLS (WISP)', ' http://depedmanila.net:5000/d/s/xKozbTeHoA32tgcdUufhCgXQVhqej7OJ/zgMHRlUNxkhU6ZMQrTTw4ht3DotYc_qW-u79A8KOpJQs', '66', '2024-02-20', 'DIVISION ADVISORIES', 'active'),
 (3809, '2024-2-8-10142', 'CONDUCT INNER AND SOCIAL TRANSFORMATION THROUGH RECOLLECTION GIVING TO GRADUATING GRADE 6 LEARNERS', ' http://depedmanila.net:5000/d/s/xKtm1Qo4CQjYON9CcVVcFsxKGt9fNeON/cebGap1_kKkZDc1UaaZqUFgr6AGWtTPV-urcghwu5JQs', '6', '2024-02-20', 'DIVISION CIRCULARS', 'active'),
-(3810, '2024-2-19-10548', 'ADDENDUM TO DIVISION MEMORANDUM NO. 39, S. 2024 TRAINING WORKSHOP ON RIGHTSKILLING OF SCHOOL LEADERS OF SDO MANILA GEARING TOWARD THE ACHIEVEMENT OF THE MATATAG AGENDA AND PROFESSIONAL EXCELLENCE', ' http://depedmanila.net:5000/d/s/xKu0r1cKEzxkXb3QRT3xJUVjGdWHu6aw/izrVME5b8zMZQORvOyK_-gQ7cACucE4V-ZrjARsi5JQs', '21', '2024-02-20', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3811, '2024-2-19-1055112', 'MONTHLY PROFESSIONAL MEETING OF TEACHER-IN-CHARGE OF PHYSICAL EDUCATION AND SCHOOL SPORTS (TCPESS)s', ' http://depedmanila.net:5000/d/s/xKuBec4yNjZJhWxCcr7PRAMNgZbVXAaB/wo7CaSY9Ds2tUIEji20ym2Z4DfSKs7A3-1rjgZUO6JQs', '22', '2024-02-20', 'DIVISION CIRCULARS', 'active'),
-(3812, '123123', '123', ' 123', '123', '2024-04-03', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'inactive'),
-(3813, 'asds', '123', ' 123', '123', '2024-04-06', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'inactive');
+(3810, '2024-2-19-10548', 'ADDENDUM TO DIVISION MEMORANDUM NO. 39, S. 2024 TRAINING WORKSHOP ON RIGHTSKILLING OF SCHOOL LEADERS OF SDO MANILA GEARING TOWARD THE ACHIEVEMENT OF THE MATATAG AGENDA AND PROFESSIONAL EXCELLENCE', ' http://depedmanila.net:5000/d/s/xKu0r1cKEzxkXb3QRT3xJUVjGdWHu6aw/izrVME5b8zMZQORvOyK_-gQ7cACucE4V-ZrjARsi5JQs', '21', '2024-02-20', 'UNNUMBERED MEMORANDUM', 'active'),
+(3811, '2024-2-19-1055112', 'MONTHLY PROFESSIONAL MEETING OF TEACHER-IN-CHARGE OF PHYSICAL EDUCATION AND SCHOOL SPORTS (TCPESS)s', ' http://depedmanila.net:5000/d/s/xKuBec4yNjZJhWxCcr7PRAMNgZbVXAaB/wo7CaSY9Ds2tUIEji20ym2Z4DfSKs7A3-1rjgZUO6JQs', '22', '2024-02-20', 'UNNUMBERED MEMORANDUM', 'active'),
+(3812, '123123', '123', ' 123', '123', '2024-04-03', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active');
 
 -- --------------------------------------------------------
 
@@ -3979,28 +3977,6 @@ CREATE TABLE `schoolstbl` (
   `school_spedAvailablity` varchar(11) NOT NULL,
   `school_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `schoolstbl`
---
-
-INSERT INTO `schoolstbl` (`schooltbl_id`, `school_id`, `school_name`, `school_address`, `school_principal`, `school_contact`, `school_link`, `school_email`, `school_district`, `school_type`, `school_shsAvailability`, `school_spedAvailablity`, `school_status`) VALUES
-(1, '123123', 'NAME', 'Address', 'Principal', '123', 'link', '@@@', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive'),
-(2, '123', '213', '213', '213', '213', '213', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'yes', 'inactive'),
-(3, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive'),
-(4, '123123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'yes', 'inactive'),
-(5, '123', '213', '123', '123', '213', '123', '213', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(6, '123123', '123', '123', '123', '123', '123', '123', '2', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
-(7, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
-(8, '123123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
-(9, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
-(10, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(11, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
-(12, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'inactive'),
-(13, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'yes', 'inactive'),
-(14, '123', '123', '123', '123', '123', '123', '123', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(15, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(16, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -4184,271 +4160,25 @@ INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_t
 (22, 3, 'Added Issuance Category CITY MEMORANDUM  / EXECUTIVE ORDER', '2024-04-01', '15:39:25', 'inactive'),
 (23, 3, 'Added Issuance 123123', '2024-04-01', '15:39:35', 'inactive'),
 (24, 3, 'Deleted Issuance Category CITY MEMORANDUM', '2024-04-01', '15:41:30', 'inactive'),
-(25, 3, 'Cleared all time logs', '2024-04-01', '15:51:19', 'inactive'),
-(26, 3, 'Edited Issuance 123123', '2024-04-01', '15:55:46', 'inactive'),
-(27, 3, 'ict jon Logged Out', '2024-04-01', '15:55:52', 'inactive'),
-(28, 4, 'ict kev Logged In', '2024-04-01', '15:55:58', 'inactive'),
-(29, 4, 'Edited Issuance 123123', '2024-04-01', '15:56:05', 'inactive'),
-(30, 4, 'ict kev Logged Out', '2024-04-01', '15:56:42', 'inactive'),
-(31, 3, 'ICT JON Logged In', '2024-04-01', '15:59:32', 'inactive'),
-(32, 3, 'ict jon Logged Out', '2024-04-01', '16:00:14', 'inactive'),
-(33, 3, 'ict jon Logged In', '2024-04-01', '16:00:54', 'inactive'),
-(34, 3, 'Deleted Issuance Category DIVISION ADVISORIES', '2024-04-01', '16:08:34', 'inactive'),
-(35, 3, 'Edited Issuance 123123', '2024-04-01', '16:14:14', 'inactive'),
-(36, 3, 'Edited Issuance 123123', '2024-04-01', '16:14:19', 'inactive'),
-(37, 3, 'Edited Issuance ICT-CM001', '2024-04-01', '16:14:40', 'inactive'),
-(38, 3, 'Edited Issuance ICT-CM004', '2024-04-01', '16:14:49', 'inactive'),
-(39, 3, 'Edited Issuance ICT-CM003', '2024-04-01', '16:14:54', 'inactive'),
-(40, 3, 'Edited Issuance ICT-CM002', '2024-04-01', '16:14:59', 'inactive'),
-(41, 3, 'Edited Issuance 123123', '2024-04-01', '16:16:32', 'inactive'),
-(42, 3, 'Edited Issuance 123123', '2024-04-01', '16:17:00', 'inactive'),
-(43, 3, 'Edited Issuance 123123', '2024-04-01', '16:17:17', 'inactive'),
-(44, 3, 'Added downloadable File 123', '2024-04-02', '10:01:32', 'inactive'),
-(45, 3, 'Edited downloadable file: Personal Data Sheet (CSC Form 212)', '2024-04-02', '10:07:15', 'inactive'),
-(46, 3, 'Added School 123123', '2024-04-02', '10:10:26', 'inactive'),
-(47, 3, 'Edited School, id: 1', '2024-04-02', '10:11:02', 'inactive'),
-(48, 3, 'Added School 123', '2024-04-02', '10:13:26', 'inactive'),
-(49, 3, 'Edited School, id: 2', '2024-04-02', '10:13:48', 'inactive'),
-(50, 3, 'Edited School, id: 2', '2024-04-02', '10:14:07', 'inactive'),
-(51, 3, 'Edited School, id: 1', '2024-04-02', '10:14:40', 'inactive'),
-(52, 3, 'Edited School, id: 2', '2024-04-02', '10:14:43', 'inactive'),
-(53, 3, 'Edited School, id: 2', '2024-04-02', '10:15:46', 'inactive'),
-(54, 3, 'Edited School, id: 2', '2024-04-02', '10:49:33', 'inactive'),
-(55, 3, 'Edited School, id: 2', '2024-04-02', '10:51:11', 'inactive'),
-(56, 3, 'Edited School, id: 1', '2024-04-02', '10:51:14', 'inactive'),
-(57, 3, 'Edited School, id: 2', '2024-04-02', '10:51:22', 'inactive'),
-(58, 3, 'Edited School, id: 1', '2024-04-02', '11:05:32', 'inactive'),
-(59, 3, 'Added School 123', '2024-04-02', '11:07:59', 'inactive'),
-(60, 3, 'Added School 123123', '2024-04-02', '11:22:46', 'inactive'),
-(61, 3, 'Added School 123', '2024-04-02', '11:25:03', 'inactive'),
-(62, 3, 'Added School 123123', '2024-04-02', '11:29:42', 'inactive'),
-(63, 3, 'Edited School, id: 6', '2024-04-02', '11:31:01', 'inactive'),
-(64, 3, 'Added School 123', '2024-04-02', '11:32:41', 'inactive'),
-(65, 3, 'Added School 123123', '2024-04-02', '11:33:54', 'inactive'),
-(66, 3, 'Added School 123', '2024-04-02', '11:34:33', 'inactive'),
-(67, 3, 'Edited School, id: 5', '2024-04-02', '11:36:34', 'inactive'),
-(68, 3, 'Edited School, id: 9', '2024-04-02', '11:36:42', 'inactive'),
-(69, 3, 'Edited School, id: 8', '2024-04-02', '11:37:02', 'inactive'),
-(70, 3, 'Edited School, id: 7', '2024-04-02', '11:37:16', 'inactive'),
-(71, 3, 'Edited School, id: 9', '2024-04-02', '11:37:25', 'inactive'),
-(72, 3, 'Edited School, id: 5', '2024-04-02', '11:37:31', 'inactive'),
-(73, 3, 'Deleted School, id: 123123', '2024-04-02', '11:39:15', 'inactive'),
-(74, 3, 'Deleted School, id: 123', '2024-04-02', '11:39:17', 'inactive'),
-(75, 3, 'Deleted School, id: 123', '2024-04-02', '11:39:19', 'inactive'),
-(76, 3, 'Deleted School, id: 123123', '2024-04-02', '11:39:21', 'inactive'),
-(77, 3, 'Deleted School, id: 123', '2024-04-02', '11:39:23', 'inactive'),
-(78, 3, 'Deleted School, id: 123123', '2024-04-02', '11:39:26', 'inactive'),
-(79, 3, 'Deleted School, id: 123', '2024-04-02', '11:39:28', 'inactive'),
-(80, 3, 'Deleted School, id: 123123', '2024-04-02', '11:39:30', 'inactive'),
-(81, 3, 'Deleted School, id: 123', '2024-04-02', '11:39:31', 'inactive'),
-(82, 3, 'Added School 123', '2024-04-02', '11:43:54', 'inactive'),
-(83, 3, 'Added School 123', '2024-04-02', '11:44:04', 'inactive'),
-(84, 3, 'Added School 123', '2024-04-02', '11:44:22', 'inactive'),
-(85, 3, 'Added School 123', '2024-04-02', '11:44:40', 'inactive'),
-(86, 3, 'Edited School, id: 10', '2024-04-02', '11:47:23', 'inactive'),
-(87, 3, 'Edited School, id: 10', '2024-04-02', '11:47:27', 'inactive'),
-(88, 3, 'Edited School, id: 10', '2024-04-02', '11:47:32', 'inactive'),
-(89, 3, 'Edited School, id: 10', '2024-04-02', '11:47:37', 'inactive'),
-(90, 3, 'Edited School, id: 10', '2024-04-02', '11:49:30', 'inactive'),
-(91, 3, 'Edited School, id: 13', '2024-04-02', '11:49:33', 'inactive'),
-(92, 3, 'Edited School, id: 10', '2024-04-02', '11:49:43', 'inactive'),
-(93, 3, 'Edited School, id: 10', '2024-04-02', '11:54:42', 'inactive'),
-(94, 3, 'Edited School, id: 10', '2024-04-02', '11:54:48', 'inactive'),
-(95, 3, 'Edited School, id: 10', '2024-04-02', '12:56:13', 'inactive'),
-(96, 3, 'Edited School, id: 10', '2024-04-02', '12:56:18', 'inactive'),
-(97, 3, 'ict jon Logged Out', '2024-04-02', '13:13:05', 'inactive'),
-(98, 3, 'ict jon Logged In', '2024-04-02', '13:13:10', 'inactive'),
-(100, 3, 'Added User ict michael', '2024-04-02', '13:47:51', 'inactive'),
-(101, 3, 'Added User test', '2024-04-02', '13:48:16', 'inactive'),
-(102, 3, 'Added User test', '2024-04-02', '13:48:50', 'inactive'),
-(103, 3, 'Added User test', '2024-04-02', '13:48:53', 'inactive'),
-(104, 3, 'Added Issuance asds', '2024-04-02', '13:49:10', 'inactive'),
-(105, 3, 'Added User test', '2024-04-02', '13:51:07', 'inactive'),
-(106, 3, 'Added User test', '2024-04-02', '13:53:29', 'inactive'),
-(107, 3, 'Added User geng', '2024-04-02', '13:53:34', 'inactive'),
-(108, 3, 'ict jon Logged Out', '2024-04-02', '13:56:31', 'inactive'),
-(109, 18, 'geng Logged In', '2024-04-02', '13:56:37', 'inactive'),
-(110, 18, 'geng Logged Out', '2024-04-02', '13:56:45', 'inactive'),
-(111, 3, 'ict jon Logged In', '2024-04-02', '13:56:59', 'inactive'),
-(112, 3, 'Added User ictsitio', '2024-04-02', '13:59:20', 'inactive'),
-(113, 3, 'Added User test', '2024-04-02', '14:28:17', 'inactive'),
-(114, 3, 'Added User test', '2024-04-02', '14:28:40', 'inactive'),
-(115, 3, 'Added User test', '2024-04-02', '14:29:06', 'inactive'),
-(116, 3, 'Added User test', '2024-04-02', '14:32:18', 'inactive'),
-(117, 3, 'Added User test', '2024-04-02', '14:35:14', 'inactive'),
-(118, 3, 'Added User geng', '2024-04-02', '15:14:56', 'inactive'),
-(119, 3, 'Cleared all time logs', '2024-04-02', '15:21:38', 'inactive'),
-(120, 3, 'ict jon Logged In', '2024-04-02', '16:09:30', 'inactive'),
-(121, 3, 'Added User ict michael1', '2024-04-02', '16:42:37', 'inactive'),
-(122, 3, 'Added User 213', '2024-04-02', '16:48:24', 'inactive'),
-(123, 3, 'Cleared all time logs', '2024-04-02', '16:59:11', 'inactive'),
-(124, 3, 'Deleted Issuance asds', '2024-04-02', '16:59:54', 'inactive'),
-(125, 3, 'Deleted Issuance 123123', '2024-04-02', '16:59:57', 'inactive'),
-(126, 3, 'Deleted School, id: 123', '2024-04-03', '09:49:40', 'inactive'),
-(127, 3, 'Deleted School, id: 123', '2024-04-03', '09:49:42', 'inactive'),
-(128, 3, 'Deleted School, id: 123', '2024-04-03', '09:49:44', 'inactive'),
-(129, 3, 'Deleted School, id: 123', '2024-04-03', '09:49:46', 'inactive'),
-(130, 3, 'Added School 123', '2024-04-03', '09:50:12', 'inactive'),
-(131, 3, 'Edited User: 1', '2024-04-03', '10:05:37', 'inactive'),
-(132, 3, 'Edited User: 1', '2024-04-03', '10:06:43', 'inactive'),
-(133, 3, 'Edited User: 1', '2024-04-03', '10:06:53', 'inactive'),
-(134, 3, 'Edited User: ict michaels', '2024-04-03', '10:07:45', 'inactive'),
-(135, 3, 'Edited User: ict michael', '2024-04-03', '10:07:56', 'inactive'),
-(136, 3, 'Edited User: ict michael', '2024-04-03', '10:08:38', 'inactive'),
-(137, 3, 'Edited User: ict marlon', '2024-04-03', '10:09:37', 'inactive'),
-(138, 3, 'Edited User: ict michaels', '2024-04-03', '10:16:28', 'inactive'),
-(139, 3, 'Edited User: ict michaels', '2024-04-03', '10:16:32', 'inactive'),
-(140, 3, 'Edited User: ict michael', '2024-04-03', '10:16:42', 'inactive'),
-(141, 3, 'Edited User: ict marlon', '2024-04-03', '10:16:47', 'inactive'),
-(142, 3, 'Edited User: \'ict marlon', '2024-04-03', '10:16:53', 'inactive'),
-(143, 3, 'Edited User: \'ict marlon', '2024-04-03', '10:16:58', 'inactive'),
-(144, 3, 'Edited User: ict marlon', '2024-04-03', '10:17:10', 'inactive'),
-(145, 3, 'Edited User: \'ict marlon', '2024-04-03', '10:17:14', 'inactive'),
-(146, 3, 'Edited User: \\ict marlon', '2024-04-03', '10:17:19', 'inactive'),
-(147, 3, 'Edited User: ict marlon', '2024-04-03', '10:17:22', 'inactive'),
-(148, 3, 'Edited User: sdomanilaq1', '2024-04-03', '10:19:17', 'inactive'),
-(149, 3, 'Edited User: sdomanilaq1', '2024-04-03', '10:19:26', 'inactive'),
-(150, 3, 'Edited User: sdomanilaq1', '2024-04-03', '10:19:35', 'inactive'),
-(151, 3, 'Edited User: sdomanilaq1', '2024-04-03', '10:20:13', 'inactive'),
-(152, 3, 'Edited User: ict aj', '2024-04-03', '10:20:47', 'inactive'),
-(153, 3, 'Edited User: ict aj', '2024-04-03', '10:21:03', 'inactive'),
-(154, 3, 'ict jon Logged Out', '2024-04-03', '10:21:09', 'inactive'),
-(155, 5, 'ict aj Logged In', '2024-04-03', '10:21:16', 'inactive'),
-(156, 5, 'ict aj Logged Out', '2024-04-03', '10:21:21', 'inactive'),
-(157, 3, 'ict jon Logged In', '2024-04-03', '10:21:27', 'inactive'),
-(158, 3, 'Edited User: ict jon', '2024-04-03', '10:21:45', 'inactive'),
-(159, 3, 'Edited User: ict jon', '2024-04-03', '10:21:57', 'inactive'),
-(160, 3, 'ict jon Logged In', '2024-04-03', '10:23:05', 'inactive'),
-(161, 3, 'ict jon Logged Out', '2024-04-03', '10:23:35', 'inactive'),
-(162, 3, 'Deleted User, User ID: 13', '2024-04-03', '10:38:20', 'inactive'),
-(163, 3, 'Deleted User, User ID: 12', '2024-04-03', '10:38:23', 'inactive'),
-(164, 3, 'Deleted User, User ID: 11', '2024-04-03', '10:38:33', 'inactive'),
-(165, 3, 'Deleted User, User ID: 5', '2024-04-03', '10:39:10', 'inactive'),
-(166, 3, 'Edited User: ict aj', '2024-04-03', '10:39:18', 'inactive'),
-(167, 3, 'Edited User: ict trainee', '2024-04-03', '10:39:22', 'inactive'),
-(168, 3, 'Edited User: geng', '2024-04-03', '10:39:25', 'inactive'),
-(169, 3, 'Edited User: geng', '2024-04-03', '10:39:29', 'inactive'),
-(170, 3, 'Edited User: 213', '2024-04-03', '10:39:32', 'inactive'),
-(171, 3, 'Edited User: ict test', '2024-04-03', '10:39:45', 'inactive'),
-(172, 3, 'Edited User: ict test', '2024-04-03', '10:39:51', 'inactive'),
-(173, 3, 'Edited User: ict test', '2024-04-03', '10:39:59', 'inactive'),
-(174, 3, 'Deleted User, User ID: 1', '2024-04-03', '10:45:41', 'inactive'),
-(175, 3, 'Edited User: ict michael', '2024-04-03', '10:46:11', 'inactive'),
-(176, 3, 'Edited User: ict michael\'', '2024-04-03', '10:46:16', 'inactive'),
-(177, 3, 'Edited User: ict michael', '2024-04-03', '10:46:29', 'inactive'),
-(178, 3, 'Edited User: ict michael', '2024-04-03', '10:46:40', 'inactive'),
-(179, 3, 'Edited User: ict michael', '2024-04-03', '10:46:55', 'inactive'),
-(180, 3, 'Edited User: ict michael', '2024-04-03', '10:53:32', 'inactive'),
-(181, 3, 'Deleted User, User ID: 1', '2024-04-03', '10:53:36', 'inactive'),
-(182, 3, 'Edited User: ict michael', '2024-04-03', '10:53:40', 'inactive'),
-(183, 3, 'Edited User: ict michaels', '2024-04-03', '10:53:43', 'inactive'),
-(184, 3, 'Edited User: ict micheal', '2024-04-03', '10:53:57', 'inactive'),
-(185, 3, 'Cleared all time logs', '2024-04-03', '10:55:05', 'inactive'),
-(186, 3, 'Deleted School, id: 123', '2024-04-03', '11:08:19', 'inactive'),
-(187, 3, 'Added School 123', '2024-04-03', '11:10:40', 'inactive'),
-(188, 3, 'Deleted School, id: 123', '2024-04-03', '11:10:43', 'inactive'),
-(189, 3, 'Deleted School, id: 123123', '2024-04-03', '11:12:39', 'inactive'),
-(190, 3, 'Deleted School, id: 123', '2024-04-03', '11:13:24', 'inactive'),
-(191, 3, 'ict jon Logged Out', '2024-04-03', '13:08:01', 'inactive'),
-(192, 3, 'ict jon Logged In', '2024-04-03', '13:08:06', 'inactive'),
-(193, 3, 'Added User test1234', '2024-04-03', '14:39:25', 'inactive'),
-(194, 3, 'Added User ict michael', '2024-04-03', '14:40:05', 'inactive'),
-(195, 3, 'ict jon Logged Out', '2024-04-03', '14:43:06', 'inactive'),
-(196, 3, 'ict jon Logged In', '2024-04-03', '14:43:10', 'inactive'),
-(197, 3, 'ict jon Logged Out', '2024-04-03', '14:43:26', 'inactive'),
-(198, 4, 'ict kev Logged In', '2024-04-03', '14:43:30', 'inactive'),
-(199, 3, 'ict jon Logged In', '2024-04-03', '14:52:07', 'inactive'),
-(200, 3, 'ict jon Logged Out', '2024-04-03', '14:55:35', 'inactive'),
-(201, 4, 'ict kev Logged Out', '2024-04-03', '15:57:04', 'inactive'),
-(202, 1, 'ict micheal Logged In', '2024-04-03', '15:57:13', 'inactive'),
-(203, 1, 'Edited User: ict micheal', '2024-04-03', '15:58:32', 'inactive'),
-(204, 1, 'Edited User: ict marlon', '2024-04-03', '15:58:35', 'inactive'),
-(205, 1, 'Edited User: ict jon', '2024-04-03', '15:58:37', 'inactive'),
-(206, 1, 'Edited User: ict jon', '2024-04-03', '15:58:40', 'inactive'),
-(207, 1, 'Edited User: ict kev', '2024-04-03', '15:58:42', 'inactive'),
-(208, 1, 'Edited User: ict aj', '2024-04-03', '15:58:44', 'inactive'),
-(209, 1, 'Edited User: ict trainee', '2024-04-03', '15:58:47', 'inactive'),
-(210, 1, 'Edited User: geng', '2024-04-03', '15:58:49', 'inactive'),
-(211, 1, 'Edited User: ict test', '2024-04-03', '15:59:01', 'inactive'),
-(212, 1, 'Edited User: 213', '2024-04-03', '15:59:04', 'inactive'),
-(213, 1, 'Edited User: test1234', '2024-04-03', '15:59:12', 'inactive'),
-(214, 1, 'ict micheal Logged Out', '2024-04-03', '16:00:16', 'inactive'),
-(215, 3, 'ict jon Logged In', '2024-04-03', '16:00:20', 'inactive'),
-(216, 3, 'Cleared all time logs', '2024-04-03', '16:00:27', 'inactive'),
-(217, 3, 'Added School 123', '2024-04-03', '16:01:00', 'inactive'),
-(218, 3, 'Edited School, id: 16', '2024-04-03', '16:01:04', 'inactive'),
-(219, 3, 'Deleted School, id: 123', '2024-04-03', '16:01:07', 'inactive'),
-(220, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-03', '16:03:05', 'inactive'),
-(221, 3, 'Edited Issuance 2024-2-19-10548', '2024-04-03', '16:03:09', 'inactive'),
-(222, 3, 'ict jon Logged Out', '2024-04-03', '16:30:47', 'inactive'),
-(223, 3, 'ict jon Logged In', '2024-04-04', '11:20:48', 'inactive'),
-(224, 3, 'ict jon Logged Out', '2024-04-04', '16:31:11', 'inactive'),
-(225, 3, 'ict jon Logged In', '2024-04-08', '09:16:55', 'inactive'),
-(226, 3, 'Edited User: ict micheal', '2024-04-08', '09:54:15', 'inactive'),
-(227, 3, 'Edited User: ict jon', '2024-04-08', '09:54:21', 'inactive'),
-(228, 3, 'ict jon Logged Out', '2024-04-08', '09:54:25', 'inactive'),
-(229, 3, 'ict jon Logged In', '2024-04-08', '09:54:29', 'inactive'),
-(230, 3, 'Edited User: ict micheal', '2024-04-08', '09:55:21', 'inactive'),
-(231, 3, 'Edited User: ict jon', '2024-04-08', '09:55:24', 'inactive'),
-(232, 3, 'ict jon Logged Out', '2024-04-08', '09:55:30', 'inactive'),
-(233, 3, 'ict jon Logged In', '2024-04-08', '09:55:34', 'inactive'),
-(234, 3, 'Edited User: ict micheal', '2024-04-08', '12:25:20', 'inactive'),
-(235, 3, 'Edited User: ict micheal', '2024-04-08', '15:39:37', 'inactive'),
-(236, 3, 'Edited User: ict micheal', '2024-04-08', '15:49:54', 'inactive'),
-(237, 3, 'ict jon Logged Out', '2024-04-11', '12:50:36', 'inactive'),
-(238, 3, 'ict jon Logged In', '2024-04-11', '12:56:04', 'inactive'),
-(239, 3, 'ict jon Logged Out', '2024-04-11', '12:57:17', 'inactive'),
-(240, 3, 'ict jon Logged In', '2024-04-11', '13:52:42', 'inactive'),
-(242, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-11', '14:27:04', 'inactive'),
-(248, 3, 'Edited User: ict jon', '2024-04-11', '16:25:34', 'inactive'),
-(249, 3, 'Edited User: ict micheal', '2024-04-11', '16:25:38', 'inactive'),
-(250, 3, 'Edited User: ict micheal', '2024-04-11', '16:25:41', 'inactive'),
-(251, 3, 'Edited User: ict micheal', '2024-04-11', '16:27:16', 'inactive'),
-(252, 3, 'Edited User: ict jon', '2024-04-11', '16:27:22', 'inactive'),
-(253, 3, 'Edited User: ict jon', '2024-04-11', '16:27:28', 'inactive'),
-(254, 3, 'Edited User: ict micheal', '2024-04-11', '16:29:23', 'inactive'),
-(255, 3, 'Edited User: ict michaelserban', '2024-04-11', '16:29:37', 'inactive'),
-(256, 3, 'Edited User: ict michael', '2024-04-11', '16:29:52', 'inactive'),
-(257, 3, 'Edited User: ict michael', '2024-04-11', '16:29:55', 'inactive'),
-(258, 3, 'Edited User: ict michael', '2024-04-11', '16:30:03', 'inactive'),
-(259, 3, 'Edited User: test1234', '2024-04-11', '16:30:06', 'inactive'),
-(260, 3, 'Edited User: 213', '2024-04-11', '16:30:10', 'inactive'),
-(261, 3, 'Deleted User, User ID: 12', '2024-04-11', '16:30:13', 'inactive'),
-(262, 3, 'Deleted User, User ID: 13', '2024-04-11', '16:30:15', 'inactive'),
-(263, 3, 'Deleted User, User ID: 14', '2024-04-11', '16:30:17', 'inactive'),
-(264, 3, 'Deleted User, User ID: 15', '2024-04-11', '16:30:19', 'inactive'),
-(265, 3, 'Edited User: ict michaels', '2024-04-11', '16:30:32', 'inactive'),
-(266, 3, 'Deleted User, User ID: 11', '2024-04-11', '16:30:38', 'inactive'),
-(267, 3, 'Deleted User, User ID: 1', '2024-04-11', '16:35:19', 'inactive'),
-(268, 3, 'Deleted User, User ID: 2', '2024-04-11', '16:35:26', 'inactive'),
-(269, 3, 'Added User ict michael1', '2024-04-11', '16:41:30', 'inactive'),
-(270, 3, 'Deleted User, User ID: 3', '2024-04-11', '16:43:55', 'inactive'),
-(271, 3, 'Edited User: ict jon', '2024-04-11', '16:44:07', 'inactive'),
-(272, 3, 'Cleared all time logs', '2024-04-11', '16:44:23', 'inactive'),
-(273, 3, 'Edited User: ict jon', '2024-04-12', '14:48:28', 'inactive'),
-(274, 3, 'Edited User: ict trainee', '2024-04-12', '14:48:37', 'inactive'),
-(275, 3, 'Cleared all time logs', '2024-04-12', '14:48:41', 'active'),
-(276, 3, 'ict jon Logged Out', '2024-04-12', '15:33:08', 'active'),
-(277, 3, 'ict jon Logged In', '2024-04-12', '15:33:18', 'active'),
-(279, 3, 'Changed account info: ict jon', '2024-04-12', '15:38:29', 'active'),
-(280, 3, 'Changed account info: ict jon', '2024-04-12', '15:47:34', 'active'),
-(281, 3, 'ict jon Logged Out', '2024-04-12', '15:47:39', 'active'),
-(282, 3, 'ict jon Logged In', '2024-04-12', '15:47:47', 'active'),
-(283, 3, 'Changed account info: ict jon', '2024-04-12', '16:00:56', 'active'),
-(284, 3, 'Changed account info: ict jon', '2024-04-12', '16:04:37', 'active'),
-(285, 3, 'Changed account info: ict jon', '2024-04-12', '16:12:13', 'active'),
-(286, 3, 'ict jon Logged Out', '2024-04-12', '16:12:14', 'active'),
-(287, 3, 'ict jon Logged In', '2024-04-12', '16:12:45', 'active'),
-(288, 3, 'Changed account info: ict jon', '2024-04-12', '16:16:21', 'active'),
-(289, 3, 'ict jon Logged Out', '2024-04-12', '16:16:22', 'active'),
-(290, 3, 'ict jon Logged In', '2024-04-12', '16:19:17', 'active'),
-(291, 3, 'Changed account info: ict jon', '2024-04-12', '16:19:28', 'active'),
-(292, 3, 'ict jon Logged Out', '2024-04-12', '16:19:38', 'active'),
-(293, 3, 'ict jon Logged In', '2024-04-12', '16:19:50', 'active'),
-(294, 3, 'Changed account info: ict jon', '2024-04-12', '16:23:58', 'active'),
-(295, 3, 'Changed account info: ict jon', '2024-04-12', '16:24:59', 'active'),
-(296, 3, 'ict jon Logged Out', '2024-04-12', '16:25:04', 'active'),
-(297, 3, 'ict jon Logged In', '2024-04-12', '16:26:51', 'active');
+(25, 3, 'Cleared all time logs', '2024-04-01', '15:51:19', 'active'),
+(26, 3, 'Edited Issuance 123123', '2024-04-01', '15:55:46', 'active'),
+(27, 3, 'ict jon Logged Out', '2024-04-01', '15:55:52', 'active'),
+(28, 4, 'ict kev Logged In', '2024-04-01', '15:55:58', 'active'),
+(29, 4, 'Edited Issuance 123123', '2024-04-01', '15:56:05', 'active'),
+(30, 4, 'ict kev Logged Out', '2024-04-01', '15:56:42', 'active'),
+(31, 3, 'ICT JON Logged In', '2024-04-01', '15:59:32', 'active'),
+(32, 3, 'ict jon Logged Out', '2024-04-01', '16:00:14', 'active'),
+(33, 3, 'ict jon Logged In', '2024-04-01', '16:00:54', 'active'),
+(34, 3, 'Deleted Issuance Category DIVISION ADVISORIES', '2024-04-01', '16:08:34', 'active'),
+(35, 3, 'Edited Issuance 123123', '2024-04-01', '16:14:14', 'active'),
+(36, 3, 'Edited Issuance 123123', '2024-04-01', '16:14:19', 'active'),
+(37, 3, 'Edited Issuance ICT-CM001', '2024-04-01', '16:14:40', 'active'),
+(38, 3, 'Edited Issuance ICT-CM004', '2024-04-01', '16:14:49', 'active'),
+(39, 3, 'Edited Issuance ICT-CM003', '2024-04-01', '16:14:54', 'active'),
+(40, 3, 'Edited Issuance ICT-CM002', '2024-04-01', '16:14:59', 'active'),
+(41, 3, 'Edited Issuance 123123', '2024-04-01', '16:16:32', 'active'),
+(42, 3, 'Edited Issuance 123123', '2024-04-01', '16:17:00', 'active'),
+(43, 3, 'Edited Issuance 123123', '2024-04-01', '16:17:17', 'active');
 
 -- --------------------------------------------------------
 
@@ -4499,7 +4229,6 @@ CREATE TABLE `userstbl` (
   `user_password` longtext NOT NULL,
   `user_type` varchar(20) NOT NULL,
   `user_profile` longtext NOT NULL,
-  `user_department` varchar(50) NOT NULL,
   `user_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -4507,19 +4236,13 @@ CREATE TABLE `userstbl` (
 -- Dumping data for table `userstbl`
 --
 
-INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_profile`, `user_department`, `user_status`) VALUES
-(1, 'ict michaels', 'michaelangelo.serban@deped.gov.ph', '$2y$10$.siyhwNuX4obMqcUOGmxiu1CJEKBJT6VgPkEGhy1Wl5FUMdjgVheW', 'superadmin', 'default.png', 'ICT', 'inactive'),
-(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph', '$2y$10$qwY18OMgm6m423FIannQtebccFQ/mm1eAbPh.bANKK8VPGIfzKIPa', 'superadmin', 'default.png', 'ICT', 'inactive'),
-(3, 'ict jon', 'jon.raguini@deped.gov.ph', '$2y$10$YYXku9G4wsw4RaItEuAaYOwqh8sbxq3UIWk3gdQ/RQeWNubAtQsLO', 'superadmin', 'default.png', 'ICT', 'active'),
-(4, 'ict kev', 'kevin.flogen@deped.gov.ph', '$2y$10$C2Xgo1Vhk5YRx7g95NasQu7GCDRFJR4CRxtmwBCXXMByPnH5W9nx2', 'admin', 'default.png', 'ICT', 'active'),
-(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph', '$2y$10$vRCUeEkyUCgALNGDmBGHuOQVFHgfxoQDnYMKYpxpMkiLTaO45gQzm', 'superadmin', 'default.png', 'ICT', 'active'),
-(10, 'ict trainee', 'trainee@deped.gov.ph', '$2y$10$AH1DnrzLd9d0q1kshH1nxuPwJwq1L65XtBZ1Gi66zpd5W0BnqPY0y', 'trainee', 'default.png', 'ICT', 'active'),
-(11, 'geng', 'test@test.com', '$2y$10$y9IZSP5W5jpClF3TgKWnEOm8huTtWHlgVG1W125EuEVhIlr8U5ity', 'trainee', 'default.png', 'ICT', 'inactive'),
-(12, 'ict test', 'test@1234.com', '$2y$10$49fyGIzoXs1YsMEh9t0FdOXoyyq9iRhQhC91yxvQnjFt./dx0B1Za', 'trainee', 'default.png', 'ICT', 'inactive'),
-(13, '213', 'test@123.com', '$2y$10$Qv/91meILCSf4ioFr7ZjqeLQt7zlPArXAcDkQ5/S71bOWInEbnu9i', 'trainee', 'default.png', 'ICT', 'inactive'),
-(14, 'test1234', 'test@tes123t.com', '$2y$10$7XUQsIoolnAXzHJw6WVSFewWeqDTdnB9cml0Ri170Ht0hJExCC0fC', 'trainee', 'default.png', 'ICT', 'inactive'),
-(15, 'ict michael', '123@123.com', '$2y$10$jhKrz.uEMOF2ccXxrAILD.yFOjFxOwGrzQcjupguWlw/fifdV9obe', 'trainee', 'default.png', 'ICT', 'inactive'),
-(16, 'ict michael1', 'michaelangelo.serban@deped.gov.ph1', '$2y$10$QxqI7o5d2aSPrq.N5QAguuGuKogAi0R8BRC/Aj30RJ8W5ySfQeob2', 'trainee', 'default.png', 'ICT', 'active');
+INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_profile`, `user_status`) VALUES
+(1, 'ict michael', 'michaelangelo.serban@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(2, 'ict marlon', 'marlon.cotanda@deped.gov.ph@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(3, 'ict jon', 'jon.raguini@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(4, 'ict kev', 'kevin.flogen@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'admin', '', 'active'),
+(5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'superadmin', '', 'active'),
+(10, 'ict trainee', 'trainee@deped.gov.ph', '$argon2id$v=19$m=65536,t=4,p=1$THZUYk5mT2d3Q08vSk9xdA$8sgkkUr1jJJepcJazBt+6QC0HGW1aymT8YWV+P83XR0', 'trainee', '', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -4588,7 +4311,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `elemschoolsvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `elemschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'ELEMENTARY SCHOOLS' AND `schoolstbl`.`school_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `elemschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'Elementary' AND `schoolstbl`.`school_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -4633,7 +4356,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `jhsschoolsvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `jhsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'JUNIOR HIGH SCHOOLS' AND `schoolstbl`.`school_shsAvailability` = 'no' AND `schoolstbl`.`school_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `jhsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'HighSchool' AND `schoolstbl`.`school_shsAvailability` = 'no' AND `schoolstbl`.`school_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -4687,7 +4410,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `shsschoolsvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `shsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'JUNIOR HIGH SCHOOLS' AND `schoolstbl`.`school_shsAvailability` = 'yes' AND `schoolstbl`.`school_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `shsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'HighSchool' AND `schoolstbl`.`school_shsAvailability` = 'yes' AND `schoolstbl`.`school_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -4839,7 +4562,7 @@ ALTER TABLE `dailyvisitstbl`
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
@@ -4851,7 +4574,7 @@ ALTER TABLE `imagestbl`
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3814;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3813;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
@@ -4863,7 +4586,7 @@ ALTER TABLE `officestbl`
 -- AUTO_INCREMENT for table `schoolstbl`
 --
 ALTER TABLE `schoolstbl`
-  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `servicestbl`
@@ -4881,13 +4604,13 @@ ALTER TABLE `socialmediatbl`
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `userstbl`
 --
 ALTER TABLE `userstbl`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
