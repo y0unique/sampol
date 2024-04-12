@@ -183,8 +183,8 @@
                         </div>
                     </div>
 
-                    <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
-                    <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
+                    <input class="form-control" type="hidden" id="webID1" value="<?php echo $_SESSION['webID'] ?>">
+                    <input class="form-control" type="hidden" id="webUsername1" value="<?php echo $_SESSION['webUsername'] ?>">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>

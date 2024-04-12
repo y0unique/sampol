@@ -202,8 +202,8 @@
     //edit user
     $(document).on('submit', '#editEmployee', function(e) {
         e.preventDefault();;
-        var webID = $('#webID').val();
-        var webUsername = $('#webUsername').val();
+        var webID = $('#webID1').val();
+        var webUsername = $('#webUsername1').val();
         var user_id = $('#_user_id').val();
         var user_username= $('#_user_username').val();
         var user_email= $('#_user_email').val();
