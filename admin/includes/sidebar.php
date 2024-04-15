@@ -52,21 +52,13 @@
         Directories
     </div>
 
+
     <!-- Nav Item - Division of City Schools Menu -->
-    <li class="nav-item" id="directories">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDirectories" aria-expanded="true" aria-controls="collapseDirectories" id="acollapseDirectories">
+    <li class="nav-item" id="offices">
+        <a class="nav-link" href="offices">
             <i class="fas fa-building"></i>
             <span>Division of City Schools</span>
         </a>
-        <div id="collapseDirectories" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Division of City Schools:</h6>
-                <a class="collapse-item" id="aOffices" href="offices">Offices</a>
-                <a class="collapse-item" id="aOSDS" href="osds">osds</a>
-                <a class="collapse-item" id="aCID" href="cid">cid</a>
-                <a class="collapse-item" id="aSGOD" href="sgod">sgod</a>
-            </div>
-        </div>
     </li>
 
     <!-- Nav Item - Schools Menu -->

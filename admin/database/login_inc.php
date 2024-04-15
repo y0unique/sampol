@@ -17,9 +17,9 @@
         $response = array('status' => 'error', 'message' => 'Invalid Username or Password.');
     } else {
         // Retrieve the hashed password from the database using prepared statement
-        $query = "SELECT * FROM userstbl WHERE user_username=?";
+        $query = "SELECT * FROM userstbl WHERE user_username=? OR  user_email=?";
         $stmt = mysqli_prepare($con, $query);
-        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 

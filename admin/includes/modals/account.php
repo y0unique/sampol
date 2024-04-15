@@ -273,8 +273,6 @@
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
                     //alertify message warning "you will be locked out in 10 seconds" with a timer
-                    alertify.warning('You will be logged out in 5 seconds');
-                    setTimeout(function(){ location.href = "database/logoutcode.php" }, 5000);
                     $("#editUserModal").modal("hide"); 
 
                 } else if(updateAccount == 'false'){

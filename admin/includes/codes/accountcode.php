@@ -35,11 +35,33 @@ if(isset($_POST['updateaccountuser'])) {
                 );
                 echo json_encode($data);
                 return;
+            }else if(strlen($newuser_password) < 11){
+                $data = array(
+                    'updateAccount' => 'false',
+                    'message' => 'Password must be at least 11 characters'
+                );
+                echo json_encode($data);
+                return;
+            }else if(!preg_match('/[\'^£!$%&*()}{@#~?><>,|=_+¬-]/', $newuser_password)){
+                $data = array(
+                    'updateAccount' => 'false',
+                    'message' => 'Username must contain special characters'
+                );
+                echo json_encode($data);
+                return;
             }else{
                 if ($newuser_password == $renewuser_password) {
+                    $sql = "UPDATE userstbl SET user_username = ?, 
+                                                user_email = ?, 
+                                                user_password = ? WHERE user_id = ?";
+                    $stmt = mysqli_prepare($con, $sql);
                     $hashedPasswordArgon2 = password_hash($newuser_password, PASSWORD_BCRYPT);
-                    $sql = "UPDATE userstbl SET user_username = '$user_username', user_email = '$user_email', user_password = '$hashedPasswordArgon2' WHERE user_id = '$user_id'";
-                    if (mysqli_query($con, $sql)) {
+                    mysqli_stmt_bind_param($stmt, "sssi", $user_username, $user_email, $hashedPasswordArgon2, $user_id);
+                    $query = mysqli_stmt_execute($stmt);
+
+
+
+                    if ($query) {
                         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
                                                     values ('$user_id', 'Changed account info: $user_username',  NOW(), NOW())";
                         $query1= mysqli_query($con,$inserttime);
@@ -50,6 +72,7 @@ if(isset($_POST['updateaccountuser'])) {
                                 'message' => 'Account Updated Successfully'
                             );
                             echo json_encode($data);
+                            
                             return;
                         }else{
                             $data = array(
@@ -76,7 +99,6 @@ if(isset($_POST['updateaccountuser'])) {
                     return;
                 }
             }
-            // Check if the new password and retype password are the same
         }
     }else{
         $data = array(
