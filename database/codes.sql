@@ -198,7 +198,7 @@ SELECT
     file_link AS "link",
     file_date AS "date",
     file_status AS "status"
-FROM filestbl WHERE file_type = 'downloadable' AND file_status = 'active';
+FROM filestbl WHERE file_type = 'DOWNLOADABLES' AND file_status = 'active';
 
 --elemschoolsvw
 CREATE VIEW elemSchoolsVW AS
