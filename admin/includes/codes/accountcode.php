@@ -72,7 +72,6 @@ if(isset($_POST['updateaccountuser'])) {
                                 'message' => 'Account Updated Successfully'
                             );
                             echo json_encode($data);
-                            
                             return;
                         }else{
                             $data = array(
