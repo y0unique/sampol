@@ -194,7 +194,7 @@
                     $servicesQuery = "SELECT * FROM servicesVW WHERE status = 'active' ORDER BY id ASC";
                     $servicesResult = mysqli_query($con, $servicesQuery);
                     
-                    $servicesCheckQuery = "SHOW TABLES LIKE 'servicesvw'";
+                    $servicesCheckQuery = "SHOW TABLES LIKE 'servicesVW'";
                     $servicesCheckResult = mysqli_query($con, $servicesCheckQuery);
 
                     // Loop through each service
