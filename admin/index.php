@@ -52,7 +52,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Users
+                                                <a href="users" class="text-primary">Total Users</a>
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo strtoupper($total_users);?></div>
                                         </div>
@@ -71,7 +71,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Downloadable Files
+                                                <a href="files" class="text-success">Total Downloadable Files</a>
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo strtoupper($total_downloadable);?></div>
                                         </div>
@@ -90,7 +90,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                Total Transparency Files
+                                                <a href="bac" class="text-info">Total Transparency Files</a>
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo strtoupper($total_transparency);?></div>
                                         </div>
@@ -109,7 +109,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Total Issuances
+                                                <a href="issuances" class="text-warning">Total Issuances</a>
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo strtoupper($total_issuances);?></div>
                                         </div>

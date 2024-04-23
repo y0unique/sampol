@@ -276,7 +276,7 @@ SELECT
     school_district AS "district",
     school_type AS "type",
     school_status AS "status"
-FROM schoolstbl WHERE school_type = 'JUNIOR HIGH SCHOOLS'  AND school_shsAvailability = 'no' AND school_status = 'active';
+FROM schoolstbl WHERE school_type = 'JUNIOR HIGH SCHOOLS' AND school_status = 'active';
 
 --materialfilesvw
 CREATE VIEW materialfilesVW AS

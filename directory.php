@@ -23,26 +23,13 @@
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
-
+        
+        <!-- Data Table -->
         <link rel="stylesheet" href="admin/datatables/dataTables.bootstrap5.min.css">
-
-        <script defer src="admin/datatables/jquery-3.7.0.js"></script>
-		<script defer src="admin/datatables/jquery.dataTables.min.js"></script>
-		<script defer src="admin/datatables/dataTables.bootstrap5.min.js"></script>
 		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
+        <!-- Scripts -->
         <script defer src="admin/js/home/script.js"></script>
-
-        <script>
-            document.addEventListener('contextmenu', function (e) {
-                e.preventDefault();
-            });
-            document.addEventListener('keydown', function (e) {
-                if (e.code === 'KeyU' && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault();
-                }
-            });
-        </script>
     </head>
 
     <?php include 'admin/includes/home/preloader.php'; ?>
@@ -86,7 +73,6 @@
                                     "senior-high-school" => array("mdi-school", "SENIOR HIGH SCHOOLS"),
                                     "special-education" => array("mdi-star-outline", "SPECIAL EDUCATION CENTERS"),
                                 );
-
                                 // Iterate through the issuance types array to generate tabs
                                 foreach ($schoolstype1 as $tabId => $tabInfo) {
                                     $iconClass = $tabInfo[0];
@@ -111,9 +97,6 @@
                             <?php
                                 // Iterate through the issuance types array to generate tab content
                                 foreach ($schoolstype1 as $tabId => $tabInfo) {
-                                    
-
-                                echo "<script>console.log('" . $tabInfo[1] . "');</script>";
                                     $isActive = ($tabId === "elementary-school") ? "show active" : "";
                                     echo '<div class="tab-pane fade ' . $isActive . '" id="' . $tabId . '" role="tabpanel" aria-labelledby="' . $tabId . '-tab">';
                                     echo '<div class="capabilities-content border rounded p-4">';
@@ -122,64 +105,18 @@
                                     echo '<h4 class="title">' . $tabInfo[1] . '</h4>';
                                     echo '<table id="' . $tabId . '-table" class="table table-striped" style="width:100%">';
                                     echo '<thead>';
-                                    echo '<tr>';
-                                    echo '<th>District</th>';
-                                    echo '<th>School ID</th>';
-                                    echo '<th>School</th>';
-                                    echo '<th>School Address</th>';
-                                    echo '<th>Principal</th>';
-                                    echo '<th>Contact #</th>';
-                                    echo '<th>Email</th>';
-                                    echo '</tr>';
+                                        echo '<tr>';
+                                            echo '<th>District</th>';
+                                            echo '<th>School ID</th>';
+                                            echo '<th>School</th>';
+                                            echo '<th>School Address</th>';
+                                            echo '<th>Principal</th>';
+                                            echo '<th>Contact #</th>';
+                                            echo '<th>Email</th>';
+                                        echo '</tr>';
                                     echo '</thead>';
                                     echo '<tbody>';
-                                    $schools = "SELECT * FROM schoolsvw WHERE status = 'active' AND type = '" . $tabInfo[1] . "' ORDER BY district DESC";
-                                    $schools1 = mysqli_query($con, $schools);
-                                    if($tabId=='elementary-school' || $tabId=='junior-high-school'){
-                                        while($row = mysqli_fetch_array($schools1)){
-                                        echo '<tr>';
-                                        echo '<td>'.$row['district'].'</td>';
-                                        echo '<td>'.$row['school_id'].'</td>';
-                                        echo '<td>'.$row['name'].'</td>';
-                                        echo '<td>'.$row['address'].'</td>';
-                                        echo '<td>'.$row['principal'].'</td>';
-                                        echo '<td>'.$row['contact'].'</td>';
-                                        echo '<td>'.$row['email'].'</td>';
-                                        echo '</tr>';
-                                        }
-                                    }else if($tabId=='senior-high-school'){
-                                        $schools2 = "SELECT * FROM schoolsvw WHERE status = 'active' AND shs_availability = 'yes' ORDER BY district DESC";
-                                        $schools3 = mysqli_query($con, $schools2);
-                                        while($row = mysqli_fetch_array($schools3)){
-                                            echo '<tr>';
-                                            echo '<td>'.$row['district'].'</td>';
-                                            echo '<td>'.$row['school_id'].'</td>';
-                                            echo '<td>'.$row['name'].'</td>';
-                                            echo '<td>'.$row['address'].'</td>';
-                                            echo '<td>'.$row['principal'].'</td>';
-                                            echo '<td>'.$row['contact'].'</td>';
-                                            echo '<td>'.$row['email'].'</td>';
-                                            echo '</tr>';
-                                        }
-                                    }else if($tabId=='special-education'){
-                                        $schools2 = "SELECT * FROM schoolsvw WHERE status = 'active' AND sped_availability = 'yes' ORDER BY district DESC";
-                                        $schools3 = mysqli_query($con, $schools2);
-                                        while($row = mysqli_fetch_array($schools3)){
-                                            echo '<tr>';
-                                            echo '<td>'.$row['district'].'</td>';
-                                            echo '<td>'.$row['school_id'].'</td>';
-                                            echo '<td>'.$row['name'].'</td>';
-                                            echo '<td>'.$row['address'].'</td>';
-                                            echo '<td>'.$row['principal'].'</td>';
-                                            echo '<td>'.$row['contact'].'</td>';
-                                            echo '<td>'.$row['email'].'</td>';
-                                            echo '</tr>';
-                                        }
-                                    }else{
-                                        echo '<tr>';
-                                        echo '<td colspan="7">No data available</td>';
-                                        echo '</tr>';
-                                    }
+                                    
                                     echo '</tbody>';
                                     echo '</table>';
                                     echo '</div><!--end col-->';
@@ -203,12 +140,13 @@
         <?php include 'admin/includes/home/footer.php'; ?>
         <!-- Footer End -->
         <!-- Scripts -->
-        <?php include 'admin/includes/home/scripts.php'; ?>
-
-                
+        <?php include 'admin/includes/home/scripts.php'; ?>     
     </body>
-
+    
+    <script src="admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 </html>
+<!-- style for table -->
 <style>
 /* Ensure that the demo table scrolls */
     th, td { white-space: nowrap; }
@@ -223,3 +161,97 @@
         table-layout: fixed;
     } */
 </style>
+<!-- script for fetchdata -->
+<script>
+$(document).ready(function() {
+    // Function to initialize DataTables
+    function initializeDataTables() {
+        $('#elementary-school-table').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/elemschoolfetch.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#junior-high-school-table').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/jhschoolfetch.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#senior-high-school-table').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/shschoolfetch.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#special-education-table').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/spedschoolfetch.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+    }
+
+    // Call the function initially
+    initializeDataTables();
+
+    // Refresh the DataTables every 5 seconds
+    setInterval(function() {
+        // Destroy existing DataTables instances
+        $('#elementary-school-table').DataTable().destroy();
+        $('#junior-high-school-table').DataTable().destroy();
+        $('#senior-high-school-table').DataTable().destroy();
+        $('#special-education-table').DataTable().destroy();
+
+        // Re-initialize DataTables
+        initializeDataTables();
+    }, 100000); // 10000 milliseconds = 10 mins
+});
+</script>

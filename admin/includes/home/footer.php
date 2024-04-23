@@ -4,7 +4,7 @@
                     <div class="col-lg-4 col-md-12 mt-4 pt-2 mt-lg-0 pt-lg-0">
                         <a class="footer-logo back-to-top" href="#">DepEd Manila</a>
                         <ul class="list-unstyled footer-list mt-4 mb-0">
-                            <li class="mt-2"> 
+                            <li class="mt-2">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.098170372408!2d120.97733074485951!3d14.593481546190377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca193384e579%3A0x3ccfd17de8fccab2!2sManila%20Education%20Center!5e0!3m2!1sen!2sph!4v1709198496267!5m2!1sen!2sph" width="100%" style="border:0" allowfullscreen></iframe>
                             </li>
                             <li class="mt-2"><a href="https://maps.app.goo.gl/AbUywY5V5tqUJjDd9" class="text-foot" target="--blank"><i class="mdi mdi-map-marker"></i> Address: Manila Education Center Arroceros Forest Park Antonio J. Villegas St. Ermita, Manila</a></li>

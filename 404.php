@@ -19,7 +19,6 @@
         <!-- css -->
         <link href="admin/css/home/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="admin/css/home/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- <link href="admin/css/home/404.css" rel="stylesheet" type="text/css" /> -->
         <link href="admin/css/home/style.css" rel="stylesheet" type="text/css" />
 
         <!-- Custom fonts for this template-->
@@ -29,16 +28,6 @@
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
         <link rel="stylesheet" href="admin/css/home/slick.css"/>
-        <script>
-            document.addEventListener('contextmenu', function (e) {
-                e.preventDefault();
-            });
-            document.addEventListener('keydown', function (e) {
-                if (e.code === 'KeyU' && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault();
-                }
-            });
-        </script>
     </head>
 
     <?php //include 'admin/includes/home/preloader.php'; ?>
@@ -51,8 +40,7 @@
         
         <!-- 404 Start -->
         <section class="section" id="404">
-        <div id="wrapper">
-
+            <div id="">
                 <!-- Content Wrapper -->
                 <div id="content-wrapper" class="d-flex flex-column">
 
@@ -60,7 +48,6 @@
                     <div id="content">
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
-
                             <!-- 404 Error Text -->
                             <div class="text-center">
                                 <div class="error404 mx-auto" data-text="404">404</div>
@@ -68,19 +55,11 @@
                             </div>
                         </div>
                         <!-- /.container-fluid -->
-                    </div>
-                    <!-- End of Main Content -->
-
-                    
-
-                </div>
-                <!-- End of Content Wrapper -->
-
-                </div>
+                    </div><!-- End of Main Content -->
+                </div><!-- End of Content Wrapper -->
+            </div>
         </section><!--end section-->
         <!-- 404 End -->
-
-        
 
         <!-- Seals Start -->
         <?php include 'admin/includes/home/seals.php'; ?>
@@ -89,10 +68,8 @@
         <!-- Footer Start -->
         <?php include 'admin/includes/home/footer.php'; ?>
         <!-- Footer End -->
+        
         <!-- Scripts -->
         <?php include 'admin/includes/home/scripts.php'; ?>
-
-                
     </body>
-
 </html>

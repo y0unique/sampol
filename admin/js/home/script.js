@@ -55,48 +55,6 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 });
-
-// ISSUANCES
-$(document).ready(function () {
-    $('#numbered-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#unnumbered-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-advisories-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-circulars-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#division-orders-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#office-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#office-order-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#city-memorandum-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
 //PASTS
 $(document).ready(function () {
     $('#past-2021-table').DataTable({
@@ -113,29 +71,6 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#past-2023-table').DataTable({
         order: [[0, 'desc']]
-    });
-});
-
-// DIRECTORY OF SCHOOLS
-$(document).ready(function () {
-    $('#elementary-school-table').DataTable({
-        order: [[0, 'asc']]
-    });
-});
-$(document).ready(function () {
-    $('#junior-high-school-table').DataTable({
-        order: [[0, 'asc']]
-    });
-});
-$(document).ready(function () {
-    $('#senior-high-school-table').DataTable({
-        order: [[0, 'asc']]
-    });
-});
-
-$(document).ready(function () {
-    $('#special-education-table').DataTable({
-        order: [[0, 'asc']]
     });
 });
 

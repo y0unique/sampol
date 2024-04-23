@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-custom navbar-light nav-sticky">
     <div class="container">
-        <a href="index"><img src="admin/images/logo/DepEd_logo.png"
+        <a href="index"><img src="admin/images/logo/DepEd_logo_small.png"
             style="height: 50px; width:50px; margin-right:5px;"></a>
         <a class="navbar-brand" href="index" target="__blank">SDO Manila</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
