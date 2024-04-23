@@ -194,6 +194,18 @@
             $('#_issuances_number').val(json.issuances_number);
             $('#_issuances_date').val(json.issuances_date);
             $('#_issuances_type').val(json.issuances_type);
+            $('#_issuances_status').val(json.issuances_status).change();
+
+            // Check if issuances_status is "active"
+            if ($('#_issuances_status').val() == 'active') {
+                // Show the issuance status container
+                $('#issuanceStatusContainer').attr('hidden', 'hidden');
+            } else {
+                // Hide the issuance status container
+                $('#issuanceStatusContainer').removeAttr('hidden');
+            }
+
+
             $('#_id').val(id);
             $('#_trid').val(trid);
         }
@@ -211,9 +223,10 @@
         var issuances_number= $('#_issuances_number').val();
         var issuances_date= $('#_issuances_date').val();
         var issuances_type= $('#_issuances_type').val();
+        var issuances_status= $('#_issuances_status').val();
         var id = $('#_id').val();
         var trid = $('#_trid').val();
-        if (tracking_number != '' && issuances_title != '' && issuances_link != '' && issuances_number != '' && issuances_date != '' && issuances_type != '') {
+        if (tracking_number != '' && issuances_title != '' && issuances_link != '' && issuances_number != '' && issuances_date != '' && issuances_type != '' && issuances_status != '') {
         $.ajax({
             url: "includes/codes/issuancescode.php",
             type: "post",
@@ -227,6 +240,7 @@
                 issuances_number:issuances_number,
                 issuances_date:issuances_date,
                 issuances_type:issuances_type,
+                issuances_status:issuances_status,
                 update: true
             },
             success: function(data) {

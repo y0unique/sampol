@@ -24,9 +24,6 @@
         <?php include 'includes/sidebar.php';
         echo '<script>
                 document.getElementById("files").classList.add("active");
-                document.getElementById("collapseFiles").classList.add("show");
-                document.getElementById("afiles").classList.add("active");
-                document.getElementById("acollapseFiles").classList.remove("collapsed");
              </script>';?>
         <!-- End of Sidebar -->
 
@@ -155,8 +152,11 @@
                         $('#addFiles')[0].reset();
                         alertify.set('notifier','position', 'top-right');
                         alertify.success(json.message);
+                    }else if(addFileStatus == 'false'){
+                        alertify.set('notifier','position', 'top-right');
+            	        alertify.warning(json.message);
                     }else{
-                        alert('failed');
+                        alert('Error communicating with the database');
                     }
                 }
             });

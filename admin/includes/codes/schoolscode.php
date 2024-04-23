@@ -25,7 +25,7 @@ if(isset($_POST['add'])){
 
     if($query){
         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-                                       values ('$webID', 'Added School $school_id',  NOW(), NOW())";
+                                       values ('$webID', 'Added School $school_id, name: $school_name',  NOW(), NOW())";
         $query1= mysqli_query($con,$inserttime);
         $query2 = mysqli_insert_id($con);
         if ($query1)
@@ -98,7 +98,7 @@ if(isset($_POST['update'])){
 
     if($query){
         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-        values ('$webID', 'Edited School, id: $id',  NOW(), NOW())";
+        values ('$webID', 'Edited School, id: $id, name: $school_name',  NOW(), NOW())";
         $query1= mysqli_query($con,$inserttime);
         $query2 = mysqli_insert_id($con);
         if ($query1){
@@ -145,7 +145,7 @@ if(isset($_POST['delete'])) {
 
     if($query){
         $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-        values ('$webID', 'Deleted School, id: $school_id',  NOW(), NOW())";
+        values ('$webID', 'Deleted School, id: $school_id, name: $school_name',  NOW(), NOW())";
         $query1= mysqli_query($con,$inserttime);
         $query2 = mysqli_insert_id($con);
         if ($query1){

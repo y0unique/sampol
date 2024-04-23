@@ -95,9 +95,9 @@
 
             if (selectedFileType === 'procurement') {
                 fileDepartment.prop('disabled', true);
-            } else if (selectedFileType === 'downloadable') {
+            } else if (selectedFileType === 'DOWNLOADABLES') {
                 // No need to do anything extra, elements are already disabled and hidden
-            } else if (selectedFileType === 'material') {
+            } else if (selectedFileType === 'MATERIALS') {
                 fileDepartment.prop('disabled', false);
                 departmentDiv.prop('hidden', false);
             } else {

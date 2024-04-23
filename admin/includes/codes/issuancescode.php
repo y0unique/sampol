@@ -70,6 +70,7 @@ if (isset($_POST['update'])) {
     $issuances_number = mysqli_real_escape_string($con, $_POST['issuances_number']);
     $issuances_date = mysqli_real_escape_string($con, $_POST['issuances_date']);
     $issuances_type = mysqli_real_escape_string($con, $_POST['issuances_type']);
+    $issuances_status = mysqli_real_escape_string($con, $_POST['issuances_status']);
 
     // Use prepared statement to prevent SQL injection
     $sql = "UPDATE issuancestbl SET tracking_number = ?, 
@@ -77,13 +78,14 @@ if (isset($_POST['update'])) {
                                     issuances_link = ?, 
                                     issuances_number = ?, 
                                     issuances_date = ?,
-                                    issuances_type = ? WHERE issuances_id = ?";
+                                    issuances_type = ?,
+                                    issuances_status = ? WHERE issuances_id = ?";
     
     // Prepare the statement
     $stmt = mysqli_prepare($con, $sql);
 
     // Bind parameters
-    mysqli_stmt_bind_param($stmt, "ssssssi", $tracking_number, $issuances_title, $issuances_link, $issuances_number, $issuances_date, $issuances_type, $id);
+    mysqli_stmt_bind_param($stmt, "sssssssi", $tracking_number, $issuances_title, $issuances_link, $issuances_number, $issuances_date, $issuances_type, $issuances_status, $id);
 
     // Execute the statement
     $query = mysqli_stmt_execute($stmt);

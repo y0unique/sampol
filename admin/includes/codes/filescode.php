@@ -8,83 +8,43 @@ if(isset($_POST['add'])){
     $webUsername = $_POST['webUsername'];
     $file_type = $_POST['file_type'];
     $file_title = mysqli_real_escape_string($con, $_POST['file_title']);
-    $file_link = $_POST['file_link'];
+    $file_link =  mysqli_real_escape_string($con, $_POST['file_link']);
     $file_department = $_POST['file_department'];
-    
-    if($file_type == 'downloadable'){
-        $sql = "INSERT INTO filestbl (file_type, file_title, file_link, file_date, file_status) 
-                                values ('$file_type','$file_title', '$file_link', NOW(), 'active')";
-        $query= mysqli_query($con,$sql);
-        $lastId = mysqli_insert_id($con);
 
-        if($query){
-            $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-                                        values ('$webID', 'Added $file_type File $file_title', NOW(), NOW())";
-            $query1= mysqli_query($con,$inserttime);
-            $query2 = mysqli_insert_id($con);
-            if ($query1)
-            {
-                $data = array
-                (
-                    'addFileStatus'=>'true',
-                    'message' => 'Added Successfully' 
-                );
-                echo json_encode($data);
-                return;
-            }
-            else
-            {
-                $data = array(
-                    'addFileStatus'=>'false',
-                );
-                echo json_encode($data);
-            }
-        } else {
-            $data = array(
-                'addFileStatus'=>'false',
-            );
-            echo json_encode($data);
-        } 
-    } else if ($file_type == 'material'){
-        $sql = "INSERT INTO filestbl (file_type, file_title, file_link, file_date, file_department, file_status) 
-                                values ('$file_type','$file_title', '$file_link', NOW(), '$file_department','active')";
-        $query= mysqli_query($con,$sql);
-        $lastId = mysqli_insert_id($con);
-
-        if($query){
-            $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-                                        values ('$webID', 'Added $file_type File $file_title',  NOW(), NOW())";
-            $query1= mysqli_query($con,$inserttime);
-            $query2 = mysqli_insert_id($con);
-            if ($query1)
-            {
-                $data = array
-                (
-                    'addFileStatus'=>'true',
-                    'message' => 'Added Successfully' 
-                );
-                echo json_encode($data);
-                return;
-            }
-            else
-            {
-                $data = array(
-                    'addFileStatus'=>'false',
-                );
-                echo json_encode($data);
-            }
-        } else {
-            $data = array(
-                'addFileStatus'=>'false',
-            );
-            echo json_encode($data);
-        } 
-    } else{
+    if($file_type == 'DOWNLOADABLES'){
+        $error = mysqli_error($con);  // Capture SQL error
         $data = array(
-            'addFileStatus'=>'false',
+            'addFileStatus'=>'true',
+            'message' => 'Success Downloadables' . $error
         );
         echo json_encode($data);
+        return;
+    }else if($file_type == 'MATERIALS'){
+        $error = mysqli_error($con);  // Capture SQL error
+        $data = array(
+            'addFileStatus'=>'true',
+            'message' => 'Success Materials' . $error
+        );
+        echo json_encode($data);
+        return;
+    }else{
+        $error = mysqli_error($con);  // Capture SQL error
+        $data = array(
+            'addFileStatus'=>'false',
+            'message' => 'Error Adding File' . $error
+        );
+        echo json_encode($data);
+        return;
     }
+
+}else{
+    $error = mysqli_error($con);  // Capture SQL error
+    $data = array(
+        'addFileStatus'=>'false',
+        'message' => 'Error Adding File' . $error
+    );
+    echo json_encode($data);
+    return;
 }
 
 //View File

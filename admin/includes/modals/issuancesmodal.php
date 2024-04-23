@@ -139,6 +139,18 @@
                             <input class="form-control" type="date" id="_issuances_date" name="issuances_date">
                         </div>
                     </div>
+
+                    <div class="mb-3 row" id="issuanceStatusContainer" hidden>
+                        <label for="editIssuanceField" class="col-md-2 form-label">Issuance Status:</label>
+                        <div class="col-md-10">
+                             <select class="form-control" id="_issuances_status" name="issuances_status" required>
+                                <option disabled selected hidden></option>
+                                <option value='active'>ACTIVE</option>
+                                <option value='inactive'>INACTIVE</option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
                     <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
 
