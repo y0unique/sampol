@@ -54,6 +54,7 @@ while($row = mysqli_fetch_assoc($query))
 {
 	$sub_array = array();
 	$sub_array[] = $row['date'];
+	$sub_array[] = $row['tracking_number'];
 	$sub_array[] = $row['number'];
 	$sub_array[] = '<a href="'.$row['link'].'" target="_blank">'.$row['title'].'</a>';
     

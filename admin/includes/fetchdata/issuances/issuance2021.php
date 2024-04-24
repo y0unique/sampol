@@ -3,7 +3,7 @@ include "../../../database/connection.php";
 
 $output= array();
 $sql = "SELECT * FROM issuancesvw";
-$sql .= " WHERE YEAR(date) = '2023'";
+$sql .= " WHERE YEAR(date) = '2021'";
 $totalQuery = mysqli_query($con,$sql);
 $total_all_rows = mysqli_num_rows($totalQuery);
 

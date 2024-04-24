@@ -32,17 +32,6 @@
 		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
         <script defer src="admin/js/home/script.js"></script>
-
-        <script>
-            document.addEventListener('contextmenu', function (e) {
-                e.preventDefault();
-            });
-            document.addEventListener('keydown', function (e) {
-                if (e.code === 'KeyU' && (e.ctrlKey || e.metaKey)) {
-                    e.preventDefault();
-                }
-            });
-        </script>
         <!-- FACEBOOK SDK code -->
 	    <script>
 	      window.fbAsyncInit = function() {
@@ -264,7 +253,7 @@
                         ?>
                         </div>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="<?php echo ($row['post']);?>"  loading="lazy" allowfullscreen></iframe>
                         </div>
                         <?php } } ?>
                     </div><!--end col-->

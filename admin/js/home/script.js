@@ -55,24 +55,6 @@ $(document).ready(function () {
         order: [[0, 'desc']]
     });
 });
-//PASTS
-$(document).ready(function () {
-    $('#past-2021-table').DataTable({
-        pageLength : 5,
-    	lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'All']],
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#past-2022-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
-$(document).ready(function () {
-    $('#past-2023-table').DataTable({
-        order: [[0, 'desc']]
-    });
-});
 
 // DOWNLOADABLES
 $(document).ready(function () {
