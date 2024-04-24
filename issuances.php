@@ -212,15 +212,16 @@
                                 echo '</tr>';
                                 echo '</thead>';
                                 echo '<tbody>';
-                                if($tabId=='past-2019'){
-                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSp9NyIpsd60bSwcSGSR-XT7LTN8If-_Dpis23lBFSn5LJh4sIAPc4JV4bjL0Ue4kPrW65gqqEsuqgM/pubhtml?widget=true&amp;headers=false" loading="lazy"  frameborder="0" style="width:100%; height:500px; border: 2px solid black;border-radius: 10px;"></iframe>';
-                                }else if($tabId=='past-2020'){
-                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTG3yIf5CgEzqCfaWI78lIfi83s57gBxKp0DBSZV7ye1NVNU3iq_yLoJr2NFZUavzP8jyuvAbbOubUf/pubhtml?widget=true&amp;headers=false" loading="lazy" frameborder="0" style="width:100%; height:500px; border: 2px solid black;border-radius: 10px;"></iframe>';
-                                }else if($tabId=='past-2021'){
-                                    echo '<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&amp;headers=false" loading="lazy" frameborder="0" style="width:100%; height:500px; border:2px solid black;border-radius: 10px;"></iframe>';
-                                }
+
                                 echo '</tbody>';
                                 echo '</table>';
+                                if($tabId=='past-2019'){
+                                    echo '<div id="iframeContainer"></div>';
+                                }else if($tabId=='past-2020'){
+                                    echo '<div id="iframeContainer1"></div>';
+                                }else if($tabId=='past-2021'){
+                                    echo '<div id="iframeContainer2"></div>';
+                                }
                                 echo '</div><!--end col-->';
                                 echo '</div><!--end row-->';
                                 echo '</div>';
@@ -490,4 +491,53 @@ $(document).ready(function() {
         initializeDataTables();
     }, 600000); // 10000 milliseconds = 10 mins
 });
+</script>
+<!-- script for iframe -->
+<script>
+    var iframe = document.createElement('iframe');
+
+    // Set attributes for the iframe
+    iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&headers=false";
+    iframe.frameBorder = "0";
+    iframe.style.width = "100%";
+    iframe.style.height = "500px";
+    iframe.style.border = "2px solid black";
+    iframe.style.borderRadius = "10px";
+    iframe.loading = "lazy";
+    iframe.defer = true; // Add the defer attribute
+
+    // Append the iframe to the container
+    document.getElementById('iframeContainer').appendChild(iframe);
+</script>
+<script>
+    var iframe = document.createElement('iframe');
+
+    // Set attributes for the iframe
+    iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTG3yIf5CgEzqCfaWI78lIfi83s57gBxKp0DBSZV7ye1NVNU3iq_yLoJr2NFZUavzP8jyuvAbbOubUf/pubhtml?widget=true&amp;headers=false";
+    iframe.frameBorder = "0";
+    iframe.style.width = "100%";
+    iframe.style.height = "500px";
+    iframe.style.border = "2px solid black";
+    iframe.style.borderRadius = "10px";
+    iframe.loading = "lazy";
+    iframe.defer = true; // Add the defer attribute
+
+    // Append the iframe to the container
+    document.getElementById('iframeContainer1').appendChild(iframe);
+</script>
+<script>
+    var iframe = document.createElement('iframe');
+
+    // Set attributes for the iframe
+    iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4AjFZqmXZfhSgG5Q8o0qjuRJk5HcxoYvnXWe7vJ7GrDCagJgImjtBgaPiDGHcaXN7Pa8uHXIVPJRA/pubhtml?widget=true&amp;headers=false";
+    iframe.frameBorder = "0";
+    iframe.style.width = "100%";
+    iframe.style.height = "500px";
+    iframe.style.border = "2px solid black";
+    iframe.style.borderRadius = "10px";
+    iframe.loading = "lazy";
+    iframe.defer = true; // Add the defer attribute
+
+    // Append the iframe to the container
+    document.getElementById('iframeContainer2').appendChild(iframe);
 </script>

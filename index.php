@@ -22,15 +22,13 @@
         <link href="admin/css/home/style.css" rel="stylesheet" type="text/css" />
         <!-- Slider -->        
         <link rel="stylesheet" href="admin/css/home/slick-theme.css"/>
-        <!-- <link rel="stylesheet" href="admin/css/home/slick.css"/> -->
+        <link rel="stylesheet" href="admin/css/home/slick.css"/>
 
+        <!-- Data Table -->
         <link rel="stylesheet" href="admin/datatables/dataTables.bootstrap5.min.css">
-
-        <script defer src="admin/datatables/jquery-3.7.0.js"></script>
-		<script defer src="admin/datatables/jquery.dataTables.min.js"></script>
-		<script defer src="admin/datatables/dataTables.bootstrap5.min.js"></script>
 		<script defer src="admin/datatables/dataTables.fixedColumns.min.js"></script>
 
+        <!-- Scripts -->
         <script defer src="admin/js/home/script.js"></script>
         <!-- FACEBOOK SDK code -->
 	    <script>
@@ -89,7 +87,7 @@
                                     "numbered-memorandum" => array("mdi-bullhorn", "NUMBERED MEMORANDUM"),
                                     "division-advisories" => array("mdi-note", "DIVISION ADVISORIES"),
                                     "division-circulars" => array("mdi-email", "DIVISION CIRCULARS"),
-                                    "office-memorandum" => array("mdi-file-multiple", "OFFICE ORDER"),
+                                    "office-order" => array("mdi-file-multiple", "OFFICE ORDER"),
                                 );
 
                                 // Iterate through the issuance types array to generate tabs
@@ -123,33 +121,15 @@
                                     echo '<div class="col-md-12">';
                                     echo '<h4 class="title">' . $tabInfo[1] . '</h4>';
                                     echo '<table id="' . $tabId . '-tableindex" class="table table-striped" style="width:100%">';
-                                    echo '<thead>';
-                                    echo '<tr>';
-                                    echo '<th>Date</th> ';
-                                    echo '<th style="display:none;">Tracking Number</th> ';
-                                    if($tabId=='unnumbered-memorandum'){
-                                        echo '<th style="display:none;">No.</th>  ';
-                                    }else{
-                                        echo '<th>No.</th>  ';
-                                    }
-                                    echo '<th>Title</th>';
-                                    echo '</tr>';
-                                    echo '</thead>';
+                                        echo '<thead>';
+                                            echo '<tr>';
+                                                echo '<th>Date</th> ';
+                                                echo '<th>No.</th>  ';
+                                                echo '<th>Title</th>';
+                                            echo '</tr>';
+                                        echo '</thead>';
                                     echo '<tbody>';
-                                    $issuances = "SELECT * FROM issuancesvw WHERE status = 'active'AND type = '" . $tabInfo[1] . "' ORDER BY date DESC";
-                                    $issuances1 = mysqli_query($con, $issuances);
-                                    while($row = mysqli_fetch_array($issuances1)){
-                                        echo '<tr>';
-                                        echo '<td>'.$row['date'].'</td>';
-                                        if($tabId=='unnumbered-memorandum'){
-                                            echo '<td style="display:none;">'.$row['number'].'</td>';
-                                        }else{
-                                            echo '<td>'.$row['number'].'</td>';
-                                        }
-                                        echo '<td style="display:none;">'.$row['tracking_number'].'</td>';
-                                        echo '<td><a class="text-primary" href="'.$row['link'].'" target="_blank">'.$row['title'].'</a></td>';
-                                        echo '</tr>';
-                                    }
+                                    
                                     echo '</tbody>';
                                     echo '</table>';
                                     echo '</div><!--end col-->';
@@ -323,9 +303,14 @@
         <!-- Scripts -->
         <?php include 'admin/includes/home/scripts.php'; ?>
                 
+        
+        <script src="admin/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     </body>
 
 </html>
+
+<!-- script for fetchdata -->
 <style>
 /* Ensure that the demo table scrolls */
     th, td { white-space: nowrap; }
@@ -340,3 +325,101 @@
         table-layout: fixed;
     } */
 </style>
+
+<!-- script for fetchdata -->
+<script>
+$(document).ready(function() {
+    // Function to initialize DataTables
+    function initializeDataTables() {
+        $('#numbered-memorandum-tableindex').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/issuances/issuancenumberedindex.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#division-advisories-tableindex').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/issuances/issuanceadvisoriesindex.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#division-circulars-tableindex').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/issuances/issuancecircularsindex.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+
+        $('#office-order-tableindex').DataTable({
+            "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                $(nRow).attr('id', aData[0]);
+            },
+            'serverSide': 'true',
+            'processing': 'true',
+            'paging': 'true',
+            'order': [],
+            'ajax': {
+                'url': 'admin/includes/fetchdata/issuances/issuanceofficeorderindex.php',
+                'type': 'post',
+            },
+            "columnDefs": [{
+                'target': [0, 7],
+                'orderable': false
+            }]
+        });
+    }
+
+    // Call the function initially
+    initializeDataTables();
+
+    // Refresh the DataTables every 10 mins
+    setInterval(function() {
+        // Destroy existing DataTables instances
+        $('#numbered-memorandum-tableindex').DataTable().destroy();
+        $('#division-advisories-tableindex').DataTable().destroy();
+        $('#division-circulars-tableindex').DataTable().destroy();
+        $('#office-order-tableindex').DataTable().destroy();
+
+        // Re-initialize DataTables
+        initializeDataTables();
+    }, 600000); // 10000 milliseconds = 10 mins
+});
+</script>
+<!-- script for iframe -->
+<script>
+</script>
