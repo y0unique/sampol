@@ -420,6 +420,43 @@ $(document).ready(function() {
     }, 600000); // 10000 milliseconds = 10 mins
 });
 </script>
+<!-- script for facebook -->
+<script>
+    $(document).ready(function() {
+        // Function to initialize DataTables
+        function initializeDataTables() {
+            $('#facebook').DataTable({
+                "fnCreatedRow": function(nRow, aData, iDataIndex) {
+                    $(nRow).attr('id', aData[0]);
+                },
+                'serverSide': 'true',
+                'processing': 'true',
+                'paging': 'true',
+                'order': [],
+                'ajax': {
+                    'url': 'admin/includes/fetchdata//issuancenumberedindex.php',
+                    'type': 'post',
+                },
+                "columnDefs": [{
+                    'target': [0, 4],
+                    'orderable': false
+                }]
+            });
+        }
+
+        // Call the function initially
+        initializeDataTables();
+
+        // Refresh the DataTables every 10 mins
+        setInterval(function() {
+            // Destroy existing DataTables instances
+            $('#facebook').DataTable().destroy();
+
+            // Re-initialize DataTables
+            initializeDataTables();
+        }, 600000); // 10000 milliseconds = 10 mins
+    });
+</script>
 <!-- script for iframe -->
 <script>
 </script>

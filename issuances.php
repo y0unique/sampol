@@ -423,7 +423,7 @@ $(document).ready(function() {
             'paging': 'true',
             'order': [],
             'ajax': {
-                'url': 'admin/includes/fetchdata/issuances/issuance2022.php',
+                'url': 'admin/includes/fetchdata/issuances/issuance2021.php',
                 'type': 'post',
             },
             "columnDefs": [{
