@@ -10,25 +10,111 @@ if(isset($_POST['add'])){
     $file_title = mysqli_real_escape_string($con, $_POST['file_title']);
     $file_link =  mysqli_real_escape_string($con, $_POST['file_link']);
     $file_department = $_POST['file_department'];
-
+    
     if($file_type == 'DOWNLOADABLES'){
-        $error = mysqli_error($con);  // Capture SQL error
-        $data = array(
-            'addFileStatus'=>'true',
-            'message' => 'Success Downloadables' . $error
-        );
-        echo json_encode($data);
-        return;
+        $sql = "INSERT INTO filestbl SET 
+                file_type = ?, 
+                file_title = ?, 
+                file_link = ?, 
+                file_date = NOW(), 
+                file_department = ?"; 
+
+        // Prepare the statement
+        $stmt = mysqli_prepare($con, $sql);
+
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "ssss", $file_type, $file_title, $file_link, $file_department);
+
+        // Execute the statement
+        mysqli_stmt_execute($stmt);
+        if($stmt){
+            $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
+                                       values ('$webID', 'Added File $file_title',  NOW(), NOW())";
+            $query1= mysqli_query($con,$inserttime);
+            $query2 = mysqli_insert_id($con);
+            if($query1){
+                $data = array
+                (
+                    'addFileStatus'=>'true',
+                    'message' => 'Downloadable Added Successfully'
+                );
+                echo json_encode($data);
+                return;
+            }else{
+                $error = mysqli_error($con);  // Capture SQL error
+        
+                echo "console.log ('$error');";
+                $data = array(
+                    'addFileStatus'=>'false',
+                    'message' => 'Error Adding File' . $error
+                );
+                echo json_encode($data);
+                return;
+            }
+        }else{
+            $error = mysqli_error($con);  // Capture SQL error
+        
+            echo "console.log ('$error');";
+            $data = array(
+                'addFileStatus'=>'false',
+                'message' => 'Error Adding File' . $error
+            );
+            echo json_encode($data);
+            return;
+        }
     }else if($file_type == 'MATERIALS'){
-        $error = mysqli_error($con);  // Capture SQL error
-        $data = array(
-            'addFileStatus'=>'true',
-            'message' => 'Success Materials' . $error
-        );
-        echo json_encode($data);
-        return;
+        $sql = "INSERT INTO filestbl SET 
+            file_type = ?, 
+            file_title = ?, 
+            file_link = ?, 
+            file_date = NOW(), 
+            file_department = ?"; 
+
+        // Prepare the statement
+        $stmt = mysqli_prepare($con, $sql);
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "ssss", $file_type, $file_title, $file_link, $file_department);
+        // Execute the statement
+        mysqli_stmt_execute($stmt);
+        if($stmt){
+            $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
+                                       values ('$webID', 'Added File $file_title',  NOW(), NOW())";
+            $query1= mysqli_query($con,$inserttime);
+            $query2 = mysqli_insert_id($con);
+            if($query1){
+                $data = array
+                (
+                    'addFileStatus'=>'true',
+                    'message' => 'Material Added Successfully'
+                );
+                echo json_encode($data);
+                return;
+            }else{
+                $error = mysqli_error($con);  // Capture SQL error
+        
+                echo "console.log ('$error');";
+                $data = array(
+                    'addFileStatus'=>'false',
+                    'message' => 'Error Adding File' . $error
+                );
+                echo json_encode($data);
+                return;
+            }
+        } else {
+            $error = mysqli_error($con);  // Capture SQL error
+        
+            echo "console.log ('$error');";
+            $data = array(
+                'addFileStatus'=>'false',
+                'message' => 'Error Adding File' . $error
+            );
+            echo json_encode($data);
+            return;
+        }
     }else{
         $error = mysqli_error($con);  // Capture SQL error
+        
+        echo "console.log ('$error');";
         $data = array(
             'addFileStatus'=>'false',
             'message' => 'Error Adding File' . $error
@@ -36,15 +122,6 @@ if(isset($_POST['add'])){
         echo json_encode($data);
         return;
     }
-
-}else{
-    $error = mysqli_error($con);  // Capture SQL error
-    $data = array(
-        'addFileStatus'=>'false',
-        'message' => 'Error Adding File' . $error
-    );
-    echo json_encode($data);
-    return;
 }
 
 //View File
@@ -67,10 +144,11 @@ if(isset($_POST['update'])){
     $file_department = $_POST['file_department'];
 
         
-    if($file_type == 'downloadable'){
+    if($file_type == 'DOWNLOADABLES'){
         $sql = "UPDATE filestbl SET file_type = '$file_type',
                                     file_title = '$file_title', 
                                     file_link = '$file_link', 
+                                    file_department = '',
                                     file_date = NOW(), 
                                     file_status = 'active' WHERE file_id = '$id'";
         $query= mysqli_query($con,$sql);
@@ -104,45 +182,61 @@ if(isset($_POST['update'])){
             );
             echo json_encode($data);
         } 
-    } else if ($file_type == 'material'){
-        $sql = "UPDATE filestbl SET file_type = '$file_type',
-                                    file_title = '$file_title', 
-                                    file_link = '$file_link', 
-                                    file_department = '$file_department',
-                                    file_date = NOW(), 
-                                    file_status = 'active' WHERE file_id = '$id'";
-        $query= mysqli_query($con,$sql);
-        $lastId = mysqli_insert_id($con);
+    } else if ($file_type == 'MATERIALS'){
+        if($file_department == ""){
+            $data = array
+            (
+                'editFileStatus'=>'false',
+                'message' => 'Department Cannot Be Empty' 
+            );
+            echo json_encode($data);
+            return;
+        }else{
+            $sql = "UPDATE filestbl SET file_type = '$file_type',
+                                        file_title = '$file_title', 
+                                        file_link = '$file_link', 
+                                        file_department = '$file_department',
+                                        file_date = NOW(), 
+                                        file_status = 'active' WHERE file_id = '$id'";
+            $query= mysqli_query($con,$sql);
+            $lastId = mysqli_insert_id($con);
 
 
-        if($query){
-            $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
-                                        values ('$webID', 'Edited $file_type file: $file_title',  NOW(), NOW())";
-            $query1= mysqli_query($con,$inserttime);
-            $query2 = mysqli_insert_id($con);
-            if ($query1)
-            {
+            if($query){
+                $inserttime = "INSERT INTO timelogtbl (user_id, log_action, log_date, log_time) 
+                                            values ('$webID', 'Edited $file_type file: $file_title',  NOW(), NOW())";
+                $query1= mysqli_query($con,$inserttime);
+                $query2 = mysqli_insert_id($con);
+                if ($query1)
+                {
+                    $data = array
+                    (
+                        'editFileStatus'=>'true',
+                        'message' => 'Edited File Successfully' 
+                    );
+                    echo json_encode($data);
+                    return;
+                }
+                else
+                {
+                    $data = array
+                    (
+                        'editFileStatus'=>'false',
+                        'message' => 'Edit File Error' 
+                    );
+                    echo json_encode($data);
+                    return;
+                }
+            } else {
                 $data = array
                 (
-                    'editFileStatus'=>'true',
-                    'message' => 'Edited File Successfully' 
+                    'editFileStatus'=>'false',
+                    'message' => 'Edit File Error' 
                 );
                 echo json_encode($data);
                 return;
-            }
-            else
-            {
-                $data = array(
-                    'editFileStatus'=>'false',
-                );
-                echo json_encode($data);
-            }
-        } else {
-            $data = array(
-                'editFileStatus'=>'false',
-            );
-            echo json_encode($data);
-        } 
+            } 
+        }
     } else{
         $data = array(
             'editFileStatus'=>'false',

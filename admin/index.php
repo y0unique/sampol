@@ -144,7 +144,7 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <div class="col-xl-8 col-lg-7">
+                        <div class="col-xl-8 col-lg-6">
 
                             <!-- Area Chart -->
                             <div class="card shadow mb-4">
@@ -173,11 +173,11 @@
                         </div>
 
                         <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-7">
+                        <div class="col-xl-4 col-lg-6">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Issuances Chart</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -185,15 +185,7 @@
                                         <canvas id="myPieChart"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
+                                        <div id="pie-chart-legend" class="mt-4 text-center small"></div>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +210,12 @@
 
     <!-- scripts -->
     <?php include 'includes/scripts.php'; ?>
+    
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- <script src="js/demo/chart-area-demo.js"></script> -->
+    <!-- <script src="js/demo/chart-bar-demo.js"></script> -->
 </body>
 
 </html>

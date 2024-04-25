@@ -74,6 +74,69 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Material list -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Downloadables -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseDownloadables" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseDownloadables">
+                                    <h6 class="m-0 font-weight-bold text-primary">Downloadable Files</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse" id="collapseDownloadables">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="downloadablesTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Date</th>
+                                                        <th>Title</th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Materials -->
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseMaterials" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseMaterials">
+                                    <h6 class="m-0 font-weight-bold text-primary">Material Files</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse" id="collapseMaterials">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped display compact text-gray-900" id="materialsTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Date</th>
+                                                        <th>Department</th> 
+                                                        <th>Title</th> 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
             </div>
@@ -100,6 +163,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#filesTable').DataTable({
+            "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
             "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                 $(nRow).attr('id', aData[0]);
             },
@@ -117,7 +181,46 @@
             }]
         });
     });
-
+    $(document).ready(function() {
+      $('#downloadablesTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/downloadablesfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,2],
+          'orderable' :false
+        }]
+      });
+    } );
+    $(document).ready(function() {
+      $('#materialsTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/materialsfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,3],
+          'orderable' :false
+        }]
+      });
+    } );
     //add file
     $(document).on('submit','#addFiles',function(e){
         e.preventDefault();
@@ -168,8 +271,8 @@
     // view Files for edit modal
     $('#filesTable').on('click', '.editfilebtn ', function(event) {
         var table = $('#filesTable').DataTable();
-        var trid = $(this).closest('tr').attr('id');
         var id = $(this).data('id');
+        var trid = $(this).closest('tr').attr('id');
         $('#editFilesModal').modal('show');
 
         // Fetch file details using AJAX
@@ -252,8 +355,11 @@
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(json.message);
                     $('#editFilesModal').modal('hide');
-                } else {
-                    alert('failed');
+                }else if(editFileStatus == 'false'){
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.warning(json.message);
+                }else{
+                    alert('Error communicating with the database');
                 }
             }
         });
@@ -347,5 +453,18 @@
         } else {
             alert('Fill all the required fields');
         }
+    });
+
+    //clear modal add
+    $('#addFilesModal').on('hidden.bs.modal', function() {
+        $('#addFiles')[0].reset();
+    });
+    //clear modal edit
+    $('#editFilesModal').on('hidden.bs.modal', function() {
+        $('#editFiles')[0].reset();
+    });
+    //clear modal delete
+    $('#deleteFilesModal').on('hidden.bs.modal', function() {
+        $('#deleteFiles')[0].reset();
     });
 </script>

@@ -28,23 +28,23 @@
                         <div class="col-md-9">
                             <select class="form-control" id="file_department" name="file_department" disabled>
                                 <option disabled selected hidden> <-- SELECT --> </option>
-                                <option value="admin"> Admin </option>
-                                <option value="asds"> ASDS </option>
-                                <option value="accounting"> Accounting </option>
-                                <option value="cid"> CID </option>
-                                <option value="budget"> Budget </option>
-                                <option value="ict"> ICT </option>
-                                <option value="osds"> OSDS </option>
-                                <option value="records"> Records </option>
-                                <option value="sgod"> SGOD </option>
-                                <option value="legal"> Legal </option>
-                                <option value="hrms"> HRMS </option>
-                                <option value="drrmo"> DRRMO </option>
-                                <option value="coa"> COA </option>
-                                <option value="property"> Property </option>
-                                <option value="health"> Health </option>
-                                <option value="publication"> Publication </option>
-                                <option value="school plant"> School Plant </option>
+                                <option value="ADMIN"> Admin </option>
+                                <option value="ASDS"> ASDS </option>
+                                <option value="ACCOUNTING"> Accounting </option>
+                                <option value="CID"> CID </option>
+                                <option value="BUDGET"> Budget </option>
+                                <option value="ICT"> ICT </option>
+                                <option value="OSDS"> OSDS </option>
+                                <option value="RECORDS"> Records </option>
+                                <option value="SGOD"> SGOD </option>
+                                <option value="LEGAL"> Legal </option>
+                                <option value="HRMS"> HRMS </option>
+                                <option value="DRRMO"> DRRMO </option>
+                                <option value="COA"> COA </option>
+                                <option value="PROPERTY"> Property </option>
+                                <option value="HEALTH"> Health </option>
+                                <option value="PUBLICATION"> Publication </option>
+                                <option value="SCHOOL PLANT"> School Plant </option>
 
                             </select>
                         </div>
@@ -66,11 +66,11 @@
 
                     <input class="form-control" type="hidden" id="webID" value="<?php echo $_SESSION['webID'] ?>">
                     <input class="form-control" type="hidden" id="webUsername" value="<?php echo $_SESSION['webUsername'] ?>">
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    
                 </form>
             </div>
         </div>
@@ -206,11 +206,12 @@
         disableAndHideElements();
 
         // Enable and show elements based on _file_type
-        if (fileType === 'procurement') {
+        if (fileType === 'DOWNLOADABLES') {
             fileDepartment.prop('disabled', true);
-        } else if (fileType === 'downloadable') {
+            
+        } else if (fileType === 'DOWNLOADABLES') {
             // No need to do anything extra, elements are already disabled and hidden
-        } else if (fileType === 'material') {
+        } else if (fileType === 'MATERIALS') {
             fileDepartment.prop('disabled', false);
             departmentDiv.prop('hidden', false);
         } else {

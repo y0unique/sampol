@@ -93,7 +93,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Elementary Schools</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseElementary">
+                                <div class="collapse" id="collapseElementary">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-striped display compact text-gray-900" id="elemschoolTable" width="100%" cellspacing="0">
@@ -126,7 +126,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Junior High Schools</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseJHS">
+                                <div class="collapse" id="collapseJHS">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-striped display compact text-gray-900" id="jhschoolTable" width="100%" cellspacing="0">
@@ -159,7 +159,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Senior High Schools</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseSHS">
+                                <div class="collapse" id="collapseSHS">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-striped display compact text-gray-900" id="shschoolTable" width="100%" cellspacing="0">
@@ -192,7 +192,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Special Education Centers</h6>
                                 </a>
                                 <!-- Card Content - Collapse -->
-                                <div class="collapse show" id="collapseSpecialEducation">
+                                <div class="collapse" id="collapseSpecialEducation">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table class="table table-striped display compact text-gray-900" id="spedschoolTable" width="100%" cellspacing="0">
@@ -241,9 +241,12 @@
 </body>
 
 </html>
+
 <script type="text/javascript">
+    // table initilization
     $(document).ready(function() {
       $('#schoolTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
           $(nRow).attr('id', aData[0]);
         },
@@ -261,6 +264,86 @@
         }]
         });
     });
+    $(document).ready(function() {
+      $('#elemschoolTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/elemschoolfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,7],
+          'orderable' :false
+        }]
+      });
+    } );
+    $(document).ready(function() {
+      $('#jhschoolTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/jhschoolfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,7],
+          'orderable' :false
+        }]
+      });
+    } );
+    $(document).ready(function() {
+      $('#shschoolTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/shschoolfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,7],
+          'orderable' :false
+        }]
+      });
+    } );
+    $(document).ready(function() {
+      $('#spedschoolTable').DataTable({
+        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
+        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
+          $(nRow).attr('id', aData[0]);
+        },
+        'serverSide':'true',
+        'processing':'true',
+        'paging':'true',
+        'order':[],
+        'ajax': {
+          'url':'includes/fetchdata/spedschoolfetch.php',
+          'type':'post',
+        },
+        "columnDefs": [{
+          'target':[0,7],
+          'orderable' :false
+        }]
+      });
+    } );
 
     //add school
     $(document).on('submit','#addSchool',function(e){
@@ -412,6 +495,7 @@
                     $('#shschoolTable').DataTable().destroy();
                     $('#spedschoolTable').DataTable().destroy();
                     mytable = $('#schoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
                             $(nRow).attr('id', aData[0]);
                         },
@@ -429,6 +513,7 @@
                         }]
                     });
                     $('#elemschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -446,6 +531,7 @@
                         }]
                     });
                     $('#jhschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -463,6 +549,7 @@
                         }]
                     });
                     $('#shschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -480,6 +567,7 @@
                         }]
                     });
                     $('#spedschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -568,6 +656,7 @@
                     $('#shschoolTable').DataTable().destroy();
                     $('#spedschoolTable').DataTable().destroy();
                     mytable = $('#schoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function(nRow, aData, iDataIndex) {
                             $(nRow).attr('id', aData[0]);
                         },
@@ -585,6 +674,7 @@
                         }]
                     });
                     $('#elemschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -602,6 +692,7 @@
                         }]
                     });
                     $('#jhschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -619,6 +710,7 @@
                         }]
                     });
                     $('#shschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -636,6 +728,7 @@
                         }]
                     });
                     $('#spedschoolTable').DataTable({
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'All']],
                         "fnCreatedRow": function( nRow, aData, iDataIndex ) {
                         $(nRow).attr('id', aData[0]);
                         },
@@ -682,88 +775,4 @@
     $('#deleteSchoolsModal').on('hidden.bs.modal', function() {
         $('#deleteschool')[0].reset();
     });
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-      $('#elemschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/elemschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });
-    } );
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-      $('#jhschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/jhschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });
-    } );
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-      $('#shschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/shschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });
-    } );
-</script>
-<script type="text/javascript">
-    $(document).ready(function() {
-      $('#spedschoolTable').DataTable({
-        "fnCreatedRow": function( nRow, aData, iDataIndex ) {
-          $(nRow).attr('id', aData[0]);
-        },
-        'serverSide':'true',
-        'processing':'true',
-        'paging':'true',
-        'order':[],
-        'ajax': {
-          'url':'includes/fetchdata/spedschoolfetch.php',
-          'type':'post',
-        },
-        "columnDefs": [{
-          'target':[0,7],
-          'orderable' :false
-        }]
-      });
-    } );
 </script>

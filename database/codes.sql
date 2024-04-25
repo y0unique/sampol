@@ -288,7 +288,7 @@ SELECT
     file_department AS "department",
     file_date AS "date",
     file_status AS "status"
-FROM filestbl WHERE file_type = 'material' AND file_status = 'active';
+FROM filestbl WHERE file_type = 'MATERIALS' AND file_status = 'active';
 
 --officesvw
 CREATE VIEW OfficesVW AS
