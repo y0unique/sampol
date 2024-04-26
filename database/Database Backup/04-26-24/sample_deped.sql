@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 10:29 AM
+-- Generation Time: Apr 12, 2024 at 10:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -188,24 +188,15 @@ CREATE TABLE `filestbl` (
 --
 
 INSERT INTO `filestbl` (`file_id`, `file_type`, `file_title`, `file_link`, `file_date`, `file_department`, `file_status`) VALUES
-(1, 'DOWNLOADABLES', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2024-04-26 09:10:32', '', 'active'),
+(1, 'DOWNLOADABLES', 'Personal Data Sheet (CSC Form 212)', 'https://docs.google.com/spreadsheets/d/1DGqoPF6vptqgLOJWkVrj832T5Hxui3DR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2024-04-02 10:07:15', NULL, 'active'),
 (2, 'DOWNLOADABLES', 'CSC Form 212 Work Experience Sheet (Sample Only)', 'https://docs.google.com/document/d/1lEajIGa1lF-cxQUnevvi8xxBHPsrm5Ld/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:15:58', NULL, 'active'),
 (3, 'DOWNLOADABLES', 'CSC Form 32 (Oath of Office)', 'https://drive.google.com/file/d/1V1SPz1gHHQoWbeYUw', '2023-06-13 14:16:46', NULL, 'active'),
 (4, 'DOWNLOADABLES', 'Sworn Statement', 'https://drive.google.com/file/d/1qaiscx-xZYjigo3QW', '2023-06-13 14:16:46', NULL, 'active'),
 (5, 'DOWNLOADABLES', 'Statement of Assets, Liabilities and Networth (SALN)', 'drive.google.com', '2023-06-13 14:17:53', NULL, 'active'),
 (6, 'DOWNLOADABLES', 'CSC Form 6 (Leave Form)', 'https://docs.google.com/spreadsheets/d/1SdJT3PNaax2EjFEG-QxLDIi9RMKcd7mR/edit?usp=drive_link&ouid=104589952863031883211&rtpof=true&sd=true', '2023-06-13 14:17:53', NULL, 'active'),
 (7, 'DOWNLOADABLES', 'Omnibus Certification and Veracity of Documents Submitted', 'https://drive.google.com/file/d/1Y3OMDK1InUZ0Av5WH', '2023-06-13 14:18:29', NULL, 'active'),
-(8, 'MATERIALS', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-04-26 09:15:26', 'budget', 'active'),
-(9, 'DOWNLOADABLES', '123', '123', '2024-04-02 10:01:32', NULL, 'inactive'),
-(10, 'DOWNLOADABLES', '123', '123', '2024-04-17 15:50:58', NULL, 'inactive'),
-(11, 'MATERIALS', '123', '123', '2024-04-25 16:28:46', 'admin', 'inactive'),
-(12, 'DOWNLOADABLES', '123', '123', '2024-04-25 16:01:03', '', 'inactive'),
-(13, 'MATERIALS', '123', '123', '2024-04-26 09:14:24', 'admin', 'inactive'),
-(14, 'DOWNLOADABLES', '123', '123', '2024-04-25 16:14:35', '', 'inactive'),
-(15, 'MATERIALS', '123', '123', '2024-04-25 16:08:54', 'ASDS', 'inactive'),
-(16, 'MATERIALS', '123', '123', '2024-04-25 16:09:31', 'ASDS', 'inactive'),
-(17, 'MATERIALS', '123', '123', '2024-04-25 16:10:10', 'ADMIN', 'inactive'),
-(18, 'DOWNLOADABLES', '123', '123', '2024-04-26 09:12:32', '', 'inactive');
+(8, 'MATERIALS', 'Payments Sheet', 'https://docs.google.com/spreadsheets/d/15WrejQGPkxkAs-fNsat2C41YnIlkIV88yIN60KRADUg/edit?usp=sharing', '2024-04-01 11:25:12', 'budget', 'active'),
+(9, 'downloadable', '123', '123', '2024-04-02 10:01:32', NULL, 'active');
 
 -- --------------------------------------------------------
 
@@ -3847,20 +3838,18 @@ INSERT INTO `issuancestbl` (`issuances_id`, `tracking_number`, `issuances_title`
 (3799, '2024-2-15-10464', 'YMCA\'S HI-Y CLUB JOINT LEADERSHIP CAMP', ' http://depedmanila.net:5000/d/s/xHlxBA7nfqMaFwKABmdxfdA6WqinGT9Y/AEomwu4TI4OyZqKwDDqrYxtHI0BRCgms-SrxgWB1MIws', '58', '2024-02-16', 'DIVISION ADVISORIES', 'active'),
 (3800, '2024-2-12-10225', 'INVITATION TO THE KNIGHTS OF THE COLUMBUS\' ANNUAL FREE THROW CHAMPIONSHIP', ' http://depedmanila.net:5000/d/s/xHm5UY02G8eT5ggAK4Triww7sCS4oggk/hcKsK3Ox3KYSbFNcLBIa9WQdt8Q1bX-s-tbxgnJZMIws', '59', '2024-02-16', 'DIVISION ADVISORIES', 'active'),
 (3801, '2024-2-14-10374', 'INVITATION TO THE ANNUAL YMCA LOCAL ACADEMIC OLYMPICS AND THE YMCA VOICE CHALLENGE', ' http://depedmanila.net:5000/d/s/xHmDdVpEnYjexuTJCmOo1MFqdGy5c5w5/fZdJt-nM87KjqJZQADwzweavqAuO6iwG-Er0gM_5MIws', '60', '2024-02-16', 'DIVISION ADVISORIES', 'active'),
-(3802, '2024-2-15-10432', 'TECHNICAL WORKING GROUP FOR THE SUMMIT FOR PILOT IMPLEMENTERS OF THE MATATAG CURRICULUM', ' http://depedmanila.net:5000/d/s/xK2upxkpRBkc1BH7OCLgizuX13vSArfv/3ufMCWJ7fV4wzafI0RJUCf_dTSz9vWt1-LL0gxtMTJQs', '58', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3803, '2024-2-13-10299', 'INVITATION TO ATTEND THE 3RD NATIONAL ASSOCIATION OF DENTAL TRADERS, INC. SEMINAR AND SUMMER SALE', 'http://depedmanila.net:5000/d/s/xK4TnSMIkq7zbJjEOgCfzPZKMkeHWJoj/TOkheYnnFj9dK_RWBTOkgEBe8Td5nAYz--r3ADKcUJQs', '61', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3804, '2024-2-13-10300', 'REGIONAL ELECTION OF FEDERATION OF PARENTS-TEACHERS ASSOCIATION', ' http://depedmanila.net:5000/d/s/xK4cenzlnUUHS8e3JmMu9bQwie0jLSEN/KVAsXFFVD4luQFVkKOYWXpVE32thBTHe-lL4AGRYVJQs', '62', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3805, '2024-2-13-10301', '13th FIRST LEGO LEAGUE PHILIPPINES', ' http://depedmanila.net:5000/d/s/xK4o7IxwIUvm2135ej98rNjtQctezDmo/PH3_Ds-Wbqx8HKMLHIqVxbx3ZSkGKQkM-Yb9gQ6cVJQs', '63', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3806, '2024-2-13-10302', 'YOUTH LEADERSHIP AND VALUES FORMATION CAMP 2024 WITH THE THEME \\\"DIVERGENT\\\"', ' http://depedmanila.net:5000/d/s/xKAEt0D1SWaDZjzxzmSOyaW5W1HA1ydy/jWs4A_AHqQgBLa3yjeaNhoe3jzUfDopO-Qr5A8REnJQs', '64', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3807, '2024-2-13-10303', 'LIKNAYAN 2024', ' http://depedmanila.net:5000/d/s/xKAMq419oOTdiahfPeKBBgpyyt8dM6LB/-pyEeymDBTAbqAQvbUj3SoDM7e0DKDie-or7gn28nJQs', '65', '2024-02-19', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3808, '2024-2-19-10553', 'VENUE FOR THE WORKSHOP-TRAINING ON ISSUANCE OF SPECIAL ORDER SYSTEM (ISO SYS) FOR PRIVATE SCHOOLS (WISP)', ' http://depedmanila.net:5000/d/s/xKozbTeHoA32tgcdUufhCgXQVhqej7OJ/zgMHRlUNxkhU6ZMQrTTw4ht3DotYc_qW-u79A8KOpJQs', '66', '2024-02-20', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3809, '2024-2-8-10142', 'CONDUCT INNER AND SOCIAL TRANSFORMATION THROUGH RECOLLECTION GIVING TO GRADUATING GRADE 6 LEARNERS', ' http://depedmanila.net:5000/d/s/xKtm1Qo4CQjYON9CcVVcFsxKGt9fNeON/cebGap1_kKkZDc1UaaZqUFgr6AGWtTPV-urcghwu5JQs', '6', '2024-02-20', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
+(3802, '2024-2-15-10432', 'TECHNICAL WORKING GROUP FOR THE SUMMIT FOR PILOT IMPLEMENTERS OF THE MATATAG CURRICULUM', ' http://depedmanila.net:5000/d/s/xK2upxkpRBkc1BH7OCLgizuX13vSArfv/3ufMCWJ7fV4wzafI0RJUCf_dTSz9vWt1-LL0gxtMTJQs', '58', '2024-02-19', 'NUMBERED MEMORANDUM', 'active'),
+(3803, '2024-2-13-10299', 'INVITATION TO ATTEND THE 3RD NATIONAL ASSOCIATION OF DENTAL TRADERS, INC. SEMINAR AND SUMMER SALE', 'http://depedmanila.net:5000/d/s/xK4TnSMIkq7zbJjEOgCfzPZKMkeHWJoj/TOkheYnnFj9dK_RWBTOkgEBe8Td5nAYz--r3ADKcUJQs', '61', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
+(3804, '2024-2-13-10300', 'REGIONAL ELECTION OF FEDERATION OF PARENTS-TEACHERS ASSOCIATION', ' http://depedmanila.net:5000/d/s/xK4cenzlnUUHS8e3JmMu9bQwie0jLSEN/KVAsXFFVD4luQFVkKOYWXpVE32thBTHe-lL4AGRYVJQs', '62', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
+(3805, '2024-2-13-10301', '13th FIRST LEGO LEAGUE PHILIPPINES', ' http://depedmanila.net:5000/d/s/xK4o7IxwIUvm2135ej98rNjtQctezDmo/PH3_Ds-Wbqx8HKMLHIqVxbx3ZSkGKQkM-Yb9gQ6cVJQs', '63', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
+(3806, '2024-2-13-10302', 'YOUTH LEADERSHIP AND VALUES FORMATION CAMP 2024 WITH THE THEME \"DIVERGENT\"', ' http://depedmanila.net:5000/d/s/xKAEt0D1SWaDZjzxzmSOyaW5W1HA1ydy/jWs4A_AHqQgBLa3yjeaNhoe3jzUfDopO-Qr5A8REnJQs', '64', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
+(3807, '2024-2-13-10303', 'LIKNAYAN 2024', ' http://depedmanila.net:5000/d/s/xKAMq419oOTdiahfPeKBBgpyyt8dM6LB/-pyEeymDBTAbqAQvbUj3SoDM7e0DKDie-or7gn28nJQs', '65', '2024-02-19', 'DIVISION ADVISORIES', 'active'),
+(3808, '2024-2-19-10553', 'VENUE FOR THE WORKSHOP-TRAINING ON ISSUANCE OF SPECIAL ORDER SYSTEM (ISO SYS) FOR PRIVATE SCHOOLS (WISP)', ' http://depedmanila.net:5000/d/s/xKozbTeHoA32tgcdUufhCgXQVhqej7OJ/zgMHRlUNxkhU6ZMQrTTw4ht3DotYc_qW-u79A8KOpJQs', '66', '2024-02-20', 'DIVISION ADVISORIES', 'active'),
+(3809, '2024-2-8-10142', 'CONDUCT INNER AND SOCIAL TRANSFORMATION THROUGH RECOLLECTION GIVING TO GRADUATING GRADE 6 LEARNERS', ' http://depedmanila.net:5000/d/s/xKtm1Qo4CQjYON9CcVVcFsxKGt9fNeON/cebGap1_kKkZDc1UaaZqUFgr6AGWtTPV-urcghwu5JQs', '6', '2024-02-20', 'DIVISION CIRCULARS', 'active'),
 (3810, '2024-2-19-10548', 'ADDENDUM TO DIVISION MEMORANDUM NO. 39, S. 2024 TRAINING WORKSHOP ON RIGHTSKILLING OF SCHOOL LEADERS OF SDO MANILA GEARING TOWARD THE ACHIEVEMENT OF THE MATATAG AGENDA AND PROFESSIONAL EXCELLENCE', ' http://depedmanila.net:5000/d/s/xKu0r1cKEzxkXb3QRT3xJUVjGdWHu6aw/izrVME5b8zMZQORvOyK_-gQ7cACucE4V-ZrjARsi5JQs', '21', '2024-02-20', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
-(3811, '2024-2-19-1055112', 'MONTHLY PROFESSIONAL MEETING OF TEACHER-IN-CHARGE OF PHYSICAL EDUCATION AND SCHOOL SPORTS (TCPESS)s', 'http://depedmanila.net:5000/d/s/xKuBec4yNjZJhWxCcr7PRAMNgZbVXAaB/wo7CaSY9Ds2tUIEji20ym2Z4DfSKs7A3-1rjgZUO6JQs', '22', '2024-02-20', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active'),
+(3811, '2024-2-19-1055112', 'MONTHLY PROFESSIONAL MEETING OF TEACHER-IN-CHARGE OF PHYSICAL EDUCATION AND SCHOOL SPORTS (TCPESS)s', ' http://depedmanila.net:5000/d/s/xKuBec4yNjZJhWxCcr7PRAMNgZbVXAaB/wo7CaSY9Ds2tUIEji20ym2Z4DfSKs7A3-1rjgZUO6JQs', '22', '2024-02-20', 'DIVISION CIRCULARS', 'active'),
 (3812, '123123', '123', ' 123', '123', '2024-04-03', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'inactive'),
-(3813, 'asds', '123', ' 123', '123', '2024-04-06', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'inactive'),
-(3814, 'asds', '123', ' 123', '123', '2024-04-16', 'DIVISION ORDERS', 'inactive'),
-(3815, '2024-2-19-1055112', '123', ' 123', '123', '2024-05-04', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'active');
+(3813, 'asds', '123', ' 123', '123', '2024-04-06', 'CITY MEMORANDUM / EXECUTIVE ORDER', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -3996,114 +3985,22 @@ CREATE TABLE `schoolstbl` (
 --
 
 INSERT INTO `schoolstbl` (`schooltbl_id`, `school_id`, `school_name`, `school_address`, `school_principal`, `school_contact`, `school_link`, `school_email`, `school_district`, `school_type`, `school_shsAvailability`, `school_spedAvailablity`, `school_status`) VALUES
-(1, '500569', 'Gen. Emilio Aguinaldo', 'Punta St. Sta. Ana, Manila', 'Nilo T. Salazar', '8535-17-14', 'emilioaguinaldohs.depedmanila.com', '500569@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(2, '136436', 'Amado V. Hernandez', 'Bo. Magsaysay, Tondo, Manila', 'Mr. Emmanuel R. Soriano', '8-289-6962', 'avhernandezes.depedmanila.com', 'emmanuel.soriano001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(3, '136430', 'Arsenio H. Lacson', 'Younger St,  Balut Tondo, Manila', 'Ms. Jenneth P. Salanga', '8-523-0618', 'alacsones.depedmanila.com', 'jenneth.salanga@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(4, '136433', 'Emilio Jacinto', 'Velasquez St. Tondo, Manila', 'Ms. Minerva M. Rosco', '8-244-1015', ' ejacintoes.depedmanila.com', 'minerva.rosco001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(5, '136439', 'Isabelo Delos Reyes', 'Morga-Sande St. Tondo, Manila', 'Ms. Eleodora B. Vergara', '8-242-3823', 'idelosreyeses.depedmanila.com', 'eleodora.vergara001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(6, '136440', 'Jose Corazon De Jesus', 'N. Zamora St. Tondo, Manila', 'Ms. Emmalyn F. Fortunato-Csiki', '8-354-5734', 'jcdejesuses.depedmanila.com', 'emmalyn.fotunato002@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(7, '136432', 'Jose Rizal', 'Tayuman-Pingkian St. Tondo, Manila', 'Ms. Marilou S. Calma', '8-354-7207', 'joserizales.depedmanila.com', 'marilou.calma002@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(8, '136438', 'Magat Salamat', '1429 Sta. Maria St. Tondo, Manila', 'Ms. Blesilda B. Cueto', '8-254-6334', 'magatsalamates.depedmanila.com', 'blesilda.cueto001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(9, '136437', 'Manuel L. Quezon (ES)', 'Perla-Verona St. Tondo, Manila', 'Mr. Marcelo D. Mislang', '8-254-6158', 'mlquezones.depedmanila.com', 'marcelomislang1972@gmail.com', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(10, '136441', 'Rosauro Almario', 'Kagitingan St. Tondo, Manila', 'Mr. Graciano A. Budoy, Jr.', '8-254-1376', 'raes.depedmanila.com', 'graciano.budoy@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(11, '136435', 'Teodoro R. Yangco', 'Franco-Dandan St. Tondo, Manila', 'Mr. Romencio L. Rubio', '8-252-2738', 'tryangcoes.depedmanila.com', 'romencio.rubio004@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(12, '500566', 'Timoteo Paez (ES)', 'Nepa St. Balut, Tondo, Manila', 'Ms. Marlyn L. Osunero', '8-809-9290', 'tpaezes.depedmanila.com', 'marlyn.osunero001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(13, '136434', 'Gen. Vicente Lim', 'Roxas St. Magsaysay Village Tondo, Manila', 'Ms. Belinda V. Dionisio', '-', 'gvlimes.depedmanila.com', 'belinda.dionisio001@deped.gov.ph', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(14, '136418', 'Arsenio C. Herrera', ' Santos Teodoro St. Tondo, Manila', 'Ms. Novem Tenero', '8-365-5167', 'acherreraes.depedmanila.com', 'novem.tenero001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(15, '136419', 'Barrio Obrero', ' Narra Ext. Tondo, Manila', 'Ms. Rosana G. Ramos', '8-362-4966', ' barrioobreroes.depedmanila.com', 'rosana.ramos003@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(16, '136426', 'Francisco Benitez', '143 Solis St. Tondo, Manila', 'Ms. Violeta S. Labang', '8-241-3524', 'fbenitezes.depedmanila.com', 'violeta.labang001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(17, '136428', 'Gregoria De Jesus', 'Dagupan-Bulacan St. Tondo, Manila', 'Mr. Nichol Wayne F. Fabonan', '8-255-2079', 'gdejesuses.depedmanila.com', 'nicholwayne.fabonan@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(18, '136443', 'Gregorio Del Pilar', 'Abad Santos-Recto St. Tondo, Manila', 'Ms. Conchita P. Guiyab', '8-353-7418', 'gdelpilares.depedmanila.com', 'conchita.guiyab001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(19, '136427', 'Lakan Dula (ES)', '154 Solis St. Tondo, Manila', 'Ms. Marites P. Labaguez', '8-254-9113', 'lakandulaes.depedmanila.com', 'marites.labaguez001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(20, '136421', 'Lapu-Lapu', 'Molave Cor. Morong St. Tondo, Manila', 'Ms. Nieves R. Lising ', '8-254-2342', 'lapulapues.depedmanila.com', 'nieves.lising001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(21, '136429', 'Librada Avelino', 'Sunog-Apog St. Tondo, Manila', 'Ms. Dancel A. Udquim', '8-748-4475', 'libradaavelinoes.depedmanila.com', 'dancel.udquim001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(22, '136423', 'Mariano Ponce', 'Bugallon-T. Mapua St. Tondo, Manila', 'Mr. Jose B. Bustillo Jr.', '8-354-2109', 'marianoponcees.depedmanila.com', 'josejr.bustillo@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(23, '136444', 'Gen. Maximino Hizon', 'Velasquez St., Tondo Manila', 'Ms. Divina Gracia M. Barrientos', '8-254-6162', 'gmhizones.depedmanila.com', 'divinagracia.barrientos@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(24, '136424', 'Melchora Aquino', 'Solis St. Tondo, Manila', 'Mr. Jonathan R. Guillermo', '8-254-0264', 'maquinoes.depedmanila.com', 'jonathan.guillermo002@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(25, '136425', 'Plaridel', '398 Solis St. Tondo, Manila', 'Ms. Cecilia O. Barnachia', '8-290-8897', 'plarideles.depedmanila.com', 'cecilia.barnachia001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(26, '136445', 'CENTEX', 'J. Abad Santos Ave.-Recto Tondo, Manila', 'Mr. Gary Z. Regala', '8-523-1077', 'centexes.depedmanila.com', 'gary.regala001@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(27, '500567', 'Felipe G. Calderon (ES)', 'Morong-Limay-Manuguit St. Tondo, Manila', 'Mr. John Francis S.  Tiamzon', '7-7005-1371', 'fgcalderones.depedmanila.com', 'johnfrancis.tiamzon@deped.gov.ph', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(28, '136446', 'Andres Bonifacio', ' Tayuman-Ipil St. Sta. Cruz, Manila', 'Ms. Olivia B. Joaquin', '8-523-8558', 'abonifacioes.depedmanila.com', 'olivia.joaquin@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(29, '136422', 'Antonio Luna', '2701 Lico St. Tondo, Manila', 'Ms. Judy V. Sampang', '7-120-6930', 'antoniolunaes.depedmanila.com', 'judy.sampang001@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(30, '136453', 'Apolinario Mabini', 'Severino-Soler St. Quiapo, Manila', 'Ms. Maria Cereza Amparo A. Maguyon', '8-643-8750', 'amabinies.depedmanila.com', 'cherrymaguyon30@gmail.com', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(31, '136450', 'Antonio Regidor', 'T. Alonzo St. Sta. Cruz, Manila', 'Mr. Sheruel F. Mamaril', '8-255-1289', 'aregidores.depedmanila.com', 'sheruel.mamaril002@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(32, '136448', 'Cecilio Apostol', 'Tayabas-F. Huertas St. Sta. Cruz, Manila', 'Mr. Rosmito A. Rodriguez, Jr.', '8-353-5842', 'cecilioapostoles.depedmanila.com', 'rosmito.rodriguezjr@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(33, '136447', 'Eriberto Remigio', 'Oroquieta Ext. Sta. Cruz, Manila', 'Mr. Carlos S. Llarina', '8-671-5660', 'eres.depedmanila.com', 'carlos.llarina001@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(34, '136451', 'Francisco Balagtas', 'Alvarez-Ipil St. Sta. Cruz, Manila', 'Ms. Ruth R. Ramirez', '8-711-8194', 'fbalagtases.depedmanila.com', 'ruth.ramirez001@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(35, '136449', 'Juan Sumulong', '253 Aragon St. Sta. Cruz, Manila', 'Ms. Susana C. Nening', '8-711-0586', 'jsumulonges.depedmanila.com', 'susana.nening001@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(36, '136455', 'Marcela Agoncillo', 'Madrid-San Nicolas St. Binondo, Manila', 'Ms. Maria Elena B. Mercado', '7-005-7522', 'marcelaagoncilloes.depedmanila.com', 'mariaelena.mercado003@gmail.com', '3', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(37, '136452', 'Padre Mariano Gomez', '1224 P. Guevarra St. Sta. Cruz, Manila', 'Mr. Wilfredo C. Nillo', '8-736-3288', 'pgomezes.depedmanila.com', 'wilfredo.nillo001@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(38, '136456', 'Pedro Guevara', 'San Fernando-San Nicolas St. Binondo, Manila', 'Mr. Noel L. Gelua', '8-651-1539', 'pguevaraes.depedmanila.com', 'noel.gelua@deped.gov.ph', '3', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(39, '136457', 'Dr. Alejandro Albert', 'Dapitan Cor. Casa?as St. Sampaloc, Manila', 'Ms. Rexie M. Castro', '8-741-2396', 'draalbertes.depedmanila.com', 'rexie.castro001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(40, '136459', 'Benigno Aldana', 'J. Fajardo St. Sampaloc, Manila', 'Ms. Rizalina V. Castro', '7-003-0728', 'benignoaldanaes.depedmanila.com', 'rizalina.castro@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(41, '136461', 'Benito Legarda', 'J. Fajardo-P. Leoncio St. Sampaloc, Manila', 'Ms. Edita F. Lopez', '8-524-9981', 'benitolegardaes.depedmanila.com', ' edita.lopez001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(42, '136460', 'Graciano Lopez-Jaena', 'Matimyas St. Sampaloc, Manila', 'Ms. Aireen N. Perez', '8-852-5032', 'glopezjaenaes.depedmanila.com', 'aireen.perez001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(43, '136465', 'Juan Luna', ' 830 Catalu?a St. Sampaloc, Manila', 'Mr. Fernando N. Magalang', '7-116-9642/8-363-714-7368', 'juanlunaes.depedmanila.com', 'fernando.magalang001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(44, '136462', 'Gen. Licerio Geronimo', '537 Geronimo St. Sampaloc, Manila', 'Mr. Rodelio O. Ritual', '8-354-0900', ' glgeronimoes.depedmanila.com', 'rodelio.ritual001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(45, '136458', 'Laong Laan', 'Laong Laan Cor. Blumentritt St. Sampaloc, Manila', 'Mr. Uldarico G. Fundal Jr.', '8-256-9716', ' laonglaanes.depedmanila.com', 'ufundal@yahoo.com.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(46, '136470', 'Gen. Miguel Malvar', 'Mangga Ave. Sta. Mesa, Manila', 'Ms. Marlnie T. Dela Cruz', '8-713-0654', 'gmmalvares.depedmanila.com', 'marlnie.delacruz001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(47, '136464', 'Moises Salvador', 'Geronimo St. Sampaloc, Manila', 'Mr. Jerome M. Macanda', '8-521-1875', 'msalvadores.depedmanila.com', 'jerome.macanda001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(48, '136467', 'Padre Burgos', 'Buenos Aires-Altura St. Sta. Mesa, Manila', 'Ms. Trinidad R. Galang', '8-713-0652', 'pburgoses.depedmanila.com', 'trinidad.galang001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(49, '136468', 'Pedro Pelaez', 'D. Santiago St. Sta. Mesa, Manila', 'Mr. Vladimir B. Paraiso', '7-118-0355', 'pedropelaezes.depedmanila.com', 'vladimir.paraiso001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(50, '136463', 'Trinidad Tecson', '510 Geronimo St. Sampaloc, Manila', 'Ms. Maria Milagros R. Nonog', '8-296-0804', 'trinidadtecsones.depedmanila.com', 'mariamilagros.rimiendo@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(51, '500568', 'Antonio Maceda (ES)', 'Buenos Aires-Altura St. Sta. Mesa, Manila', 'Ms. Jinabelle V. Prieto', '8-714-7368', 'amacedaes.depedmanila.com', 'jinabelle.prieto001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(52, '136466', 'Valeriano E. Fugoso (ES)', 'Manila Boystown Complex, Marikina City', 'Mr. Josefino A. Mendoza II', '8-934-6254', 'valerianofugosoes.depedmanila.com', 'josefino.mendoza001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(53, '136477', 'Aurora A. Quezon', 'San Andres St. Malate, Manila', 'Mr. Randy R. Emen', '-', 'aaqes.depedmanila.com', 'randy.emen001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(54, '136474', 'Celedonio Salvador', 'Merced St. Paco, Manila', 'Ms. Novielyn F. Radam', '8-563-7197', 'csalvadores.depedmanila.com', 'novielyn.radam001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(55, '136476', 'Epifanio Delos Santos', ' 1725 Singalong-Malvar St. Malate, Manila', 'Ms. Guia S. Laguitao', '8-525-7173', 'edses.depedmanila.com', 'guia.laguitao001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(56, '136484', 'Fernando Ma. Guerrero', 'Pedro Gil-Onyx St. Paco, Manila', 'Ms. Josepina D. Villareal', '8-722-7480', 'fmges.depedmanila.com', 'josepina.villareal001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(57, '136478', 'Herminigildo J. Atienza', 'Port Area, Manila', 'Mr. Agustin C. Baldicanas', '8-241-7559', 'hjatienzaes.depedmanila.com', 'agustin.baldicanas001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(58, '136473', 'Justo Lukban', 'G. Apacible St. Paco, Manila', 'Ms. Reynora V. Laurenciano', '8-525-8016', ' justolukbanes.depedmanila.com', 'reynora.laurenciano001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(59, '136487', 'Margarita Roxas de Ayala', 'A. Francisco cor. Arellano Sts. Sta Ana, Manila', 'Ms. Rosemarie B. Ponce', '8-563-1438', 'mrdaes.depedmanila.com', 'rosemarie.ponce003@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(60, '136479', 'Rafael Palma', 'Vito Cruz-Zobel Roxas St. Manila', 'Mr. Rodel C. Sampang', '8-895-7416', 'rpalmaes.depedmanila.com', 'rpalmaes.manila@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(61, '136968', 'Sen. Benigno Aquino Jr.', 'Port Area, Manila', 'Mr. Jose R. Mi??ano', '7-277-4530', 'sbaes.depedmanila.com', 'jose.minano001@deped.gov.ph', '5', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(62, '136475', 'Silahis ng Katarungan', '1520 Paz St. Paco, Manila', 'Ms. Ma. Gemma C. Perucho', '8-658-7030', 'sikat.depedmanila.com', 'gemmaperucho@gmail.com', '5', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(63, '136471', 'Bacood', 'Mag. Albert St. Sta. Mesa, Manila', 'Mr. Leo C. Cabaruan', '7-119-6532', 'bacoodes.depedmanila.com', 'leo.cabaruan001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(64, '136480', 'Bagong Barangay', 'Zamora St. Pandacan, Manila', 'Ms. Maria Bernadeth A. Pablo', '8-523-8895', 'bagongbarangayes.depedmanila.com', 'mariabernadeth.pablo003@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(65, '136482', 'Bagong Diwa', 'Linceo-Adonis St. Pandacan, Manila', 'Mr. Antonio C. Lagundi', '8-562-1027', 'bagongdiwaes.depedmanila.com', 'antonio.lagundi001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(66, '136483', 'Beata', 'Beata Cor. Certeza St. Pandacan, Manila', 'Mr. Benjamin M. Castro', '8-288-3662', 'beataes.depedmanila.com', 'benjamin.castro@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(67, '136486', 'Fernando Amorsolo', 'Old Panaderos St. Sta. Ana, Manila', 'Mr. Philip Marciano D.L. Reyes', '8-563-9986', 'famorsoloes.depedmanila.com', 'philip.reyes002@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(68, '136454', 'Geronimo Santiago', 'J. Nepomuceno St. San Miguel, Manila', 'Mr. Gil T. Alintana', '-', 'gsantiagoes.depedmanila.com', 'gil.alinatana001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(69, '136472', 'Pio Del Pilar', 'Pureza St. Sta. Mesa, Manila', 'Dr. Meriam B. Collantes', '8-714-7400', 'piodelpilares.depedmanila.com', 'meriam.collantes001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(70, '136485', 'Sta. Ana', 'M. Roxas St. Sta. Ana, Manila', 'Mr. Diomedes T. Rosete', '8-559-7793', 'staanaes.depedmanila.com', 'diomedes.rosete001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'active'),
-(71, '136489', 'Tomas Earnshaw', 'A. Bautista Punta Sta. Ana, Manila', 'Ms. Helen B. Bautista', '8-532-1758', 'tomasearnshawes.depedmanila.com', 'helen.bautista001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(72, '136481', 'Jacinto Zamora', 'E. Zamora St. Pandacan, Manila', 'Ms. Guia S. Morris', '8-516-8263', 'jzamoraes.depedmanila.com', 'guia.morris001@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(73, '500569', 'Gen. Emilio Aguinaldo (ES)', 'Punta Sta. Ana, Manila', 'Ms. Carol H. Salba', '8-523-1913', 'emilioaguinaldoes.depedmanila.com', 'carol.salba002@deped.gov.ph', '6', 'ELEMENTARY SCHOOLS', 'no', 'no', 'active'),
-(74, '305288', 'Dr. Juan G. Nolasco', '2252 Tioco Park, Tondo, Manila', 'Sonny D. Valenzuela', '8254-53-49 /8254-99-80', 'drjgnolascohs.depedmanila.com', '305288@deped.gov.ph', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(75, '305290', 'Gregorio Perfecto', 'Ricafort St. Tondo, Manila', 'June Hayden R. Sinson', '8742-46-29 / 8708-85-74', 'gperfectohs.depedmanila.com', '305290@deped.gov.ph', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'active'),
-(76, '305291', 'Tondo High School', 'Quezon St. Bo. Magsaysay Tondo, Manila', 'Maria Eva Nacion', '8254-55-58 /8251-00-45', 'tondohs.depedmanila.com', '305291@deped.gov.ph', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(77, '305292', 'Antonio J. Villegas', 'Bo. Magsaysay Tondo, Manila', 'Lilybeth F. Cuento', '8354-19-73', 'ajvillegashs.depedmanila.com', '305292@deped.gov.ph', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'active'),
-(78, '500566', 'Timoteo Paez', 'Buendia St. cor. Younger St. Tondo, Manila', 'Amor P. Dugay', '8522-90-92', 'tpaezhs.depedmanila.com', '500566@deped.gov.ph', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(79, '305295', 'Lakan Dula', 'Juan Luna St. Tondo, Manila', 'Merle Angon', '8252-97-94 / 8252-50-94', 'lakandulahs.depedmanila.com', '305295@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(80, '305294', 'Jose P. Laurel', 'Pampanga St. Tondo, Manila', 'Julius Jardiolin', '8-715-6883/8-714-3025', 'jplaurelhs.depedmanila.com', '305294@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(81, '305296', 'Pres. Sergio Osmena', 'Earnshaw St. Cor. Bulacan St. Tondo, Manila', 'Mark Gil Tabor', '8-708-2082', 'sergioosmenahs.depedmanila.com', '305296@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(82, '305297', 'Manuel L. Quezon', 'Blumentritt St. Sta. Cruz, Manila', 'Eddieza E. Durens', '8711-26-81', 'mlquezonhs.depedmanila.com', '305297@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(83, '305298', 'Florentino Torres', 'Juan Luna St. Gagalangin Tondo, Manila', 'Ma. Pura S. Talattad', '8-252-5467', 'ftorreshs.depedmanila.com', '305298@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(84, '500567', 'Felipe G. Calderon', 'Hermosa St. Tondo, Manila', 'Edmund Villareal', '8253-15-75 /8254-57-11', 'fgcalderones.depedmanila.com', '500567@deped.gov.ph', '2', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(85, '305299', 'Dona Teodora Alonzo', 'Alvarez St. Cor. Ipil St. Sta. Cruz, Manila', 'Lourdes M. Florendo', '8-807-8669', 'dtahs.depedmanila.com', '305299@deped.gov.ph', '3', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(86, '305300', 'Cayetano Arellano', 'D. Jose-T. Alonzo St. Sta. Cruz, Manila', 'John Butch P. Locara', '8711-59-28 / 8732-74-04', 'cayetanoarellanohs.depedmanila.com', '305300@deped.gov.ph', '3', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(87, '305301', 'Ramon Avancena', 'J. Nepomuceno St. Quiapo, Manila', 'Jeusuel Nonnatus N. De Luna', '8-733-9971', 'ramonavancenahs.depedmanila.com', '305301@deped.gov.ph', '3', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(88, '305302', 'Jose Abad Santos', 'Urbiztondo-Numancia St. San Nicolas, Manila', 'Elena C. Reyes', '8239-96-37 ', 'joseabadsantoshs.depedmanila.com', '305302@deped.gov.ph', '3', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(89, '305303', 'Rajah Soliman', 'Lachambre St. Binondo, Manila', 'Raffy Caballes', '8-734-5540/8-735-3476', 'rajahsolimansths.depedmanila.com', '305303@deped.gov.ph', '3', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(90, '305304', 'Esteban Abada', 'Blumentritt St. Sampaloc, Manila', 'Mary Grace Awkit', '8-477-2487/8-723-4960', 'estebanabadahs.depedmanila.com', '305304@deped.gov.ph', '4', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'active'),
-(91, '500568', 'Antonio Maceda (HS)', 'Magsaysay Blvd. Sta. Mesa, Manila', 'Danilo B. Estavillo', '8715-68-83 / 8714-30-25', 'amacedahs.depedmanila.com', '500568@deped.gov.ph', '4', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(92, '305306', 'Ramon Magsaysay', 'Espa?a Blvd. Sampaloc, Manila', 'Gene T. Pangilinan', '8731-32-25 / 8938-53-46', 'ramonmagsaysayhs.depedmanila.com', '305306@deped.gov.ph', '4', 'JUNIOR HIGH SCHOOLS', 'no', 'yes', 'active'),
-(93, '305307', 'Claro M. Recto', '3rd St., C. Aguila, San Miguel, Manila', 'Mercedita Insigne', '8734-55-40 / 8735-34-76', 'cmrectohs.depedmanila.com', '305307@deped.gov.ph', '4', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(94, '305308', 'Valeriano E. Fugoso', 'Parang, Marikina', 'Josefino Mendoza', '8-625-6778', 'valerianofugosohs.depedmanila.com', '305308@deped.gov.ph', '4', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(95, '305309', 'Manuel G. Araullo', 'Taft Ave. Cor. U.N. Ave. Ermita, Manila', 'Mayet R. Dela Cruz', '8-805-8547', 'mgaraullo.depedmanila.com', '305309@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(96, '305318', 'Manuel A. Roxas', 'Canonigo St. Paco, Manila', 'Roland Dela Cruz', '8353-69-35 /  8562-24-14', 'maroxashs.depedmanila.com', '305318@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(97, '305311', 'Manila High', 'Victoria-Muralla St. Intramuros, Manila', 'Melanie T. Pascua', '8-525-4755', 'manilahs.depedmanila.com', '305311@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'yes', 'active'),
-(98, '136467', 'Padre Burgos', 'Buenos Aires-Altura St. Sta. Mesa, Manila', 'Ms. Trinidad R. Galang', '8-713-0652', 'pburgoses.depedmanila.com', 'trinidad.galang001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(99, '136468', 'Pedro Pelaez', 'D. Santiago St. Sta. Mesa, Manila', 'Mr. Vladimir B. Paraiso', '7-118-0355', 'pedropelaezes.depedmanila.com', 'vladimir.paraiso001@deped.gov.ph', '4', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
-(100, 'school_id', 'school_name', 'school_address', 'school_principal', 'school_contact', 'school_link', 'school_email', 'schoo', 'school_type', 'school_shsA', 'school_sped', 'school_stat'),
-(101, '305312', 'Manila Science', 'Taft Ave. P. Faura, Manila', 'Manolo G. Pe??a', '8-525-6197', 'manilasciencehs.depedmanila.com', '305312@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(102, '305313', 'Ignacio Villamor', 'Pasig Line St. Sta. Ana, Manila', 'Dante Felizardo, Ed. D.', '8563-21-08', 'ignaciovillamorhs.depedmanila.com', '305313@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(103, '319401', 'Pres. Corazon C. Aquino', 'Port Area, Manila', 'Ma. Josefina B. Luna', '8546-94-32', 'pccahs.depedmanila.com', '319401@deped.gov.ph', '5', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(104, '305315', 'Victorino Mapa', '300 San Rafael St. San Miguel, Manila', 'Robert P. Velasquez', '8353-30-40   ', 'vmapahs.depedmanila.com', '305315@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(105, '305316', 'Mariano Marcos', '2090 M. Carreon St. Sta. Ana, Manila', 'Consolacion K. Naanep', '8564-28-93 / 8562-01-00', 'mmmhs.depedmanila.com', '305316@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(106, '305317', 'Elpidio Quirino', 'Bacood St. Sta Mesa, Manila', 'Ma. Teresa Custodio', '8559-54-83 / 8256-64-47', 'elpidioquirinohs.depedmanila.com', '305317@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(107, '305310', 'Carlos P. Garcia', 'Jesus St. Pandacan, Manila', 'Diosdado DG. Florendo', '8562-76-87', 'cpgarciahs.depedmanila.com', '305310@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active'),
-(108, '305319', 'Eulogio Rodriguez', 'Nagtahan St. Sampaloc, Manila', 'Divina T. Maninang', '8714-07-53', 'ervhs.depedmanila.com', '305319@deped.gov.ph', '6', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'active');
+(1, '123123', 'NAME', 'Address', 'Principal', '123', 'link', '@@@', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive'),
+(2, '123', '213', '213', '213', '213', '213', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'yes', 'inactive'),
+(3, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive'),
+(4, '123123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'yes', 'inactive'),
+(5, '123', '213', '123', '123', '213', '123', '213', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
+(6, '123123', '123', '123', '123', '123', '123', '123', '2', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
+(7, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
+(8, '123123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
+(9, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
+(10, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
+(11, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'no', 'no', 'inactive'),
+(12, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'no', 'inactive'),
+(13, '123', '123', '123', '123', '123', '123', '123', '1', 'JUNIOR HIGH SCHOOLS', 'yes', 'yes', 'inactive'),
+(14, '123', '123', '123', '123', '123', '123', '123', '2', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
+(15, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'no', 'inactive'),
+(16, '123', '123', '123', '123', '123', '123', '123', '1', 'ELEMENTARY SCHOOLS', 'no', 'yes', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -4530,207 +4427,28 @@ INSERT INTO `timelogtbl` (`time_id`, `user_id`, `log_action`, `log_date`, `log_t
 (272, 3, 'Cleared all time logs', '2024-04-11', '16:44:23', 'inactive'),
 (273, 3, 'Edited User: ict jon', '2024-04-12', '14:48:28', 'inactive'),
 (274, 3, 'Edited User: ict trainee', '2024-04-12', '14:48:37', 'inactive'),
-(275, 3, 'Cleared all time logs', '2024-04-12', '14:48:41', 'inactive'),
-(276, 3, 'ict jon Logged Out', '2024-04-12', '15:33:08', 'inactive'),
-(277, 3, 'ict jon Logged In', '2024-04-12', '15:33:18', 'inactive'),
-(279, 3, 'Changed account info: ict jon', '2024-04-12', '15:38:29', 'inactive'),
-(280, 3, 'Changed account info: ict jon', '2024-04-12', '15:47:34', 'inactive'),
-(281, 3, 'ict jon Logged Out', '2024-04-12', '15:47:39', 'inactive'),
-(282, 3, 'ict jon Logged In', '2024-04-12', '15:47:47', 'inactive'),
-(283, 3, 'Changed account info: ict jon', '2024-04-12', '16:00:56', 'inactive'),
-(284, 3, 'Changed account info: ict jon', '2024-04-12', '16:04:37', 'inactive'),
-(285, 3, 'Changed account info: ict jon', '2024-04-12', '16:12:13', 'inactive'),
-(286, 3, 'ict jon Logged Out', '2024-04-12', '16:12:14', 'inactive'),
-(287, 3, 'ict jon Logged In', '2024-04-12', '16:12:45', 'inactive'),
-(288, 3, 'Changed account info: ict jon', '2024-04-12', '16:16:21', 'inactive'),
-(289, 3, 'ict jon Logged Out', '2024-04-12', '16:16:22', 'inactive'),
-(290, 3, 'ict jon Logged In', '2024-04-12', '16:19:17', 'inactive'),
-(291, 3, 'Changed account info: ict jon', '2024-04-12', '16:19:28', 'inactive'),
-(292, 3, 'ict jon Logged Out', '2024-04-12', '16:19:38', 'inactive'),
-(293, 3, 'ict jon Logged In', '2024-04-12', '16:19:50', 'inactive'),
-(294, 3, 'Changed account info: ict jon', '2024-04-12', '16:23:58', 'inactive'),
-(295, 3, 'Changed account info: ict jon', '2024-04-12', '16:24:59', 'inactive'),
-(296, 3, 'ict jon Logged Out', '2024-04-12', '16:25:04', 'inactive'),
-(297, 3, 'ict jon Logged In', '2024-04-12', '16:26:51', 'inactive'),
-(298, 3, 'Changed account info: ict jon', '2024-04-15', '09:17:12', 'inactive'),
-(299, 3, 'ict jon Logged Out', '2024-04-15', '09:17:17', 'inactive'),
-(300, 3, 'ict jon Logged In', '2024-04-15', '09:17:25', 'inactive'),
-(301, 3, 'Changed account info: ict jon', '2024-04-15', '09:17:35', 'inactive'),
-(302, 3, 'ict jon Logged Out', '2024-04-15', '09:17:40', 'inactive'),
-(303, 3, 'ict jon Logged In', '2024-04-15', '09:17:43', 'inactive'),
-(304, 3, 'Changed account info: ict jon', '2024-04-15', '09:21:30', 'inactive'),
-(305, 3, 'ict jon Logged Out', '2024-04-15', '09:21:48', 'inactive'),
-(306, 3, 'ict jon Logged In', '2024-04-15', '09:21:51', 'inactive'),
-(307, 3, 'Changed account info: ict jon', '2024-04-15', '09:26:37', 'inactive'),
-(308, 3, 'ict jon Logged Out', '2024-04-15', '09:26:42', 'inactive'),
-(309, 3, 'ict jon Logged In', '2024-04-15', '09:29:18', 'inactive'),
-(310, 3, 'Changed account info: ict jon', '2024-04-15', '09:29:43', 'inactive'),
-(311, 3, 'ict jon Logged Out', '2024-04-15', '09:29:45', 'inactive'),
-(312, 3, 'ict jon Logged In', '2024-04-15', '09:29:50', 'inactive'),
-(313, 3, 'ict jon Logged Out', '2024-04-15', '09:34:52', 'inactive'),
-(314, 3, 'ict jon Logged In', '2024-04-15', '09:35:07', 'inactive'),
-(315, 3, 'Edited User: ict jon', '2024-04-15', '09:35:15', 'inactive'),
-(316, 3, 'ict jon Logged Out', '2024-04-15', '09:35:20', 'inactive'),
-(317, 3, 'ict jon Logged In', '2024-04-15', '09:35:24', 'inactive'),
-(318, 3, 'Changed account info: ict jon', '2024-04-15', '09:36:50', 'inactive'),
-(319, 3, 'Changed account info: ict jon', '2024-04-15', '09:37:28', 'inactive'),
-(320, 3, 'Edited User: ict jon', '2024-04-15', '09:37:35', 'inactive'),
-(321, 3, 'ict jon Logged Out', '2024-04-15', '09:39:18', 'inactive'),
-(322, 3, 'jon.raguini@deped.gov.ph Logged In', '2024-04-15', '09:40:26', 'inactive'),
-(323, 3, 'ict jon Logged Out', '2024-04-15', '09:40:53', 'inactive'),
-(324, 3, 'ict jon Logged In', '2024-04-15', '09:40:58', 'inactive'),
-(325, 3, 'Cleared all time logs', '2024-04-15', '16:37:31', 'inactive'),
-(326, 3, 'Cleared all time logs', '2024-04-16', '13:09:04', 'inactive'),
-(327, 3, 'Cleared all time logs', '2024-04-16', '13:09:07', 'inactive'),
-(328, 3, 'Added Issuance asds', '2024-04-16', '13:09:28', 'inactive'),
-(329, 3, 'Edited Issuance asds', '2024-04-16', '13:09:47', 'inactive'),
-(330, 3, 'Edited Issuance asds', '2024-04-16', '13:10:12', 'inactive'),
-(331, 3, 'Deleted Issuance asds', '2024-04-16', '13:10:35', 'inactive'),
-(332, 3, 'Changed account info: ict jon', '2024-04-16', '13:13:20', 'inactive'),
-(333, 3, 'Changed account info: ict jon', '2024-04-16', '13:15:29', 'inactive'),
-(334, 3, 'Changed account info: ict jon', '2024-04-16', '13:17:03', 'inactive'),
-(335, 3, 'Changed account info: ict jon', '2024-04-16', '13:17:49', 'inactive'),
-(336, 3, 'Edited User: ict jon', '2024-04-16', '13:17:56', 'inactive'),
-(337, 3, 'Edited User: ict jon', '2024-04-16', '13:18:47', 'inactive'),
-(338, 3, 'Changed account info: ict jon', '2024-04-16', '13:19:19', 'inactive'),
-(339, 3, 'Changed account info: ict jon', '2024-04-16', '13:20:33', 'inactive'),
-(340, 3, 'ict jon Logged Out', '2024-04-16', '13:20:37', 'inactive'),
-(341, 3, 'ict jon Logged In', '2024-04-16', '13:20:57', 'inactive'),
-(342, 3, 'Changed account info: ict jon', '2024-04-16', '13:21:25', 'inactive'),
-(343, 3, 'ict jon Logged Out', '2024-04-16', '13:21:27', 'inactive'),
-(344, 3, 'ict jon Logged In', '2024-04-16', '13:21:55', 'inactive'),
-(345, 3, 'Changed account info: ict jon', '2024-04-16', '13:22:13', 'inactive'),
-(346, 3, 'ict jon Logged Out', '2024-04-16', '13:22:14', 'inactive'),
-(347, 3, 'ict jon Logged In', '2024-04-16', '13:22:33', 'inactive'),
-(348, 3, 'Edited User: ict jon', '2024-04-16', '13:23:04', 'inactive'),
-(349, 3, 'Changed account info: ict jon', '2024-04-16', '13:23:58', 'inactive'),
-(350, 3, 'ict jon Logged Out', '2024-04-16', '13:24:05', 'inactive'),
-(351, 3, 'ict jon Logged In', '2024-04-16', '13:24:09', 'inactive'),
-(352, 3, 'Edited User: ict jon', '2024-04-16', '13:24:16', 'inactive'),
-(353, 3, 'Changed account info: ict jon', '2024-04-16', '13:24:26', 'inactive'),
-(354, 3, 'Edited User: ict jon', '2024-04-16', '13:28:11', 'inactive'),
-(355, 3, 'Edited User: ict jon', '2024-04-16', '13:28:13', 'inactive'),
-(356, 3, 'Changed account info: ict jon', '2024-04-16', '13:28:40', 'inactive'),
-(357, 3, 'ict jon Logged Out', '2024-04-16', '13:28:40', 'inactive'),
-(358, 3, 'ict jon Logged In', '2024-04-16', '13:28:51', 'inactive'),
-(359, 3, 'Added School 123', '2024-04-16', '14:47:07', 'inactive'),
-(360, 3, 'Edited School, id: 17', '2024-04-16', '14:47:12', 'inactive'),
-(361, 3, 'Edited School, id: 17', '2024-04-16', '14:47:17', 'inactive'),
-(362, 3, 'Edited School, id: 17', '2024-04-16', '14:47:22', 'inactive'),
-(363, 3, 'Edited Issuance asds', '2024-04-17', '11:11:16', 'inactive'),
-(364, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-17', '11:14:53', 'inactive'),
-(365, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-17', '11:15:00', 'inactive'),
-(366, 3, 'Edited Issuance 2024-2-19-10548', '2024-04-17', '11:15:12', 'inactive'),
-(367, 3, 'Edited Issuance 2024-2-19-10548', '2024-04-17', '11:15:53', 'inactive'),
-(368, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-17', '11:32:24', 'inactive'),
-(369, 3, 'Deleted School, id: 123', '2024-04-17', '11:37:16', 'inactive'),
-(370, 3, 'Deleted Issuance 1', '2024-04-17', '15:18:41', 'inactive'),
-(371, 3, 'Edited Issuance 1', '2024-04-17', '15:18:48', 'inactive'),
-(372, 3, 'Edited Issuance Category CITY MEMORANDUM / EXECUTIVE ORDER', '2024-04-17', '15:21:06', 'inactive'),
-(373, 3, 'Edited Issuance Category CITY MEMORANDUM / EXECUTIVE ORDER', '2024-04-17', '15:21:33', 'inactive'),
-(374, 3, 'Added DOWNLOADABLES File 123', '2024-04-17', '15:50:58', 'inactive'),
-(375, 3, 'Added MATERIALS File 123', '2024-04-17', '15:51:07', 'inactive'),
-(376, 3, 'Added School 123', '2024-04-19', '14:34:09', 'inactive'),
-(377, 3, 'Deleted School, id: 123', '2024-04-23', '10:38:42', 'inactive'),
-(378, 3, 'Edited School, id: 8', '2024-04-23', '11:02:38', 'inactive'),
-(379, 3, 'Edited School, id: 7', '2024-04-23', '11:02:54', 'inactive'),
-(380, 3, 'Edited School, id: 10', '2024-04-23', '11:03:06', 'inactive'),
-(381, 3, 'Edited School, id: 11', '2024-04-23', '11:03:14', 'inactive'),
-(382, 3, 'Edited School, id: 11', '2024-04-23', '11:03:14', 'inactive'),
-(383, 3, 'ict jon Logged In', '2024-04-23', '11:04:14', 'inactive'),
-(384, 3, 'Edited School, id: 11', '2024-04-23', '11:06:10', 'inactive'),
-(385, 3, 'Edited School, id: 92', '2024-04-23', '11:06:19', 'inactive'),
-(386, 3, 'Edited School, id: 97', '2024-04-23', '11:06:44', 'inactive'),
-(387, 3, 'Edited School, id: 97', '2024-04-23', '11:06:45', 'inactive'),
-(388, 3, 'Edited School, id: 16', '2024-04-23', '11:07:10', 'inactive'),
-(389, 3, 'Edited School, id: 16', '2024-04-23', '11:07:33', 'inactive'),
-(390, 3, 'Edited School, id: 15', '2024-04-23', '11:07:55', 'inactive'),
-(391, 3, 'Edited School, id: 23', '2024-04-23', '11:08:13', 'inactive'),
-(392, 3, 'Edited School, id: 37', '2024-04-23', '11:08:26', 'inactive'),
-(393, 3, 'Edited School, id: 38', '2024-04-23', '11:08:41', 'inactive'),
-(394, 3, 'Edited School, id: 41', '2024-04-23', '11:08:56', 'inactive'),
-(395, 3, 'Edited School, id: 39', '2024-04-23', '11:09:27', 'inactive'),
-(396, 3, 'Cleared all time logs', '2024-04-23', '11:10:00', 'inactive'),
-(397, 3, 'Cleared all time logs', '2024-04-23', '11:10:01', 'inactive'),
-(398, 3, 'Cleared all time logs', '2024-04-23', '11:10:03', 'active'),
-(399, 3, 'Deleted School, id: 136467', '2024-04-23', '11:10:35', 'active'),
-(400, 3, 'Edited School, id: 48 name: Padre Burgos', '2024-04-23', '11:10:40', 'active'),
-(401, 3, 'Edited School, id: 52 name: Valeriano E. Fugoso (ES)', '2024-04-23', '11:10:57', 'active'),
-(402, 3, 'Edited School, id: 53 name: Aurora A. Quezon', '2024-04-23', '11:11:29', 'active'),
-(403, 3, 'Edited School, id: 55, name: Epifanio Delos Santos', '2024-04-23', '11:11:46', 'active'),
-(404, 3, 'Edited School, id: 56, name: Fernando Ma. Guerrero', '2024-04-23', '11:11:57', 'active'),
-(405, 3, 'Edited School, id: 58, name: Justo Lukban', '2024-04-23', '11:12:06', 'active'),
-(406, 3, 'Edited School, id: 60, name: Rafael Palma', '2024-04-23', '11:12:21', 'active'),
-(407, 3, 'Edited School, id: 62, name: Silahis ng Katarungan', '2024-04-23', '11:12:32', 'active'),
-(408, 3, 'Edited School, id: 70, name: Sta. Ana', '2024-04-23', '11:12:57', 'active'),
-(409, 3, 'Edited School, id: 74, name: Dr. Juan G. Nolasco', '2024-04-23', '11:19:34', 'active'),
-(410, 3, 'Edited School, id: 74, name: Dr. Juan G. Nolasco', '2024-04-23', '11:20:54', 'active'),
-(411, 3, 'Edited School, id: 75, name: Gregorio Perfecto', '2024-04-23', '11:21:29', 'active'),
-(412, 3, 'Edited School, id: 74, name: Dr. Juan G. Nolasco', '2024-04-23', '11:21:41', 'active'),
-(413, 3, 'Edited School, id: 75, name: Gregorio Perfecto', '2024-04-23', '11:21:57', 'active'),
-(414, 3, 'Edited School, id: 76, name: Tondo High School', '2024-04-23', '11:22:14', 'active'),
-(415, 3, 'Edited School, id: 78, name: Timoteo Paez', '2024-04-23', '11:22:50', 'active'),
-(416, 3, 'Edited School, id: 79, name: Lakan Dula', '2024-04-23', '11:23:32', 'active'),
-(417, 3, 'Edited School, id: 80, name: Jose P. Laurel', '2024-04-23', '11:23:50', 'active'),
-(418, 3, 'Edited School, id: 74, name: Dr. Juan G. Nolasco', '2024-04-23', '11:24:32', 'active'),
-(419, 3, 'Edited School, id: 76, name: Tondo High School', '2024-04-23', '11:24:57', 'active'),
-(420, 3, 'Edited School, id: 78, name: Timoteo Paez', '2024-04-23', '11:25:24', 'active'),
-(421, 3, 'Edited School, id: 79, name: Lakan Dula', '2024-04-23', '11:25:41', 'active'),
-(422, 3, 'Edited School, id: 80, name: Jose P. Laurel', '2024-04-23', '11:25:52', 'active'),
-(423, 3, 'Edited School, id: 81, name: Pres. Sergio Osmena', '2024-04-23', '11:26:05', 'active'),
-(424, 3, 'Edited School, id: 83, name: Florentino Torres', '2024-04-23', '11:26:23', 'active'),
-(425, 3, 'Edited School, id: 82, name: Manuel L. Quezon', '2024-04-23', '11:27:00', 'active'),
-(426, 3, 'Edited School, id: 74, name: Dr. Juan G. Nolasco', '2024-04-23', '11:32:54', 'active'),
-(427, 3, 'ict jon Logged Out', '2024-04-23', '11:34:04', 'active'),
-(428, 3, 'ict jon Logged In', '2024-04-23', '11:35:23', 'active'),
-(429, 3, 'Deleted School, id: 136468, name: Pedro Pelaez', '2024-04-23', '11:36:45', 'active'),
-(430, 3, 'Edited School, id: 82, name: Manuel L. Quezon', '2024-04-23', '11:38:38', 'active'),
-(431, 3, 'ict jon Logged Out', '2024-04-23', '11:42:44', 'active'),
-(432, 3, 'Edited Issuance 2024-2-19-1055112', '2024-04-23', '14:00:49', 'active'),
-(433, 3, 'Deleted Issuance Category CITY MEMORANDUM / EXECUTIVE ORDER', '2024-04-23', '16:16:36', 'active'),
-(434, 3, 'ict jon Logged In', '2024-04-24', '14:24:13', 'active'),
-(435, 3, 'ict jon Logged In', '2024-04-24', '16:41:11', 'active'),
-(436, 3, 'Edited School, id: 1, name: Gen. Emilio Aguinaldos', '2024-04-25', '13:02:22', 'active'),
-(437, 3, 'Edited School, id: 1, name: Gen. Emilio Aguinaldo', '2024-04-25', '13:02:32', 'active'),
-(438, 3, 'Edited Issuance 2024-2-8-10142', '2024-04-25', '13:43:04', 'active'),
-(439, 3, 'Edited Issuance 2024-2-19-10553', '2024-04-25', '13:43:07', 'active'),
-(440, 3, 'Edited Issuance 2024-2-13-10303', '2024-04-25', '13:43:11', 'active'),
-(441, 3, 'Edited Issuance 2024-2-13-10302', '2024-04-25', '13:43:16', 'active'),
-(442, 3, 'Edited Issuance 2024-2-13-10301', '2024-04-25', '13:43:36', 'active'),
-(443, 3, 'Edited Issuance 2024-2-13-10300', '2024-04-25', '13:43:39', 'active'),
-(444, 3, 'Edited Issuance 2024-2-13-10299', '2024-04-25', '13:43:42', 'active'),
-(445, 3, 'Edited Issuance 2024-2-15-10432', '2024-04-25', '13:43:48', 'active'),
-(446, 4, 'ict kev Logged In', '2024-04-25', '14:06:59', 'active'),
-(447, 10, 'ict trainee Logged In', '2024-04-25', '14:10:34', 'active'),
-(448, 3, 'Added Issuance 2024-2-19-1055112', '2024-04-25', '15:40:35', 'active'),
-(449, 3, 'Added File 123', '2024-04-25', '16:01:03', 'active'),
-(450, 3, 'Added File 123', '2024-04-25', '16:05:44', 'active'),
-(451, 3, 'Added File 123', '2024-04-25', '16:09:31', 'active'),
-(452, 3, 'Deleted MATERIALS file: 123', '2024-04-25', '16:09:35', 'active'),
-(453, 3, 'Deleted MATERIALS file: 123', '2024-04-25', '16:09:55', 'active'),
-(454, 3, 'Added File 123', '2024-04-25', '16:10:10', 'active'),
-(455, 3, 'Deleted MATERIALS file: 123', '2024-04-25', '16:10:18', 'active'),
-(456, 3, 'Edited MATERIALS file: 123', '2024-04-25', '16:13:32', 'active'),
-(457, 3, 'Edited DOWNLOADABLES file: 123', '2024-04-25', '16:13:48', 'active'),
-(458, 3, 'Edited MATERIALS file: 123', '2024-04-25', '16:13:54', 'active'),
-(459, 3, 'Edited DOWNLOADABLES file: 123', '2024-04-25', '16:13:59', 'active'),
-(460, 3, 'Edited DOWNLOADABLES file: 123', '2024-04-25', '16:14:35', 'active'),
-(461, 3, 'Edited MATERIALS file: 123', '2024-04-25', '16:25:13', 'active'),
-(462, 3, 'Edited MATERIALS file: 123', '2024-04-25', '16:28:46', 'active'),
-(463, 3, 'Deleted DOWNLOADABLES file: 123', '2024-04-26', '09:08:58', 'active'),
-(464, 3, 'Deleted DOWNLOADABLES file: 123', '2024-04-26', '09:09:05', 'active'),
-(465, 3, 'Deleted MATERIALS file: 123', '2024-04-26', '09:09:08', 'active'),
-(466, 3, 'Deleted DOWNLOADABLES file: 123', '2024-04-26', '09:10:29', 'active'),
-(467, 3, 'Edited DOWNLOADABLES file: Personal Data Sheet (CSC Form 212)', '2024-04-26', '09:10:32', 'active'),
-(468, 3, 'Added File 123', '2024-04-26', '09:12:32', 'active'),
-(469, 3, 'Deleted DOWNLOADABLES file: 123', '2024-04-26', '09:12:39', 'active'),
-(470, 3, 'Edited MATERIALS file: 123', '2024-04-26', '09:13:42', 'active'),
-(471, 3, 'Edited DOWNLOADABLES file: 123', '2024-04-26', '09:14:14', 'active'),
-(472, 3, 'Edited MATERIALS file: 123', '2024-04-26', '09:14:24', 'active'),
-(473, 3, 'Deleted MATERIALS file: 123', '2024-04-26', '09:14:30', 'active'),
-(474, 3, 'Deleted DOWNLOADABLES file: 123', '2024-04-26', '09:15:09', 'active'),
-(475, 3, 'Edited DOWNLOADABLES file: Payments Sheet', '2024-04-26', '09:15:17', 'active'),
-(476, 3, 'Edited MATERIALS file: Payments Sheet', '2024-04-26', '09:15:26', 'active');
+(275, 3, 'Cleared all time logs', '2024-04-12', '14:48:41', 'active'),
+(276, 3, 'ict jon Logged Out', '2024-04-12', '15:33:08', 'active'),
+(277, 3, 'ict jon Logged In', '2024-04-12', '15:33:18', 'active'),
+(279, 3, 'Changed account info: ict jon', '2024-04-12', '15:38:29', 'active'),
+(280, 3, 'Changed account info: ict jon', '2024-04-12', '15:47:34', 'active'),
+(281, 3, 'ict jon Logged Out', '2024-04-12', '15:47:39', 'active'),
+(282, 3, 'ict jon Logged In', '2024-04-12', '15:47:47', 'active'),
+(283, 3, 'Changed account info: ict jon', '2024-04-12', '16:00:56', 'active'),
+(284, 3, 'Changed account info: ict jon', '2024-04-12', '16:04:37', 'active'),
+(285, 3, 'Changed account info: ict jon', '2024-04-12', '16:12:13', 'active'),
+(286, 3, 'ict jon Logged Out', '2024-04-12', '16:12:14', 'active'),
+(287, 3, 'ict jon Logged In', '2024-04-12', '16:12:45', 'active'),
+(288, 3, 'Changed account info: ict jon', '2024-04-12', '16:16:21', 'active'),
+(289, 3, 'ict jon Logged Out', '2024-04-12', '16:16:22', 'active'),
+(290, 3, 'ict jon Logged In', '2024-04-12', '16:19:17', 'active'),
+(291, 3, 'Changed account info: ict jon', '2024-04-12', '16:19:28', 'active'),
+(292, 3, 'ict jon Logged Out', '2024-04-12', '16:19:38', 'active'),
+(293, 3, 'ict jon Logged In', '2024-04-12', '16:19:50', 'active'),
+(294, 3, 'Changed account info: ict jon', '2024-04-12', '16:23:58', 'active'),
+(295, 3, 'Changed account info: ict jon', '2024-04-12', '16:24:59', 'active'),
+(296, 3, 'ict jon Logged Out', '2024-04-12', '16:25:04', 'active'),
+(297, 3, 'ict jon Logged In', '2024-04-12', '16:26:51', 'active');
 
 -- --------------------------------------------------------
 
@@ -4792,7 +4510,7 @@ CREATE TABLE `userstbl` (
 INSERT INTO `userstbl` (`user_id`, `user_username`, `user_email`, `user_password`, `user_type`, `user_profile`, `user_department`, `user_status`) VALUES
 (1, 'ict michaels', 'michaelangelo.serban@deped.gov.ph', '$2y$10$.siyhwNuX4obMqcUOGmxiu1CJEKBJT6VgPkEGhy1Wl5FUMdjgVheW', 'superadmin', 'default.png', 'ICT', 'inactive'),
 (2, 'ict marlon', 'marlon.cotanda@deped.gov.ph', '$2y$10$qwY18OMgm6m423FIannQtebccFQ/mm1eAbPh.bANKK8VPGIfzKIPa', 'superadmin', 'default.png', 'ICT', 'inactive'),
-(3, 'ict jon', 'jon.raguini@deped.gov.ph', '$2y$10$xxfynv8R7ookzZp2vPr1Pe29B3oFIjffdEOTMZStxISZdzldiof.u', 'superadmin', 'default.png', 'ICT', 'active'),
+(3, 'ict jon', 'jon.raguini@deped.gov.ph', '$2y$10$YYXku9G4wsw4RaItEuAaYOwqh8sbxq3UIWk3gdQ/RQeWNubAtQsLO', 'superadmin', 'default.png', 'ICT', 'active'),
 (4, 'ict kev', 'kevin.flogen@deped.gov.ph', '$2y$10$C2Xgo1Vhk5YRx7g95NasQu7GCDRFJR4CRxtmwBCXXMByPnH5W9nx2', 'admin', 'default.png', 'ICT', 'active'),
 (5, 'ict aj', 'albertjames.macaraeg@deped.gov.ph', '$2y$10$vRCUeEkyUCgALNGDmBGHuOQVFHgfxoQDnYMKYpxpMkiLTaO45gQzm', 'superadmin', 'default.png', 'ICT', 'active'),
 (10, 'ict trainee', 'trainee@deped.gov.ph', '$2y$10$AH1DnrzLd9d0q1kshH1nxuPwJwq1L65XtBZ1Gi66zpd5W0BnqPY0y', 'trainee', 'default.png', 'ICT', 'active'),
@@ -4861,7 +4579,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `downloadablefilesvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `downloadablefilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'DOWNLOADABLES' AND `filestbl`.`file_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `downloadablefilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'downloadable' AND `filestbl`.`file_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -4915,7 +4633,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `jhsschoolsvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `jhsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'JUNIOR HIGH SCHOOLS' AND `schoolstbl`.`school_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `jhsschoolsvw`  AS SELECT `schoolstbl`.`school_id` AS `id`, `schoolstbl`.`school_name` AS `name`, `schoolstbl`.`school_address` AS `address`, `schoolstbl`.`school_principal` AS `principal`, `schoolstbl`.`school_contact` AS `contact`, `schoolstbl`.`school_link` AS `link`, `schoolstbl`.`school_email` AS `email`, `schoolstbl`.`school_district` AS `district`, `schoolstbl`.`school_type` AS `type`, `schoolstbl`.`school_status` AS `status` FROM `schoolstbl` WHERE `schoolstbl`.`school_type` = 'JUNIOR HIGH SCHOOLS' AND `schoolstbl`.`school_shsAvailability` = 'no' AND `schoolstbl`.`school_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -4924,7 +4642,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `materialfilesvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `materialfilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_department` AS `department`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'MATERIALS' AND `filestbl`.`file_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `materialfilesvw`  AS SELECT `filestbl`.`file_id` AS `id`, `filestbl`.`file_type` AS `type`, `filestbl`.`file_title` AS `title`, `filestbl`.`file_link` AS `link`, `filestbl`.`file_department` AS `department`, `filestbl`.`file_date` AS `date`, `filestbl`.`file_status` AS `status` FROM `filestbl` WHERE `filestbl`.`file_type` = 'material' AND `filestbl`.`file_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -5121,7 +4839,7 @@ ALTER TABLE `dailyvisitstbl`
 -- AUTO_INCREMENT for table `filestbl`
 --
 ALTER TABLE `filestbl`
-  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `imagestbl`
@@ -5133,7 +4851,7 @@ ALTER TABLE `imagestbl`
 -- AUTO_INCREMENT for table `issuancestbl`
 --
 ALTER TABLE `issuancestbl`
-  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3816;
+  MODIFY `issuances_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3814;
 
 --
 -- AUTO_INCREMENT for table `officestbl`
@@ -5145,7 +4863,7 @@ ALTER TABLE `officestbl`
 -- AUTO_INCREMENT for table `schoolstbl`
 --
 ALTER TABLE `schoolstbl`
-  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `schooltbl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `servicestbl`
@@ -5163,7 +4881,7 @@ ALTER TABLE `socialmediatbl`
 -- AUTO_INCREMENT for table `timelogtbl`
 --
 ALTER TABLE `timelogtbl`
-  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=477;
+  MODIFY `time_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
 
 --
 -- AUTO_INCREMENT for table `userstbl`
