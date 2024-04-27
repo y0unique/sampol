@@ -106,6 +106,12 @@
         BAC FILES
     </div>
     <!-- Nav Item - BAC Menu -->
+    <li class="nav-item" id="bac">
+    <a class="nav-link" href="bac">
+        <i class="fas fa-file-archive"></i>
+        <span>BAC</span></a>
+    </li>
+    <!-- Nav Item - BAC Menu -->
     <li class="nav-item" id="files">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBac" aria-expanded="true" aria-controls="collapseBac" id="acollapseBac">
             <i class="fas fa-file-pdf"></i>

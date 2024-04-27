@@ -154,9 +154,9 @@
                                                         while($row = mysqli_fetch_array($tranparencyInvitation1)){
                                                     ?>
                                                     <tr>
-                                                        <td><?php echo $row['date'];?></td>
+                                                        <td><?php echo $row['publish_date'];?></td>
                                                         <td><?php echo $row['closing_date'];?></td>
-                                                        <td><?php echo $row['procurement_year'];?></td>
+                                                        <td><?php echo $row['procurement_mode'];?></td>
                                                         <td><?php echo $row['reference_number'];?></td>
                                                         <td><a class="text-primary"href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
                                                     </tr>
@@ -213,13 +213,13 @@
 				                                            <!-- Nav tabs -->
 				                                            <ul class="nav nav-tabs" role="tablist">
 				                                                <li class="nav-item">
-				                                                    <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">
+				                                                    <a class="nav-link" data-bs-toggle="tab" href="#home" role="tab">
 				                                                        <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
 				                                                        <span class="d-none d-sm-block">Transparency Board Files</span>    
 				                                                    </a>
 				                                                </li>
 				                                                <li class="nav-item">
-				                                                    <a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab">
+				                                                    <a class="nav-link active" data-bs-toggle="tab" href="#profile" role="tab">
 				                                                        <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
 				                                                        <span class="d-none d-sm-block">Procurements</span>    
 				                                                    </a>
@@ -229,12 +229,11 @@
                                                             <!-- Tab panes -->
 				                                            <!-- Transparancy Board Files Tab -->
 				                                            <div class="tab-content p-3 text-muted">
-				                                                <div class="tab-pane active" id="home" role="tabpanel">
+				                                                <div class="tab-pane" id="home" role="tabpanel">
 				                                                    <p class="mb-0">
 				                                                        <table id="transparency_board-table" class="table table-striped" style="width:100%">
 							                                                <thead>
 							                                                    <tr>
-							                                                    	<th>ID</th>
 							                                                    	<th>Title</th>
 							                                                    </tr>
 							                                                </thead>
@@ -243,7 +242,6 @@
 							                                                        while($row = mysqli_fetch_array($transparency_board1)){
 							                                                    ?>
 							                                                    <tr>
-								                                                    <td><?php echo $row['id'];?></td>
 							                                                        <td><a class="text-primary"href="<?php echo $row['link'];?>" target="_blank"><?php echo strtoupper($row['title']);?></a></td>
 							                                                    </tr>
 							
@@ -255,7 +253,7 @@
 				                                                    </p>
 				                                                </div>
 
-                                                                <div class="tab-pane" id="profile" role="tabpanel">
+                                                                <div class="tab-pane active" id="profile" role="tabpanel">
                                                                 <p class="mb-0">
                                                                         <div class="col-xl-12">
                                                                             <div class="card">
@@ -281,7 +279,7 @@
                                                                                                         <?php echo $currentType; ?>
                                                                                                     </button>
                                                                                                 </h2>
-                                                                                                <div id="flush-collapse<?php echo $currentType; ?>" class="accordion-collapse collapse show" aria-labelledby="flush-heading<?php echo $currentType; ?>" data-bs-parent="#accordionFlushExample">
+                                                                                                <div id="flush-collapse<?php echo $currentType; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?php echo $currentType; ?>" data-bs-parent="#accordionFlushExample">
                                                                                                     <div class="accordion-body">
                                                                                                         <?php
                                                                                                         while ($yearRow = mysqli_fetch_assoc($yearsResult)) {

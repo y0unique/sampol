@@ -319,7 +319,7 @@ SELECT
     bacfile_procurementYear AS "pyear",
     bacfile_procurementType AS "ptype",
     bacfile_status AS "status"
-FROM bacfilestbl WHERE bacfile_type = 'procurement' AND bacfile_status = 'active';
+FROM bacfilestbl WHERE bacfile_type = 'PROCUREMENT' AND bacfile_status = 'active';
 
 --schoolsvw
 CREATE VIEW schoolsVW AS
@@ -419,7 +419,7 @@ SELECT
     bacfile_referenceNum AS "reference_number",
     bacfile_procurementMode AS "procurement_mode",
     bacfile_status AS "status"
-FROM bacfilestbl WHERE bacfile_type = 'transparency' AND bacfile_status = 'active';
+FROM bacfilestbl WHERE bacfile_type = 'INVITATION TO BID' AND bacfile_status = 'active';
 
 --usersvw
 CREATE VIEW usersVW AS

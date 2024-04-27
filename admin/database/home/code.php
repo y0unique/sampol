@@ -11,10 +11,10 @@
     $total_issuances = $row;
 
     //transparencies.php
-    $tranparencyInvitation = "SELECT * FROM bacfilesvw ";
+    $tranparencyInvitation = "SELECT * FROM bacfilesvw";
     $tranparencyInvitation1 = mysqli_query($con, $tranparencyInvitation);
 
-    $transparency_board = "SELECT * FROM bacfilesvw";
+    $transparency_board = "SELECT * FROM bacfilesvw WHERE type = 'TRANSPARENCY BOARD'";
     $transparency_board1 = mysqli_query($con, $transparency_board);
 
 

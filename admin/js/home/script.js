@@ -13,7 +13,7 @@ $(document).ready(function () {
 //transparency_board
 $(document).ready(function () {
     $('#transparency_board-table').DataTable({
-        order: [[0, 'desc']]
+        order: [[0, 'asc']]
     });
 });
 
