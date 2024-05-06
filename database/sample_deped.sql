@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2024 at 07:48 PM
+-- Generation Time: Apr 26, 2024 at 10:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,75 +42,6 @@ CREATE TABLE `bacfilestbl` (
   `bacfile_procurementMode` varchar(50) DEFAULT NULL,
   `bacfile_status` varchar(11) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `bacfilestbl`
---
-
-INSERT INTO `bacfilestbl` (`bacfile_id`, `bacfile_type`, `bacfile_title`, `bacfile_link`, `bacfile_date`, `bacfile_procurementYear`, `bacfile_procurementType`, `bacfile_publishDate`, `bacfile_closingDate`, `bacfile_awardedTo`, `bacfile_referenceNum`, `bacfile_procurementMode`, `bacfile_status`) VALUES
-(1, 'INVITATION TO BID', 'BOARD AND LODGING FOR THE ASSESSORS MANUAL RESOURCE PACKAGING', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9330364', '0000-00-00 00:00:00', '0000', NULL, '2022-12-08', '2022-12-13', NULL, '9330364', NULL, 'active'),
-(2, 'INVITATION TO BID', ' Procurement of Office and Janitorial Supplies', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348275', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348275', NULL, 'active'),
-(3, 'INVITATION TO BID', 'Procurement of Ink and Toners', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348227', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348227', NULL, 'active'),
-(4, 'INVITATION TO BID', 'Supplies for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348195', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348195', NULL, 'active'),
-(5, 'INVITATION TO BID', 'Venue and Meals for the Evaluation of MOVs for the Year End Accomplishment cum PRIME Awarding Ceremonies for the Seal of Office Achievement Reform and Recognition 2022', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348149', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348149', NULL, 'active'),
-(6, 'INVITATION TO BID', 'Various Materials for the Schools Division Office', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348109', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348109', NULL, 'active'),
-(7, 'INVITATION TO BID', 'Materials for the Proposed Additional Storage Room of DCS', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348092', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348092', NULL, 'active'),
-(8, 'INVITATION TO BID', 'Supplies and Materials for ID Printer', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348044', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348044', NULL, 'active'),
-(9, 'INVITATION TO BID', 'Supplies and Materials for ICT Program Support', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9348027', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9348027', NULL, 'active'),
-(10, 'INVITATION TO BID', ' Procurement of ICT Supplies and Peripherals', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347993', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9347993', NULL, 'active'),
-(11, 'INVITATION TO BID', 'Support Supplies for Bayanihan Laptops Recipients', 'https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347964', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9347964', NULL, 'active'),
-(12, 'INVITATION TO BID', 'Procurement of Printers for Computer Laboratories', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9347925', '0000-00-00 00:00:00', '0000', NULL, '2022-12-14', '2022-12-19', NULL, '9347925', NULL, 'active'),
-(13, 'INVITATION TO BID', 'Procurement of Tools and Equipment for Animation NCII, Technical Drafting, Caregiving, and Computer Systems Servicing', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357535', '0000-00-00 00:00:00', '0000', NULL, '2022-12-16', '2022-12-20', NULL, '9357535', NULL, 'active'),
-(14, 'INVITATION TO BID', 'Procurement of TVL Learning Tools and Equipment (Oven Gas Range)', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9357490', '0000-00-00 00:00:00', '0000', NULL, '2022-12-16', '2022-12-20', NULL, '9357490', NULL, 'active'),
-(15, 'INVITATION TO BID', 'Board and Lodging for the Creative, Experiental, and Reflective In-Service Training for School Heads and Divisions Office Leaders', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9367451', '0000-00-00 00:00:00', '0000', NULL, '2022-12-21', '2022-12-26', NULL, '9367451', NULL, 'active'),
-(16, 'INVITATION TO BID', 'Procurement of Various Appliances for SDO Manila', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9371788', '0000-00-00 00:00:00', '0000', NULL, '2022-12-22', '2022-12-27', NULL, '9371788', NULL, 'active'),
-(17, 'INVITATION TO BID', 'Procurement of 3-in-1 Continuous Ink Sets for Elementary Schools', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372588', '0000-00-00 00:00:00', '0000', NULL, '2022-12-22', '2022-12-27', NULL, '9372588', NULL, 'active'),
-(18, 'INVITATION TO BID', ' Procurement of Bond Papers for Elementary Schools', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372632', '0000-00-00 00:00:00', '0000', NULL, '2022-12-22', '2022-12-27', NULL, '9372632', NULL, 'active'),
-(19, 'INVITATION TO BID', 'Procurement of Toner and Master Rolls for Elementary School', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9372613', '0000-00-00 00:00:00', '0000', NULL, '2022-12-22', '2022-12-27', NULL, '9372613', NULL, 'active'),
-(20, 'INVITATION TO BID', 'Procurement of Supplies and Materials for Various Trainings', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9373941', '0000-00-00 00:00:00', '0000', NULL, '2022-12-23', '2022-12-28', NULL, '9373941', NULL, 'active'),
-(21, 'INVITATION TO BID', 'Audio Sound System Materials', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377819', '0000-00-00 00:00:00', '0000', NULL, '2022-12-24', '2022-12-27', NULL, '9377819', NULL, 'active'),
-(22, 'INVITATION TO BID', 'Supplies and Materials for the Installation of Additional Hardware in SDO Conference', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377842', '0000-00-00 00:00:00', '0000', NULL, '2022-12-24', '2022-12-27', NULL, '9377842', NULL, 'active'),
-(23, 'INVITATION TO BID', 'Procurement of Face Masks and Vitamins', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377855', '0000-00-00 00:00:00', '0000', NULL, '2022-12-24', '2022-12-27', NULL, '9377855', NULL, 'active'),
-(24, 'INVITATION TO BID', 'Procurement of Smart TV for Schools', ' https://notices.philgeps.gov.ph/GEPSNONPILOT/Tender/PrintableBidNoticeAbstractUI.aspx?refid=9377925', '0000-00-00 00:00:00', '0000', NULL, '2022-12-24', '2022-12-27', NULL, '9377925', NULL, 'active'),
-(25, 'INVITATION TO BID', 'CY 2018 EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASSROOM ', ' https://drive.google.com/file/d/1pdPus7q_o7orbPpu1gSIFbKrw1onrkRI/view', '0000-00-00 00:00:00', '0000', NULL, '2018-03-16', '2023-08-03', NULL, '0', NULL, 'active'),
-(26, 'INVITATION TO BID', 'CY 2018 BASIC EDUCATION FACILITIES FUND REPAIR OF CLASSROOM', ' https://drive.google.com/file/d/1zOxk-gRp9mo9RmWRJnfMEoHeCyGA_AHC/view', '0000-00-00 00:00:00', '0000', NULL, '2018-03-05', '2023-08-03', NULL, '0', NULL, 'active'),
-(27, 'INVITATION TO BID', 'CY 2018 BASIC EDUCATION FACILITIES FUND (BEFF) REPAIR OF CLASROOM (BATCH 2)', ' https://drive.google.com/file/d/10lTmtRxTC37LQ2P6TMZoJpGbN0zRfIhV/view', '0000-00-00 00:00:00', '0000', NULL, '2018-06-08', '2023-08-05', NULL, '0', NULL, 'active'),
-(30, 'TRANSPARENCY BOARD', 'Contracts Awarded with Suppliers, Contractors, or Consultants', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(38, 'PROCUREMENT', '2021 Annual Procurement Plan Infrastructure', 'http://depedmanila.net:5000/d/s/xCOZd6Q0vqd23jRmxCJsA0HzGjQYLXZa/1YOfaHDgMtAOgj6OzmXA_M-VAWqBbDcE-hrUASVUgHws', '0000-00-00 00:00:00', '2021', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(39, 'PROCUREMENT', '2023 Annual Procurement Plan CSE', 'http://depedmanila.net:5000/d/s/xCOZdP0jx9myWTprHA1pvthxsCWx2AXl/TeFom5_PLoAc9Lq1jAXtOy3uXbnpXlu8-jLVgml0gHws', '0000-00-00 00:00:00', '2023', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(40, 'PROCUREMENT', '2024 Annual Procurement Plan Non-CSE', 'http://depedmanila.net:5000/d/s/xCOZbg8lTWEZlQI7kPEwC9r8MKjMzT7y/WW5Fhvni3-pNeG0AwSFLWFUO9zOabpV6-m7Wg32UgHws', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(41, 'PROCUREMENT', 'SDO Manila Annual Procurement Plan for FY 2024 (MOOE)', 'http://depedmanila.net:5000/d/s/xCOZcjzhefIjTSVvnYZe3aGuDnW20m53/WmOmepwo3bkCkJR6u-Mj7JxIDkxnji2d-vbWgrYggHws', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(42, 'PROCUREMENT', 'SDO Manila Annual Procurement Plan for FY 2024 (HRTD)', 'http://depedmanila.net:5000/d/s/xCOZcMQzrDSu3e56Mny1e8HSWcxlUxwu/gaRVjI3S_UMtCyN1ra1LjkcOQTS8hOdd-t7UA0oIgHws', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(43, 'PROCUREMENT', 'APP_CSE_SDO-MANILA_2023', 'http://depedmanila.net:5000/d/s/x4TyBX0j9XqAZU65sd7hmRVxl7XuAohu/CabLGT8Vz1SjgWK3LKHeF3quR95zMnr2-X7nA0PD8GAs', '0000-00-00 00:00:00', '2023', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(44, 'PROCUREMENT', 'APP-CSE-2023', 'http://depedmanila.net:5000/d/s/x4TyC4MawGhrMcXn5h2GFApbFptDUOkm/mhtLG8Vvprmzect8XqWuldVu8Eff-oS--Gbrg7Vf9GAs', '0000-00-00 00:00:00', '2023', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(45, 'PROCUREMENT', 'APP-CSE-2024-Form', 'http://depedmanila.net:5000/d/s/x4TyAn1i4wRfi9U55jrt065uCUfwIdqg/0ki3tnVwTptea893NUsExuaiT25Ux4XG-JLoAVl39GAs', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(46, 'PROCUREMENT', 'APP-CSE-2024', 'http://depedmanila.net:5000/d/s/x4TyCci3gETL3GkoC9Cuv5FQWuVCbZXr/jUaOLADh5CN50FxPEG0Xf2XV6wCb1NCQ-MrqAmWL9GAs', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(47, 'PROCUREMENT', '2022-APCPI-D.O.-Manila', 'http://depedmanila.net:5000/d/s/x4VuNJiAkjeLA2nbMLsbKN4EIXlhVbTp/d-rbjywjrUIvg-wHXYRHld_IzYABSB6--97KAsSADGQs', '0000-00-00 00:00:00', '2022', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(48, 'PROCUREMENT', 'APCPI-2022', 'http://depedmanila.net:5000/d/s/x4Vu8u8vHPCY6JkkthLDpc14CjV3kAZL/a7NVzMtI9HbwT03I5fzx_cb6ZpXw215F-DbMAQywDGQs', '0000-00-00 00:00:00', '2022', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(49, 'PROCUREMENT', '2023-APCPI-SDO-Manila', 'http://depedmanila.net:5000/d/s/x4W2KWt4PzsgGIYhQD5EwkEAmUaQy42x/U6N87okaSlC9oTBxxjt6He7kUxTEB8FN-vrOgXY4DGQs', '0000-00-00 00:00:00', '2023', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(50, 'PROCUREMENT', 'APCPI-2023', 'http://depedmanila.net:5000/d/s/x4W2JBICbqRnlfaLCCh90Bcw4KUkPD1g/tX2fuGUCRvZryTn3OlUAkY9VSLnLAjWF-0LMAMZgDGQs', '0000-00-00 00:00:00', '2023', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(51, 'PROCUREMENT', 'PMR-2022', 'http://depedmanila.net:5000/d/s/x4W4lLQJjl9TnQDlNHdFHAJV5BDuBGsL/Kc_P_fMnDvZsawb1F6sdbi6m8R7mZCAT-LbQgzrADGQs', '0000-00-00 00:00:00', '2022', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(52, 'PROCUREMENT', 'PMR-2022', 'http://depedmanila.net:5000/d/s/x4W4kVcWUqn5znCNg1EszOC80KZBNt8T/qNWxvdLD35VkinYu2Gg7xu-hgR_vFYqD-PLTgeLoDGQs', '0000-00-00 00:00:00', '2022', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(53, 'PROCUREMENT', 'PMR-2023', 'http://depedmanila.net:5000/d/s/x4W4lmOD62RhryVcDhAWbL05LXBIwDC8/W_zERhkwVErPwchtehzYfmesAFay-mDH-TrSACcMDGQs', '0000-00-00 00:00:00', '2023', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(54, 'PROCUREMENT', 'PMR-2023', 'http://depedmanila.net:5000/d/s/x4W7yAIXRGscix9RP7i6muJWQ6h1PDBI/XY2jsBGQFY2xHV81BJsu9dsmp5d6iNJe-fbTgRtQDGQs', '0000-00-00 00:00:00', '2023', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(55, 'PROCUREMENT', 'EPA-for-FY-2024', 'http://depedmanila.net:5000/d/s/x4W9Zw1A0CkW4DhPSlkNXw6IR8OafLQS/2VYj8WC3Qi4zFFBHNfmLGC_3hhM_v_2b-urRAyukDGQs', '0000-00-00 00:00:00', '2024', 'EPA', NULL, NULL, NULL, NULL, 'EPA', 'active'),
-(56, 'PROCUREMENT', 'Posting-Certification-for-EPA-2023', 'http://depedmanila.net:5000/d/s/x4fylfGC0qImnzvTlxtJHVBy03kuIbcR/R_hoHzMMJobQHDsu1xXn08zht4FgMYsH-Ib0gSWUjGQs', '0000-00-00 00:00:00', '2023', 'EPA', NULL, NULL, NULL, NULL, 'EPA', 'active'),
-(57, 'PROCUREMENT', 'Posting-Certification-for-EPA-2024', 'http://depedmanila.net:5000/d/s/x4gCN1UpdVS1kBdxDYomaGEP1YKCwgwY/nzt6V6jIo8k-T342lBTWcXPbv1Uc1J7n-rr2gKRYkGQs', '0000-00-00 00:00:00', '2024', 'EPA', NULL, NULL, NULL, NULL, 'EPA', 'active'),
-(58, 'PROCUREMENT', 'Posting-Certification-for-PMR-2022', 'http://depedmanila.net:5000/d/s/x4gEOkNSZvGUscdl2wcZjpkGR8Aq2ZO3/u1T39q7rHZwac-u7u4in80Gr2AK9xe5h-372AkjIkGQs', '0000-00-00 00:00:00', '2022', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(59, 'PROCUREMENT', 'Posting-Certification-for-PMR-2023', 'http://depedmanila.net:5000/d/s/x4gEP2GBm6JQ4S1OJu0Yuj17zJSdu1Rh/7Pap-6h5cWLRbbQp4Z6OgoCQ9BRHg468-973AvkIkGQs', '0000-00-00 00:00:00', '2023', 'PMR', NULL, NULL, NULL, NULL, 'PMR', 'active'),
-(60, 'PROCUREMENT', 'Posting-Certification-for-APP-2023', 'http://depedmanila.net:5000/d/s/x4gHr7vRp9L4OkTAgBaY3qMc3h53VroQ/RsWSCD7RtvwCVv6hdYh_hkmqp4pZeubT-Kb5AXmAkGQs', '0000-00-00 00:00:00', '2023', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(61, 'PROCUREMENT', 'Posting-Certification-for-APP-2024', 'http://depedmanila.net:5000/d/s/x4gHqgokts3PDbpJY5oULZPNzBdsQtTr/sL1kQY31eupL_8uFYNgO_aGhSKplkUzt-M74AHmkkGQs', '0000-00-00 00:00:00', '2024', 'APP', NULL, NULL, NULL, NULL, 'APP', 'active'),
-(62, 'PROCUREMENT', 'Posting-Certification-for-APCPI-2022', 'http://depedmanila.net:5000/d/s/x4gK0BgGi2ssMK8z2dMSKn5rrDPmUI7k/KldtXLQCpxPVTR4C2jMntTQuWKMhdurT-Xr7g6nokGQs', '0000-00-00 00:00:00', '2022', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(63, 'PROCUREMENT', 'Posting-Certification-for-APCPI-2023', 'http://depedmanila.net:5000/d/s/x4gK0VYBofQvl5qr5jpkvzxEhKTYe09s/VnqtSsSZYItz_pvCSeWTQCxaAVzQOvTZ-br5gEoYkGQs', '0000-00-00 00:00:00', '2023', 'APCPI', NULL, NULL, NULL, NULL, 'APCPI', 'active'),
-(64, 'TRANSPARENCY BOARD', 'Approved Budget And Corresponding Targets', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(65, 'TRANSPARENCY BOARD', 'Modification made Pursuant to the General and Special Provisions in this Act', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(66, 'TRANSPARENCY BOARD', 'Major Activities or Projects, and Target Benificiaries', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(67, 'TRANSPARENCY BOARD', 'Status of Implementation, Evaluation, or Assesment Reports', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(68, 'TRANSPARENCY BOARD', 'Budget and Financial Accountability Reports', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(69, 'TRANSPARENCY BOARD', 'People\'s Freedom of Information (FOI) Manual', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(70, 'TRANSPARENCY BOARD', 'Annual Reports on the Status of Income Authorized bt law to be retained or used and be deposited outised of the expenditures', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(71, 'TRANSPARENCY BOARD', 'Agency Review and Compliance Procedure of Statements and Financial Disclosures', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active'),
-(72, 'TRANSPARENCY BOARD', 'ARTA Scorecards', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNeBhR7uBec6lwJ4T7RMlkPfwy0Bc3hKhBkVZOEy7FHxlemxjYClrOm__hiO-5t70_OLZMapUUZ2gG/pubhtml?gid=98969648&single=true', '0000-00-00 00:00:00', '0000', 'TRANSPARENCY BOARD FILES', NULL, NULL, NULL, NULL, NULL, 'active');
 
 -- --------------------------------------------------------
 
@@ -5011,7 +4942,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `procurementfilesvw`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `procurementfilesvw`  AS SELECT `bacfilestbl`.`bacfile_id` AS `id`, `bacfilestbl`.`bacfile_type` AS `type`, `bacfilestbl`.`bacfile_title` AS `title`, `bacfilestbl`.`bacfile_link` AS `link`, `bacfilestbl`.`bacfile_date` AS `date`, `bacfilestbl`.`bacfile_procurementYear` AS `pyear`, `bacfilestbl`.`bacfile_procurementType` AS `ptype`, `bacfilestbl`.`bacfile_status` AS `status` FROM `bacfilestbl` WHERE `bacfilestbl`.`bacfile_type` = 'PROCUREMENT' AND `bacfilestbl`.`bacfile_status` = 'active' ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `procurementfilesvw`  AS SELECT `bacfilestbl`.`bacfile_id` AS `id`, `bacfilestbl`.`bacfile_type` AS `type`, `bacfilestbl`.`bacfile_title` AS `title`, `bacfilestbl`.`bacfile_link` AS `link`, `bacfilestbl`.`bacfile_date` AS `date`, `bacfilestbl`.`bacfile_procurementYear` AS `pyear`, `bacfilestbl`.`bacfile_procurementType` AS `ptype`, `bacfilestbl`.`bacfile_status` AS `status` FROM `bacfilestbl` WHERE `bacfilestbl`.`bacfile_type` = 'procurement' AND `bacfilestbl`.`bacfile_status` = 'active' ;
 
 -- --------------------------------------------------------
 
@@ -5178,7 +5109,7 @@ ALTER TABLE `userstbl`
 -- AUTO_INCREMENT for table `bacfilestbl`
 --
 ALTER TABLE `bacfilestbl`
-  MODIFY `bacfile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `bacfile_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `dailyvisitstbl`
