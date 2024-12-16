@@ -1,6 +1,6 @@
 # DepEd Manila
 
-DepEd Manila Official website 2023
+DepEd Manila Official website March 2023-June 2024
 
 ## Acknowledgements
 
